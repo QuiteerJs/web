@@ -18,6 +18,8 @@ dist-ssr
 components.d.ts
 auto-imports.d.ts
 
+.vitepress/cache
+
 # Editor directories and files
 .vscode/*
 !.vscode/settings.json

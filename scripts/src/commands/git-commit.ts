@@ -65,7 +65,7 @@ export async function gitCommit(lang: Lang = 'en-us') {
 }
 
 /** Git commit message verify */
-export async function gitCommitVerify(lang: Lang = 'en-us', ignores: RegExp[] = []) {
+export async function gitCommitVerify(lang: Lang = 'zh-cn', ignores: RegExp[] = []) {
   const gitPath = await execCommand('git', ['rev-parse', '--show-toplevel'])
 
   const gitMsgPath = path.join(gitPath, '.git', 'COMMIT_EDITMSG')

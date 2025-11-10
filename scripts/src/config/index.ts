@@ -6,9 +6,6 @@ const defaultOptions: CliOption = {
   cwd: process.cwd(),
   cleanupDirs: [
     '**/dist',
-    '**/package-lock.json',
-    '**/yarn.lock',
-    '**/pnpm-lock.yaml',
     '**/node_modules',
     '!node_modules/**'
   ],
@@ -27,7 +24,7 @@ const defaultOptions: CliOption = {
 
 export async function loadCliOptions(overrides?: Partial<CliOption>, cwd = process.cwd()) {
   const { config } = await loadConfig<Partial<CliOption>>({
-    name: 'soybean',
+    name: 'quiteer',
     defaults: defaultOptions,
     overrides,
     cwd,
