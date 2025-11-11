@@ -1,13 +1,40 @@
 {
   "name": "@quiteer/naive-extra",
   "version": "1.0.0",
-  "packageManager": "pnpm@10.20.0",
   "description": "",
   "author": "",
   "license": "ISC",
   "keywords": [],
-  "main": "index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/naive-extra.mjs"
+    },
+    "./index.css": "./dist/index.css",
+    "./uno.config": "./uno.config.ts"
+  },
+  "main": "dist/naive-extra.mjs",
+  "module": "dist/naive-extra.mjs",
+  "types": "dist/index.d.ts",
+  "style": "dist/index.css",
+  "files": [
+    "dist/**/*",
+    "uno.config.ts"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "vite build",
+    "dev": "vite build -w"
+  },
+  "devDependencies": {
+    "@iconify/json": "2.2.405",
+    "@iconify/vue": "5.0.0",
+    "@unocss/vite": "^66.5.5",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vitejs/plugin-vue-jsx": "^5.1.1",
+    "naive-ui": "2.43.1",
+    "unocss": "^66.5.5",
+    "unplugin-icons": "^22.5.0",
+    "vite-plugin-dts": "^4.5.4",
+    "vue": "^3.5.24"
   }
 }

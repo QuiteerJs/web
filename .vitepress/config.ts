@@ -55,20 +55,32 @@ function nav() {
       text: '相关文档',
       items: [
         {
-          text: 'electron',
-          link: 'https://www.electronjs.org/'
+          text: 'vue',
+          link: 'https://cn.vuejs.org/'
         },
         {
           text: 'vite',
           link: 'https://cn.vitejs.dev/'
         },
         {
-          text: 'tsup',
-          link: 'https://tsup.egoist.dev/'
+          text: 'typescript',
+          link: 'https://www.typescriptlang.org/'
         },
         {
-          text: 'electron-builder',
-          link: 'https://www.electron.build/'
+          text: 'unocss',
+          link: 'https://unocss.dev/'
+        },
+        {
+          text: 'naive-ui',
+          link: 'https://www.naiveui.com/zh-CN/os-theme'
+        },
+        {
+          text: 'axios',
+          link: 'https://axios-http.com/zh/'
+        },
+        {
+          text: 'tsdown',
+          link: 'https://tsdown.dev/zh-CN/'
         }
       ]
     },
@@ -78,6 +90,22 @@ function nav() {
         {
           text: '组织',
           link: 'https://github.com/QuiteerJs'
+        },
+        {
+          text: 'electronup',
+          link: 'https://quiteerjs.github.io/electronup/'
+        },
+        {
+          text: 'electron-vue3-quiet',
+          link: 'https://taiaiac.github.io/electron-vue3-quiet-doc/'
+        },
+        {
+          text: 'parser-config',
+          link: 'https://github.com/QuiteerJs/parser-config'
+        },
+        {
+          text: '@quiteer/directives',
+          link: 'https://github.com/TaiAiAc/quiteer-vue-directives'
         }
       ]
     }
@@ -97,11 +125,18 @@ function introduceSidebar() {
       text: '插件',
       items: [
         { text: '插件总览', link: '/plugins/' },
-        { text: 'parser-config', link: '/plugins/parser-config' },
-        { text: 'create-electronup', link: '/plugins/create-electronup' },
-        { text: 'electron-ipc', link: '/plugins/electron-ipc' },
-        { text: 'electron-preload', link: '/plugins/electron-preload' },
-        { text: 'electron-browser', link: '/plugins/electron-browser' }
+        { text: '@quiteer/naive-extra', items: [
+          { text: '拓展组件', link: '/plugins/naive-extra/' }
+        ] },
+        { text: '@quiteer/is', link: '/plugins/is' },
+        {
+          text: '@quiteer/directives',
+          items: [
+            { text: '指令总览', link: '/plugins/directives/' },
+            { text: '权限指令(v-permission)', link: '/plugins/directives/permission' },
+            { text: '加载指令(v-loading)', link: '/plugins/directives/loading' }
+          ]
+        }
       ]
     }
   ]

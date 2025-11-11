@@ -1,5 +1,5 @@
 {
-  "name": "@quiteer/utils",
+  "name": "@quiteer/vite-plugins",
   "version": "1.0.0",
   "packageManager": "pnpm@10.21.0",
   "description": "",

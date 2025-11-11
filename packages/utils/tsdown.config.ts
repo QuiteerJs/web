@@ -1,7 +1,6 @@
 import { defineConfig } from 'tsdown'
 
 export default defineConfig({
-  name: '@quiteer/scripts',
   entry: ['src/index.ts'],
   platform: 'node',
   clean: true,

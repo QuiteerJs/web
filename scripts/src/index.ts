@@ -67,7 +67,7 @@ export async function setupCli() {
         await cleanup([args])
       }
       else {
-        console.log('quiteer-script :>> ', gray('无事发生'))
+        console.info('quiteer-script :>> ', gray('无事发生'))
       }
     }
     )

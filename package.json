@@ -1,9 +1,11 @@
 {
   "name": "web",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
+    "work:dev": "pnpm --filter './packages/*' dev",
+    "work:build": "pnpm --filter './packages/*' build",
     "scripts:dev": "pnpm --filter @quiteer/scripts dev",
     "scripts:build": "pnpm --filter @quiteer/scripts build",
     "docs:dev": "vitepress dev",
@@ -18,6 +20,8 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^6.2.0",
+    "@quiteer/directives": "workspace:*",
+    "@quiteer/naive-extra": "workspace:*",
     "@quiteer/scripts": "workspace:*",
     "@types/node": "^24.10.0",
     "eslint": "^9.39.1",
@@ -27,12 +31,12 @@
     "tsdown": "^0.16.1",
     "typescript": "~5.9.3",
     "unocss": "^66.5.5",
-    "vite": "npm:rolldown-vite@7.1.14",
+    "vite": "npm:rolldown-vite@7.2.2",
     "vitepress": "2.0.0-alpha.12"
   },
   "pnpm": {
     "overrides": {
-      "vite": "npm:rolldown-vite@7.1.14"
+      "vite": "npm:rolldown-vite@7.2.2"
     }
   },
   "simple-git-hooks": {

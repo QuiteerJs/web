@@ -1,0 +1,37 @@
+{
+  "name": "@quiteer/directives",
+  "type": "module",
+  "version": "0.0.5",
+  "description": "vue3 directive",
+  "author": "quiteer",
+  "license": "ISC",
+  "homepage": "https://github.com/TaiAiAc/quiteer-vue-directives#readme",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "keywords": ["vue3"],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.mjs"
+      }
+    }
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "tsdown --watch",
+    "build": "tsdown",
+    "release": "npm publish"
+  },
+  "peerDependencies": {
+    "vue": ">= 3"
+  }
+}
