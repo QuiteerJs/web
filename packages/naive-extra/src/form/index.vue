@@ -71,13 +71,29 @@ onMounted(() => {
 })
 
 // 验证
-function validate() {
-  return formElRef.value?.validate()
+/**
+ * 表单校验函数：
+ * 统一返回 Promise<void>，避免类型推断依赖 async-validator 的内部路径。
+ */
+function validate(): Promise<void> {
+  const form = unref(formElRef)
+  if (!form) {
+    return Promise.resolve()
+  }
+
+  return form.validate().then(() => {})
 }
 
-// 清空校验
-async function clearValidate() {
-  await unref(formElRef)?.restoreValidation()
+/**
+ * 清空校验状态：
+ * 当表单未挂载时直接返回已完成的 Promise，保证返回类型稳定。
+ */
+async function clearValidate(): Promise<void> {
+  const form = unref(formElRef)
+  if (!form) {
+    return
+  }
+  await form.restoreValidation()
 }
 
 // 重置

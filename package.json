@@ -18,6 +18,9 @@
     "prepare": "simple-git-hooks",
     "commit:zh": "qui git-commit -l=zh-cn"
   },
+  "dependencies": {
+    "naive-ui": "2.43.1"
+  },
   "devDependencies": {
     "@antfu/eslint-config": "^6.2.0",
     "@quiteer/directives": "workspace:*",

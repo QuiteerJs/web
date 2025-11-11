@@ -1,4 +1,9 @@
 <script setup lang="ts">
+/**
+ * 引入 async-validator 类型以为声明生成提供稳定引用，避免 TS2742。
+ * 仅类型导入，不会影响运行时体积或行为。
+ */
+import type {} from 'async-validator'
 import type { ButtonProps } from 'naive-ui'
 import type { Props } from './props'
 import { isNullOrUnDef } from '@quiteer/is'

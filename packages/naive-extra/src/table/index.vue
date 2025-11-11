@@ -13,7 +13,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const attrs = useAttrs() as Omit<DataTableProps, 'size' | 'striped'>
 
-const settings = reactive<Settings>({
+const settings = ref<Settings>({
   size: props.size,
   striped: props.striped,
   columns: attrs.columns!.map(item => ({
@@ -103,7 +103,7 @@ defineExpose({
     fetchData()
   },
   setActions<T = Record<string, any>>(columnOption: Partial<DataTableColumn<T>>) {
-    settings.columns.push({
+    settings.value.columns.push({
       title: '操作',
       align: 'center',
       fixed: 'right',

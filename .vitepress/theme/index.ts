@@ -1,5 +1,6 @@
 import type { App } from 'vue'
 import Directives, { installPermissions } from '@quiteer/directives'
+import naiveUI from 'naive-ui'
 import DefaultTheme from 'vitepress/theme'
 
 export default {
@@ -7,11 +8,11 @@ export default {
 
   /**
    * 在 VitePress 应用启动时注册全局指令，并注入权限集合。
-   * @param ctx VitePress 上下文，包含 `app` 实例等信息
    */
   enhanceApp(ctx: { app: App }) {
-    // 注册自定义指令插件（包含 v-permission、v-loading 等）
-    ctx.app.use(Directives)
+    ctx.app
+      .use(Directives)
+      .use(naiveUI)
 
     /**
      * 注入一个示例权限集合，用于文档演示。
