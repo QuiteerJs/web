@@ -6,7 +6,7 @@ defineProps<Props>()
 </script>
 
 <template>
-  <NPopconfirm v-bind="popconfirmProps">
+  <NPopconfirm v-bind="popconfirmProps" negative-text="取消" positive-text="确认">
     <template #trigger>
       <NButton v-bind="buttonProps" secondary>
         <slot />

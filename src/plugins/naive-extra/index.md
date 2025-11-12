@@ -10,7 +10,7 @@
 ```vue
 <script setup lang="ts">
 import type { FormSchema, TableProps } from '@quiteer/naive-extra'
-import { AcceptType, QuiForm, QuiPopconfirmButton, QuiSearchBar, QuiTable, QuiTooltipButton, QuiUpload, useUploadProps } from '@quiteer/naive-extra'
+import { AcceptType, QuiForm, QuiLayout, QuiPopconfirmButton, QuiSearchBar, QuiTable, QuiTooltipButton, QuiUpload, useLayout, useUploadProps } from '@quiteer/naive-extra'
 
 /**
  * 表单字段定义：
@@ -38,7 +38,7 @@ const tableProps: TableProps = {
  * 通过 useUploadProps 生成常用上传配置，结合 AcceptType 控制文件类型。
  */
 const uploadProps = useUploadProps({
-  accept: AcceptType.Images,
+  accept: AcceptType.Image,
   multiple: true
 })
 
@@ -70,6 +70,27 @@ function handleSubmit(values: Record<string, any>) {
   <QuiTable v-bind="tableProps" />
 
   <QuiUpload v-bind="uploadProps" />
+
+  <QuiLayout v-model:collapsed="collapsed" type="sider-left">
+    <template #sider>
+      <NButton size="small" @click="toggle">
+        切换折叠
+      </NButton>
+    </template>
+    <template #header>
+      <div style="padding: 8px;">
+        头部
+      </div>
+    </template>
+    <div style="padding: 8px;">
+      内容
+    </div>
+    <template #footer>
+      <div style="padding: 8px;">
+        底部
+      </div>
+    </template>
+  </QuiLayout>
 </template>
 ```
 
@@ -142,7 +163,7 @@ const schemas: FormSchema[] = [
 ]
 
 const uploadProps = useUploadProps({
-  accept: AcceptType.Images,
+  accept: AcceptType.Image,
   multiple: true
 })
 
@@ -177,3 +198,8 @@ function handleSubmit(values: Record<string, any>) {
   - Table：`TableProps`、`TableColumn`、`TableColumns`、`TableSettings`、`TableFetchFn`、`TableExportType`、`TableSize`
   - TooltipButton：`TooltipButtonProps`
   - Upload：`UploadProps`
+/**
+ * 布局：
+ * 使用 QuiLayout 快速搭建常见布局，并结合 useLayout 管理折叠与响应式信息。
+ */
+const { collapsed, toggle } = useLayout(false)

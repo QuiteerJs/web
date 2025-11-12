@@ -11,7 +11,7 @@ import copy from './src/copy'
 import debounce from './src/debounce'
 import ellipsis from './src/ellipsis'
 import intersecting from './src/intersecting'
-import lazy from './src/lazy'
+import lazy, { installLazyOptions } from './src/lazy'
 import loading from './src/loading'
 import permission, { installPermissions } from './src/permission'
 import throttle from './src/throttle'
@@ -19,8 +19,16 @@ import watermark from './src/watermark'
 
 export { clickOutside, copy, debounce, ellipsis, installPermissions, intersecting, lazy, loading, permission, throttle, watermark }
 
+export interface DirectivesInstallOptions {
+  lazy?: LazyOptions
+}
+
 export default {
-  install: (app: App) => {
+  /**
+   * 函数：install
+   * 作用：注册所有指令，并支持全局传入 v-lazy 默认配置
+   */
+  install: (app: App, options?: DirectivesInstallOptions) => {
     app.directive(loading.name, loading.directive)
     app.directive(ellipsis.name, ellipsis.directive)
     app.directive(intersecting.name, intersecting.directive)
@@ -31,6 +39,9 @@ export default {
     app.directive(clickOutside.name, clickOutside.directive)
     app.directive(watermark.name, watermark.directive)
     app.directive(permission.name, permission.directive)
+
+    if (options?.lazy)
+      installLazyOptions(app, options.lazy)
   }
 }
 
@@ -216,6 +227,7 @@ declare module '@vue/runtime-core' {
   }
 }
 
+export { installLazyOptions, LazyOptionsKey } from './src/lazy'
 /**
  * 新增导出：权限注入 Key，便于文档组件读取当前权限集合
  */

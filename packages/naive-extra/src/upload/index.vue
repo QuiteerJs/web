@@ -147,6 +147,7 @@ function beforeUpload(options: { file: UploadFileInfo, fileList: UploadFileInfo[
         v-model:file-list="fileList"
         :multiple="isSingle"
         directory-dnd
+        list-type="image"
         :is-error-state="isErrorState"
         @finish="handleFinish"
         @error="handleError"
@@ -197,6 +198,7 @@ function beforeUpload(options: { file: UploadFileInfo, fileList: UploadFileInfo[
       <NUpload
         v-bind="props"
         v-model:file-list="fileList"
+        :show-file-list="false"
         @finish="handleFinish"
         @remove="handleRemove"
         @before-upload="beforeUpload"
@@ -238,6 +240,7 @@ function beforeUpload(options: { file: UploadFileInfo, fileList: UploadFileInfo[
       <NUpload
         v-bind="props"
         v-model:file-list="fileList"
+        :show-file-list="false"
         @finish="handleFinish"
         @remove="handleRemove"
         @before-upload="beforeUpload"

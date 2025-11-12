@@ -1,4 +1,4 @@
-import type { Directive, DirectiveBinding } from 'vue'
+import type { App, Directive, DirectiveBinding } from 'vue'
 
 declare global {
   interface HTMLElement {
@@ -47,9 +47,30 @@ const defaultOptions: LazyOptions = {
   error: ''
 }
 
+export const LazyOptionsKey = Symbol.for('quiteer.directives.lazy')
+
+/**
+ * 函数：installLazyOptions
+ * 作用：在应用层全局注入 v-lazy 的默认配置（占位图、错误图、回调等）
+ */
+export function installLazyOptions(app: App, options: LazyOptions) {
+  app.provide(LazyOptionsKey, options)
+}
+
+/**
+ * 函数：getLazyDefaults
+ * 作用：从指令绑定所在组件实例获取全局注入的 v-lazy 默认配置
+ */
+function getLazyDefaults(instance: any): LazyOptions | undefined {
+  const provides = instance?.appContext?.provides
+  const v = provides?.[LazyOptionsKey as unknown as string] || provides?.[LazyOptionsKey as symbol]
+  return v as LazyOptions | undefined
+}
+
 const directive: Directive<HTMLImageElement, LazyOptions> = {
   mounted(el: HTMLImageElement, binding: DirectiveBinding) {
-    const options: LazyOptions = { ...defaultOptions, ...binding.value }
+    const injected = getLazyDefaults(binding.instance)
+    const options: LazyOptions = { ...defaultOptions, ...(injected || {}), ...(binding.value || {}) }
     const originalSrc = el.src
 
     // 设置加载占位图

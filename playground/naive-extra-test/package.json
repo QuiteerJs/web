@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@quiteer/naive-extra": "workspace:*",
+    "naive-ui": "2.43.1",
     "vue": "^3.5.22"
   },
   "devDependencies": {

@@ -7,7 +7,8 @@ export function useUploadProps(config: QuiUploadProps) {
     ...config,
     defaultUpload: true,
     max: 5,
-    accept: undefined
+    accept: undefined,
+    isSetFieldsValue: true
   }
 
   const getUploadProps = (option?: UploadProps): UploadProps => {

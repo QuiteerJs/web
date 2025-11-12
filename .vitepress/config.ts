@@ -154,7 +154,8 @@ function introduceSidebar() {
             { text: '总览', link: '/plugins/naive-extra/' },
             { text: 'QuiUpload', link: '/plugins/naive-extra/QuiUpload' },
             { text: 'QuiForm', link: '/plugins/naive-extra/QuiForm' },
-            { text: 'QuiTable', link: '/plugins/naive-extra/QuiTable' }
+            { text: 'QuiTable', link: '/plugins/naive-extra/QuiTable' },
+            { text: 'QuiLayout', link: '/plugins/naive-extra/QuiLayout' }
           ]
         },
         {
@@ -162,7 +163,15 @@ function introduceSidebar() {
           items: [
             { text: '指令总览', link: '/plugins/directives/' },
             { text: '权限指令(v-permission)', link: '/plugins/directives/permission' },
-            { text: '加载指令(v-loading)', link: '/plugins/directives/loading' }
+            { text: '复制指令(v-copy)', link: '/plugins/directives/copy' },
+            { text: '防抖指令(v-debounce)', link: '/plugins/directives/debounce' },
+            { text: '节流指令(v-throttle)', link: '/plugins/directives/throttle' },
+            { text: '点击外部(v-click-outside)', link: '/plugins/directives/clickOutside' },
+            { text: '文本省略(v-ellipsis)', link: '/plugins/directives/ellipsis' },
+            { text: '交叉观察(v-intersecting)', link: '/plugins/directives/intersecting' },
+            { text: '图片懒载(v-lazy)', link: '/plugins/directives/lazy' },
+            { text: '加载指令(v-loading)', link: '/plugins/directives/loading' },
+            { text: '水印指令(v-watermark)', link: '/plugins/directives/watermark' }
           ]
         },
         { text: '@quiteer/is', link: '/plugins/is' }
