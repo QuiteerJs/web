@@ -2,5 +2,6 @@
   "name": "@quiteer/is",
   "version": "1.0.0",
   "description": "",
+  "homepage": "https://taiaiac.github.io/web/",
   "main": "index.ts"
 }

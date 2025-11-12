@@ -5,7 +5,7 @@
   "description": "vue3 directive",
   "author": "quiteer",
   "license": "ISC",
-  "homepage": "https://github.com/TaiAiAc/quiteer-vue-directives#readme",
+  "homepage": "https://taiaiac.github.io/web/",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
