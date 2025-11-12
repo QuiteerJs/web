@@ -11,9 +11,7 @@ import dts from 'vite-plugin-dts'
  * - 固定 fileName 为 'index'，产出 dist/index.mjs
  * - 对外与 package.json 的 exports 保持一致
  */
-export default defineConfig((config) => {
-  console.log('config: ', config)
-
+export default defineConfig((_) => {
   return {
     plugins: [
       vue(),

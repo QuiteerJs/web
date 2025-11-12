@@ -127,7 +127,6 @@ function toggleLoading(el: HTMLElement, value: LoadingValue): void {
       // 确保对象类型值中的 show 属性被正确处理
       options = { ...defaultOptions, ...value }
     }
-    console.log('options: ', options)
 
     // 移除现有的 loading 元素（如果存在）
     const existingLoading = el.querySelector('[data-v-loading]')

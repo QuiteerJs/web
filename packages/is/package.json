@@ -3,5 +3,24 @@
   "version": "1.0.0",
   "description": "",
   "homepage": "https://taiaiac.github.io/web/",
-  "main": "index.ts"
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.mjs"
+      }
+    }
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "tsdown --watch",
+    "build": "tsdown",
+    "release": "npm publish"
+  }
 }
