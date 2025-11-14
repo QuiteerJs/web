@@ -1,21 +1,26 @@
 {
-  "name": "@quiteer/naive-extra",
+  "name": "@quiteer/box",
   "version": "1.0.0",
-  "description": "",
+  "description": "可自定义行列、支持拖拽排序与尺寸调整的网格组件库",
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "homepage": "https://taiaiac.github.io/web/",
-  "keywords": [],
+  "keywords": [
+    "grid",
+    "drag",
+    "vue",
+    "unocss"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/naive-extra.mjs"
+      "import": "./dist/box.mjs"
     },
     "./index.css": "./dist/index.css",
     "./uno.config": "./uno.config.ts"
   },
-  "main": "dist/naive-extra.mjs",
-  "module": "dist/naive-extra.mjs",
+  "main": "dist/box.mjs",
+  "module": "dist/box.mjs",
   "types": "dist/index.d.ts",
   "style": "dist/index.css",
   "files": [
@@ -27,20 +32,15 @@
     "dev": "vite build -w"
   },
   "dependencies": {
-    "@quiteer/is": "workspace:*",
-    "vuedraggable": "next"
+    "vue-draggable-plus": "^0.6.0"
   },
   "devDependencies": {
     "@iconify/json": "2.2.405",
-    "@iconify/vue": "5.0.0",
+    "@unocss/preset-icons": "^66.5.6",
+    "@unocss/preset-wind3": "^66.5.6",
     "@unocss/vite": "^66.5.6",
     "@vitejs/plugin-vue": "^6.0.1",
-    "@vitejs/plugin-vue-jsx": "^5.1.1",
-    "lodash-es": "^4.17.21",
-    "naive-ui": "2.43.1",
     "sass": "^1.94.0",
-    "unocss": "^66.5.6",
-    "unplugin-icons": "^22.5.0",
     "vite-plugin-dts": "^4.5.4",
     "vue": "^3.5.24"
   }
