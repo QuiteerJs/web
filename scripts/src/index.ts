@@ -2,10 +2,10 @@ import type { Lang } from './locales'
 import cac from 'cac'
 import { blue, gray, lightGreen } from 'kolorist'
 import { version } from '../package.json'
-import { cleanup, gitCommit, gitCommitVerify, release, updatePkg } from './commands'
+import { cleanup, gitCommit, gitCommitAdd, gitCommitVerify, release, updatePkg } from './commands'
 import { loadCliOptions } from './config'
 
-type Command = 'remove' | 'cleanup' | 'update-pkg' | 'git-commit' | 'git-commit-verify' | 'release'
+type Command = 'remove' | 'cleanup' | 'update-pkg' | 'git-add' | 'git-commit' | 'git-commit-verify' | 'release'
 
 type CommandAction<A extends object> = (args?: A) => Promise<void> | void
 
@@ -92,6 +92,12 @@ export async function setupCli() {
       desc: '更新 package.json 依赖版本',
       action: async () => {
         await updatePkg(cliOptions.ncuCommandArgs)
+      }
+    },
+    'git-add': {
+      desc: '添加所有变更文件到暂存区',
+      action: async () => {
+        await gitCommitAdd()
       }
     },
     'git-commit': {

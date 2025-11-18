@@ -12,6 +12,45 @@ interface PromptObject {
 }
 
 /**
+ * 函数：交互式添加变更文件到暂存区
+ * 作用：先询问是否添加全部；若否，列出变更文件供多选后执行 git add
+ */
+export async function gitCommitAdd() {
+  const { confirm } = await prompt<{ confirm: boolean }>([
+    {
+      name: 'confirm',
+      type: 'confirm',
+      message: '是否添加所有变更文件到暂存区？'
+    }
+  ])
+
+  if (!confirm) {
+    const stdout = await execCommand('git', ['diff', '--name-only'])
+    const files = stdout.split('\n').filter(Boolean)
+
+    if (files.length === 0)
+      return
+
+    const { selected } = await prompt<{ selected: string[] }>([
+      {
+        name: 'selected',
+        type: 'multiselect',
+        message: '选择需要添加到暂存区的文件（空格选择，回车确认）',
+        choices: files.map(f => ({ name: f, value: f }))
+      }
+    ])
+
+    if (!selected?.length)
+      return
+
+    await execCommand('git', ['add', ...selected], { stdio: 'inherit' })
+    return
+  }
+
+  await execCommand('git', ['add', '.'], { stdio: 'inherit' })
+}
+
+/**
  * Git commit with Conventional Commits standard
  *
  * @param lang

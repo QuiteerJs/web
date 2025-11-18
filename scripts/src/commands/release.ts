@@ -1,6 +1,6 @@
 import { versionBump } from 'bumpp'
 
-export async function release(execute = 'pnpm sa changelog', push = true) {
+export async function release(execute = '', push = true) {
   await versionBump({
     files: ['**/package.json', '!**/node_modules'],
     execute,
