@@ -161,7 +161,7 @@ defineExpose({
           {{ schema.label }}
           <NTooltip trigger="hover" :style="schema.labelMessageStyle">
             <template #trigger>
-              <icon-material-symbols-info-outline class="relative top--1 text-4 text-amber" />
+              <i class="i-material-symbols-info-outline relative top--1 text-4 text-amber" />
             </template>
             {{ schema.labelMessage }}
           </NTooltip>

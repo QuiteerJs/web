@@ -159,50 +159,47 @@ function onMove(e: any) {
                   :move="onMove"
                   @end="draggableEnd"
                 >
-                  <template #item="{ element }">
-                    <div
-                      class="table-toolbar-inner-checkbox"
-                      :class="{
-                        'no-draggable': element.draggable === false,
-                      }"
-                    >
-                      <span class="drag-icon" :class="{ 'drag-icon-hidden': element.draggable === false }">
-                        <i class="i-nimbus-drag text-4" />
-                      </span>
-                      <NCheckbox :value="element.key" :label="element.title" />
-                      <div class="fixed-item">
-                        <NTooltip trigger="hover" placement="bottom">
-                          <template #trigger>
-                            <NButton text>
-                              <template #icon>
-                                <i
-                                  class="i-ph-caret-line-left-bold text-4"
-                                  :class="{ 'text-cyan-400 ': element.fixed === 'left' }"
-                                  @click="fixedColumn(element, 'left')"
-                                />
-                              </template>
-                            </NButton>
-                          </template>
-                          <span>固定到左侧</span>
-                        </NTooltip>
-                        <NDivider vertical />
-                        <NTooltip trigger="hover" placement="bottom">
-                          <template #trigger>
-                            <NButton text>
-                              <template #icon>
-                                <i
-                                  class="i-ph-caret-line-right-bold text-4"
-                                  :class="{ 'text-cyan-400': element.fixed === 'right' }"
-                                  @click="fixedColumn(element, 'right')"
-                                />
-                              </template>
-                            </NButton>
-                          </template>
-                          <span>固定到右侧</span>
-                        </NTooltip>
-                      </div>
+                  <div
+                    v-for="element in columnsList"
+                    :key="element.key"
+                    class="table-toolbar-inner-checkbox"
+                  >
+                    <span class="drag-icon" :class="{ 'drag-icon-hidden': element.draggable === false }">
+                      <i class="i-nimbus-drag text-4" />
+                    </span>
+                    <NCheckbox :value="element.key" :label="element.title" />
+                    <div class="fixed-item">
+                      <NTooltip trigger="hover" placement="bottom">
+                        <template #trigger>
+                          <NButton text>
+                            <template #icon>
+                              <i
+                                class="i-ph-caret-line-left-bold text-4"
+                                :class="{ 'text-cyan-400 ': element.fixed === 'left' }"
+                                @click="fixedColumn(element, 'left')"
+                              />
+                            </template>
+                          </NButton>
+                        </template>
+                        <span>固定到左侧</span>
+                      </NTooltip>
+                      <NDivider vertical />
+                      <NTooltip trigger="hover" placement="bottom">
+                        <template #trigger>
+                          <NButton text>
+                            <template #icon>
+                              <i
+                                class="i-ph-caret-line-right-bold text-4"
+                                :class="{ 'text-cyan-400': element.fixed === 'right' }"
+                                @click="fixedColumn(element, 'right')"
+                              />
+                            </template>
+                          </NButton>
+                        </template>
+                        <span>固定到右侧</span>
+                      </NTooltip>
                     </div>
-                  </template>
+                  </div>
                 </VueDraggable>
               </NCheckboxGroup>
             </div>

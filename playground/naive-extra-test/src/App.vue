@@ -7,7 +7,11 @@ import UploadDemo from './components/UploadDemo.vue'
 </script>
 
 <template>
-  <n-flex style="width: 80%; margin: 50px auto;">
+  <n-flex
+    vertical
+    item-align="stretch"
+    style="width: 80%; margin: 50px auto;"
+  >
     <n-h1>@quiteer/naive-extra 组件库示例</n-h1>
     <ButtonDemo />
     <UploadDemo />

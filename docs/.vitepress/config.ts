@@ -1,10 +1,9 @@
 import { defineConfig } from 'vitepress'
-import { version } from '../package.json'
+import { version } from '../../package.json'
 
 export default defineConfig({
   title: '@quiteer/web 中文文档',
   description: '一些 web 开发相关的 npm 包',
-  srcDir: 'src',
   base: '/web/',
   lang: 'en',
   head: [['link', { rel: 'icon', href: '/web/favicon.ico' }]],
