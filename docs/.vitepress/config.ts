@@ -210,11 +210,19 @@ function introduceSidebar() {
         },
         { text: '@quiteer/is', link: '/plugins/is' }
       ]
+    },
+    {
+      text: 'ci',
+      items: [
+        { text: '一些脚本工具', link: '/ci/' },
+        { text: 'scripts', link: '/ci/scripts' }
+      ]
     }
   ]
 
   return {
     '/introduce/': commonRoute,
-    '/plugins/': commonRoute
+    '/plugins/': commonRoute,
+    '/ci/': commonRoute
   }
 }
