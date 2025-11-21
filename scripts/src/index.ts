@@ -4,7 +4,7 @@ import type { Lang } from './types'
 import cac from 'cac'
 import { bgGreen, blue, gray, lightBlue, lightCyan, lightGreen, white } from 'kolorist'
 import { version } from '../package.json'
-import { cleanup, generateConfig, gitCommit, gitCommitAdd, gitCommitVerify, gitRemoteBranches, release, updatePkg } from './commands'
+import { checkUpdateAndNotify, cleanup, generateConfig, gitCommit, gitCommitAdd, gitCommitVerify, gitRemoteBranches, release, selfUpdate, updatePkg } from './commands'
 import { generateChangelogFiles } from './commands/changelog'
 import { loadCliOptions } from './config'
 
@@ -26,6 +26,8 @@ export async function setupCli() {
   const cliOptions = await loadCliOptions()
 
   const cli = cac(blue('quiteer'))
+
+  await checkUpdateAndNotify()
 
   cli.command('generate-config', `${bgGreen(white('便捷命令'))} ${lightCyan('qui g')}  在项目根目录下生成配置文件`)
     .alias('g')
@@ -66,6 +68,12 @@ export async function setupCli() {
     .alias('u')
     .action(async () => {
       await updatePkg(cliOptions.ncuCommandArgs)
+    })
+
+  cli.command('self-update', `${bgGreen(white('便捷命令'))} ${lightCyan('qui su')}  自更新：检查并更新 @quiteer/scripts 到最新版本`)
+    .alias('su')
+    .action(async () => {
+      await selfUpdate()
     })
 
   cli.command('git-commit', `${bgGreen(white('便捷命令'))} ${lightBlue('qui gc')}  git 提交前后的操作和规范等`)
