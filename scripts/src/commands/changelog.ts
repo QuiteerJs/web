@@ -75,7 +75,7 @@ function getTypeIcon(type: string): string {
   return map[type] || ''
 }
 
-async function getTags(): Promise<string[]> {
+async function _getTags(): Promise<string[]> {
   const stdout = await execCommand('git', ['tag', '--list', '--sort=-version:refname'])
   return stdout.split('\n').filter(Boolean)
 }
@@ -84,7 +84,7 @@ async function getRootCommit(): Promise<string> {
   return await execCommand('git', ['rev-list', '--max-parents=0', 'HEAD'])
 }
 
-async function getDateForRef(ref: string): Promise<string> {
+async function _getDateForRef(ref: string): Promise<string> {
   const date = await execCommand('git', ['log', '-1', '--date=short', '--format=%ad', ref])
   return date || new Date().toISOString().slice(0, 10)
 }
@@ -246,20 +246,10 @@ export async function generateChangelogFiles(options: {
 }) {
   const repoRoot = await execCommand('git', ['rev-parse', '--show-toplevel'])
   const homepage = await readHomepage()
-  const tags = await getTags()
-  let title = '未发布'
-  let date = new Date().toISOString().slice(0, 10)
-  let range = ''
-  if (tags.length >= 1) {
-    const latest = tags[0]
-    const prev = tags[1]
-    title = latest
-    date = await getDateForRef(latest)
-    range = prev ? `${prev}..${latest}` : `${await getRootCommit()}..${latest}`
-  }
-  else {
-    range = 'HEAD'
-  }
+  const root = await getRootCommit()
+  const title = '全部历史'
+  const date = new Date().toISOString().slice(0, 10)
+  const range = `${root}..HEAD`
   let items = await getCommitsInRange(range)
   items = await enrichCommit(items)
   const fallback = [`## ${title} - ${date}`, '', '- 无符合 Conventional Commits 标准的提交', ''].join('\n')
@@ -285,25 +275,10 @@ export async function generateChangelog(output = 'CHANGELOG.md', lang: Lang = 'z
   const outPath = path.join(repoRoot, output)
   const homepage = await readHomepage()
 
-  const tags = await getTags()
-
-  let title = '未发布'
-  let date = new Date().toISOString().slice(0, 10)
-  let range = ''
-
-  if (tags.length >= 1) {
-    const latest = tags[0]
-    const prev = tags[1]
-    title = latest
-    date = await getDateForRef(latest)
-    if (prev)
-      range = `${prev}..${latest}`
-    else
-      range = `${await getRootCommit()}..${latest}`
-  }
-  else {
-    range = 'HEAD'
-  }
+  const root = await getRootCommit()
+  const title = '全部历史'
+  const date = new Date().toISOString().slice(0, 10)
+  const range = `${root}..HEAD`
 
   const items = await getCommitsInRange(range)
   const enriched = await enrichCommit(items)

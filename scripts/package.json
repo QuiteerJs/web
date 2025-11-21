@@ -2,7 +2,7 @@
   "name": "@quiteer/scripts",
   "type": "module",
   "version": "0.0.4",
-  "homepage": "https://github.com/TaiAiAc/web",
+  "homepage": "https://taiaiac.github.io/web/ci/scripts.html",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/",
