@@ -89,8 +89,9 @@ export async function setupCli() {
   cli.command('release', `${bgGreen(white('便捷命令'))} ${lightBlue('qui r')}  发布：更新版本、生成变更日志、提交代码`)
     .alias('r')
     .option('--push', '是否推送代码', { default: cliOptions.release.push })
-    .action(async (args: CommandArg) => {
-      await release(cliOptions.release.execute, args?.push)
+    .option('--tag-prefix <prefix>', '标签前缀（可选，留空则交互输入）')
+    .action(async (args: CommandArg & { tagPrefix?: string }) => {
+      await release(cliOptions.release.execute, args?.push, args?.tagPrefix)
     })
 
   cli.command('changelog', `${bgGreen(white('便捷命令'))} ${lightBlue('qui cl')}  生成变更日志 CHANGELOG.md、CHANGELOG_TIMELINE`)
