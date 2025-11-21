@@ -4,7 +4,7 @@ import type { Lang } from './types'
 import cac from 'cac'
 import { bgGreen, blue, gray, lightBlue, lightCyan, lightGreen, white } from 'kolorist'
 import { version } from '../package.json'
-import { cleanup, generateConfig, gitCommit, gitCommitAdd, gitCommitVerify, release, updatePkg } from './commands'
+import { cleanup, generateConfig, gitCommit, gitCommitAdd, gitCommitVerify, gitRemoteBranches, release, updatePkg } from './commands'
 import { generateChangelogFiles } from './commands/changelog'
 import { loadCliOptions } from './config'
 
@@ -84,6 +84,12 @@ export async function setupCli() {
     .option('-l --lang', '校验提交信息的语言', { default: cliOptions.lang })
     .action(async (args: CommandArg) => {
       await gitCommitVerify(args?.lang, cliOptions.gitCommitVerifyIgnores)
+    })
+
+  cli.command('git-branches [url]', `${bgGreen(white('便捷命令'))} ${lightBlue('qui gb')}  查看远程仓库所有分支（分支名 + 最新时间），倒序排序`)
+    .alias('gb')
+    .action(async (url?: string) => {
+      await gitRemoteBranches(url)
     })
 
   cli.command('release', `${bgGreen(white('便捷命令'))} ${lightBlue('qui r')}  版本管理：选择包并提升版本，创建自定义前缀标签并生成 changelog`)
