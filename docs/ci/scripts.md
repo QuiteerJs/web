@@ -8,6 +8,8 @@
 - 规范化提交：遵循 Conventional Commits 的交互式提交与校验
 - 版本管理：交互选择包、提升版本、创建自定义前缀标签、生成全量 changelog
 - 生成配置：在项目根目录生成 `quiteer.config.ts`
+- 自更新：启动时检查是否为最新版本，提供一键更新
+- 目录结构：生成当前目录树，支持输出为 Markdown
 
 ## 安装与运行
 
@@ -17,6 +19,8 @@
 
 
 > 运行环境：Node.js ≥ 22.14.0，包管理器建议使用 pnpm。
+
+> 提示：CLI 启动时会自动检查 `@quiteer/scripts` 是否有新版本，如有则在终端提示执行 `qui su` 进行更新。
 
 ## 命令总览与示例
 
@@ -38,6 +42,23 @@
 基于 `npm-check-updates` 升级依赖版本。
 
 - 示例：`qui u`
+
+### self-update / su
+
+检查并将 `@quiteer/scripts` 更新到最新版本。
+
+- 行为：比对当前版本与远端版本，若落后则执行 `pnpm add -g @quiteer/scripts@<latest>`
+- 示例：`qui su`
+
+### tree / t
+
+生成当前目录树结构，默认仅在控制台输出；可选生成 Markdown 文件。
+
+- 选项：
+  - `--md` 是否生成 Markdown 文件（默认值来源于配置）
+- 示例：
+  - 控制台输出：`qui t`
+  - 生成 Markdown：`qui t --md`
 
 ### git-commit / gc
 
@@ -76,6 +97,7 @@
 
 ```ts
 export default {
+  // 基础
   cleanupDirs: ["**/dist", "**/node_modules", "!node_modules/**"],
   lang: 'zh-cn',
   ncuCommandArgs: ['--deep', '-u'],
@@ -88,7 +110,26 @@ export default {
     /^Merge remote-tracking branch(\s*)(.*)/,
     /^Automatic merge(.*)/,
     /^Auto-merged (.*?) into (.*)/
-  ]
+  ],
+
+  // changelog 输出
+  changelog: {
+    groupOutput: 'CHANGELOG.md',
+    timelineOutput: 'CHANGELOG_TIMELINE.md',
+    formats: 'both'
+  },
+
+  // git-commit 默认行为
+  gitCommit: {
+    add: true
+  },
+
+  // 目录树生成
+  dirTree: {
+    md: false,
+    output: 'DIRECTORY_TREE.md',
+    ignore: ['node_modules', '.git', 'dist', 'out', 'logs']
+  }
 }
 ```
 
@@ -97,3 +138,65 @@ export default {
 - 多包仓库：发布时可交互选择要更新的包，未选中的包不受影响。
 - 标签前缀：用于避免不同包的标签冲突，建议与包名一致，如 `scripts`、`utils`。
 - changelog：默认输出全量历史；若希望改为按“上一标签 → 最新标签”的增量方式，可告知作者切换逻辑或提供可选开关。
+- 文件链接：变更日志中的文件会链接到对应提交版本的仓库页面（新增/修改指向 `blob/<commit>/<path>`，删除指向提交页）。
+
+## 与 lint-staged + simple-git-hooks 集成
+
+使用 `simple-git-hooks` 管理 Git 钩子，配合 `lint-staged` 在提交前仅校验暂存的文件，并通过 `@quiteer/scripts` 校验提交信息规范。
+
+### 安装依赖
+
+```bash
+pnpm add -D simple-git-hooks lint-staged eslint
+```
+
+### 配置示例（参考当前项目）
+
+在 `package.json` 中：
+
+```json
+{
+  "scripts": {
+    "prepare": "simple-git-hooks",
+    "commit": "qui gc"
+  },
+  "simple-git-hooks": {
+    "commit-msg": "pnpm qui gv",
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  }
+}
+```
+
+- `prepare`：在安装依赖后自动写入 Git 钩子到 `.git/hooks`
+- `pre-commit`：仅对暂存文件执行 `eslint --fix`，速度快、影响面小
+- `commit-msg`：执行 `qui gv` 校验最近一次提交信息是否符合 Conventional Commits
+
+初始化钩子：
+
+```bash
+pnpm prepare
+```
+
+### 优点
+
+- 只校验暂存变更，性能更好，避免全仓库 lint
+- 自动修复 ESLint 问题，减少手工返工
+- 强制提交信息规范，保持变更历史一致性，可直接用于自动生成 changelog
+- 配置简单、跨平台，无需手写 `.git/hooks` 脚本，工作区内统一管理
+- 与 `pnpm` 工作空间兼容，命令均使用 `pnpm` 触发
+
+### 可选增强（按需）
+
+如需更细粒度的匹配，可将 `lint-staged` 配置拆分：
+
+```json
+{
+  "lint-staged": {
+    "*.{js,ts,tsx,vue}": "eslint --fix",
+    "*.{json,md,yml}": "eslint --fix"
+  }
+}
+```
