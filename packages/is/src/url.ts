@@ -15,20 +15,14 @@ function getPathname(input: string): string {
   return p.split(/[?#]/)[0]
 }
 
-/**
- * 判断是否是 URL 字符串
- * - 使用 `new URL` 安全解析，支持 http/https/ws/wss/file 等协议
- */
+/** @description: 判断是否是 URL 字符串 */
 export function isUrlString(val: unknown): val is string {
   if (!isString(val))
     return false
   return tryParseUrl(val) !== null
 }
 
-/**
- * 判断是否是 http 链接
- * - 协议为 `http:`
- */
+/** @description: 判断是否是 http 链接 */
 export function isHttpUrl(val: unknown): val is string {
   if (!isString(val))
     return false
@@ -36,10 +30,7 @@ export function isHttpUrl(val: unknown): val is string {
   return !!u && u.protocol === 'http:'
 }
 
-/**
- * 判断是否是 https 链接
- * - 协议为 `https:`
- */
+/** @description: 判断是否是 https 链接 */
 export function isHttpsUrl(val: unknown): val is string {
   if (!isString(val))
     return false
@@ -47,10 +38,7 @@ export function isHttpsUrl(val: unknown): val is string {
   return !!u && u.protocol === 'https:'
 }
 
-/**
- * 判断是否是 websocket 链接
- * - 支持 `ws:` 与 `wss:`
- */
+/** @description: 判断是否是 websocket 链接 */
 export function isWebsocketUrl(val: unknown): val is string {
   if (!isString(val))
     return false
@@ -58,11 +46,7 @@ export function isWebsocketUrl(val: unknown): val is string {
   return !!u && (u.protocol === 'ws:' || u.protocol === 'wss:')
 }
 
-/**
- * 判断是否是图片链接
- * - 根据路径后缀判断：png、jpg、jpeg、gif、webp、bmp、svg
- * - 支持带查询参数或哈希的地址
- */
+/** @description: 判断是否是图片链接 */
 export function isImageUrl(val: unknown): boolean {
   if (!isString(val))
     return false
@@ -70,10 +54,7 @@ export function isImageUrl(val: unknown): boolean {
   return /\.(?:png|jpg|jpeg|gif|webp|bmp|svg)$/.test(path)
 }
 
-/**
- * 判断是否是视频链接
- * - 常见后缀：mp4、webm、ogg、mov、m3u8
- */
+/** @description: 判断是否是视频链接 */
 export function isVideoUrl(val: unknown): boolean {
   if (!isString(val))
     return false
@@ -81,10 +62,7 @@ export function isVideoUrl(val: unknown): boolean {
   return /\.(?:mp4|webm|ogg|mov|m3u8)$/.test(path)
 }
 
-/**
- * 判断是否是文件链接
- * - file 协议或常见可下载文件后缀（pdf、docx、xlsx、csv、txt、zip 等）
- */
+/** @description: 判断是否是文件链接 */
 export function isFileUrl(val: unknown): boolean {
   if (!isString(val))
     return false

@@ -1,6 +1,6 @@
 import { isNumber, isObject, isString } from './type'
 
-// 是否为16进制颜色
+/** @description: 是否为 16 进制颜色 */
 export function isHexColor(val: unknown): val is string {
   return isString(val) && /^#(?:[0-9a-f]{3}|[0-9a-f]{6})$/i.test(val)
 }
@@ -16,7 +16,7 @@ function isValidRgbChannel(str: string): boolean {
   }
 }
 
-// 是否为rgb颜色
+/** @description: 是否为 rgb 颜色 */
 export function isRgbColor(val: unknown): val is string {
   if (!isString(val))
     return false
@@ -41,7 +41,7 @@ function isValidAlpha(str: string): boolean {
   return !Number.isNaN(num) && num >= 0 && num <= 1
 }
 
-// 是否为rgba颜色
+/** @description: 是否为 rgba 颜色 */
 export function isRgbaColor(val: unknown): val is string {
   if (!isString(val))
     return false
@@ -63,22 +63,22 @@ export function isRgbaColor(val: unknown): val is string {
   )
 }
 
-// 是否为颜色名称
+/** @description: 是否为颜色名称 */
 export function isColorName(val: unknown): val is string {
   return isColor(val) && /^[a-z]+$/i.test(val)
 }
 
-// 是否为颜色字符串
+/** @description: 是否为颜色字符串 */
 export function isColorString(val: unknown): val is string {
   return isHexColor(val) || isRgbColor(val) || isRgbaColor(val) || isColorName(val)
 }
 
-// 是否为颜色对象
+/** @description: 是否为颜色对象 */
 export function isColorObject(val: unknown): val is Record<string, number> {
   return isObject(val) && isNumber(val.red) && isNumber(val.green) && isNumber(val.blue) && isNumber(val.alpha)
 }
 
-// 是否为颜色
+/** @description: 是否为颜色（字符串或名称） */
 export function isColor(val: unknown): val is string {
   // 这里应该调用下面的方法全方位判断符合其一就可以
   return isColorString(val) || isColorName(val)

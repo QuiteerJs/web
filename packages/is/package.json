@@ -1,8 +1,8 @@
 {
   "name": "@quiteer/is",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "description": "",
-  "homepage": "https://taiaiac.github.io/web/",
+  "homepage": "https://taiaiac.github.io/web/plugins/is.html",
   "exports": {
     ".": {
       "types": "./dist/index.d.mts",
@@ -21,6 +21,6 @@
   "scripts": {
     "dev": "tsdown --watch",
     "build": "tsdown",
-    "release": "npm publish"
+    "release": "qui r --tag-prefix is && qui gc && tsdown && pnpm publish"
   }
 }

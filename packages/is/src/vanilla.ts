@@ -1,4 +1,4 @@
-// 是否是JSON
+/** @description: 是否为 JSON 字符串 */
 export function isJSON(val: unknown): val is string {
   try {
     JSON.parse(val as string)

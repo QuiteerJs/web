@@ -50,15 +50,17 @@ export function isNull(val: unknown): val is null {
   return val === null
 }
 
+/** @description: 是否为 null 或 undefined */
 export function isNullOrUnDef(val: unknown): val is null | undefined {
   return isUnDef(val) || isNull(val)
 }
 
+/** @description: 是否同时为 null 与 undefined */
 export function isNullAndUnDef(val: unknown): val is null | undefined {
   return isUnDef(val) && isNull(val)
 }
 
-// 判断是否是空的数据类型
+/** @description: 判断是否为空数据类型 */
 export function isEmpty(val: unknown): boolean {
   if (val === '' || (Array.isArray(val) && val.length === 0) || val === null || val === 0) {
     return true
@@ -66,7 +68,7 @@ export function isEmpty(val: unknown): boolean {
   return false
 }
 
-// 是否Symbol
+/** @description: 是否为 Symbol */
 export function isSymbol(val: unknown): val is symbol {
   return is(val, 'Symbol')
 }
@@ -81,27 +83,27 @@ export function isAsyncFunction<T = any>(val: unknown): val is () => Promise<T> 
   return is(val, 'AsyncFunction')
 }
 
-// 是否map对象
+/** @description: 是否为 Map 对象 */
 export function isMap(val: unknown): val is Map<any, any> {
   return is(val, 'Map')
 }
 
-// 是否set对象
+/** @description: 是否为 Set 对象 */
 export function isSet(val: unknown): val is Set<any> {
   return is(val, 'Set')
 }
 
-// 是否weakmap对象
+/** @description: 是否为 WeakMap 对象 */
 export function isWeakMap(val: unknown): val is WeakMap<any, any> {
   return is(val, 'WeakMap')
 }
 
-// 是否weakset对象
+/** @description: 是否为 WeakSet 对象 */
 export function isWeakSet(val: unknown): val is WeakSet<any> {
   return is(val, 'WeakSet')
 }
 
-// 是否正则表达式
+/** @description: 是否为正则表达式 */
 export function isRegExp(val: unknown): val is RegExp {
   return is(val, 'RegExp')
 }
@@ -111,7 +113,7 @@ export function isDate(val: unknown): val is Date {
   return is(val, 'Date')
 }
 
-// 是否proxy对象
+/** @description: 是否为 Proxy 对象 */
 export function isProxy(val: unknown): val is ProxyConstructor {
   return is(val, 'Proxy')
 }
