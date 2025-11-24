@@ -11,7 +11,7 @@ import { generateChangelogFiles } from './changelog'
  * 版本管理：交互选择需要提升版本的包、创建自定义前缀标签、生成变更日志
  * - 多层级仓库：通过交互选择需要更新的包，未选中的包跳过
  * - 标签：支持自定义前缀，命名为 <prefix>-v${version}，存在则跳过创建
- * - 变更日志：默认生成 CHANGELOG.md 与 CHANGELOG_TIMELINE.md（中文，both 格式）
+ * - 变更日志：生成 CHANGELOG.md 与 CHANGELOG_TIMELINE.md，语言与样式读取 CLI 配置（默认 zh-cn，both）
  * - 不包含推送操作，如需发布请手动执行 git push / pnpm publish
  * @param {string} [tagPrefix] 标签前缀（可选，留空则交互输入）
  * @returns {Promise<void>} 异步任务

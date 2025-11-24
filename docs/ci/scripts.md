@@ -30,6 +30,14 @@
 
 - 示例：`qui g`
 
+### remove / rm
+
+删除单个或多个路径（文件或目录），支持逗号分隔，递归删除。未传入时不执行任何操作。
+
+- 示例：
+  - 删除单个：`qui rm "packages/foo/dist"`
+  - 删除多个：`qui rm "packages/*/dist,packages/*/node_modules"`
+
 ### cleanup / c
 
 清除目录产物。支持传入单个或多个路径（逗号分隔）。未传入时按配置或默认值执行。
@@ -77,6 +85,18 @@
   - `-l, --lang` 校验提示语言（默认读取配置）。
 - 示例：`qui gv`
 
+### git-branches / gb
+
+列出远程仓库所有分支（分支名 + 最新提交时间 + SHA + 主题），按照最新时间倒序显示，并高亮最新分支。
+
+- 行为：
+  - 默认使用 `origin`，先执行 `git fetch --prune --tags` 同步远程引用
+  - 支持传入仓库 `url`，临时抓取到命名空间并打印后清理引用
+  - 终端等宽对齐，英文相对时间转换中文显示
+- 示例：
+  - 使用默认远程：`qui gb`
+  - 使用指定 URL：`qui gb https://github.com/<owner>/<repo>.git`
+
 ### release / r
 
 版本管理：交互选择需要更新的包、创建自定义前缀标签并生成全量 changelog。
@@ -91,18 +111,63 @@
 - 示例：
   - `qui r --tag-prefix scripts`
 
+### changelog / cl
+
+生成变更日志文件，支持“分组样式”“时间轴样式”“同时生成两种样式”。默认读取配置文件中的输出文件名与样式。
+
+- 选项：
+  - `-f, --format <format>` 输出样式：`group | timeline | both`（默认取配置 `changelog.formats`）
+  - `--group-output <path>` 分组样式输出文件（默认取配置 `changelog.groupOutput`）
+  - `--timeline-output <path>` 时间轴样式输出文件（默认取配置 `changelog.timelineOutput`）
+  - `-l, --lang <lang>` 输出语言：`zh-cn | en-us`（默认取配置 `lang`）
+- 示例：
+  - 仅分组样式：`qui cl -f group`
+  - 仅时间轴样式：`qui cl -f timeline`
+  - 同时生成两种：`qui cl -f both`
+
 > 发布到 npm 前请确保工作区干净（`git status`），否则 `pnpm publish` 会触发 `ERR_PNPM_GIT_UNCLEAN`。必要时手动提交：`git add -A && git commit -m "docs(changelog): update"`。
 
-## 配置文件示例
+### quiteer.config.ts 配置
+
+- 配置入口与加载规则：
+  - 推荐在项目根目录新建 `quiteer.config.ts`；也支持在 `package.json` 中加入 `quiteer` 字段。
+  - CLI 会自动读取并合并默认值与自定义项（基于 `c12`），未定义的字段按默认值生效。
+  - 一键生成模板：`qui g` 会在根目录生成带注释的 `quiteer.config.ts`。
+
+- 完整选项与默认值（可自由覆盖）：
+  - `cwd`：工作目录，默认 `process.cwd()`；通常无需修改。
+  - `cleanupDirs`：清理命令的目录匹配列表，默认 `['**/dist','**/node_modules','!node_modules/**']`；用于 `qui c`。
+  - `ncuCommandArgs`：`npm-check-updates` 参数，默认 `['--deep','-u']`；用于 `qui u`。
+  - `lang`：CLI 提示与校验语言，`'zh-cn' | 'en-us'`，默认 `'zh-cn'`；影响 `qui gc`、`qui gv`、`qui cl`。
+  - `gitCommitVerifyIgnores`：提交信息校验忽略规则（正则数组），默认包含常见 Merge/Revert 等；用于 `qui gv`。
+  - `release`：预留的发布相关配置。发布流程会读取 `lang` 与 `changelog.*` 作为生成参数。
+  - `changelog`：变更日志生成配置，影响 `qui cl`。
+    - `groupOutput`：分组样式输出文件，默认 `'CHANGELOG.md'`。
+    - `timelineOutput`：时间轴样式输出文件，默认 `'CHANGELOG_TIMELINE.md'`。
+    - `formats`：输出样式，`'group'|'timeline'|'both'`，默认 `'both'`。
+  - `gitCommit`：提交相关配置。
+    - `add`：是否默认添加全部变更到暂存区，默认 `true`；影响 `qui gc`。
+  - `dirTree`：目录树生成配置，影响 `qui t`。
+    - `md`：是否生成 Markdown 文件，默认 `false`。
+    - `output`：Markdown 输出文件名，默认 `'DIRECTORY_TREE.md'`。
+    - `ignore`：忽略目录名数组，默认 `['node_modules','.git','dist','out','logs']`。
+
+- 配置示例（可执行 qui g 生成）：
 
 ```ts
 export default {
-  // 基础
-  cleanupDirs: ["**/dist", "**/node_modules", "!node_modules/**"],
+  // 清理目录（glob 支持）
+  cleanupDirs: ['**/dist','**/node_modules','!node_modules/**'],
+
+  // CLI 语言
   lang: 'zh-cn',
+
+  // 依赖升级参数
   ncuCommandArgs: ['--deep', '-u'],
+
+  // 提交信息校验忽略
   gitCommitVerifyIgnores: [
-    /^((Merge pull request)|(Merge (.*?) into (.*)|(Merge branch (.*)))(?:\r?\n)*$/m,
+    /^((Merge pull request)|(Merge (.*?) into (.*)|(Merge branch (.*)))(?:\r?\n)*$)/m,
     /^(Merge tag (.*))(?:\r?\n)*$/m,
     /^(R|r)evert (.*)/,
     /^(amend|fixup|squash)!/,
@@ -112,19 +177,17 @@ export default {
     /^Auto-merged (.*?) into (.*)/
   ],
 
-  // changelog 输出
+  // 变更日志输出
   changelog: {
     groupOutput: 'CHANGELOG.md',
     timelineOutput: 'CHANGELOG_TIMELINE.md',
     formats: 'both'
   },
 
-  // git-commit 默认行为
-  gitCommit: {
-    add: true
-  },
+  // 提交默认行为
+  gitCommit: { add: true },
 
-  // 目录树生成
+  // 目录树
   dirTree: {
     md: false,
     output: 'DIRECTORY_TREE.md',
@@ -132,6 +195,14 @@ export default {
   }
 }
 ```
+
+- 典型选配场景：
+  - 仅生成时间轴样式：设置 `changelog.formats: 'timeline'`。
+  - 严格提交信息：删除或收紧 `gitCommitVerifyIgnores` 的规则。
+  - 自定义清理范围：添加更多目录到 `cleanupDirs`，如 `apps/*/build`。
+  - 生成目录树 Markdown：设置 `dirTree.md: true` 并自定义 `output` 名称。
+
+> 说明：changelog 当前默认生成“全量历史”；如需改为“上一标签 → 最新标签”的增量输出，可后续开启增量模式或调整生成脚本。
 
 ## 说明与建议
 
