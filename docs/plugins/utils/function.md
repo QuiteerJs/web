@@ -1,29 +1,13 @@
 # 函数工具
 
-提供常用函数相关工具：类型判断、防抖、节流、只执行一次、断言等。
+提供常用函数相关工具：防抖、节流、只执行一次、断言。
 
 ## 导入
 ```ts
-import { assert, debounce, isFunction, once, throttle } from '@quiteer/utils'
+import { assert, debounce, once, throttle } from '@quiteer/utils'
 ```
 
 ## API 与示例
-
-### isBoolean(value)
-```ts
-// 函数：判断是否为布尔值
-// 作用：返回 true/false
-isBoolean(true) // => true
-isBoolean('true') // => false
-```
-
-### isFunction(value)
-```ts
-// 函数：判断是否为函数
-// 作用：用于类型收窄
-function f() {}
-isFunction(f) // => true
-```
 
 ### debounce(fn, wait, immediate?)
 ```ts

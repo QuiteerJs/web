@@ -18,10 +18,8 @@
 - `TupleToUnion<T>` / `UnionToTuple<U>`：元组与联合互转（简化）
 - `Overwrite<T, U>` / `Merge<T, U>` / `Expand<T>`：对象类型覆盖、合并、展开显示
 
-## 结果类型与辅助函数
-- `Result<T, E>`：统一成功/失败的返回结构
-- `ok(value)`：生成成功结果
-- `err(error)`：生成失败结果
+## 示例：结果类型模式
+> 以下为推荐的结果类型用法示例，便于在工程中统一返回结构（库未内置该类型）。
 
 ## 使用示例
 ```ts
@@ -68,8 +66,8 @@ interface T { a: string, b: number, c: string }
 type OnlyStringKeys = KeysOfType<T, string> // 'a' | 'c'
 type OnlyString = PickByValue<T, string> // { a: string, c: string }
 
-// 函数：Result 统一返回
-// 作用：配合 ok/err 明确成功或失败分支
+// 函数：统一结果类型
+// 作用：明确成功或失败分支（推荐自定义在项目中复用）
 type Result<T, E = Error> = { ok: true, value: T } | { ok: false, error: E }
 function parseToInt(v: string): Result<number> {
   const n = Number.parseInt(v, 10)

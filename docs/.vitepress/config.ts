@@ -199,13 +199,15 @@ function introduceSidebar() {
         {
           text: '@quiteer/utils',
           items: [
-            { text: '工具总览', link: '/plugins/utils/' },
-            { text: '函数工具', link: '/plugins/utils/function' },
-            { text: '数组工具', link: '/plugins/utils/array' },
-            { text: '对象工具', link: '/plugins/utils/object' },
-            { text: '字符串工具', link: '/plugins/utils/string' },
-            { text: '数字工具', link: '/plugins/utils/number' },
-            { text: '类型工具', link: '/plugins/utils/type-utils' }
+            { text: '总览', link: '/plugins/utils/' },
+            { text: '函数', link: '/plugins/utils/function' },
+            { text: '数组', link: '/plugins/utils/array' },
+            { text: '对象', link: '/plugins/utils/object' },
+            { text: '字符串', link: '/plugins/utils/string' },
+            { text: '数字', link: '/plugins/utils/number' },
+            { text: '时间', link: '/plugins/utils/time' },
+            { text: '随机', link: '/plugins/utils/random' },
+            { text: '类型', link: '/plugins/utils/type-utils' }
           ]
         },
         { text: '@quiteer/is', link: '/plugins/is' }

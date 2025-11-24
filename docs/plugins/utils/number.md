@@ -1,21 +1,13 @@
 # 数字工具
 
-提供数字相关工具：类型判断、范围裁剪、区间判断、随机整数生成等。
+提供数字相关工具：范围裁剪与区间判断。
 
 ## 导入
 ```ts
-import { clamp, inRange, isNumber, randomInt } from '@quiteer/utils'
+import { clamp, inRange } from '@quiteer/utils'
 ```
 
 ## API 与示例
-
-### isNumber(value)
-```ts
-// 函数：判断是否为数字
-// 作用：返回布尔值（排除 NaN）
-isNumber(1) // => true
-isNumber(Number.NaN) // => false
-```
 
 ### clamp(n, min, max)
 ```ts
@@ -32,10 +24,5 @@ inRange(5, 0, 10) // => true
 inRange(10, 0, 10) // => false
 ```
 
-### randomInt(min, max)
-```ts
-// 函数：生成整数随机数
-// 作用：返回 [min, max] 闭区间的随机整数
-randomInt(1, 6) // => 1~6 任一整数
-```
+> 随机整数请参见“随机工具”模块中的 `randomInt`。
 <!-- eof -->

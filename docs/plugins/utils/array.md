@@ -1,21 +1,13 @@
 # 数组工具
 
-提供数组相关工具：判断、去重、分块、扁平化、分组、分隔等。
+提供数组相关工具：去重、分块、扁平化、分组、分隔等。
 
 ## 导入
 ```ts
-import { chunk, flatten, groupBy, isArray, partition, unique } from '@quiteer/utils'
+import { chunk, flatten, groupBy, partition, unique } from '@quiteer/utils'
 ```
 
 ## API 与示例
-
-### isArray(value)
-```ts
-// 函数：判断是否为数组
-// 作用：返回 true/false
-isArray([1, 2]) // => true
-isArray('x') // => false
-```
 
 ### unique(arr)
 ```ts
@@ -34,7 +26,7 @@ chunk([1, 2, 3, 4, 5], 2) // => [[1, 2], [3, 4], [5]]
 ### flatten(arr, depth?)
 ```ts
 // 函数：扁平化数组
-// 作用：将多维数组拍平为一维（深度 1 或指定深度）
+// 作用：将多维数组拍平为一维（当前实现拍平一层）
 flatten([1, [2], [3, 4]]) // => [1, 2, 3, 4]
 ```
 

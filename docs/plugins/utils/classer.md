@@ -1,4 +1,4 @@
-# 工具类（classer）：TimedArray 与 HistoryManager
+# 工具类（classes）：TimedArray 与 HistoryManager
 
 针对需要“时间驱动与历史管理”的场景提供两类轻量工具。
 
@@ -51,9 +51,9 @@ ta.destroy()
 ```
 
 ### 代码参考
-- 构造与校验：`packages/utils/src/classer/TimedArray.ts:20`
-- 启动定时任务：`packages/utils/src/classer/TimedArray.ts:38`
-- 随机 push 调度：`packages/utils/src/classer/TimedArray.ts:65`
+- 构造与校验：`packages/utils/src/classes/timed-array.ts:20`
+- 启动定时任务：`packages/utils/src/classes/timed-array.ts:38`
+- 随机 push 调度：`packages/utils/src/classes/timed-array.ts:65`
 
 ## HistoryManager
 
@@ -99,6 +99,6 @@ hm.clear()
 ```
 
 ### 代码参考
-- 记录与截断未来：`packages/utils/src/classer/HistoryManager.ts:21`
-- 撤回实现：`packages/utils/src/classer/HistoryManager.ts:45`
-- 当前值与时间戳：`packages/utils/src/classer/HistoryManager.ts:60`
+- 记录与截断未来：`packages/utils/src/classes/history-manager.ts:21`
+- 撤回实现：`packages/utils/src/classes/history-manager.ts:45`
+- 当前值与时间戳：`packages/utils/src/classes/history-manager.ts:60`
