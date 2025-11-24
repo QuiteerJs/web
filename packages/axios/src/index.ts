@@ -2,14 +2,13 @@ import type { AxiosRequestConfig } from 'axios'
 import { AxiosClient } from './client'
 
 export { AxiosClient } from './client'
-export { createClientForEnv } from './env'
 export { createApi } from './methods'
 export { createErrorTipsPlugin } from './plugins/error-tips'
 export { createLoadingPlugin } from './plugins/loading'
 export { createLoggerPlugin, DebugStore } from './plugins/logger'
 export { ExponentialBackoffStrategy } from './retry'
 export { RetryStrategy } from './types'
-export type { AxiosPlugin, RequestExtras, RetryOptions } from './types'
+export type { AxiosPlugin, ContractResult, RequestExtras, RetryOptions, TypedResponse } from './types'
 
 /**
  * 函数：创建带 Proxy 的客户端

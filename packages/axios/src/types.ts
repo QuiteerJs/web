@@ -6,7 +6,7 @@ import type { AxiosResponse, InternalAxiosRequestConfig } from 'axios'
  */
 export interface AxiosPlugin {
   onRequest?: (config: InternalAxiosRequestConfig) => InternalAxiosRequestConfig | void
-  onResponse?: (response: AxiosResponse) => AxiosResponse | void
+  onResponse?: <T>(response: AxiosResponse<T>) => AxiosResponse<T> | void
   onError?: (error: any) => any
 }
 
@@ -43,3 +43,35 @@ export interface RequestExtras {
   silent?: boolean
   cache?: { enabled?: boolean, ttl?: number, key?: string }
 }
+
+/**
+ * 抽象类：响应品牌（虚拟类）
+ * 作用：通过私有成员实现名义类型约束，避免用户误用导致类型“变形”
+ * 说明：仅用于类型系统，不会参与运行时生成任何实体
+ * @template T 响应体 data 的类型
+ * @template E 响应包裹层（envelope/metadata）的类型
+ */
+export abstract class ResponseBrand<T, E = unknown> {
+  /** 私有品牌字段：编译期名义约束，不产生运行时代码 */
+  private __typed_response_brand__?: { data: T, envelope: E }
+}
+
+/**
+ * 类型：TypedResponse
+ * 作用：在保留 AxiosResponse<T> 的前提下，扩展 envelope 元信息并施加名义约束
+ * 适用：需要完整响应（状态码/头/配置）同时对返回数据进行强泛型描述的场景
+ * @template T 响应体 data 的类型
+ * @template E 响应包裹层（如后端统一返回结构中的除 data 外的部分）
+ */
+export type TypedResponse<T, E = unknown> = AxiosResponse<T> & ResponseBrand<T, E> & {
+  /** 可选：原始包裹层或元数据，供需要的业务读取 */
+  envelope?: E
+}
+
+/**
+ * 类型：ContractResult
+ * 作用：用于将服务端原始响应数据映射为强类型数据，可灵活返回纯数据或带 envelope 的结构
+ * @template T 目标数据类型
+ * @template E 包裹层类型
+ */
+export type ContractResult<T, E = unknown> = T | { data: T, envelope?: E }

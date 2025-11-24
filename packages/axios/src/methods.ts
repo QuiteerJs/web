@@ -1,6 +1,6 @@
 import type { AxiosRequestConfig, AxiosResponse } from 'axios'
 import type { AxiosClient } from './client'
-import type { RequestExtras } from './types'
+import type { ContractResult, RequestExtras, TypedResponse } from './types'
 import { RequestCache } from './cache'
 import { buildRequestKey } from './utils'
 
@@ -13,12 +13,12 @@ import { buildRequestKey } from './utils'
  * 作用：统一语义化方法的参数结构，并支持 TS 泛型推导
  * @template T 返回数据的类型（默认 unknown，若提供 contract 可自动推导）
  */
-export interface RequestOptions<T = unknown> {
+export interface RequestOptions<T = unknown, E = unknown> {
   params?: Record<string, any>
   data?: any
   config?: AxiosRequestConfig
   extras?: RequestExtras
-  contract?: (data: any) => T
+  contract?: (data: any) => ContractResult<T, E>
   loading?: { enabled?: boolean, onChange?: (key: string, active: boolean) => void }
   transform?: { filterEmpty?: boolean, dateToISO?: boolean, encrypt?: (obj: any) => any, decrypt?: (obj: any) => any }
 }
@@ -76,28 +76,28 @@ function normalizePayload(obj: any, opts?: { filterEmpty?: boolean, dateToISO?: 
 
 /**
  * 接口：语义化 API
- * 作用：为业务提供泛型友好的数据返回与请求控制
+ * 作用：为业务提供保留响应对象的强类型返回与请求控制
  */
 /**
  * 接口：语义化 API
  * 作用：为业务提供泛型友好的数据返回与请求控制
  */
 export interface Api {
-  get: <T>(url: string, options?: RequestOptions<T>) => Promise<T>
-  post: <T>(url: string, options?: RequestOptions<T>) => Promise<T>
-  put: <T>(url: string, options?: RequestOptions<T>) => Promise<T>
-  patch: <T>(url: string, options?: RequestOptions<T>) => Promise<T>
-  delete: <T>(url: string, options?: RequestOptions<T>) => Promise<T>
-  head: <T>(url: string, options?: RequestOptions<T>) => Promise<T>
-  options: <T>(url: string, options?: RequestOptions<T>) => Promise<T>
-  request: <T>(config: AxiosRequestConfig, extras?: RequestExtras & { contract?: (data: any) => T, loading?: { enabled?: boolean, onChange?: (key: string, active: boolean) => void } }) => Promise<T>
+  get: <T, E = unknown>(url: string, options?: RequestOptions<T, E>) => Promise<TypedResponse<T, E>>
+  post: <T, E = unknown>(url: string, options?: RequestOptions<T, E>) => Promise<TypedResponse<T, E>>
+  put: <T, E = unknown>(url: string, options?: RequestOptions<T, E>) => Promise<TypedResponse<T, E>>
+  patch: <T, E = unknown>(url: string, options?: RequestOptions<T, E>) => Promise<TypedResponse<T, E>>
+  delete: <T, E = unknown>(url: string, options?: RequestOptions<T, E>) => Promise<TypedResponse<T, E>>
+  head: <T, E = unknown>(url: string, options?: RequestOptions<T, E>) => Promise<TypedResponse<T, E>>
+  options: <T, E = unknown>(url: string, options?: RequestOptions<T, E>) => Promise<TypedResponse<T, E>>
+  request: <T, E = unknown>(config: AxiosRequestConfig, extras?: RequestExtras & { contract?: (data: any) => ContractResult<T, E>, loading?: { enabled?: boolean, onChange?: (key: string, active: boolean) => void } }) => Promise<TypedResponse<T, E>>
   raw: AxiosClient
   cache: { clear: (key?: string) => void, clearAll: () => void }
 }
 
 /**
  * 函数：创建语义化 API
- * 作用：基于 AxiosClient 提供泛型友好的方法并返回 data
+ * 作用：基于 AxiosClient 提供强类型方法并保留 AxiosResponse
  */
 /**
  * 函数：创建语义化 API
@@ -113,9 +113,9 @@ export function createApi(client: AxiosClient): Api {
    * 作用：支持撤回、缓存、loading、前后处理与契约
    * @param config AxiosRequestConfig 请求配置
    * @param extras 额外控制项：撤回、缓存、loading、transform、contract 等
-   * @returns 泛型 T 的数据结果
+   * @returns TypedResponse<T,E> 保留响应与强类型数据
    */
-  async function doRequest<T>(config: AxiosRequestConfig, extras?: RequestExtras & { contract?: (data: any) => T, loading?: { enabled?: boolean, onChange?: (key: string, active: boolean) => void }, transform?: { filterEmpty?: boolean, dateToISO?: boolean, encrypt?: (obj: any) => any, decrypt?: (obj: any) => any } }): Promise<T> {
+  async function doRequest<T, E = unknown>(config: AxiosRequestConfig, extras?: RequestExtras & { contract?: (data: any) => ContractResult<T, E>, loading?: { enabled?: boolean, onChange?: (key: string, active: boolean) => void }, transform?: { filterEmpty?: boolean, dateToISO?: boolean, encrypt?: (obj: any) => any, decrypt?: (obj: any) => any } }): Promise<TypedResponse<T, E>> {
     const key = extras?.key || buildRequestKey(config)
     const autoCancel = extras?.autoCancel ?? true
     ;(config as any).__silent = extras?.silent
@@ -124,7 +124,7 @@ export function createApi(client: AxiosClient): Api {
     const cacheOpt = extras?.cache
     if (cacheOpt?.enabled) {
       const ckey = cacheOpt.key || key
-      const hit = cache.get<T>(ckey)
+      const hit = cache.get<TypedResponse<T, E>>(ckey)
       if (hit !== undefined)
         return hit
     }
@@ -141,19 +141,33 @@ export function createApi(client: AxiosClient): Api {
       }
 
       const res: AxiosResponse<T> = await client.request<T>({ ...config, params: config.params }, { ...extras, key, autoCancel })
-      let data = res.data as any
+      let data: any = res.data
       if (extras?.transform && typeof extras.transform.decrypt === 'function')
         data = extras.transform.decrypt(data)
-      if (extras?.contract)
-        data = extras.contract(data)
+
+      let envelope: E | undefined
+      if (extras?.contract) {
+        const mapped = extras.contract(data)
+        if (mapped && typeof mapped === 'object' && 'data' in (mapped as any)) {
+          data = (mapped as any).data
+          envelope = (mapped as any).envelope as E | undefined
+        }
+        else {
+          data = mapped as T
+        }
+      }
+
+      const typed: TypedResponse<T, E> = { ...(res as any), data } as TypedResponse<T, E>
+      if (envelope !== undefined)
+        (typed as any).envelope = envelope
 
       // 写入缓存
       if (cacheOpt?.enabled) {
         const ttl = cacheOpt.ttl ?? 5000
         const ckey = cacheOpt.key || key
-        cache.set<T>(ckey, data, ttl)
+        cache.set<TypedResponse<T, E>>(ckey, typed, ttl)
       }
-      return data as T
+      return typed
     }
     finally {
       if (extras?.loading?.enabled && typeof extras.loading.onChange === 'function') {
@@ -165,11 +179,11 @@ export function createApi(client: AxiosClient): Api {
   return {
     /**
      * 函数：GET 请求
-     * 作用：语义化 GET，并返回泛型数据 T
+     * 作用：语义化 GET，并返回 TypedResponse<T,E>
      */
-    async get<T>(url: string, options?: RequestOptions<T>): Promise<T> {
+    async get<T, E = unknown>(url: string, options?: RequestOptions<T, E>): Promise<TypedResponse<T, E>> {
       const config: AxiosRequestConfig = { method: 'get', url, params: options?.params, ...options?.config }
-      return doRequest<T>(config, {
+      return doRequest<T, E>(config, {
         ...options?.extras,
         loading: options?.loading,
         contract: options?.contract,
@@ -178,9 +192,9 @@ export function createApi(client: AxiosClient): Api {
     },
     /**
      * 函数：POST 请求
-     * 作用：语义化 POST，并返回泛型数据 T
+     * 作用：语义化 POST，并返回 TypedResponse<T,E>
      */
-    async post<T>(url: string, options?: RequestOptions<T>): Promise<T> {
+    async post<T, E = unknown>(url: string, options?: RequestOptions<T, E>): Promise<TypedResponse<T, E>> {
       const data = serializeDataIfNeeded(options?.data, options?.config)
       const config: AxiosRequestConfig = {
         method: 'post',
@@ -189,7 +203,7 @@ export function createApi(client: AxiosClient): Api {
         params: options?.params,
         ...options?.config
       }
-      return doRequest<T>(config, {
+      return doRequest<T, E>(config, {
         ...options?.extras,
         loading: options?.loading,
         contract: options?.contract,
@@ -198,9 +212,9 @@ export function createApi(client: AxiosClient): Api {
     },
     /**
      * 函数：PUT 请求
-     * 作用：语义化 PUT，并返回泛型数据 T
+     * 作用：语义化 PUT，并返回 TypedResponse<T,E>
      */
-    async put<T>(url: string, options?: RequestOptions<T>): Promise<T> {
+    async put<T, E = unknown>(url: string, options?: RequestOptions<T, E>): Promise<TypedResponse<T, E>> {
       const data = serializeDataIfNeeded(options?.data, options?.config)
       const config: AxiosRequestConfig = {
         method: 'put',
@@ -209,7 +223,7 @@ export function createApi(client: AxiosClient): Api {
         params: options?.params,
         ...(options?.config)
       }
-      return doRequest<T>(config, {
+      return doRequest<T, E>(config, {
         ...options?.extras,
         loading: options?.loading,
         contract: options?.contract,
@@ -218,9 +232,9 @@ export function createApi(client: AxiosClient): Api {
     },
     /**
      * 函数：PATCH 请求
-     * 作用：语义化 PATCH，并返回泛型数据 T
+     * 作用：语义化 PATCH，并返回 TypedResponse<T,E>
      */
-    async patch<T>(url: string, options?: RequestOptions<T>): Promise<T> {
+    async patch<T, E = unknown>(url: string, options?: RequestOptions<T, E>): Promise<TypedResponse<T, E>> {
       const data = serializeDataIfNeeded(options?.data, options?.config)
       const config: AxiosRequestConfig = {
         method: 'patch',
@@ -229,7 +243,7 @@ export function createApi(client: AxiosClient): Api {
         params: options?.params,
         ...options?.config
       }
-      return doRequest<T>(config, {
+      return doRequest<T, E>(config, {
         ...options?.extras,
         loading: options?.loading,
         contract: options?.contract,
@@ -238,16 +252,16 @@ export function createApi(client: AxiosClient): Api {
     },
     /**
      * 函数：DELETE 请求
-     * 作用：语义化 DELETE，并返回泛型数据 T
+     * 作用：语义化 DELETE，并返回 TypedResponse<T,E>
      */
-    async delete<T>(url: string, options?: RequestOptions<T>): Promise<T> {
+    async delete<T, E = unknown>(url: string, options?: RequestOptions<T, E>): Promise<TypedResponse<T, E>> {
       const config: AxiosRequestConfig = {
         method: 'delete',
         url,
         params: options?.params,
         ...options?.config
       }
-      return doRequest<T>(config, {
+      return doRequest<T, E>(config, {
         ...options?.extras,
         loading: options?.loading,
         contract: options?.contract,
@@ -256,16 +270,16 @@ export function createApi(client: AxiosClient): Api {
     },
     /**
      * 函数：HEAD 请求
-     * 作用：语义化 HEAD，并返回泛型数据 T
+     * 作用：语义化 HEAD，并返回 TypedResponse<T,E>
      */
-    async head<T>(url: string, options?: RequestOptions<T>): Promise<T> {
+    async head<T, E = unknown>(url: string, options?: RequestOptions<T, E>): Promise<TypedResponse<T, E>> {
       const config: AxiosRequestConfig = {
         method: 'head',
         url,
         params: options?.params,
         ...options?.config
       }
-      return doRequest<T>(config, {
+      return doRequest<T, E>(config, {
         ...options?.extras,
         loading: options?.loading,
         contract: options?.contract,
@@ -274,16 +288,16 @@ export function createApi(client: AxiosClient): Api {
     },
     /**
      * 函数：OPTIONS 请求
-     * 作用：语义化 OPTIONS，并返回泛型数据 T
+     * 作用：语义化 OPTIONS，并返回 TypedResponse<T,E>
      */
-    async options<T>(url: string, options?: RequestOptions<T>): Promise<T> {
+    async options<T, E = unknown>(url: string, options?: RequestOptions<T, E>): Promise<TypedResponse<T, E>> {
       const config: AxiosRequestConfig = {
         method: 'options',
         url,
         params: options?.params,
         ...options?.config
       }
-      return doRequest<T>(config, {
+      return doRequest<T, E>(config, {
         ...options?.extras,
         loading: options?.loading,
         contract: options?.contract,
@@ -292,13 +306,13 @@ export function createApi(client: AxiosClient): Api {
     },
     /**
      * 函数：原始请求
-     * 作用：直接使用 AxiosRequestConfig 执行并返回泛型数据 T
+     * 作用：直接使用 AxiosRequestConfig 执行并返回 TypedResponse<T,E>
      */
-    async request<T>(
+    async request<T, E = unknown>(
       config: AxiosRequestConfig,
-      extras?: RequestExtras & { contract?: (data: any) => T, loading?: { enabled?: boolean, onChange?: (key: string, active: boolean) => void } }
-    ): Promise<T> {
-      return doRequest<T>(config, extras)
+      extras?: RequestExtras & { contract?: (data: any) => ContractResult<T, E>, loading?: { enabled?: boolean, onChange?: (key: string, active: boolean) => void } }
+    ): Promise<TypedResponse<T, E>> {
+      return doRequest<T, E>(config, extras)
     },
     raw: client,
     cache: {
