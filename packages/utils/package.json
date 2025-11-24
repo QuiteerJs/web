@@ -5,7 +5,7 @@
   "description": "",
   "author": "",
   "license": "ISC",
-  "homepage": "https://taiaiac.github.io/web/",
+  "homepage": "https://taiaiac.github.io/web/plugins/utils/",
   "keywords": [],
   "exports": {
     ".": {
@@ -15,6 +15,10 @@
         "default": "./dist/index.mjs"
       }
     }
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",

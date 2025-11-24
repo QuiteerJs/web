@@ -5,7 +5,11 @@
   "description": "Vite 插件集合，例如移除开发时杂乱 console 的插件",
   "author": "",
   "license": "MIT",
-  "homepage": "https://taiaiac.github.io/web/",
+  "homepage": "https://taiaiac.github.io/web/plugins/vite-plugin/",
+  "keywords": [
+    "vite",
+    "plugin"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.mts",
@@ -25,6 +29,10 @@
     "dev": "tsdown --watch",
     "build": "tsdown",
     "clean": "rm -rf dist"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
     "@quiteer/utils": "workspace:*",

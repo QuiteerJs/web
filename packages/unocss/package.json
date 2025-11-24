@@ -6,6 +6,10 @@
     ".": "./index.ts",
     "./uno-preset": "./uno-preset/index.ts"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "typesVersions": {
     "*": {
       "*": ["./*/*"]
