@@ -6,7 +6,7 @@ export function quiteerPreset(): Preset<PresetUnoTheme> {
   const preset: Preset<PresetUnoTheme> = {
     name: 'quiteer-preset',
     rules: [
-      // [/^m-(\d+)$/, ([, d]) => ({ margin: `${d / 4}rem` })],
+      [/^wh-(\d+)$/, ([, d]) => ({ width: `${d}px`, height: `${d}px` })]
       // You can get rich context information from the second argument, such as `theme`, `symbols`, etc.
       // [/^p-(\d+)$/, (match, ctx) => ({ padding: `${match[1] / 4}rem` })]
     ],
