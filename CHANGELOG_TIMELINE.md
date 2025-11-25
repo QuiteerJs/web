@@ -1,6 +1,18 @@
 ## 变更日志
 
-### 2025-11-25 `✏️ 20+` `➕ 13+` `🗑️ 0+`
+### 2025-11-25 `✏️ 26+` `➕ 13+` `🗑️ 0+`
+- 🔧  **chore** `release`: v0.0.8
+  > **🕒  17:32** · `➕1` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`6078be13`](https://github.com/TaiAiAc/web/commit/6078be1324c66b6f18b3686e7b58d67f01c0323c))
+  - ✏️ [`packages/directives/package.json`](https://github.com/TaiAiAc/web/blob/6078be1324c66b6f18b3686e7b58d67f01c0323c/packages/directives/package.json)
+- ✨  **feat** `release`: 增加api
+  > **🕒  17:29** · `➕701` / `➖606`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`dfd7fe13`](https://github.com/TaiAiAc/web/commit/dfd7fe13bd51b96f76700746c8b30f0b406fc3f6))
+  - ✏️ [`CHANGELOG.md`](https://github.com/TaiAiAc/web/blob/dfd7fe13bd51b96f76700746c8b30f0b406fc3f6/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/TaiAiAc/web/blob/dfd7fe13bd51b96f76700746c8b30f0b406fc3f6/CHANGELOG_TIMELINE.md)
+  - ✏️ [`docs/plugins/directives/index.md`](https://github.com/TaiAiAc/web/blob/dfd7fe13bd51b96f76700746c8b30f0b406fc3f6/docs/plugins/directives/index.md)
+  - ✏️ [`docs/plugins/directives/permission.md`](https://github.com/TaiAiAc/web/blob/dfd7fe13bd51b96f76700746c8b30f0b406fc3f6/docs/plugins/directives/permission.md)
+  - ✏️ [`packages/directives/src/permission.ts`](https://github.com/TaiAiAc/web/blob/dfd7fe13bd51b96f76700746c8b30f0b406fc3f6/packages/directives/src/permission.ts)
 - 🔧  **chore** `release`: v0.0.7
   > **🕒  17:27** · `➕1` / `➖1`
   > `👤 Quiteer`  <p602985@yeah.net> ([`9dc95e51`](https://github.com/TaiAiAc/web/commit/9dc95e519c5c5163b7f79286fa8fbebf0b21e09c))
