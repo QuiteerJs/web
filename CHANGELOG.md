@@ -1,7 +1,11 @@
 ## 变更日志
 
 ### 其他
-#### 2025-11-25 `✏️ 8+` `➕ 0+` `🗑️ 0+`
+#### 2025-11-25 `✏️ 9+` `➕ 0+` `🗑️ 0+`
+- 🔧  **chore** `release`: v0.0.10
+  > **🕒  18:17** · `➕1` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`836183a4`](https://github.com/TaiAiAc/web/commit/836183a467447a17c25c92ea92825071ebed46bf))
+  - ✏️ [`packages/directives/package.json`](https://github.com/TaiAiAc/web/blob/836183a467447a17c25c92ea92825071ebed46bf/packages/directives/package.json)
 - 🔧  **chore** `release`: v0.0.9
   > **🕒  17:51** · `➕1` / `➖1`
   > `👤 Quiteer`  <p602985@yeah.net> ([`193dabcd`](https://github.com/TaiAiAc/web/commit/193dabcd3a405a5d02dc213d39a06711afeffea3))
@@ -193,6 +197,25 @@
   - ✏️ [`package.json`](https://github.com/TaiAiAc/web/blob/3a9e13397fe92cc5856e727ecae4b7dab09ee818/package.json)
   - ✏️ [`pnpm-lock.yaml`](https://github.com/TaiAiAc/web/blob/3a9e13397fe92cc5856e727ecae4b7dab09ee818/pnpm-lock.yaml)
   - ✏️ [`pnpm-workspace.yaml`](https://github.com/TaiAiAc/web/blob/3a9e13397fe92cc5856e727ecae4b7dab09ee818/pnpm-workspace.yaml)
+
+### 质量优化
+#### 2025-11-25 `✏️ 4+` `➕ 0+` `🗑️ 0+`
+- 🧹  **optimize** `release`: 增加类型提示
+  > **🕒  17:52** · `➕49` / `➖5`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`65169683`](https://github.com/TaiAiAc/web/commit/65169683b45899ec9dffa74ccd030956214f751e))
+  - ✏️ [`CHANGELOG.md`](https://github.com/TaiAiAc/web/blob/65169683b45899ec9dffa74ccd030956214f751e/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/TaiAiAc/web/blob/65169683b45899ec9dffa74ccd030956214f751e/CHANGELOG_TIMELINE.md)
+  - ✏️ [`packages/directives/index.ts`](https://github.com/TaiAiAc/web/blob/65169683b45899ec9dffa74ccd030956214f751e/packages/directives/index.ts)
+  - ✏️ [`playground/directives-test/src/App.vue`](https://github.com/TaiAiAc/web/blob/65169683b45899ec9dffa74ccd030956214f751e/playground/directives-test/src/App.vue)
+
+#### 2025-11-24 `✏️ 3+` `➕ 0+` `🗑️ 1+`
+- 🧹  **optimize** `packages`: axios 类型优化
+  > **🕒  10:56** · `➕95` / `➖64`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`fb9715e0`](https://github.com/TaiAiAc/web/commit/fb9715e08f86b39f4cbb4fc8f59ff201d396455a))
+  - ✏️ [`packages/axios/src/index.ts`](https://github.com/TaiAiAc/web/blob/fb9715e08f86b39f4cbb4fc8f59ff201d396455a/packages/axios/src/index.ts)
+  - ✏️ [`packages/axios/src/methods.ts`](https://github.com/TaiAiAc/web/blob/fb9715e08f86b39f4cbb4fc8f59ff201d396455a/packages/axios/src/methods.ts)
+  - ✏️ [`packages/axios/src/types.ts`](https://github.com/TaiAiAc/web/blob/fb9715e08f86b39f4cbb4fc8f59ff201d396455a/packages/axios/src/types.ts)
+  - 🗑️ [~~`packages/axios/src/env.ts`~~](https://github.com/TaiAiAc/web/commit/fb9715e08f86b39f4cbb4fc8f59ff201d396455a)
 
 ### 新功能
 #### 2025-11-25 `✏️ 14+` `➕ 13+` `🗑️ 0+`
@@ -1099,13 +1122,3 @@
   > `👤 Quiteer`  <p602985@yeah.net> ([`dbba615b`](https://github.com/TaiAiAc/web/commit/dbba615b991f841bff0997ea956d586eabbd6904))
   - ✏️ [`packages/is/src/dom.ts`](https://github.com/TaiAiAc/web/blob/dbba615b991f841bff0997ea956d586eabbd6904/packages/is/src/dom.ts)
   - ✏️ [`packages/is/src/index.ts`](https://github.com/TaiAiAc/web/blob/dbba615b991f841bff0997ea956d586eabbd6904/packages/is/src/index.ts)
-
-### 质量优化
-#### 2025-11-24 `✏️ 3+` `➕ 0+` `🗑️ 1+`
-- 🧹  **optimize** `packages`: axios 类型优化
-  > **🕒  10:56** · `➕95` / `➖64`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`fb9715e0`](https://github.com/TaiAiAc/web/commit/fb9715e08f86b39f4cbb4fc8f59ff201d396455a))
-  - ✏️ [`packages/axios/src/index.ts`](https://github.com/TaiAiAc/web/blob/fb9715e08f86b39f4cbb4fc8f59ff201d396455a/packages/axios/src/index.ts)
-  - ✏️ [`packages/axios/src/methods.ts`](https://github.com/TaiAiAc/web/blob/fb9715e08f86b39f4cbb4fc8f59ff201d396455a/packages/axios/src/methods.ts)
-  - ✏️ [`packages/axios/src/types.ts`](https://github.com/TaiAiAc/web/blob/fb9715e08f86b39f4cbb4fc8f59ff201d396455a/packages/axios/src/types.ts)
-  - 🗑️ [~~`packages/axios/src/env.ts`~~](https://github.com/TaiAiAc/web/commit/fb9715e08f86b39f4cbb4fc8f59ff201d396455a)

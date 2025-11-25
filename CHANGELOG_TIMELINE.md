@@ -1,6 +1,17 @@
 ## 变更日志
 
-### 2025-11-25 `✏️ 30+` `➕ 13+` `🗑️ 0+`
+### 2025-11-25 `✏️ 35+` `➕ 13+` `🗑️ 0+`
+- 🔧  **chore** `release`: v0.0.10
+  > **🕒  18:17** · `➕1` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`836183a4`](https://github.com/TaiAiAc/web/commit/836183a467447a17c25c92ea92825071ebed46bf))
+  - ✏️ [`packages/directives/package.json`](https://github.com/TaiAiAc/web/blob/836183a467447a17c25c92ea92825071ebed46bf/packages/directives/package.json)
+- 🧹  **optimize** `release`: 增加类型提示
+  > **🕒  17:52** · `➕49` / `➖5`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`65169683`](https://github.com/TaiAiAc/web/commit/65169683b45899ec9dffa74ccd030956214f751e))
+  - ✏️ [`CHANGELOG.md`](https://github.com/TaiAiAc/web/blob/65169683b45899ec9dffa74ccd030956214f751e/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/TaiAiAc/web/blob/65169683b45899ec9dffa74ccd030956214f751e/CHANGELOG_TIMELINE.md)
+  - ✏️ [`packages/directives/index.ts`](https://github.com/TaiAiAc/web/blob/65169683b45899ec9dffa74ccd030956214f751e/packages/directives/index.ts)
+  - ✏️ [`playground/directives-test/src/App.vue`](https://github.com/TaiAiAc/web/blob/65169683b45899ec9dffa74ccd030956214f751e/playground/directives-test/src/App.vue)
 - 🔧  **chore** `release`: v0.0.9
   > **🕒  17:51** · `➕1` / `➖1`
   > `👤 Quiteer`  <p602985@yeah.net> ([`193dabcd`](https://github.com/TaiAiAc/web/commit/193dabcd3a405a5d02dc213d39a06711afeffea3))

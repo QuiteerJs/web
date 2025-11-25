@@ -1,4 +1,4 @@
-import type { App } from 'vue'
+import type { App, Directive } from 'vue'
 import type { ClickOutsideValue } from './src/clickOutside'
 import type { CopyOptions } from './src/copy'
 import type { DebounceOptions } from './src/debounce'
@@ -47,29 +47,6 @@ export default {
 }
 
 /**
- * Vue 指令的基础类型接口
- * 包含所有指令共有的属性
- */
-export interface BaseDirectiveType<T = any> {
-  /**
-   * 指令的值
-   */
-  value?: T
-  /**
-   * 指令的修饰符
-   */
-  modifiers: Record<string, boolean>
-  /**
-   * 指令的旧值
-   */
-  oldValue?: T
-  /**
-   * 指令的参数
-   */
-  arg?: string
-}
-
-/**
  * 复制指令类型
  * @example
  * // 基础用法
@@ -82,7 +59,7 @@ export interface BaseDirectiveType<T = any> {
  *   successText: '已复制'
  * }"
  */
-export interface CopyDirectiveType extends BaseDirectiveType<string | CopyOptions> {}
+export type CopyDirectiveType = Directive<HTMLElement, string | CopyOptions>
 
 /**
  * 加载指令类型
@@ -97,7 +74,7 @@ export interface CopyDirectiveType extends BaseDirectiveType<string | CopyOption
  *   background: 'rgba(0, 0, 0, 0.7)'
  * }"
  */
-export interface LoadingDirectiveType extends BaseDirectiveType<boolean | LoadingOptions> {}
+export type LoadingDirectiveType = Directive<HTMLElement, boolean | LoadingOptions>
 
 /**
  * 节流指令类型
@@ -114,7 +91,7 @@ export interface LoadingDirectiveType extends BaseDirectiveType<boolean | Loadin
  *   options: { wait: 500, leading: true }
  * }"
  */
-export interface ThrottleDirectiveType extends BaseDirectiveType<(event: Event) => void | { handler: (event: Event) => void, options?: ThrottleOptions }> {}
+export type ThrottleDirectiveType = Directive<HTMLElement, (event: Event) => void | { handler: (event: Event) => void, options?: ThrottleOptions }, 'input'>
 
 /**
  * 防抖指令类型
@@ -131,7 +108,7 @@ export interface ThrottleDirectiveType extends BaseDirectiveType<(event: Event) 
  *   options: { wait: 300, immediate: true }
  * }"
  */
-export interface DebounceDirectiveType extends BaseDirectiveType<(event: Event) => void | { handler: (event: Event) => void, options?: DebounceOptions }> {}
+export type DebounceDirectiveType = Directive<HTMLElement, (event: Event) => void | { handler: (event: Event) => void, options?: DebounceOptions }, 'input'>
 
 /**
  * 图片懒加载指令类型
@@ -146,7 +123,7 @@ export interface DebounceDirectiveType extends BaseDirectiveType<(event: Event) 
  *   onLoad: () => console.log('加载成功')
  * }"
  */
-export interface LazyDirectiveType extends BaseDirectiveType<LazyOptions> {}
+export type LazyDirectiveType = Directive<HTMLElement, LazyOptions>
 
 /**
  * 水印指令类型
@@ -161,7 +138,7 @@ export interface LazyDirectiveType extends BaseDirectiveType<LazyOptions> {}
  *   color: 'rgba(0, 0, 0, 0.1)'
  * }"
  */
-export interface WatermarkDirectiveType extends BaseDirectiveType<WatermarkValue> {}
+export type WatermarkDirectiveType = Directive<HTMLElement, WatermarkValue>
 
 /**
  * 文本省略指令类型
@@ -172,7 +149,7 @@ export interface WatermarkDirectiveType extends BaseDirectiveType<WatermarkValue
  * // 多行省略
  * v-ellipsis="3"
  */
-export interface EllipsisDirectiveType extends BaseDirectiveType<number> {}
+export type EllipsisDirectiveType = Directive<HTMLElement, number>
 
 /**
  * 元素交叉观察指令类型
@@ -186,7 +163,7 @@ export interface EllipsisDirectiveType extends BaseDirectiveType<number> {}
  * // 仅在隐藏时触发
  * v-intersecting:hide="handleHide"
  */
-export interface IntersectingDirectiveType extends BaseDirectiveType<(isIntersecting: boolean) => void> {}
+export type IntersectingDirectiveType = Directive<HTMLElement, (isIntersecting: boolean) => void, 'show' | 'hide'>
 
 /**
  * 点击外部指令类型
@@ -200,7 +177,7 @@ export interface IntersectingDirectiveType extends BaseDirectiveType<(isIntersec
  *   immediate: true
  * }"
  */
-export interface ClickOutsideDirectiveType extends BaseDirectiveType<ClickOutsideValue> {}
+export type ClickOutsideDirectiveType = Directive<HTMLElement, ClickOutsideValue>
 
 /**
  * 权限指令类型
@@ -214,9 +191,9 @@ export interface ClickOutsideDirectiveType extends BaseDirectiveType<ClickOutsid
  * // 对象：组合配置（codes/mode/effect）
  * v-permission="{ codes: ['sys:user:add'], mode: 'any', effect: 'disable' }"
  */
-export interface PermissionDirectiveType extends BaseDirectiveType<string | string[] | PermissionOptions> {}
+export type PermissionDirectiveType = Directive<HTMLElement, string | string[] | PermissionOptions, 'any' | 'all' | 'disable' | 'remove' | 'hide'>
 
-declare module '@vue/runtime-core' {
+declare module 'vue' {
   export interface ComponentCustomProperties {
     vCopy: CopyDirectiveType
     vLoading: LoadingDirectiveType
