@@ -1,6 +1,6 @@
 {
   "name": "@quiteer/unocss",
-  "version": "0.0.2",
+  "version": "0.0.0",
   "homepage": "https://taiaiac.github.io/web/",
   "exports": {
     ".": "./index.ts",
@@ -12,7 +12,14 @@
   },
   "typesVersions": {
     "*": {
-      "*": ["./*/*"]
+      "*": [
+        "./*/*"
+      ]
     }
+  },
+  "dependencies": {
+    "@unocss/preset-icons": "^66.5.6",
+    "@unocss/preset-wind3": "^66.5.6",
+    "@unocss/vite": "^66.5.6"
   }
 }
