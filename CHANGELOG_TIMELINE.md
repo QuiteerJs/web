@@ -1,6 +1,84 @@
 ## 变更日志
 
-### 2025-11-24 `✏️ 40+` `➕ 4+` `🗑️ 2+`
+### 2025-11-25 `✏️ 14+` `➕ 13+` `🗑️ 0+`
+- 🔧  **chore** `release`: v0.0.6
+  > **🕒  16:17** · `➕1` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`324bb9e2`](https://github.com/TaiAiAc/web/commit/324bb9e2f686e392200a81b0e9e6f6b45d12a2a1))
+  - ✏️ [`packages/directives/package.json`](https://github.com/TaiAiAc/web/blob/324bb9e2f686e392200a81b0e9e6f6b45d12a2a1/packages/directives/package.json)
+- ✨  **feat** `projects`: 项目初始化
+  > **🕒  16:16** · `➕255` / `➖0`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`1ddf6958`](https://github.com/TaiAiAc/web/commit/1ddf6958e4e09a6daf9ea7d34246a663e89a2c54))
+  - ➕ [`packages/qvite/cli.ts`](https://github.com/TaiAiAc/web/blob/1ddf6958e4e09a6daf9ea7d34246a663e89a2c54/packages/qvite/cli.ts)
+  - ➕ [`packages/qvite/index.ts`](https://github.com/TaiAiAc/web/blob/1ddf6958e4e09a6daf9ea7d34246a663e89a2c54/packages/qvite/index.ts)
+  - ➕ [`packages/qvite/package.json`](https://github.com/TaiAiAc/web/blob/1ddf6958e4e09a6daf9ea7d34246a663e89a2c54/packages/qvite/package.json)
+  - ➕ [`packages/qvite/src/build.ts`](https://github.com/TaiAiAc/web/blob/1ddf6958e4e09a6daf9ea7d34246a663e89a2c54/packages/qvite/src/build.ts)
+  - ➕ [`packages/qvite/src/defaults.ts`](https://github.com/TaiAiAc/web/blob/1ddf6958e4e09a6daf9ea7d34246a663e89a2c54/packages/qvite/src/defaults.ts)
+  - ➕ [`packages/qvite/src/store.ts`](https://github.com/TaiAiAc/web/blob/1ddf6958e4e09a6daf9ea7d34246a663e89a2c54/packages/qvite/src/store.ts)
+  - ➕ [`packages/qvite/src/transform.ts`](https://github.com/TaiAiAc/web/blob/1ddf6958e4e09a6daf9ea7d34246a663e89a2c54/packages/qvite/src/transform.ts)
+  - ➕ [`packages/qvite/src/typings.ts`](https://github.com/TaiAiAc/web/blob/1ddf6958e4e09a6daf9ea7d34246a663e89a2c54/packages/qvite/src/typings.ts)
+  - ➕ [`packages/qvite/src/watch.ts`](https://github.com/TaiAiAc/web/blob/1ddf6958e4e09a6daf9ea7d34246a663e89a2c54/packages/qvite/src/watch.ts)
+  - ➕ [`packages/qvite/tsconfig.json`](https://github.com/TaiAiAc/web/blob/1ddf6958e4e09a6daf9ea7d34246a663e89a2c54/packages/qvite/tsconfig.json)
+  - ➕ [`packages/qvite/tsdown.config.ts`](https://github.com/TaiAiAc/web/blob/1ddf6958e4e09a6daf9ea7d34246a663e89a2c54/packages/qvite/tsdown.config.ts)
+- ✨  **feat** `packages`: 增加vite插件
+  > **🕒  16:16** · `➕2311` / `➖112`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`4910db6e`](https://github.com/TaiAiAc/web/commit/4910db6eeda68350383e4b5d52f531730f0fade0))
+  - ➕ [`packages/vite-plugins/src/extra.ts`](https://github.com/TaiAiAc/web/blob/4910db6eeda68350383e4b5d52f531730f0fade0/packages/vite-plugins/src/extra.ts)
+  - ✏️ [`packages/vite-plugins/package.json`](https://github.com/TaiAiAc/web/blob/4910db6eeda68350383e4b5d52f531730f0fade0/packages/vite-plugins/package.json)
+  - ✏️ [`packages/vite-plugins/src/index.ts`](https://github.com/TaiAiAc/web/blob/4910db6eeda68350383e4b5d52f531730f0fade0/packages/vite-plugins/src/index.ts)
+  - ✏️ [`playground/directives-test/src/main.ts`](https://github.com/TaiAiAc/web/blob/4910db6eeda68350383e4b5d52f531730f0fade0/playground/directives-test/src/main.ts)
+  - ✏️ [`playground/vite-plugins-test/package.json`](https://github.com/TaiAiAc/web/blob/4910db6eeda68350383e4b5d52f531730f0fade0/playground/vite-plugins-test/package.json)
+  - ✏️ [`pnpm-lock.yaml`](https://github.com/TaiAiAc/web/blob/4910db6eeda68350383e4b5d52f531730f0fade0/pnpm-lock.yaml)
+- ✨  **feat** `packages`: 增加单例持久化数据
+  > **🕒  16:15** · `➕251` / `➖0`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`de5503f4`](https://github.com/TaiAiAc/web/commit/de5503f4ad546d46b4a8591406508b919ce6439b))
+  - ➕ [`packages/utils/src/classes/persistent-store.ts`](https://github.com/TaiAiAc/web/blob/de5503f4ad546d46b4a8591406508b919ce6439b/packages/utils/src/classes/persistent-store.ts)
+  - ✏️ [`packages/utils/src/classes/index.ts`](https://github.com/TaiAiAc/web/blob/de5503f4ad546d46b4a8591406508b919ce6439b/packages/utils/src/classes/index.ts)
+- 🔧  **chore** `packages`: package管理
+  > **🕒  16:14** · `➕12` / `➖5`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`87f79275`](https://github.com/TaiAiAc/web/commit/87f79275ecb254159b32cc5c7367b3120a4e2526))
+  - ✏️ [`packages/axios/package.json`](https://github.com/TaiAiAc/web/blob/87f79275ecb254159b32cc5c7367b3120a4e2526/packages/axios/package.json)
+  - ✏️ [`packages/box/package.json`](https://github.com/TaiAiAc/web/blob/87f79275ecb254159b32cc5c7367b3120a4e2526/packages/box/package.json)
+  - ✏️ [`packages/naive-extra/package.json`](https://github.com/TaiAiAc/web/blob/87f79275ecb254159b32cc5c7367b3120a4e2526/packages/naive-extra/package.json)
+  - ✏️ [`packages/unocss/package.json`](https://github.com/TaiAiAc/web/blob/87f79275ecb254159b32cc5c7367b3120a4e2526/packages/unocss/package.json)
+- 🐛  **fix** `packages`: 指令调优
+  > **🕒  16:13** · `➕115` / `➖40`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`5770ec8c`](https://github.com/TaiAiAc/web/commit/5770ec8cb9e64cc6ecfeb7beceffab6e7d4cca41))
+  - ✏️ [`docs/plugins/directives/components/PermissionDemo.vue`](https://github.com/TaiAiAc/web/blob/5770ec8cb9e64cc6ecfeb7beceffab6e7d4cca41/docs/plugins/directives/components/PermissionDemo.vue)
+  - ✏️ [`packages/directives/package.json`](https://github.com/TaiAiAc/web/blob/5770ec8cb9e64cc6ecfeb7beceffab6e7d4cca41/packages/directives/package.json)
+  - ✏️ [`packages/directives/src/permission.ts`](https://github.com/TaiAiAc/web/blob/5770ec8cb9e64cc6ecfeb7beceffab6e7d4cca41/packages/directives/src/permission.ts)
+
+### 2025-11-24 `✏️ 59+` `➕ 7+` `🗑️ 2+`
+- 📝  **docs** `packages`: 更新utils文档介绍
+  > **🕒  18:07** · `➕169` / `➖107`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`eb905552`](https://github.com/TaiAiAc/web/commit/eb905552035db032d1f076f9251dc3fe698f9222))
+  - ➕ [`docs/plugins/utils/random.md`](https://github.com/TaiAiAc/web/blob/eb905552035db032d1f076f9251dc3fe698f9222/docs/plugins/utils/random.md)
+  - ➕ [`docs/plugins/utils/time.md`](https://github.com/TaiAiAc/web/blob/eb905552035db032d1f076f9251dc3fe698f9222/docs/plugins/utils/time.md)
+  - ➕ [`packages/utils/README.md`](https://github.com/TaiAiAc/web/blob/eb905552035db032d1f076f9251dc3fe698f9222/packages/utils/README.md)
+  - ✏️ [`.trae/rules/project_rules.md`](https://github.com/TaiAiAc/web/blob/eb905552035db032d1f076f9251dc3fe698f9222/.trae/rules/project_rules.md)
+  - ✏️ [`docs/.vitepress/config.ts`](https://github.com/TaiAiAc/web/blob/eb905552035db032d1f076f9251dc3fe698f9222/docs/.vitepress/config.ts)
+  - ✏️ [`docs/plugins/utils/array.md`](https://github.com/TaiAiAc/web/blob/eb905552035db032d1f076f9251dc3fe698f9222/docs/plugins/utils/array.md)
+  - ✏️ [`docs/plugins/utils/classer.md`](https://github.com/TaiAiAc/web/blob/eb905552035db032d1f076f9251dc3fe698f9222/docs/plugins/utils/classer.md)
+  - ✏️ [`docs/plugins/utils/function.md`](https://github.com/TaiAiAc/web/blob/eb905552035db032d1f076f9251dc3fe698f9222/docs/plugins/utils/function.md)
+  - ✏️ [`docs/plugins/utils/index.md`](https://github.com/TaiAiAc/web/blob/eb905552035db032d1f076f9251dc3fe698f9222/docs/plugins/utils/index.md)
+  - ✏️ [`docs/plugins/utils/number.md`](https://github.com/TaiAiAc/web/blob/eb905552035db032d1f076f9251dc3fe698f9222/docs/plugins/utils/number.md)
+  - ✏️ [`docs/plugins/utils/type-utils.md`](https://github.com/TaiAiAc/web/blob/eb905552035db032d1f076f9251dc3fe698f9222/docs/plugins/utils/type-utils.md)
+- 📝  **docs** `packages`: utils发布
+  > **🕒  17:59** · `➕330` / `➖230`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`94a30252`](https://github.com/TaiAiAc/web/commit/94a302524d002180f4ccdb6d0396cf87235371e2))
+  - ✏️ [`CHANGELOG.md`](https://github.com/TaiAiAc/web/blob/94a302524d002180f4ccdb6d0396cf87235371e2/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/TaiAiAc/web/blob/94a302524d002180f4ccdb6d0396cf87235371e2/CHANGELOG_TIMELINE.md)
+- ✨  **feat** `release`: utils工具发布
+  > **🕒  17:59** · `➕591` / `➖69`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`7988d0cf`](https://github.com/TaiAiAc/web/commit/7988d0cf6244e1fd83afaa1f61445962ef2ac999))
+  - ✏️ [`packages/utils/src/array.ts`](https://github.com/TaiAiAc/web/blob/7988d0cf6244e1fd83afaa1f61445962ef2ac999/packages/utils/src/array.ts)
+  - ✏️ [`packages/utils/src/classes/history-manager.ts`](https://github.com/TaiAiAc/web/blob/7988d0cf6244e1fd83afaa1f61445962ef2ac999/packages/utils/src/classes/history-manager.ts)
+  - ✏️ [`packages/utils/src/classes/timed-array.ts`](https://github.com/TaiAiAc/web/blob/7988d0cf6244e1fd83afaa1f61445962ef2ac999/packages/utils/src/classes/timed-array.ts)
+  - ✏️ [`packages/utils/src/function.ts`](https://github.com/TaiAiAc/web/blob/7988d0cf6244e1fd83afaa1f61445962ef2ac999/packages/utils/src/function.ts)
+  - ✏️ [`packages/utils/src/number.ts`](https://github.com/TaiAiAc/web/blob/7988d0cf6244e1fd83afaa1f61445962ef2ac999/packages/utils/src/number.ts)
+  - ✏️ [`packages/utils/src/object.ts`](https://github.com/TaiAiAc/web/blob/7988d0cf6244e1fd83afaa1f61445962ef2ac999/packages/utils/src/object.ts)
+  - ✏️ [`packages/utils/src/random.ts`](https://github.com/TaiAiAc/web/blob/7988d0cf6244e1fd83afaa1f61445962ef2ac999/packages/utils/src/random.ts)
+  - ✏️ [`packages/utils/src/string.ts`](https://github.com/TaiAiAc/web/blob/7988d0cf6244e1fd83afaa1f61445962ef2ac999/packages/utils/src/string.ts)
+  - ✏️ [`packages/utils/src/time.ts`](https://github.com/TaiAiAc/web/blob/7988d0cf6244e1fd83afaa1f61445962ef2ac999/packages/utils/src/time.ts)
 - 🔧  **chore** `release`: v0.0.1
   > **🕒  17:58** · `➕2` / `➖2`
   > `👤 Quiteer`  <p602985@yeah.net> ([`92bc48b0`](https://github.com/TaiAiAc/web/commit/92bc48b0933f41488384477b7609c206c6168b30))
