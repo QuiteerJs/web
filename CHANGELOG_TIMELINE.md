@@ -1,6 +1,30 @@
 ## 变更日志
 
-### 2025-11-25 `✏️ 35+` `➕ 13+` `🗑️ 0+`
+### 2025-11-26 `✏️ 6+` `➕ 0+` `🗑️ 0+`
+- 🔧  **chore** `release`: v0.0.11
+  > **🕒  19:44** · `➕1` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`417aa147`](https://github.com/TaiAiAc/web/commit/417aa147bc2e130a8395588333de22069f6deb64))
+  - ✏️ [`packages/directives/package.json`](https://github.com/TaiAiAc/web/blob/417aa147bc2e130a8395588333de22069f6deb64/packages/directives/package.json)
+- 🧹  **optimize** `styles`: demo
+  > **🕒  19:27** · `➕2` / `➖2`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`9d800445`](https://github.com/TaiAiAc/web/commit/9d800445ca7966c9d17183c1a52436f57bf81060))
+  - ✏️ [`docs/plugins/directives/components/PermissionDemo.vue`](https://github.com/TaiAiAc/web/blob/9d800445ca7966c9d17183c1a52436f57bf81060/docs/plugins/directives/components/PermissionDemo.vue)
+- ✨  **feat** `packages`: 权限指令增强
+  > **🕒  19:25** · `➕751` / `➖270`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`54993391`](https://github.com/TaiAiAc/web/commit/549933919a1200e4c944e1df15d5128c3db39802))
+  - ✏️ [`docs/plugins/directives/components/PermissionDemo.vue`](https://github.com/TaiAiAc/web/blob/549933919a1200e4c944e1df15d5128c3db39802/docs/plugins/directives/components/PermissionDemo.vue)
+  - ✏️ [`packages/directives/index.ts`](https://github.com/TaiAiAc/web/blob/549933919a1200e4c944e1df15d5128c3db39802/packages/directives/index.ts)
+  - ✏️ [`packages/directives/src/permission.ts`](https://github.com/TaiAiAc/web/blob/549933919a1200e4c944e1df15d5128c3db39802/packages/directives/src/permission.ts)
+  - ✏️ [`packages/directives/tsdown.config.ts`](https://github.com/TaiAiAc/web/blob/549933919a1200e4c944e1df15d5128c3db39802/packages/directives/tsdown.config.ts)
+
+### 2025-11-25 `✏️ 39+` `➕ 13+` `🗑️ 0+`
+- 🧹  **optimize** `release`: 类型提示增强
+  > **🕒  18:18** · `➕68` / `➖48`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`08b63d2c`](https://github.com/TaiAiAc/web/commit/08b63d2c99f61f9fad3268402b541f4fa460ade9))
+  - ✏️ [`CHANGELOG.md`](https://github.com/TaiAiAc/web/blob/08b63d2c99f61f9fad3268402b541f4fa460ade9/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/TaiAiAc/web/blob/08b63d2c99f61f9fad3268402b541f4fa460ade9/CHANGELOG_TIMELINE.md)
+  - ✏️ [`packages/directives/index.ts`](https://github.com/TaiAiAc/web/blob/08b63d2c99f61f9fad3268402b541f4fa460ade9/packages/directives/index.ts)
+  - ✏️ [`playground/directives-test/src/main.ts`](https://github.com/TaiAiAc/web/blob/08b63d2c99f61f9fad3268402b541f4fa460ade9/playground/directives-test/src/main.ts)
 - 🔧  **chore** `release`: v0.0.10
   > **🕒  18:17** · `➕1` / `➖1`
   > `👤 Quiteer`  <p602985@yeah.net> ([`836183a4`](https://github.com/TaiAiAc/web/commit/836183a467447a17c25c92ea92825071ebed46bf))

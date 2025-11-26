@@ -1,6 +1,12 @@
 ## 变更日志
 
 ### 其他
+#### 2025-11-26 `✏️ 1+` `➕ 0+` `🗑️ 0+`
+- 🔧  **chore** `release`: v0.0.11
+  > **🕒  19:44** · `➕1` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`417aa147`](https://github.com/TaiAiAc/web/commit/417aa147bc2e130a8395588333de22069f6deb64))
+  - ✏️ [`packages/directives/package.json`](https://github.com/TaiAiAc/web/blob/417aa147bc2e130a8395588333de22069f6deb64/packages/directives/package.json)
+
 #### 2025-11-25 `✏️ 9+` `➕ 0+` `🗑️ 0+`
 - 🔧  **chore** `release`: v0.0.10
   > **🕒  18:17** · `➕1` / `➖1`
@@ -199,7 +205,20 @@
   - ✏️ [`pnpm-workspace.yaml`](https://github.com/TaiAiAc/web/blob/3a9e13397fe92cc5856e727ecae4b7dab09ee818/pnpm-workspace.yaml)
 
 ### 质量优化
-#### 2025-11-25 `✏️ 4+` `➕ 0+` `🗑️ 0+`
+#### 2025-11-26 `✏️ 1+` `➕ 0+` `🗑️ 0+`
+- 🧹  **optimize** `styles`: demo
+  > **🕒  19:27** · `➕2` / `➖2`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`9d800445`](https://github.com/TaiAiAc/web/commit/9d800445ca7966c9d17183c1a52436f57bf81060))
+  - ✏️ [`docs/plugins/directives/components/PermissionDemo.vue`](https://github.com/TaiAiAc/web/blob/9d800445ca7966c9d17183c1a52436f57bf81060/docs/plugins/directives/components/PermissionDemo.vue)
+
+#### 2025-11-25 `✏️ 8+` `➕ 0+` `🗑️ 0+`
+- 🧹  **optimize** `release`: 类型提示增强
+  > **🕒  18:18** · `➕68` / `➖48`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`08b63d2c`](https://github.com/TaiAiAc/web/commit/08b63d2c99f61f9fad3268402b541f4fa460ade9))
+  - ✏️ [`CHANGELOG.md`](https://github.com/TaiAiAc/web/blob/08b63d2c99f61f9fad3268402b541f4fa460ade9/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/TaiAiAc/web/blob/08b63d2c99f61f9fad3268402b541f4fa460ade9/CHANGELOG_TIMELINE.md)
+  - ✏️ [`packages/directives/index.ts`](https://github.com/TaiAiAc/web/blob/08b63d2c99f61f9fad3268402b541f4fa460ade9/packages/directives/index.ts)
+  - ✏️ [`playground/directives-test/src/main.ts`](https://github.com/TaiAiAc/web/blob/08b63d2c99f61f9fad3268402b541f4fa460ade9/playground/directives-test/src/main.ts)
 - 🧹  **optimize** `release`: 增加类型提示
   > **🕒  17:52** · `➕49` / `➖5`
   > `👤 Quiteer`  <p602985@yeah.net> ([`65169683`](https://github.com/TaiAiAc/web/commit/65169683b45899ec9dffa74ccd030956214f751e))
@@ -218,6 +237,15 @@
   - 🗑️ [~~`packages/axios/src/env.ts`~~](https://github.com/TaiAiAc/web/commit/fb9715e08f86b39f4cbb4fc8f59ff201d396455a)
 
 ### 新功能
+#### 2025-11-26 `✏️ 4+` `➕ 0+` `🗑️ 0+`
+- ✨  **feat** `packages`: 权限指令增强
+  > **🕒  19:25** · `➕751` / `➖270`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`54993391`](https://github.com/TaiAiAc/web/commit/549933919a1200e4c944e1df15d5128c3db39802))
+  - ✏️ [`docs/plugins/directives/components/PermissionDemo.vue`](https://github.com/TaiAiAc/web/blob/549933919a1200e4c944e1df15d5128c3db39802/docs/plugins/directives/components/PermissionDemo.vue)
+  - ✏️ [`packages/directives/index.ts`](https://github.com/TaiAiAc/web/blob/549933919a1200e4c944e1df15d5128c3db39802/packages/directives/index.ts)
+  - ✏️ [`packages/directives/src/permission.ts`](https://github.com/TaiAiAc/web/blob/549933919a1200e4c944e1df15d5128c3db39802/packages/directives/src/permission.ts)
+  - ✏️ [`packages/directives/tsdown.config.ts`](https://github.com/TaiAiAc/web/blob/549933919a1200e4c944e1df15d5128c3db39802/packages/directives/tsdown.config.ts)
+
 #### 2025-11-25 `✏️ 14+` `➕ 13+` `🗑️ 0+`
 - ✨  **feat** `release`: 增加导出
   > **🕒  17:33** · `➕768` / `➖744`
