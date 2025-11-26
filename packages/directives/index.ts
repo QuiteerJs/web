@@ -14,11 +14,11 @@ import ellipsis from './src/ellipsis'
 import intersecting from './src/intersecting'
 import lazy, { installLazyOptions } from './src/lazy'
 import loading from './src/loading'
-import permission, { installPermissions, providePermissions } from './src/permission'
+import permission, { getPermissionManager, installPermissions } from './src/permission'
 import throttle from './src/throttle'
 import watermark from './src/watermark'
 
-export { clickOutside, copy, debounce, ellipsis, installPermissions, intersecting, lazy, loading, permission, providePermissions, throttle, watermark }
+export { clickOutside, copy, debounce, ellipsis, getPermissionManager, installPermissions, intersecting, lazy, loading, permission, throttle, watermark }
 
 export interface DirectivesInstallOptions {
   lazy?: LazyOptions

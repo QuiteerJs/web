@@ -6,7 +6,7 @@ export default defineConfig({
   dts: true,
   outDir: 'dist',
   clean: true,
-  minify: true,
+  minify: false,
   treeshake: true,
   external: ['vue']
 })
