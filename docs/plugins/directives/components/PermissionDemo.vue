@@ -200,8 +200,8 @@ function handleDeleteClick() {
           <strong>当前权限:</strong>
           <div class="permissions-list">
             <NTag
-              v-for="perm in Array.from(permissions)"
-              :key="perm"
+              v-for="perm, i in Array.from(permissions)"
+              :key="i"
               type="success"
               size="small"
               class="permission-tag"
