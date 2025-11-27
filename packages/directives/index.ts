@@ -7,6 +7,7 @@ import type { LoadingOptions } from './src/loading'
 import type { PermissionOptions } from './src/permission'
 import type { ThrottleOptions } from './src/throttle'
 import type { WatermarkValue } from './src/watermark'
+
 import clickOutside from './src/clickOutside'
 import copy from './src/copy'
 import debounce from './src/debounce'
@@ -18,10 +19,14 @@ import permission, { getPermissionManager, installPermissions } from './src/perm
 import throttle from './src/throttle'
 import watermark from './src/watermark'
 
-export { clickOutside, copy, debounce, ellipsis, getPermissionManager, installPermissions, intersecting, lazy, loading, permission, throttle, watermark }
+export { installLazyOptions, LazyOptionsKey } from './src/lazy'
+
+export { getPermissionManager }
+export { clickOutside, copy, debounce, ellipsis, intersecting, lazy, loading, permission, throttle, watermark }
 
 export interface DirectivesInstallOptions {
   lazy?: LazyOptions
+  permission?: string[]
 }
 
 export default {
@@ -43,6 +48,9 @@ export default {
 
     if (options?.lazy)
       installLazyOptions(app, options.lazy)
+
+    if (options?.permission)
+      installPermissions(app, options.permission)
   }
 }
 
@@ -220,9 +228,3 @@ declare module 'vue' {
     permission: PermissionDirectiveType
   }
 }
-
-export { installLazyOptions, LazyOptionsKey } from './src/lazy'
-/**
- * 新增导出：权限注入 Key，便于文档组件读取当前权限集合
- */
-export { PermissionsKey } from './src/permission'
