@@ -2,6 +2,35 @@
 
 本页演示如何在项目中中展示自定义指令 `v-permission`，并详细说明用法与行为。
 
+## 权限注入方式
+
+- 适合全局共享的权限集合，一次注入，所有组件均可用。
+
+```ts
+import Directives from '@quiteer/directives'
+import { createApp } from 'vue'
+
+const app = createApp(App)
+app.use(Directives, {
+        permission: []
+      })
+```
+
+- 权限修改为响应式 ， 权限修改界面不刷新即可重新鉴权
+
+```ts
+import { getPermissionManager } from '@quiteer/directives'
+
+const permissionManager = getPermissionManager()
+permissionManager.addPermissions([
+  'sys:user:list',
+  'sys:user:add',
+  'sys:user:edit',
+  'sys:user:delete'
+])
+```
+
+
 <script setup lang="ts">
 import PermissionDemo from './components/PermissionDemo.vue'
 </script>
@@ -10,7 +39,13 @@ import PermissionDemo from './components/PermissionDemo.vue'
   <PermissionDemo />
 </ClientOnly>
 
+
+<details>
+  <summary>查看代码</summary>
+
 <<< @/plugins/directives/components/PermissionDemo.vue
+
+</details>
 
 ## v-permission 指令说明
 
@@ -179,42 +214,6 @@ import PermissionDemo from './components/PermissionDemo.vue'
 
 ---
 
-> 提示：本页示例的权限集合在 `.vitepress/theme/index.ts` 中通过 `installPermissions` 注入。实际项目请根据登录用户动态生成集合。
 
-## 权限注入方式
 
-- 全局方式（应用根上下文）：适合全局共享的权限集合，一次注入，所有组件均可用。
 
-```ts
-import Directives, { installPermissions } from '@quiteer/directives'
-import { createApp } from 'vue'
-
-const app = createApp(App)
-app.use(Directives)
-
-// 根据当前登录用户动态生成权限码集合
-installPermissions(app, [
-  'sys:user:list',
-  'sys:user:add',
-  'sys:user:edit',
-  'sys:user:delete'
-])
-```
-
-- 组合式方式（组件子树作用域）：适合局部或多子树隔离场景，仅对子树生效。
-
-```ts
-// 根组件或布局组件 setup 中
-import { providePermissions } from '@quiteer/directives'
-
-providePermissions([
-  'sys:user:add',
-  'sys:user:edit'
-])
-```
-
-### 差异说明
-- `installPermissions(app, perms)`：注入到应用根上下文，全局可 `inject`，指令在任意组件中都能读取到。
-- `providePermissions(perms)`：在调用组件的子树中可 `inject`，更灵活，适合局部权限控制或多应用实例。
-
-指令内部优先使用 `inject(PermissionsKey)` 获取权限集合，若未命中再回退到实例 `provides` 与全局属性 `$permissions`，因此两种注入方式均被支持。

@@ -1,6 +1,17 @@
 ## 变更日志
 
-### 2025-11-26 `✏️ 6+` `➕ 0+` `🗑️ 0+`
+### 2025-11-27 `✏️ 1+` `➕ 0+` `🗑️ 0+`
+- 🔧  **chore** `release`: v0.0.12
+  > **🕒  10:10** · `➕1` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`58e9b7e3`](https://github.com/TaiAiAc/web/commit/58e9b7e32dbe4e6d4223dc38d26dbf9e5965ff7c))
+  - ✏️ [`packages/directives/package.json`](https://github.com/TaiAiAc/web/blob/58e9b7e32dbe4e6d4223dc38d26dbf9e5965ff7c/packages/directives/package.json)
+
+### 2025-11-26 `✏️ 8+` `➕ 0+` `🗑️ 0+`
+- ✨  **feat** `release`: 权限指令增强
+  > **🕒  19:44** · `➕54` / `➖2`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`4759ab44`](https://github.com/TaiAiAc/web/commit/4759ab44aa0a68a11593a0b991837a769b60af8e))
+  - ✏️ [`CHANGELOG.md`](https://github.com/TaiAiAc/web/blob/4759ab44aa0a68a11593a0b991837a769b60af8e/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/TaiAiAc/web/blob/4759ab44aa0a68a11593a0b991837a769b60af8e/CHANGELOG_TIMELINE.md)
 - 🔧  **chore** `release`: v0.0.11
   > **🕒  19:44** · `➕1` / `➖1`
   > `👤 Quiteer`  <p602985@yeah.net> ([`417aa147`](https://github.com/TaiAiAc/web/commit/417aa147bc2e130a8395588333de22069f6deb64))
