@@ -1,13 +1,7 @@
 import type { App, Directive, DirectiveBinding } from 'vue'
 
-declare global {
-  interface HTMLElement {
-    _lazyObserver?: IntersectionObserver
-  }
-}
-
 /**
- * 图片懒加载指令的配置选项接口
+ * 图片懒加载指令类型
  * @example
  * // 基础用法
  * v-lazy="{ loading: '/loading.gif', error: '/error.jpg' }"
@@ -20,6 +14,14 @@ declare global {
  *   onError: () => console.log('加载失败')
  * }"
  */
+export type LazyDirective = Directive<HTMLElement, LazyOptions>
+
+declare global {
+  interface HTMLElement {
+    _lazyObserver?: IntersectionObserver
+  }
+}
+
 export interface LazyOptions {
   /**
    * 加载中显示的占位图片地址
@@ -63,14 +65,19 @@ export function installLazyOptions(app: App, options: LazyOptions) {
  */
 function getLazyDefaults(instance: any): LazyOptions | undefined {
   const provides = instance?.appContext?.provides
+  // oxlint-disable-next-line const-comparisons
   const v = provides?.[LazyOptionsKey as unknown as string] || provides?.[LazyOptionsKey as symbol]
   return v as LazyOptions | undefined
 }
 
-const directive: Directive<HTMLImageElement, LazyOptions> = {
-  mounted(el: HTMLImageElement, binding: DirectiveBinding) {
+const directive: LazyDirective = {
+  mounted(el: HTMLElement, binding: DirectiveBinding) {
+    const isImg = el instanceof HTMLImageElement
+    if (!isImg)
+      return
+
     const injected = getLazyDefaults(binding.instance)
-    const options: LazyOptions = { ...defaultOptions, ...(injected || {}), ...(binding.value || {}) }
+    const options: LazyOptions = { ...defaultOptions, ...injected, ...binding.value }
     const originalSrc = el.src
 
     // 设置加载占位图
@@ -110,7 +117,7 @@ const directive: Directive<HTMLImageElement, LazyOptions> = {
     el._lazyObserver.observe(el)
   },
 
-  unmounted(el: HTMLImageElement) {
+  unmounted(el: HTMLElement) {
     // 清理 IntersectionObserver
     if (el._lazyObserver) {
       el._lazyObserver.unobserve(el)

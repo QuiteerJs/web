@@ -3,34 +3,22 @@
 ## 概述
 - 监听元素外点击以触发回调，支持配置 `immediate` 与 `attachOnMount`。
 
-## 基本用法
-```vue
+## 示例
 <script setup lang="ts">
-import { ref } from 'vue'
-
-const visible = ref(true)
-
-/**
- * 函数：关闭面板
- * 作用：在点击元素外部时隐藏面板
- */
-function closePanel() {
-  visible.value = false
-}
+import ClickOutsideDemo from './components/ClickOutsideDemo.vue'
 </script>
 
-<template>
-  <!-- 基础：点击外部立即触发回调 -->
-  <div v-if="visible" v-click-outside="closePanel" class="panel">
-    面板内容
-  </div>
+<ClientOnly>
+  <ClickOutsideDemo />
+  
+</ClientOnly>
 
-  <!-- 配置：不立即触发，指令绑定时不添加监听 -->
-  <div v-if="visible" v-click-outside="{ handler: closePanel, immediate: false, attachOnMount: true }" class="panel">
-    配置对象用法
-  </div>
-</template>
-```
+<details>
+  <summary>查看代码</summary>
+
+<<< @/plugins/directives/components/ClickOutsideDemo.vue
+
+</details>
 
 ## 组合示例
 - 函数模式：`v-click-outside="fn"`

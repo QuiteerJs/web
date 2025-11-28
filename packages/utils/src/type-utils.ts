@@ -153,3 +153,9 @@ export type Merge<T, U> = { [K in keyof (T & U)]: K extends keyof U ? U[K] : K e
  * 作用：在提示中显示完整结构
  */
 export type Expand<T> = T extends infer O ? { [K in keyof O]: O[K] } : never
+
+/**
+ * 类型：宽泛的函数类型
+ * 作用：匹配任意参数和返回值的函数类型
+ */
+export type AnyFunction<T> = T extends (...args: any[]) => any ? T : never

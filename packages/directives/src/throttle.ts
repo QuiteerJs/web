@@ -1,91 +1,135 @@
-import type { Directive } from 'vue'
+import type { ObjectDirective } from 'vue'
+
+/**
+ * 节流指令类型
+ * @example
+ * // 基础用法
+ * v-throttle="handleInput"
+ *
+ * // 自定义事件 (默认input)
+ * v-throttle:click="handleInput"
+ *
+ * // 默认效果
+ * v-throttle:input.300="handleInput"
+ *
+ * // 完整场景 (支持leading/trailing选项)
+ * v-throttle:input.leading.500="handleInput"
+ * v-throttle:scroll.trailing.200="handleScroll"
+ * v-throttle:resize.both.100="handleResize"
+ */
+export type ThrottleDirective = ObjectDirective<HTMLElement, (event: Event) => void, 'leading' | 'trailing' | 'both' | 'input' | 'click' | string>
 
 declare global {
   interface HTMLElement {
-    _throttleHandler?: (event: Event) => void
+    _throttleInstance?: {
+      handler: EventListener
+      throttled: {
+        (event: Event): void
+        cancel: () => void
+      }
+    }
   }
 }
 
-export interface ThrottleOptions {
-  /**
-   * 节流延迟时间（毫秒）
-   * @default 300
-   */
-  wait?: number
+/**
+ * 标准节流函数实现
+ * @param fn 要节流的函数
+ * @param wait 节流时间间隔（毫秒）
+ * @param options 节流选项
+ *   - leading: 是否在开始时立即执行（默认true）
+ *   - trailing: 是否在结束后执行最后一次（默认true）
+ */
+function throttle(
+  fn: (event: Event) => void,
+  wait = 300,
+  options: { leading?: boolean, trailing?: boolean } = {}
+) {
+  let lastCallTime: number | null = null
+  let timer: ReturnType<typeof setTimeout> | null = null
+  const { leading = true, trailing = true } = options
 
-  /**
-   * 是否在开始时执行
-   * @default true
-   */
-  leading?: boolean
-
-  /**
-   * 是否在结束时执行
-   * @default true
-   */
-  trailing?: boolean
-}
-
-export type ThrottleValue = (event: Event) => void | { handler: (event: Event) => void, options?: ThrottleOptions }
-
-function throttle(fn: (event: Event) => void, options: ThrottleOptions = {}) {
-  const { wait = 300, leading = true, trailing = true } = options
-  let timer: NodeJS.Timeout | null = null
-  let lastArgs: any[] | null = null
-  let lastThis: any = null
-  let lastCallTime = 0
-
-  const invokeFunction = (thisArg: any, args: any[]) => {
-    fn.apply(thisArg, args)
-    lastCallTime = Date.now()
-  }
-
-  return function (this: any, event: Event) {
+  const throttled = function (this: HTMLElement, event: Event) {
     const now = Date.now()
-    const remaining = wait - (now - lastCallTime)
+    const shouldCallNow = !lastCallTime || (now - lastCallTime >= wait)
 
-    if (remaining <= 0 || remaining > wait) {
+    if (shouldCallNow && leading) {
+      fn.call(this, event)
+      lastCallTime = now
       if (timer) {
         clearTimeout(timer)
         timer = null
       }
-      if (leading || lastCallTime > 0)
-        invokeFunction(this, [event])
-      else
-        lastCallTime = now
     }
-    else if (!timer && trailing) {
-      lastArgs = [event]
-      // eslint-disable-next-line ts/no-this-alias
-      lastThis = this
+    else if (trailing) {
+      if (timer)
+        clearTimeout(timer)
       timer = setTimeout(() => {
-        if (lastArgs) {
-          invokeFunction(lastThis, lastArgs)
-          lastArgs = null
-          lastThis = null
-        }
+        fn.call(this, event)
+        lastCallTime = Date.now()
         timer = null
-      }, remaining)
+      }, wait - (now - (lastCallTime || 0)))
     }
   }
+
+  throttled.cancel = function () {
+    if (timer) {
+      clearTimeout(timer)
+      timer = null
+    }
+    lastCallTime = null
+  }
+
+  return throttled
 }
 
-const directive: Directive<HTMLElement, ThrottleValue> = {
-  created(el, binding) {
-    const value = binding.value
-    const handler = typeof value === 'function' ? value : value.handler
-    const options = typeof value === 'function' ? {} : (value.options || {})
-    const throttledHandler = throttle(handler, options)
+const directive: ThrottleDirective = {
+  mounted(el, binding) {
+    const handler = binding.value
+    const wait = Object.keys(binding.modifiers || {})
+      .filter(key => !['leading', 'trailing', 'both'].includes(key))
+      .map(key => Number.parseInt(key))
+      .filter(num => !Number.isNaN(num))[0] || 300
 
-    el._throttleHandler = (event: Event) => {
+    const eventType = binding.arg || 'input'
+    const hasLeading = binding.modifiers.leading || binding.modifiers.both
+    const hasTrailing = binding.modifiers.trailing || binding.modifiers.both
+
+    // 创建节流函数
+    const throttledHandler = throttle(handler, wait, {
+      leading: hasLeading,
+      trailing: hasTrailing
+    })
+
+    // 创建处理函数，明确绑定元素上下文
+    const handlerWrapper: EventListener = (event) => {
       throttledHandler.call(el, event)
     }
-    el.addEventListener(binding.arg || 'click', el._throttleHandler as EventListener)
+
+    // 存储实例引用
+    el._throttleInstance = {
+      handler: handlerWrapper,
+      throttled: throttledHandler as {
+        (event: Event): void
+        cancel: () => void
+      }
+    }
+
+    // 添加事件监听
+    el.addEventListener(eventType, handlerWrapper)
   },
 
   beforeUnmount(el, binding) {
-    if (el._throttleHandler)
-      el.removeEventListener(binding.arg || 'click', el._throttleHandler as EventListener)
+    const eventType = binding.arg || 'input'
+    if (el._throttleInstance) {
+      // 移除事件监听
+      el.removeEventListener(eventType, el._throttleInstance.handler)
+
+      // 取消节流
+      el._throttleInstance.throttled.cancel()
+
+      // 清理引用
+      delete el._throttleInstance
+    }
   }
 }
 

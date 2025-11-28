@@ -1,6 +1,20 @@
 import type { App, Directive, Ref, WatchStopHandle } from 'vue'
 import { getCurrentInstance, inject, nextTick, ref, watch } from 'vue'
 
+/**
+ * 权限指令类型
+ * @example
+ * // 字符串：单一权限码
+ * v-permission="'sys:user:add'"
+ *
+ * // 数组：多个权限码
+ * v-permission="['sys:user:add','sys:user:edit']"
+ *
+ * // 对象：组合配置（codes/mode/effect）
+ * v-permission="{ codes: ['sys:user:add'], mode: 'any', effect: 'disable' }"
+ */
+export type PermissionDirective = Directive<HTMLElement, string | string[] | PermissionOptions, 'any' | 'all' | 'disable' | 'remove' | 'hide'>
+
 declare global {
   interface HTMLElement {
     __originalDisplay__?: string
@@ -261,7 +275,7 @@ function setupPermissionWatcher(el: HTMLElement, manager: PermissionManager | nu
 /**
  * 权限指令
  */
-const directive: Directive<HTMLElement, PermissionValue> = {
+const directive: PermissionDirective = {
   mounted(el, binding) {
     const manager = getPermissionManager()
     const opts = normalizeOptions(binding)

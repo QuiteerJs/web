@@ -3,36 +3,22 @@
 ## 概述
 - 图片懒加载，进入视口后再加载原图；支持占位图、错误图与回调。
 
-## 基本用法
-```vue
+## 示例
 <script setup lang="ts">
-/**
- * 函数：图片加载成功回调
- * 作用：原图加载成功后执行（如埋点或提示）
- */
-function onLoad() {
-  console.log('图片加载成功')
-}
-
-/**
- * 函数：图片加载失败回调
- * 作用：原图加载失败时执行（如替换或重试）
- */
-function onError() {
-  console.log('图片加载失败')
-}
+import LazyDemo from './components/LazyDemo.vue'
 </script>
 
-<template>
-  <!-- 使用占位与错误图，并绑定回调 -->
-  <img
-    v-lazy="{ loading: '/loading.gif', error: '/error.jpg', onLoad, onError }"
-    src="/real-image.jpg"
-    alt="示例图"
-    style="width: 300px; height: 200px;"
-  >
-</template>
-```
+<ClientOnly>
+  <LazyDemo />
+  
+</ClientOnly>
+
+<details>
+  <summary>查看代码</summary>
+
+<<< @/plugins/directives/components/LazyDemo.vue
+
+</details>
 
 ## 全局默认配置
 ```ts

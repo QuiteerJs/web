@@ -1,12 +1,14 @@
-import type { App, Directive } from 'vue'
-import type { ClickOutsideValue } from './src/clickOutside'
-import type { CopyOptions } from './src/copy'
-import type { DebounceOptions } from './src/debounce'
-import type { LazyOptions } from './src/lazy'
-import type { LoadingOptions } from './src/loading'
-import type { PermissionOptions } from './src/permission'
-import type { ThrottleOptions } from './src/throttle'
-import type { WatermarkValue } from './src/watermark'
+import type { App } from 'vue'
+import type { ClickOutsideDirective } from './src/clickOutside'
+import type { CopyDirective } from './src/copy'
+import type { DebounceDirective } from './src/debounce'
+import type { EllipsisDirective } from './src/ellipsis'
+import type { IntersectingDirective } from './src/intersecting'
+import type { LazyDirective, LazyOptions } from './src/lazy'
+import type { LoadingDirective } from './src/loading'
+import type { PermissionDirective } from './src/permission'
+import type { ThrottleDirective } from './src/throttle'
+import type { WatermarkDirective } from './src/watermark'
 
 import clickOutside from './src/clickOutside'
 import copy from './src/copy'
@@ -53,177 +55,30 @@ export default {
   }
 }
 
-/**
- * 复制指令类型
- * @example
- * // 基础用法
- * v-copy="'要复制的文本'"
- *
- * // 配置对象用法
- * v-copy="{
- *   text: '要复制的文本',
- *   onSuccess: () => console.log('复制成功'),
- *   successText: '已复制'
- * }"
- */
-export type CopyDirectiveType = Directive<HTMLElement, string | CopyOptions>
-
-/**
- * 加载指令类型
- * @example
- * // 基础用法
- * v-loading="true"
- *
- * // 配置对象用法
- * v-loading="{
- *   show: true,
- *   text: '加载中...',
- *   background: 'rgba(0, 0, 0, 0.7)'
- * }"
- */
-export type LoadingDirectiveType = Directive<HTMLElement, boolean | LoadingOptions>
-
-/**
- * 节流指令类型
- * @example
- * // 基础用法
- * v-throttle="handleClick"
- *
- * // 自定义事件
- * v-throttle:input="handleInput"
- *
- * // 配置对象用法
- * v-throttle="{
- *   handler: handleClick,
- *   options: { wait: 500, leading: true }
- * }"
- */
-export type ThrottleDirectiveType = Directive<HTMLElement, (event: Event) => void | { handler: (event: Event) => void, options?: ThrottleOptions }, 'input'>
-
-/**
- * 防抖指令类型
- * @example
- * // 基础用法
- * v-debounce="handleInput"
- *
- * // 自定义事件
- * v-debounce:input="handleInput"
- *
- * // 配置对象用法
- * v-debounce="{
- *   handler: handleInput,
- *   options: { wait: 300, immediate: true }
- * }"
- */
-export type DebounceDirectiveType = Directive<HTMLElement, (event: Event) => void | { handler: (event: Event) => void, options?: DebounceOptions }, 'input'>
-
-/**
- * 图片懒加载指令类型
- * @example
- * // 基础用法
- * v-lazy="{ loading: '/loading.gif', error: '/error.jpg' }"
- *
- * // 带回调函数
- * v-lazy="{
- *   loading: '/loading.gif',
- *   error: '/error.jpg',
- *   onLoad: () => console.log('加载成功')
- * }"
- */
-export type LazyDirectiveType = Directive<HTMLElement, LazyOptions>
-
-/**
- * 水印指令类型
- * @example
- * // 基础用法
- * v-watermark="'水印文本'"
- *
- * // 配置对象用法
- * v-watermark="{
- *   text: '水印文本',
- *   fontSize: '16px',
- *   color: 'rgba(0, 0, 0, 0.1)'
- * }"
- */
-export type WatermarkDirectiveType = Directive<HTMLElement, WatermarkValue>
-
-/**
- * 文本省略指令类型
- * @example
- * // 单行省略
- * v-ellipsis="1"
- *
- * // 多行省略
- * v-ellipsis="3"
- */
-export type EllipsisDirectiveType = Directive<HTMLElement, number>
-
-/**
- * 元素交叉观察指令类型
- * @example
- * // 基础用法
- * v-intersecting="handleIntersect"
- *
- * // 仅在显示时触发
- * v-intersecting:show="handleShow"
- *
- * // 仅在隐藏时触发
- * v-intersecting:hide="handleHide"
- */
-export type IntersectingDirectiveType = Directive<HTMLElement, (isIntersecting: boolean) => void, 'show' | 'hide'>
-
-/**
- * 点击外部指令类型
- * @example
- * // 基础用法
- * v-click-outside="handleClickOutside"
- *
- * // 配置对象用法
- * v-click-outside="{
- *   handler: handleClickOutside,
- *   immediate: true
- * }"
- */
-export type ClickOutsideDirectiveType = Directive<HTMLElement, ClickOutsideValue>
-
-/**
- * 权限指令类型
- * @example
- * // 字符串：单一权限码
- * v-permission="'sys:user:add'"
- *
- * // 数组：多个权限码
- * v-permission="['sys:user:add','sys:user:edit']"
- *
- * // 对象：组合配置（codes/mode/effect）
- * v-permission="{ codes: ['sys:user:add'], mode: 'any', effect: 'disable' }"
- */
-export type PermissionDirectiveType = Directive<HTMLElement, string | string[] | PermissionOptions, 'any' | 'all' | 'disable' | 'remove' | 'hide'>
-
 declare module 'vue' {
   export interface ComponentCustomProperties {
-    vCopy: CopyDirectiveType
-    vLoading: LoadingDirectiveType
-    vThrottle: ThrottleDirectiveType
-    vDebounce: DebounceDirectiveType
-    vLazy: LazyDirectiveType
-    vWatermark: WatermarkDirectiveType
-    vEllipsis: EllipsisDirectiveType
-    vIntersecting: IntersectingDirectiveType
-    vClickOutside: ClickOutsideDirectiveType
-    vPermission: PermissionDirectiveType
+    vCopy: CopyDirective
+    vLoading: LoadingDirective
+    vThrottle: ThrottleDirective
+    vDebounce: DebounceDirective
+    vLazy: LazyDirective
+    vWatermark: WatermarkDirective
+    vEllipsis: EllipsisDirective
+    vIntersecting: IntersectingDirective
+    vClickOutside: ClickOutsideDirective
+    vPermission: PermissionDirective
   }
 
   export interface GlobalDirectives {
-    copy: CopyDirectiveType
-    loading: LoadingDirectiveType
-    throttle: ThrottleDirectiveType
-    debounce: DebounceDirectiveType
-    lazy: LazyDirectiveType
-    watermark: WatermarkDirectiveType
-    ellipsis: EllipsisDirectiveType
-    intersecting: IntersectingDirectiveType
-    clickOutside: ClickOutsideDirectiveType
-    permission: PermissionDirectiveType
+    copy: CopyDirective
+    loading: LoadingDirective
+    throttle: ThrottleDirective
+    debounce: DebounceDirective
+    lazy: LazyDirective
+    watermark: WatermarkDirective
+    ellipsis: EllipsisDirective
+    intersecting: IntersectingDirective
+    clickOutside: ClickOutsideDirective
+    permission: PermissionDirective
   }
 }

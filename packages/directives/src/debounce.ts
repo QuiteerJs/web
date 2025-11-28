@@ -1,111 +1,110 @@
-import type { Directive } from 'vue'
+import type { ObjectDirective } from 'vue'
 
 /**
- * 防抖指令配置选项
- * @description 用于限制事件的触发频率，避免频繁触发
+ * 防抖指令类型
  * @example
- * // 基础用法 - 函数防抖
+ * // 基础用法
  * v-debounce="handleInput"
  *
- * // 自定义事件
- * v-debounce:input="handleInput"
+ * // 自定义事件 (默认input)
+ * v-debounce:click="handleInput"
  *
- * // 自定义配置
- * v-debounce="{
- *   handler: handleInput,
- *   options: {
- *     wait: 500,
- *     immediate: true
- *   }
- * }"
+ * // 默认效果
+ * v-debounce:input.300="handleInput"
+ *
+ * // 完整场景
+ * v-debounce:input.immediate.500="handleInput"
  */
-export interface DebounceOptions {
-  /**
-   * 防抖延迟时间（毫秒）
-   * @description 两次事件触发的最小时间间隔
-   * @default 300
-   */
-  wait?: number
+export type DebounceDirective = ObjectDirective<HTMLElement, (event: Event) => void, 'immediate' | 'input' | 'click' | string>
 
-  /**
-   * 是否在开始时立即执行
-   * @description 为 true 时首次触发会立即执行，为 false 时会等待 wait 毫秒后执行
-   * @default false
-   */
-  immediate?: boolean
+declare global {
+  interface HTMLElement {
+    _debounceInstance?: {
+      handler: EventListener
+      debounced: {
+        (event: Event): void
+        cancel: () => void
+      }
+    }
+  }
 }
 
 /**
- * 防抖指令的值类型
- * @description 可以是一个函数，或者一个包含处理函数和配置选项的对象
- * @example
- * // 直接传入函数
- * v-debounce="handleInput"
- *
- * // 传入对象配置
- * v-debounce="{
- *   handler: handleInput,
- *   options: {
- *     wait: 500,
- *     immediate: true
- *   }
- * }"
+ * 标准防抖函数实现
  */
-export type DebounceValue = (event: Event) => void | { handler: (event: Event) => void, options?: DebounceOptions }
+function debounce(fn: (event: Event) => void, wait = 300, immediate = false) {
+  let timeout: ReturnType<typeof setTimeout> | null = null
 
-function debounce(fn: (event: Event) => void, options: DebounceOptions = {}) {
-  const { wait = 300, immediate = false } = options
-  let timer: NodeJS.Timeout | null = null
-  let isInvoked = false
+  const debounced = function (this: HTMLElement, event: Event) {
+    // 使用箭头函数或直接使用 call/apply，避免 this 别名
+    const callNow = immediate && !timeout
 
-  const debounced = function (this: any, ...args: any[]) {
-    if (timer) {
-      clearTimeout(timer)
-      timer = null
+    if (timeout) {
+      clearTimeout(timeout)
     }
 
-    if (immediate && !isInvoked) {
-      isInvoked = true
-      fn.apply(this, args as [event: Event])
+    if (callNow) {
+      fn.call(this, event)
+      timeout = setTimeout(() => {
+        timeout = null
+      }, wait)
     }
     else {
-      timer = setTimeout(() => {
-        fn.apply(this, args as [event: Event])
-        isInvoked = false
+      timeout = setTimeout(() => {
+        fn.call(this, event)
+        timeout = null
       }, wait)
     }
   }
 
-  debounced.cancel = () => {
-    if (timer) {
-      clearTimeout(timer)
-      timer = null
+  debounced.cancel = function () {
+    if (timeout) {
+      clearTimeout(timeout)
+      timeout = null
     }
-    isInvoked = false
   }
 
   return debounced
 }
 
-const directive: Directive<HTMLElement, DebounceValue> = {
-  created(el, binding) {
-    const value = binding.value
-    const handler = typeof value === 'function' ? value : value.handler
-    const options = typeof value === 'function' ? {} : (value.options || {})
-    const debouncedHandler = debounce(handler, options)
+const directive: DebounceDirective = {
+  mounted(el, binding) {
+    const handler = binding.value
+    const wait = Object.keys(binding.modifiers || {}).filter(key => key !== 'immediate').map(key => Number.parseInt(key))?.[0]
+    const eventType = binding.arg || 'input'
 
-    el._debounceHandler = (event: Event) => {
+    // 创建防抖函数
+    const debouncedHandler = debounce(handler, wait, binding.modifiers.immediate)
+
+    // 创建处理函数，明确绑定元素上下文
+    const handlerWrapper: EventListener = (event) => {
       debouncedHandler.call(el, event)
     }
-    el.addEventListener(binding.arg || 'input', el._debounceHandler as EventListener)
+
+    // 存储实例引用
+    el._debounceInstance = {
+      handler: handlerWrapper,
+      debounced: debouncedHandler as {
+        (event: Event): void
+        cancel: () => void
+      }
+    }
+
+    // 添加事件监听
+    el.addEventListener(eventType, handlerWrapper)
   },
 
   beforeUnmount(el, binding) {
-    if (el._debounceHandler) {
-      el.removeEventListener(binding.arg || 'input', el._debounceHandler as EventListener)
-      if (el._debounceHandler.cancel) {
-        el._debounceHandler.cancel()
-      }
+    const eventType = binding.arg || 'input'
+    if (el._debounceInstance) {
+      // 移除事件监听
+      el.removeEventListener(eventType, el._debounceInstance.handler)
+
+      // 取消防抖
+      el._debounceInstance.debounced.cancel()
+
+      // 清理引用
+      delete el._debounceInstance
     }
   }
 }

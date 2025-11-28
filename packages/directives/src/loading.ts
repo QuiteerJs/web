@@ -1,7 +1,7 @@
 import type { Directive } from 'vue'
 
 /**
- * Loading 指令的配置选项接口
+ * Loading 加载指令类型
  * @example
  * // 基础用法
  * v-loading="true"
@@ -15,6 +15,8 @@ import type { Directive } from 'vue'
  * // 自定义加载图标
  * v-loading="{ spinner: '<div class="custom-spinner"></div>' }"
  */
+export type LoadingDirective = Directive<HTMLElement, boolean | LoadingOptions>
+
 interface LoadingOptions {
   show: boolean
 
@@ -152,8 +154,6 @@ function toggleLoading(el: HTMLElement, value: LoadingValue): void {
     console.error('Error in v-loading directive:', error)
   }
 }
-
-export type LoadingDirective = Directive<HTMLElement, LoadingValue>
 
 const directive: LoadingDirective = {
   mounted(el, binding) {

@@ -1,28 +1,37 @@
-// v-intersecting:show
-// v-intersecting:hide
-import type { Directive } from 'vue'
+import type { ObjectDirective } from 'vue'
 
-type Fn = (isIntersecting: boolean) => void
+/**
+ * 元素交叉观察指令类型
+ * @example
+ * // 基础用法
+ * v-intersecting="handleIntersect"
+ *
+ * // 仅在显示时触发
+ * v-intersecting:show="handleShow"
+ *
+ * // 仅在隐藏时触发
+ * v-intersecting:hide="handleHide"
+ */
+export type IntersectingDirective = ObjectDirective<HTMLElement, (isIntersecting: boolean) => void, 'show' | 'hide'>
 
-interface Params {
-  show?: Fn
-  hide?: Fn
-}
-
-const directive: Directive<HTMLElement, Fn | Params> = {
+const directive: IntersectingDirective = {
   mounted(el, { arg, value }) {
     const observer = new IntersectionObserver(([{ isIntersecting }]) => {
-      if (!arg && typeof value === 'object') {
-        isIntersecting && value.show && value.show(isIntersecting)
-        isIntersecting || !value.hide || value.hide(isIntersecting)
-      }
+      if (!value || typeof value !== 'function')
+        return
 
-      if (arg && typeof value === 'function') {
-        if (arg === 'show' && isIntersecting)
+      switch (arg) {
+        case 'show':
+          if (isIntersecting)
+            value(isIntersecting)
+          break
+        case 'hide':
+          if (!isIntersecting)
+            value(isIntersecting)
+          break
+        default:
           value(isIntersecting)
-
-        if (arg === 'hide' && !isIntersecting)
-          value(isIntersecting)
+          break
       }
     })
     observer.observe(el)

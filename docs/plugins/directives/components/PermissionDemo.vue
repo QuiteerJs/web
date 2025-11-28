@@ -52,7 +52,7 @@ function usePermissionService() {
       const perms = await fetchUserPermissions(userId)
 
       // 确保创建新的Set实例，触发响应式更新
-      permissionsManager.setPermissions(new Set(perms))
+      permissionsManager?.setPermissions(new Set(perms))
 
       return perms
     }
@@ -77,15 +77,15 @@ function usePermissionService() {
    */
   const logout = () => {
     // 创建空的Set实例
-    permissionsManager.setPermissions(new Set())
+    permissionsManager?.setPermissions(new Set())
   }
 
   // 使用本地ref而不是直接引用manager.permissions
-  const permissions = ref(permissionsManager.permissions.value)
+  const permissions = ref(permissionsManager?.permissions.value)
 
   // 监听权限变化，确保响应式更新
   watch(
-    () => permissionsManager.permissions.value,
+    () => permissionsManager?.permissions.value,
     (newPerms) => {
       permissions.value = new Set(newPerms) // 创建新引用
     },
@@ -98,9 +98,9 @@ function usePermissionService() {
     permissions: readonly(permissions),
     loginAsUser,
     logout,
-    hasPermission: permissionsManager.hasPermission.bind(permissionsManager),
-    hasAnyPermission: permissionsManager.hasAnyPermission.bind(permissionsManager),
-    hasAllPermissions: permissionsManager.hasAllPermissions.bind(permissionsManager)
+    hasPermission: permissionsManager?.hasPermission.bind(permissionsManager),
+    hasAnyPermission: permissionsManager?.hasAnyPermission.bind(permissionsManager),
+    hasAllPermissions: permissionsManager?.hasAllPermissions.bind(permissionsManager)
   }
 }
 
@@ -143,7 +143,7 @@ function handleLogout() {
 }
 
 // 检查特定权限
-const canManageUsers = computed(() => hasAnyPermission(['sys:user:add', 'sys:user:edit', 'sys:user:delete']))
+const canManageUsers = computed(() => hasAnyPermission?.(['sys:user:add', 'sys:user:edit', 'sys:user:delete']))
 
 // 关键添加：强制更新UI的计数器
 const forceUpdateKey = ref(0)
@@ -200,7 +200,7 @@ function handleDeleteClick() {
           <strong>当前权限:</strong>
           <div class="permissions-list">
             <NTag
-              v-for="perm, i in Array.from(permissions)"
+              v-for="perm, i in Array.from(permissions || [])"
               :key="i"
               type="success"
               size="small"
@@ -208,7 +208,7 @@ function handleDeleteClick() {
             >
               {{ perm }}
             </NTag>
-            <NTag v-if="permissions.size === 0" type="warning" size="small">
+            <NTag v-if="permissions?.size === 0" type="warning" size="small">
               无权限
             </NTag>
           </div>

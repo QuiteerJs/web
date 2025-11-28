@@ -1,5 +1,20 @@
 import type { Directive } from 'vue'
 
+/**
+ * 水印指令类型
+ * @example
+ * // 基础用法
+ * v-watermark="'水印文本'"
+ *
+ * // 配置对象用法
+ * v-watermark="{
+ *   text: '水印文本',
+ *   fontSize: '16px',
+ *   color: 'rgba(0, 0, 0, 0.1)'
+ * }"
+ */
+export type WatermarkDirective = Directive<HTMLElement, WatermarkValue>
+
 declare global {
   interface HTMLElement {
     _watermark?: HTMLDivElement
@@ -224,7 +239,7 @@ function createWatermark(container: HTMLElement, options: WatermarkOptions = {})
   }
 }
 
-const directive: Directive<HTMLElement, WatermarkValue> = {
+const directive: WatermarkDirective = {
   mounted(el: HTMLElement, binding) {
     const value = binding.value
     const options: WatermarkOptions = typeof value === 'string' ? { text: value } : value || {}

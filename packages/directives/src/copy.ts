@@ -1,5 +1,20 @@
 import type { Directive } from 'vue'
 
+/**
+ * 复制指令类型
+ * @example
+ * // 基础用法
+ * v-copy="'要复制的文本'"
+ *
+ * // 配置对象用法
+ * v-copy="{
+ *   text: '要复制的文本',
+ *   onSuccess: () => console.log('复制成功'),
+ *   successText: '已复制'
+ * }"
+ */
+export type CopyDirective = Directive<HTMLElement, string | CopyOptions>
+
 declare global {
   interface HTMLElement {
     _copyHandler?: (event: Event) => void
@@ -74,7 +89,7 @@ async function copyText(text: string, options: CopyOptions = {}): Promise<void> 
   }
 }
 
-const directive: Directive<HTMLElement, CopyValue> = {
+const directive: CopyDirective = {
   mounted(el, binding) {
     el.style.cursor = 'pointer'
 

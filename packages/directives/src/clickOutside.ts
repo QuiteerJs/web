@@ -1,5 +1,19 @@
 import type { Directive, DirectiveBinding } from 'vue'
 
+/**
+ * 点击外部指令类型
+ * @example
+ * // 基础用法
+ * v-click-outside="handleClickOutside"
+ *
+ * // 配置对象用法
+ * v-click-outside="{
+ *   handler: handleClickOutside,
+ *   immediate: true
+ * }"
+ */
+export type ClickOutsideDirective = Directive<HTMLElement, ClickOutsideValue>
+
 declare global {
   interface HTMLElement {
     _clickOutsideHandler?: (event: MouseEvent) => void
@@ -47,7 +61,7 @@ const defaultOptions: Partial<ClickOutsideOptions> = {
   attachOnMount: true
 }
 
-const directive: Directive<HTMLElement, ClickOutsideValue> = {
+const directive: ClickOutsideDirective = {
   mounted(el: HTMLElement, binding: DirectiveBinding<ClickOutsideValue>) {
     const options = typeof binding.value === 'function'
       ? { ...defaultOptions, handler: binding.value }
