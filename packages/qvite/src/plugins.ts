@@ -1,7 +1,7 @@
 import type { PluginOption } from 'vite'
 import { Components, createSvgIconsPlugin, envTypesPlugin, fileChangeLoggerPlugin, FileSystemIconLoader, Icons, IconsResolver, mockRouterPlugin, NaiveUiResolver, Progress, removeConsolePlugin, UnoCSS, Vue, VueDevTools, VueJsx } from '@quiteer/vite-plugins'
 
-export default [
+export default {
   Components,
   createSvgIconsPlugin,
   envTypesPlugin,
@@ -17,4 +17,4 @@ export default [
   NaiveUiResolver,
   VueJsx,
   UnoCSS
-] satisfies PluginOption[]
+} satisfies { [QvitePlugins: string]: PluginOption }

@@ -1,5 +1,4 @@
 import type { QviteConfig } from './typings'
-import process from 'node:process'
 import { getPortPromise } from 'portfinder'
 import { createServer } from 'vite'
 import { store } from './store'
@@ -30,15 +29,17 @@ import { normalizeConfig, toViteInlineConfig } from './transform'
  * 端口探测为 O(1) 近似成本，服务性能由 Vite 决定
  */
 export async function watch(options: QviteConfig): Promise<void> {
-  const normalized = await normalizeConfig(options, { command: 'serve', root: options.cwd || process.cwd() })
+  const normalized = await normalizeConfig(options)
+  const port = normalized.vite?.server?.port || store.get<number>('port')!
 
   const p = await getPortPromise({
-    port: Number(normalized.port)
+    port
   })
 
   store.set('port', p)
 
-  const inline = await toViteInlineConfig(normalized, { command: 'serve', root: normalized.cwd || process.cwd() })
+  const inline = await toViteInlineConfig(normalized)
+
   const viteDevServer = await createServer({
     ...inline,
     server: { ...inline.server, port: p }

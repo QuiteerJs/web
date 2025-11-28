@@ -1,50 +1,37 @@
 import type { QviteConfig } from './typings'
-import { cwd } from 'node:process'
 import { fileURLToPath } from 'node:url'
 
 export const defaultOptions = {
-  cwd: cwd(),
-  mode: 'development',
-  port: 3000,
-  minify: false,
   plugins: {
-    Vue: {},
-    UnoCSS: {
-      presets: [
-        presetIcons({
-          prefix: `icon-`,
-          scale: 1,
-          extraProperties: {
-            display: 'inline-block'
-          },
-          collections: {
-            'icon-local': FileSystemIconLoader(localIconPath, svg =>
-              svg.replace(/^<svg\s/, '<svg width="1em" height="1em" '))
-          },
-          warn: true
-        })
-      ]
-    },
-    VueDevTools: {},
-    VueJsx: {},
-    Progress: {},
-    EnvTypes: {},
-    FileChangeLogger: {},
-    RemoveConsole: {},
-    MockRouter: {},
-    Icons: {},
-    SvgIcons: {},
-    Components: {},
-    FileSystemIconLoader: {},
-    IconsResolver: {},
-    NaiveUiResolver: {}
+    Vue: [{ customElement: true }],
+    UnoCSS: false,
+    VueDevTools: [{}],
+    VueJsx: [{}],
+    Progress: [{}],
+    EnvTypes: [{}],
+    FileChangeLogger: [{}],
+    RemoveConsole: [{}],
+    MockRouter: [{}],
+    Icons: false,
+    SvgIcons: false,
+    Components: false,
+    FileSystemIconLoader: false,
+    IconsResolver: false,
+    NaiveUiResolver: false
   },
   vite: {
+    envPrefix: 'QVITE_',
+    server: {
+      port: 3000,
+      strictPort: false
+    },
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url))
       }
+    },
+    build: {
+      minify: false
     }
-  },
-  tsdown: {}
+  }
 } satisfies QviteConfig
