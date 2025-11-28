@@ -49,8 +49,7 @@ export default {
     if (options?.lazy)
       installLazyOptions(app, options.lazy)
 
-    if (options?.permission)
-      installPermissions(app, options.permission)
+    installPermissions(app, options?.permission)
   }
 }
 

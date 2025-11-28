@@ -2,6 +2,13 @@
 
 本页演示如何在项目中中展示自定义指令 `v-permission`，并详细说明用法与行为。
 
+::: tip 提示
+建议绑定在单根真实 dom 元素上，直接绑定到非原生 html 元素时，插件可能无法正常工作，建议仅在原生 html 元素上使用。
+目前已知不会挂载指令的元素有：
+- `template`
+- `el-dropdown-item`
+:::
+
 ## 权限注入方式
 
 - 适合全局共享的权限集合，一次注入，所有组件均可用。
@@ -213,7 +220,5 @@ import PermissionDemo from './components/PermissionDemo.vue'
 </details>
 
 ---
-
-
 
 
