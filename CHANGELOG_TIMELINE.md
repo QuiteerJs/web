@@ -1,6 +1,79 @@
 ## 变更日志
 
-### 2025-11-27 `✏️ 1+` `➕ 0+` `🗑️ 0+`
+### 2025-11-28 `✏️ 25+` `➕ 9+` `🗑️ 0+`
+- 🔧  **chore** `release`: v0.0.13
+  > **🕒  19:09** · `➕1` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`2c49e410`](https://github.com/TaiAiAc/web/commit/2c49e4100b03c5582a7ed1eacc22f68c26c3ea0f))
+  - ✏️ [`packages/directives/package.json`](https://github.com/TaiAiAc/web/blob/2c49e4100b03c5582a7ed1eacc22f68c26c3ea0f/packages/directives/package.json)
+- 🧹  **optimize** `packages`: 指令优化
+  > **🕒  19:06** · `➕778` / `➖619`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`c91f30f7`](https://github.com/TaiAiAc/web/commit/c91f30f7bc9e6347ce3735ac7f92cc79ff386394))
+  - ➕ [`docs/plugins/directives/components/ClickOutsideDemo.vue`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/components/ClickOutsideDemo.vue)
+  - ➕ [`docs/plugins/directives/components/CopyDemo.vue`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/components/CopyDemo.vue)
+  - ➕ [`docs/plugins/directives/components/DebounceDemo.vue`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/components/DebounceDemo.vue)
+  - ➕ [`docs/plugins/directives/components/EllipsisDemo.vue`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/components/EllipsisDemo.vue)
+  - ➕ [`docs/plugins/directives/components/IntersectingDemo.vue`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/components/IntersectingDemo.vue)
+  - ➕ [`docs/plugins/directives/components/LazyDemo.vue`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/components/LazyDemo.vue)
+  - ➕ [`docs/plugins/directives/components/LoadingDemo.vue`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/components/LoadingDemo.vue)
+  - ➕ [`docs/plugins/directives/components/ThrottleDemo.vue`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/components/ThrottleDemo.vue)
+  - ➕ [`docs/plugins/directives/components/WatermarkDemo.vue`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/components/WatermarkDemo.vue)
+  - ✏️ [`docs/plugins/directives/clickOutside.md`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/clickOutside.md)
+  - ✏️ [`docs/plugins/directives/components/PermissionDemo.vue`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/components/PermissionDemo.vue)
+  - ✏️ [`docs/plugins/directives/copy.md`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/copy.md)
+  - ✏️ [`docs/plugins/directives/debounce.md`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/debounce.md)
+  - ✏️ [`docs/plugins/directives/ellipsis.md`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/ellipsis.md)
+  - ✏️ [`docs/plugins/directives/intersecting.md`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/intersecting.md)
+  - ✏️ [`docs/plugins/directives/lazy.md`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/lazy.md)
+  - ✏️ [`docs/plugins/directives/loading.md`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/loading.md)
+  - ✏️ [`docs/plugins/directives/throttle.md`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/throttle.md)
+  - ✏️ [`docs/plugins/directives/watermark.md`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/watermark.md)
+  - ✏️ [`packages/directives/index.ts`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/packages/directives/index.ts)
+  - ✏️ [`packages/directives/src/clickOutside.ts`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/packages/directives/src/clickOutside.ts)
+  - ✏️ [`packages/directives/src/copy.ts`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/packages/directives/src/copy.ts)
+  - ✏️ [`packages/directives/src/debounce.ts`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/packages/directives/src/debounce.ts)
+  - ✏️ [`packages/directives/src/ellipsis.ts`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/packages/directives/src/ellipsis.ts)
+  - ✏️ [`packages/directives/src/intersecting.ts`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/packages/directives/src/intersecting.ts)
+  - ✏️ [`packages/directives/src/lazy.ts`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/packages/directives/src/lazy.ts)
+  - ✏️ [`packages/directives/src/loading.ts`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/packages/directives/src/loading.ts)
+  - ✏️ [`packages/directives/src/permission.ts`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/packages/directives/src/permission.ts)
+  - ✏️ [`packages/directives/src/throttle.ts`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/packages/directives/src/throttle.ts)
+  - ✏️ [`packages/directives/src/watermark.ts`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/packages/directives/src/watermark.ts)
+  - ✏️ [`packages/utils/src/type-utils.ts`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/packages/utils/src/type-utils.ts)
+- 📝  **docs** `packages`: 指令介绍
+  > **🕒  11:50** · `➕8` / `➖4`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`8e6a5024`](https://github.com/TaiAiAc/web/commit/8e6a5024598b1b03d358a231c176fbffd56f3a54))
+  - ✏️ [`docs/plugins/directives/permission.md`](https://github.com/TaiAiAc/web/blob/8e6a5024598b1b03d358a231c176fbffd56f3a54/docs/plugins/directives/permission.md)
+  - ✏️ [`packages/directives/index.ts`](https://github.com/TaiAiAc/web/blob/8e6a5024598b1b03d358a231c176fbffd56f3a54/packages/directives/index.ts)
+
+### 2025-11-27 `✏️ 19+` `➕ 1+` `🗑️ 0+`
+-  **wip** `packages`: 未完成
+  > **🕒  10:18** · `➕382` / `➖37`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`bb535d81`](https://github.com/TaiAiAc/web/commit/bb535d810cfd4ffa960c564aa4d9e589311356bd))
+  - ➕ [`packages/qvite/src/plugins.ts`](https://github.com/TaiAiAc/web/blob/bb535d810cfd4ffa960c564aa4d9e589311356bd/packages/qvite/src/plugins.ts)
+  - ✏️ [`packages/qvite/cli.ts`](https://github.com/TaiAiAc/web/blob/bb535d810cfd4ffa960c564aa4d9e589311356bd/packages/qvite/cli.ts)
+  - ✏️ [`packages/qvite/index.ts`](https://github.com/TaiAiAc/web/blob/bb535d810cfd4ffa960c564aa4d9e589311356bd/packages/qvite/index.ts)
+  - ✏️ [`packages/qvite/package.json`](https://github.com/TaiAiAc/web/blob/bb535d810cfd4ffa960c564aa4d9e589311356bd/packages/qvite/package.json)
+  - ✏️ [`packages/qvite/src/build.ts`](https://github.com/TaiAiAc/web/blob/bb535d810cfd4ffa960c564aa4d9e589311356bd/packages/qvite/src/build.ts)
+  - ✏️ [`packages/qvite/src/defaults.ts`](https://github.com/TaiAiAc/web/blob/bb535d810cfd4ffa960c564aa4d9e589311356bd/packages/qvite/src/defaults.ts)
+  - ✏️ [`packages/qvite/src/transform.ts`](https://github.com/TaiAiAc/web/blob/bb535d810cfd4ffa960c564aa4d9e589311356bd/packages/qvite/src/transform.ts)
+  - ✏️ [`packages/qvite/src/typings.ts`](https://github.com/TaiAiAc/web/blob/bb535d810cfd4ffa960c564aa4d9e589311356bd/packages/qvite/src/typings.ts)
+  - ✏️ [`packages/qvite/src/watch.ts`](https://github.com/TaiAiAc/web/blob/bb535d810cfd4ffa960c564aa4d9e589311356bd/packages/qvite/src/watch.ts)
+  - ✏️ [`packages/qvite/tsconfig.json`](https://github.com/TaiAiAc/web/blob/bb535d810cfd4ffa960c564aa4d9e589311356bd/packages/qvite/tsconfig.json)
+  - ✏️ [`packages/vite-plugins/package.json`](https://github.com/TaiAiAc/web/blob/bb535d810cfd4ffa960c564aa4d9e589311356bd/packages/vite-plugins/package.json)
+  - ✏️ [`packages/vite-plugins/src/extra.ts`](https://github.com/TaiAiAc/web/blob/bb535d810cfd4ffa960c564aa4d9e589311356bd/packages/vite-plugins/src/extra.ts)
+- ✨  **feat** `release`: 指令完整优化
+  > **🕒  10:11** · `➕193` / `➖83`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`c9c3ca75`](https://github.com/TaiAiAc/web/commit/c9c3ca755c6014b74d2f4a2912981ca4ef46f819))
+  - ✏️ [`CHANGELOG.md`](https://github.com/TaiAiAc/web/blob/c9c3ca755c6014b74d2f4a2912981ca4ef46f819/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/TaiAiAc/web/blob/c9c3ca755c6014b74d2f4a2912981ca4ef46f819/CHANGELOG_TIMELINE.md)
+  - ✏️ [`docs/.vitepress/theme/index.ts`](https://github.com/TaiAiAc/web/blob/c9c3ca755c6014b74d2f4a2912981ca4ef46f819/docs/.vitepress/theme/index.ts)
+  - ✏️ [`docs/plugins/directives/permission.md`](https://github.com/TaiAiAc/web/blob/c9c3ca755c6014b74d2f4a2912981ca4ef46f819/docs/plugins/directives/permission.md)
+  - ✏️ [`pnpm-lock.yaml`](https://github.com/TaiAiAc/web/blob/c9c3ca755c6014b74d2f4a2912981ca4ef46f819/pnpm-lock.yaml)
+- ✨  **feat** `release`: 指令可用！
+  > **🕒  10:10** · `➕254` / `➖271`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`7a0ccba5`](https://github.com/TaiAiAc/web/commit/7a0ccba56d0b385bbd581c9875a421c4c2bf58d2))
+  - ✏️ [`packages/directives/index.ts`](https://github.com/TaiAiAc/web/blob/7a0ccba56d0b385bbd581c9875a421c4c2bf58d2/packages/directives/index.ts)
+  - ✏️ [`packages/directives/src/permission.ts`](https://github.com/TaiAiAc/web/blob/7a0ccba56d0b385bbd581c9875a421c4c2bf58d2/packages/directives/src/permission.ts)
 - 🔧  **chore** `release`: v0.0.12
   > **🕒  10:10** · `➕1` / `➖1`
   > `👤 Quiteer`  <p602985@yeah.net> ([`58e9b7e3`](https://github.com/TaiAiAc/web/commit/58e9b7e32dbe4e6d4223dc38d26dbf9e5965ff7c))

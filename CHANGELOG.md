@@ -1,7 +1,28 @@
 ## 变更日志
 
 ### 其他
-#### 2025-11-27 `✏️ 1+` `➕ 0+` `🗑️ 0+`
+#### 2025-11-28 `✏️ 1+` `➕ 0+` `🗑️ 0+`
+- 🔧  **chore** `release`: v0.0.13
+  > **🕒  19:09** · `➕1` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`2c49e410`](https://github.com/TaiAiAc/web/commit/2c49e4100b03c5582a7ed1eacc22f68c26c3ea0f))
+  - ✏️ [`packages/directives/package.json`](https://github.com/TaiAiAc/web/blob/2c49e4100b03c5582a7ed1eacc22f68c26c3ea0f/packages/directives/package.json)
+
+#### 2025-11-27 `✏️ 12+` `➕ 1+` `🗑️ 0+`
+-  **wip** `packages`: 未完成
+  > **🕒  10:18** · `➕382` / `➖37`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`bb535d81`](https://github.com/TaiAiAc/web/commit/bb535d810cfd4ffa960c564aa4d9e589311356bd))
+  - ➕ [`packages/qvite/src/plugins.ts`](https://github.com/TaiAiAc/web/blob/bb535d810cfd4ffa960c564aa4d9e589311356bd/packages/qvite/src/plugins.ts)
+  - ✏️ [`packages/qvite/cli.ts`](https://github.com/TaiAiAc/web/blob/bb535d810cfd4ffa960c564aa4d9e589311356bd/packages/qvite/cli.ts)
+  - ✏️ [`packages/qvite/index.ts`](https://github.com/TaiAiAc/web/blob/bb535d810cfd4ffa960c564aa4d9e589311356bd/packages/qvite/index.ts)
+  - ✏️ [`packages/qvite/package.json`](https://github.com/TaiAiAc/web/blob/bb535d810cfd4ffa960c564aa4d9e589311356bd/packages/qvite/package.json)
+  - ✏️ [`packages/qvite/src/build.ts`](https://github.com/TaiAiAc/web/blob/bb535d810cfd4ffa960c564aa4d9e589311356bd/packages/qvite/src/build.ts)
+  - ✏️ [`packages/qvite/src/defaults.ts`](https://github.com/TaiAiAc/web/blob/bb535d810cfd4ffa960c564aa4d9e589311356bd/packages/qvite/src/defaults.ts)
+  - ✏️ [`packages/qvite/src/transform.ts`](https://github.com/TaiAiAc/web/blob/bb535d810cfd4ffa960c564aa4d9e589311356bd/packages/qvite/src/transform.ts)
+  - ✏️ [`packages/qvite/src/typings.ts`](https://github.com/TaiAiAc/web/blob/bb535d810cfd4ffa960c564aa4d9e589311356bd/packages/qvite/src/typings.ts)
+  - ✏️ [`packages/qvite/src/watch.ts`](https://github.com/TaiAiAc/web/blob/bb535d810cfd4ffa960c564aa4d9e589311356bd/packages/qvite/src/watch.ts)
+  - ✏️ [`packages/qvite/tsconfig.json`](https://github.com/TaiAiAc/web/blob/bb535d810cfd4ffa960c564aa4d9e589311356bd/packages/qvite/tsconfig.json)
+  - ✏️ [`packages/vite-plugins/package.json`](https://github.com/TaiAiAc/web/blob/bb535d810cfd4ffa960c564aa4d9e589311356bd/packages/vite-plugins/package.json)
+  - ✏️ [`packages/vite-plugins/src/extra.ts`](https://github.com/TaiAiAc/web/blob/bb535d810cfd4ffa960c564aa4d9e589311356bd/packages/vite-plugins/src/extra.ts)
 - 🔧  **chore** `release`: v0.0.12
   > **🕒  10:10** · `➕1` / `➖1`
   > `👤 Quiteer`  <p602985@yeah.net> ([`58e9b7e3`](https://github.com/TaiAiAc/web/commit/58e9b7e32dbe4e6d4223dc38d26dbf9e5965ff7c))
@@ -210,7 +231,274 @@
   - ✏️ [`pnpm-lock.yaml`](https://github.com/TaiAiAc/web/blob/3a9e13397fe92cc5856e727ecae4b7dab09ee818/pnpm-lock.yaml)
   - ✏️ [`pnpm-workspace.yaml`](https://github.com/TaiAiAc/web/blob/3a9e13397fe92cc5856e727ecae4b7dab09ee818/pnpm-workspace.yaml)
 
+### 质量优化
+#### 2025-11-28 `✏️ 22+` `➕ 9+` `🗑️ 0+`
+- 🧹  **optimize** `packages`: 指令优化
+  > **🕒  19:06** · `➕778` / `➖619`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`c91f30f7`](https://github.com/TaiAiAc/web/commit/c91f30f7bc9e6347ce3735ac7f92cc79ff386394))
+  - ➕ [`docs/plugins/directives/components/ClickOutsideDemo.vue`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/components/ClickOutsideDemo.vue)
+  - ➕ [`docs/plugins/directives/components/CopyDemo.vue`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/components/CopyDemo.vue)
+  - ➕ [`docs/plugins/directives/components/DebounceDemo.vue`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/components/DebounceDemo.vue)
+  - ➕ [`docs/plugins/directives/components/EllipsisDemo.vue`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/components/EllipsisDemo.vue)
+  - ➕ [`docs/plugins/directives/components/IntersectingDemo.vue`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/components/IntersectingDemo.vue)
+  - ➕ [`docs/plugins/directives/components/LazyDemo.vue`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/components/LazyDemo.vue)
+  - ➕ [`docs/plugins/directives/components/LoadingDemo.vue`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/components/LoadingDemo.vue)
+  - ➕ [`docs/plugins/directives/components/ThrottleDemo.vue`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/components/ThrottleDemo.vue)
+  - ➕ [`docs/plugins/directives/components/WatermarkDemo.vue`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/components/WatermarkDemo.vue)
+  - ✏️ [`docs/plugins/directives/clickOutside.md`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/clickOutside.md)
+  - ✏️ [`docs/plugins/directives/components/PermissionDemo.vue`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/components/PermissionDemo.vue)
+  - ✏️ [`docs/plugins/directives/copy.md`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/copy.md)
+  - ✏️ [`docs/plugins/directives/debounce.md`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/debounce.md)
+  - ✏️ [`docs/plugins/directives/ellipsis.md`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/ellipsis.md)
+  - ✏️ [`docs/plugins/directives/intersecting.md`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/intersecting.md)
+  - ✏️ [`docs/plugins/directives/lazy.md`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/lazy.md)
+  - ✏️ [`docs/plugins/directives/loading.md`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/loading.md)
+  - ✏️ [`docs/plugins/directives/throttle.md`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/throttle.md)
+  - ✏️ [`docs/plugins/directives/watermark.md`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/docs/plugins/directives/watermark.md)
+  - ✏️ [`packages/directives/index.ts`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/packages/directives/index.ts)
+  - ✏️ [`packages/directives/src/clickOutside.ts`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/packages/directives/src/clickOutside.ts)
+  - ✏️ [`packages/directives/src/copy.ts`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/packages/directives/src/copy.ts)
+  - ✏️ [`packages/directives/src/debounce.ts`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/packages/directives/src/debounce.ts)
+  - ✏️ [`packages/directives/src/ellipsis.ts`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/packages/directives/src/ellipsis.ts)
+  - ✏️ [`packages/directives/src/intersecting.ts`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/packages/directives/src/intersecting.ts)
+  - ✏️ [`packages/directives/src/lazy.ts`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/packages/directives/src/lazy.ts)
+  - ✏️ [`packages/directives/src/loading.ts`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/packages/directives/src/loading.ts)
+  - ✏️ [`packages/directives/src/permission.ts`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/packages/directives/src/permission.ts)
+  - ✏️ [`packages/directives/src/throttle.ts`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/packages/directives/src/throttle.ts)
+  - ✏️ [`packages/directives/src/watermark.ts`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/packages/directives/src/watermark.ts)
+  - ✏️ [`packages/utils/src/type-utils.ts`](https://github.com/TaiAiAc/web/blob/c91f30f7bc9e6347ce3735ac7f92cc79ff386394/packages/utils/src/type-utils.ts)
+
+#### 2025-11-26 `✏️ 1+` `➕ 0+` `🗑️ 0+`
+- 🧹  **optimize** `styles`: demo
+  > **🕒  19:27** · `➕2` / `➖2`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`9d800445`](https://github.com/TaiAiAc/web/commit/9d800445ca7966c9d17183c1a52436f57bf81060))
+  - ✏️ [`docs/plugins/directives/components/PermissionDemo.vue`](https://github.com/TaiAiAc/web/blob/9d800445ca7966c9d17183c1a52436f57bf81060/docs/plugins/directives/components/PermissionDemo.vue)
+
+#### 2025-11-25 `✏️ 8+` `➕ 0+` `🗑️ 0+`
+- 🧹  **optimize** `release`: 类型提示增强
+  > **🕒  18:18** · `➕68` / `➖48`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`08b63d2c`](https://github.com/TaiAiAc/web/commit/08b63d2c99f61f9fad3268402b541f4fa460ade9))
+  - ✏️ [`CHANGELOG.md`](https://github.com/TaiAiAc/web/blob/08b63d2c99f61f9fad3268402b541f4fa460ade9/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/TaiAiAc/web/blob/08b63d2c99f61f9fad3268402b541f4fa460ade9/CHANGELOG_TIMELINE.md)
+  - ✏️ [`packages/directives/index.ts`](https://github.com/TaiAiAc/web/blob/08b63d2c99f61f9fad3268402b541f4fa460ade9/packages/directives/index.ts)
+  - ✏️ [`playground/directives-test/src/main.ts`](https://github.com/TaiAiAc/web/blob/08b63d2c99f61f9fad3268402b541f4fa460ade9/playground/directives-test/src/main.ts)
+- 🧹  **optimize** `release`: 增加类型提示
+  > **🕒  17:52** · `➕49` / `➖5`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`65169683`](https://github.com/TaiAiAc/web/commit/65169683b45899ec9dffa74ccd030956214f751e))
+  - ✏️ [`CHANGELOG.md`](https://github.com/TaiAiAc/web/blob/65169683b45899ec9dffa74ccd030956214f751e/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/TaiAiAc/web/blob/65169683b45899ec9dffa74ccd030956214f751e/CHANGELOG_TIMELINE.md)
+  - ✏️ [`packages/directives/index.ts`](https://github.com/TaiAiAc/web/blob/65169683b45899ec9dffa74ccd030956214f751e/packages/directives/index.ts)
+  - ✏️ [`playground/directives-test/src/App.vue`](https://github.com/TaiAiAc/web/blob/65169683b45899ec9dffa74ccd030956214f751e/playground/directives-test/src/App.vue)
+
+#### 2025-11-24 `✏️ 3+` `➕ 0+` `🗑️ 1+`
+- 🧹  **optimize** `packages`: axios 类型优化
+  > **🕒  10:56** · `➕95` / `➖64`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`fb9715e0`](https://github.com/TaiAiAc/web/commit/fb9715e08f86b39f4cbb4fc8f59ff201d396455a))
+  - ✏️ [`packages/axios/src/index.ts`](https://github.com/TaiAiAc/web/blob/fb9715e08f86b39f4cbb4fc8f59ff201d396455a/packages/axios/src/index.ts)
+  - ✏️ [`packages/axios/src/methods.ts`](https://github.com/TaiAiAc/web/blob/fb9715e08f86b39f4cbb4fc8f59ff201d396455a/packages/axios/src/methods.ts)
+  - ✏️ [`packages/axios/src/types.ts`](https://github.com/TaiAiAc/web/blob/fb9715e08f86b39f4cbb4fc8f59ff201d396455a/packages/axios/src/types.ts)
+  - 🗑️ [~~`packages/axios/src/env.ts`~~](https://github.com/TaiAiAc/web/commit/fb9715e08f86b39f4cbb4fc8f59ff201d396455a)
+
+### 文档
+#### 2025-11-28 `✏️ 2+` `➕ 0+` `🗑️ 0+`
+- 📝  **docs** `packages`: 指令介绍
+  > **🕒  11:50** · `➕8` / `➖4`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`8e6a5024`](https://github.com/TaiAiAc/web/commit/8e6a5024598b1b03d358a231c176fbffd56f3a54))
+  - ✏️ [`docs/plugins/directives/permission.md`](https://github.com/TaiAiAc/web/blob/8e6a5024598b1b03d358a231c176fbffd56f3a54/docs/plugins/directives/permission.md)
+  - ✏️ [`packages/directives/index.ts`](https://github.com/TaiAiAc/web/blob/8e6a5024598b1b03d358a231c176fbffd56f3a54/packages/directives/index.ts)
+
+#### 2025-11-25 `✏️ 2+` `➕ 0+` `🗑️ 0+`
+- 📝  **docs** `release`: 发包
+  > **🕒  16:20** · `➕292` / `➖132`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`a6e19557`](https://github.com/TaiAiAc/web/commit/a6e19557af2406c738d5c803faf94176217d6cf8))
+  - ✏️ [`CHANGELOG.md`](https://github.com/TaiAiAc/web/blob/a6e19557af2406c738d5c803faf94176217d6cf8/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/TaiAiAc/web/blob/a6e19557af2406c738d5c803faf94176217d6cf8/CHANGELOG_TIMELINE.md)
+
+#### 2025-11-24 `✏️ 15+` `➕ 3+` `🗑️ 0+`
+- 📝  **docs** `packages`: 更新utils文档介绍
+  > **🕒  18:07** · `➕169` / `➖107`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`eb905552`](https://github.com/TaiAiAc/web/commit/eb905552035db032d1f076f9251dc3fe698f9222))
+  - ➕ [`docs/plugins/utils/random.md`](https://github.com/TaiAiAc/web/blob/eb905552035db032d1f076f9251dc3fe698f9222/docs/plugins/utils/random.md)
+  - ➕ [`docs/plugins/utils/time.md`](https://github.com/TaiAiAc/web/blob/eb905552035db032d1f076f9251dc3fe698f9222/docs/plugins/utils/time.md)
+  - ➕ [`packages/utils/README.md`](https://github.com/TaiAiAc/web/blob/eb905552035db032d1f076f9251dc3fe698f9222/packages/utils/README.md)
+  - ✏️ [`.trae/rules/project_rules.md`](https://github.com/TaiAiAc/web/blob/eb905552035db032d1f076f9251dc3fe698f9222/.trae/rules/project_rules.md)
+  - ✏️ [`docs/.vitepress/config.ts`](https://github.com/TaiAiAc/web/blob/eb905552035db032d1f076f9251dc3fe698f9222/docs/.vitepress/config.ts)
+  - ✏️ [`docs/plugins/utils/array.md`](https://github.com/TaiAiAc/web/blob/eb905552035db032d1f076f9251dc3fe698f9222/docs/plugins/utils/array.md)
+  - ✏️ [`docs/plugins/utils/classer.md`](https://github.com/TaiAiAc/web/blob/eb905552035db032d1f076f9251dc3fe698f9222/docs/plugins/utils/classer.md)
+  - ✏️ [`docs/plugins/utils/function.md`](https://github.com/TaiAiAc/web/blob/eb905552035db032d1f076f9251dc3fe698f9222/docs/plugins/utils/function.md)
+  - ✏️ [`docs/plugins/utils/index.md`](https://github.com/TaiAiAc/web/blob/eb905552035db032d1f076f9251dc3fe698f9222/docs/plugins/utils/index.md)
+  - ✏️ [`docs/plugins/utils/number.md`](https://github.com/TaiAiAc/web/blob/eb905552035db032d1f076f9251dc3fe698f9222/docs/plugins/utils/number.md)
+  - ✏️ [`docs/plugins/utils/type-utils.md`](https://github.com/TaiAiAc/web/blob/eb905552035db032d1f076f9251dc3fe698f9222/docs/plugins/utils/type-utils.md)
+- 📝  **docs** `packages`: utils发布
+  > **🕒  17:59** · `➕330` / `➖230`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`94a30252`](https://github.com/TaiAiAc/web/commit/94a302524d002180f4ccdb6d0396cf87235371e2))
+  - ✏️ [`CHANGELOG.md`](https://github.com/TaiAiAc/web/blob/94a302524d002180f4ccdb6d0396cf87235371e2/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/TaiAiAc/web/blob/94a302524d002180f4ccdb6d0396cf87235371e2/CHANGELOG_TIMELINE.md)
+- 📝  **docs** `packages`: 配置文件的说明
+  > **🕒  14:46** · `➕83` / `➖11`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`c6e8438a`](https://github.com/TaiAiAc/web/commit/c6e8438af104e0f282c7cf9091415681c7b7e66e))
+  - ✏️ [`docs/ci/scripts.md`](https://github.com/TaiAiAc/web/blob/c6e8438af104e0f282c7cf9091415681c7b7e66e/docs/ci/scripts.md)
+  - ✏️ [`packages/quieter/1.md`](https://github.com/TaiAiAc/web/blob/c6e8438af104e0f282c7cf9091415681c7b7e66e/packages/quieter/1.md)
+  - ✏️ [`scripts/src/commands/release.ts`](https://github.com/TaiAiAc/web/blob/c6e8438af104e0f282c7cf9091415681c7b7e66e/scripts/src/commands/release.ts)
+- 📝  **docs** `projects`: changelog
+  > **🕒  11:06** · `➕3560` / `➖0`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`7ed49f19`](https://github.com/TaiAiAc/web/commit/7ed49f198620e5212be6034215570a150512f0f8))
+  - ✏️ [`CHANGELOG.md`](https://github.com/TaiAiAc/web/blob/7ed49f198620e5212be6034215570a150512f0f8/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/TaiAiAc/web/blob/7ed49f198620e5212be6034215570a150512f0f8/CHANGELOG_TIMELINE.md)
+
+#### 2025-11-22 `✏️ 3+` `➕ 0+` `🗑️ 0+`
+- 📝  **docs** `packages`: 更新说明
+  > **🕒  11:58** · `➕1779` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`b121351a`](https://github.com/TaiAiAc/web/commit/b121351aa7a8e44c4564c7b79800ae1479b65514))
+  - ✏️ [`CHANGELOG.md`](https://github.com/TaiAiAc/web/blob/b121351aa7a8e44c4564c7b79800ae1479b65514/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/TaiAiAc/web/blob/b121351aa7a8e44c4564c7b79800ae1479b65514/CHANGELOG_TIMELINE.md)
+  - ✏️ [`docs/ci/scripts.md`](https://github.com/TaiAiAc/web/blob/b121351aa7a8e44c4564c7b79800ae1479b65514/docs/ci/scripts.md)
+
+#### 2025-11-21 `✏️ 2+` `➕ 2+` `🗑️ 0+`
+- 📝  **docs** `projects`: changelog
+  > **🕒  12:44** · `➕39` / `➖0`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`655d138c`](https://github.com/TaiAiAc/web/commit/655d138cf92b3ec297319f3878470f80c6518986))
+  - ➕ [`CHANGELOG.md`](https://github.com/TaiAiAc/web/blob/655d138cf92b3ec297319f3878470f80c6518986/CHANGELOG.md)
+  - ➕ [`CHANGELOG_TIMELINE.md`](https://github.com/TaiAiAc/web/blob/655d138cf92b3ec297319f3878470f80c6518986/CHANGELOG_TIMELINE.md)
+- 📝  **docs** `changelog`: update
+  > **🕒  11:07** · `➕41` / `➖0`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`5dbf5d1e`](https://github.com/TaiAiAc/web/commit/5dbf5d1e3970bea7aa6138169d78a189a3e19236))
+  - ✏️ [`CHANGELOG.md`](https://github.com/TaiAiAc/web/blob/5dbf5d1e3970bea7aa6138169d78a189a3e19236/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/TaiAiAc/web/blob/5dbf5d1e3970bea7aa6138169d78a189a3e19236/CHANGELOG_TIMELINE.md)
+
+#### 2025-11-19 `✏️ 2+` `➕ 2+` `🗑️ 0+`
+- 📝  **docs** `other`: 添加文档
+  > **🕒  21:40** · `➕144` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`a9ecb75a`](https://github.com/TaiAiAc/web/commit/a9ecb75ac4bac87e63731a00466802bc1cc3454f))
+  - ➕ [`docs/ci/index.md`](https://github.com/TaiAiAc/web/blob/a9ecb75ac4bac87e63731a00466802bc1cc3454f/docs/ci/index.md)
+  - ➕ [`docs/ci/scripts.md`](https://github.com/TaiAiAc/web/blob/a9ecb75ac4bac87e63731a00466802bc1cc3454f/docs/ci/scripts.md)
+  - ✏️ [`README.md`](https://github.com/TaiAiAc/web/blob/a9ecb75ac4bac87e63731a00466802bc1cc3454f/README.md)
+  - ✏️ [`docs/.vitepress/config.ts`](https://github.com/TaiAiAc/web/blob/a9ecb75ac4bac87e63731a00466802bc1cc3454f/docs/.vitepress/config.ts)
+
+#### 2025-11-18 `✏️ 60+` `➕ 0+` `🗑️ 0+`
+- 📝  **docs** `packages`: 项目架构调整
+  > **🕒  11:19** · `➕134` / `➖60`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`9f67fb70`](https://github.com/TaiAiAc/web/commit/9f67fb70636d8d29631ee6089826292dc271d6f6))
+  - ✏️ [`.github/workflows/deploy.yml`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/.github/workflows/deploy.yml)
+  - ✏️ [`.gitignore`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/.gitignore)
+  - ✏️ [`.vitepress/config.ts`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/.vitepress/config.ts)
+  - ✏️ [`.vitepress/theme/index.ts`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/.vitepress/theme/index.ts)
+  - ✏️ [`src/about/index.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/about/index.md)
+  - ✏️ [`src/index.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/index.md)
+  - ✏️ [`src/introduce/introduction.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/introduce/introduction.md)
+  - ✏️ [`src/introduce/project.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/introduce/project.md)
+  - ✏️ [`src/plugins/axios/index.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/axios/index.md)
+  - ✏️ [`src/plugins/box/components/BaseDemo.vue`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/box/components/BaseDemo.vue)
+  - ✏️ [`src/plugins/box/index.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/box/index.md)
+  - ✏️ [`src/plugins/directives/clickOutside.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/directives/clickOutside.md)
+  - ✏️ [`src/plugins/directives/components/PermissionDemo.vue`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/directives/components/PermissionDemo.vue)
+  - ✏️ [`src/plugins/directives/copy.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/directives/copy.md)
+  - ✏️ [`src/plugins/directives/debounce.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/directives/debounce.md)
+  - ✏️ [`src/plugins/directives/ellipsis.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/directives/ellipsis.md)
+  - ✏️ [`src/plugins/directives/index.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/directives/index.md)
+  - ✏️ [`src/plugins/directives/intersecting.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/directives/intersecting.md)
+  - ✏️ [`src/plugins/directives/lazy.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/directives/lazy.md)
+  - ✏️ [`src/plugins/directives/loading.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/directives/loading.md)
+  - ✏️ [`src/plugins/directives/permission.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/directives/permission.md)
+  - ✏️ [`src/plugins/directives/throttle.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/directives/throttle.md)
+  - ✏️ [`src/plugins/directives/watermark.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/directives/watermark.md)
+  - ✏️ [`src/plugins/index.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/index.md)
+  - ✏️ [`src/plugins/is.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/is.md)
+  - ✏️ [`src/plugins/naive-extra/QuiForm.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/naive-extra/QuiForm.md)
+  - ✏️ [`src/plugins/naive-extra/QuiLayout.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/naive-extra/QuiLayout.md)
+  - ✏️ [`src/plugins/naive-extra/QuiTable.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/naive-extra/QuiTable.md)
+  - ✏️ [`src/plugins/naive-extra/QuiUpload.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/naive-extra/QuiUpload.md)
+  - ✏️ [`src/plugins/naive-extra/components/AllDemo.vue`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/naive-extra/components/AllDemo.vue)
+  - ✏️ [`src/plugins/naive-extra/components/Demo.vue`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/naive-extra/components/Demo.vue)
+  - ✏️ [`src/plugins/naive-extra/components/FormDemo.vue`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/naive-extra/components/FormDemo.vue)
+  - ✏️ [`src/plugins/naive-extra/components/TableDemo.vue`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/naive-extra/components/TableDemo.vue)
+  - ✏️ [`src/plugins/naive-extra/components/UploadDemo.vue`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/naive-extra/components/UploadDemo.vue)
+  - ✏️ [`src/plugins/naive-extra/index.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/naive-extra/index.md)
+  - ✏️ [`src/plugins/unocss/index.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/unocss/index.md)
+  - ✏️ [`src/plugins/utils/array.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/utils/array.md)
+  - ✏️ [`src/plugins/utils/classer.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/utils/classer.md)
+  - ✏️ [`src/plugins/utils/function.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/utils/function.md)
+  - ✏️ [`src/plugins/utils/index.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/utils/index.md)
+  - ✏️ [`src/plugins/utils/number.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/utils/number.md)
+  - ✏️ [`src/plugins/utils/object.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/utils/object.md)
+  - ✏️ [`src/plugins/utils/string.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/utils/string.md)
+  - ✏️ [`src/plugins/utils/type-utils.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/utils/type-utils.md)
+  - ✏️ [`src/plugins/vite-plugin/env-types.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/vite-plugin/env-types.md)
+  - ✏️ [`src/plugins/vite-plugin/file-change-logger.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/vite-plugin/file-change-logger.md)
+  - ✏️ [`src/plugins/vite-plugin/index.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/vite-plugin/index.md)
+  - ✏️ [`src/plugins/vite-plugin/mock-router.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/vite-plugin/mock-router.md)
+  - ✏️ [`src/plugins/vite-plugin/progress.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/vite-plugin/progress.md)
+  - ✏️ [`src/plugins/vite-plugin/remove-console.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/vite-plugin/remove-console.md)
+  - ✏️ [`src/public/favicon.ico`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/public/favicon.ico)
+  - ✏️ [`src/public/home.png`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/public/home.png)
+  - ✏️ [`src/public/quiteer.jpg`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/public/quiteer.jpg)
+  - ✏️ [`package.json`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/package.json)
+  - ✏️ [`packages/naive-extra/src/form/index.vue`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/packages/naive-extra/src/form/index.vue)
+  - ✏️ [`packages/naive-extra/src/table/TableSetting.vue`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/packages/naive-extra/src/table/TableSetting.vue)
+  - ✏️ [`playground/naive-extra-test/src/App.vue`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/playground/naive-extra-test/src/App.vue)
+  - ✏️ [`playground/naive-extra-test/src/components/FormDemo.vue`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/playground/naive-extra-test/src/components/FormDemo.vue)
+  - ✏️ [`playground/naive-extra-test/src/components/TableDemo.vue`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/playground/naive-extra-test/src/components/TableDemo.vue)
+  - ✏️ [`pnpm-workspace.yaml`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/pnpm-workspace.yaml)
+
+#### 2025-11-14 `✏️ 8+` `➕ 2+` `🗑️ 0+`
+- 📝  **docs** `projects`: 项目介绍
+  > **🕒  19:41** · `➕323` / `➖11`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`b5501674`](https://github.com/TaiAiAc/web/commit/b5501674f51d1e71b2dc199fb0dca219de330bcd))
+  - ➕ [`src/plugins/unocss/index.md`](https://github.com/TaiAiAc/web/blob/b5501674f51d1e71b2dc199fb0dca219de330bcd/src/plugins/unocss/index.md)
+  - ➕ [`src/plugins/utils/classer.md`](https://github.com/TaiAiAc/web/blob/b5501674f51d1e71b2dc199fb0dca219de330bcd/src/plugins/utils/classer.md)
+  - ✏️ [`src/index.md`](https://github.com/TaiAiAc/web/blob/b5501674f51d1e71b2dc199fb0dca219de330bcd/src/index.md)
+  - ✏️ [`src/introduce/introduction.md`](https://github.com/TaiAiAc/web/blob/b5501674f51d1e71b2dc199fb0dca219de330bcd/src/introduce/introduction.md)
+  - ✏️ [`src/introduce/project.md`](https://github.com/TaiAiAc/web/blob/b5501674f51d1e71b2dc199fb0dca219de330bcd/src/introduce/project.md)
+  - ✏️ [`src/plugins/box/index.md`](https://github.com/TaiAiAc/web/blob/b5501674f51d1e71b2dc199fb0dca219de330bcd/src/plugins/box/index.md)
+  - ✏️ [`src/plugins/directives/index.md`](https://github.com/TaiAiAc/web/blob/b5501674f51d1e71b2dc199fb0dca219de330bcd/src/plugins/directives/index.md)
+  - ✏️ [`src/plugins/index.md`](https://github.com/TaiAiAc/web/blob/b5501674f51d1e71b2dc199fb0dca219de330bcd/src/plugins/index.md)
+  - ✏️ [`src/plugins/is.md`](https://github.com/TaiAiAc/web/blob/b5501674f51d1e71b2dc199fb0dca219de330bcd/src/plugins/is.md)
+  - ✏️ [`src/plugins/vite-plugin/index.md`](https://github.com/TaiAiAc/web/blob/b5501674f51d1e71b2dc199fb0dca219de330bcd/src/plugins/vite-plugin/index.md)
+
+#### 2025-11-12 `✏️ 12+` `➕ 7+` `🗑️ 1+`
+- 📝  **docs** `packages`: utils说明
+  > **🕒  18:54** · `➕584` / `➖19`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`ef74cf82`](https://github.com/TaiAiAc/web/commit/ef74cf82ff9d4b76b9e9ac8d970511502ea57dfb))
+  - ➕ [`src/plugins/utils/array.md`](https://github.com/TaiAiAc/web/blob/ef74cf82ff9d4b76b9e9ac8d970511502ea57dfb/src/plugins/utils/array.md)
+  - ➕ [`src/plugins/utils/function.md`](https://github.com/TaiAiAc/web/blob/ef74cf82ff9d4b76b9e9ac8d970511502ea57dfb/src/plugins/utils/function.md)
+  - ➕ [`src/plugins/utils/index.md`](https://github.com/TaiAiAc/web/blob/ef74cf82ff9d4b76b9e9ac8d970511502ea57dfb/src/plugins/utils/index.md)
+  - ➕ [`src/plugins/utils/number.md`](https://github.com/TaiAiAc/web/blob/ef74cf82ff9d4b76b9e9ac8d970511502ea57dfb/src/plugins/utils/number.md)
+  - ➕ [`src/plugins/utils/object.md`](https://github.com/TaiAiAc/web/blob/ef74cf82ff9d4b76b9e9ac8d970511502ea57dfb/src/plugins/utils/object.md)
+  - ➕ [`src/plugins/utils/string.md`](https://github.com/TaiAiAc/web/blob/ef74cf82ff9d4b76b9e9ac8d970511502ea57dfb/src/plugins/utils/string.md)
+  - ➕ [`src/plugins/utils/type-utils.md`](https://github.com/TaiAiAc/web/blob/ef74cf82ff9d4b76b9e9ac8d970511502ea57dfb/src/plugins/utils/type-utils.md)
+  - ✏️ [`.vitepress/config.ts`](https://github.com/TaiAiAc/web/blob/ef74cf82ff9d4b76b9e9ac8d970511502ea57dfb/.vitepress/config.ts)
+  - ✏️ [`package.json`](https://github.com/TaiAiAc/web/blob/ef74cf82ff9d4b76b9e9ac8d970511502ea57dfb/package.json)
+  - ✏️ [`pnpm-lock.yaml`](https://github.com/TaiAiAc/web/blob/ef74cf82ff9d4b76b9e9ac8d970511502ea57dfb/pnpm-lock.yaml)
+  - ✏️ [`src/plugins/utils.md`](https://github.com/TaiAiAc/web/blob/ef74cf82ff9d4b76b9e9ac8d970511502ea57dfb/src/plugins/utils.md)
+  - 🗑️ [~~`src/plugins/vite-plugin.md`~~](https://github.com/TaiAiAc/web/commit/ef74cf82ff9d4b76b9e9ac8d970511502ea57dfb)
+- 📝  **docs** `packages`: 添加homepage
+  > **🕒  08:54** · `➕8` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`f84c3552`](https://github.com/TaiAiAc/web/commit/f84c35529b5c69a7ddecdb7b1be4888c7a0b0452))
+  - ✏️ [`packages/axios/package.json`](https://github.com/TaiAiAc/web/blob/f84c35529b5c69a7ddecdb7b1be4888c7a0b0452/packages/axios/package.json)
+  - ✏️ [`packages/directives/package.json`](https://github.com/TaiAiAc/web/blob/f84c35529b5c69a7ddecdb7b1be4888c7a0b0452/packages/directives/package.json)
+  - ✏️ [`packages/fetch/package.json`](https://github.com/TaiAiAc/web/blob/f84c35529b5c69a7ddecdb7b1be4888c7a0b0452/packages/fetch/package.json)
+  - ✏️ [`packages/is/package.json`](https://github.com/TaiAiAc/web/blob/f84c35529b5c69a7ddecdb7b1be4888c7a0b0452/packages/is/package.json)
+  - ✏️ [`packages/naive-extra/package.json`](https://github.com/TaiAiAc/web/blob/f84c35529b5c69a7ddecdb7b1be4888c7a0b0452/packages/naive-extra/package.json)
+  - ✏️ [`packages/unocss/package.json`](https://github.com/TaiAiAc/web/blob/f84c35529b5c69a7ddecdb7b1be4888c7a0b0452/packages/unocss/package.json)
+  - ✏️ [`packages/utils/package.json`](https://github.com/TaiAiAc/web/blob/f84c35529b5c69a7ddecdb7b1be4888c7a0b0452/packages/utils/package.json)
+  - ✏️ [`packages/vite-plugins/package.json`](https://github.com/TaiAiAc/web/blob/f84c35529b5c69a7ddecdb7b1be4888c7a0b0452/packages/vite-plugins/package.json)
+
 ### 新功能
+#### 2025-11-27 `✏️ 7+` `➕ 0+` `🗑️ 0+`
+- ✨  **feat** `release`: 指令完整优化
+  > **🕒  10:11** · `➕193` / `➖83`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`c9c3ca75`](https://github.com/TaiAiAc/web/commit/c9c3ca755c6014b74d2f4a2912981ca4ef46f819))
+  - ✏️ [`CHANGELOG.md`](https://github.com/TaiAiAc/web/blob/c9c3ca755c6014b74d2f4a2912981ca4ef46f819/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/TaiAiAc/web/blob/c9c3ca755c6014b74d2f4a2912981ca4ef46f819/CHANGELOG_TIMELINE.md)
+  - ✏️ [`docs/.vitepress/theme/index.ts`](https://github.com/TaiAiAc/web/blob/c9c3ca755c6014b74d2f4a2912981ca4ef46f819/docs/.vitepress/theme/index.ts)
+  - ✏️ [`docs/plugins/directives/permission.md`](https://github.com/TaiAiAc/web/blob/c9c3ca755c6014b74d2f4a2912981ca4ef46f819/docs/plugins/directives/permission.md)
+  - ✏️ [`pnpm-lock.yaml`](https://github.com/TaiAiAc/web/blob/c9c3ca755c6014b74d2f4a2912981ca4ef46f819/pnpm-lock.yaml)
+- ✨  **feat** `release`: 指令可用！
+  > **🕒  10:10** · `➕254` / `➖271`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`7a0ccba5`](https://github.com/TaiAiAc/web/commit/7a0ccba56d0b385bbd581c9875a421c4c2bf58d2))
+  - ✏️ [`packages/directives/index.ts`](https://github.com/TaiAiAc/web/blob/7a0ccba56d0b385bbd581c9875a421c4c2bf58d2/packages/directives/index.ts)
+  - ✏️ [`packages/directives/src/permission.ts`](https://github.com/TaiAiAc/web/blob/7a0ccba56d0b385bbd581c9875a421c4c2bf58d2/packages/directives/src/permission.ts)
+
 #### 2025-11-26 `✏️ 6+` `➕ 0+` `🗑️ 0+`
 - ✨  **feat** `release`: 权限指令增强
   > **🕒  19:44** · `➕54` / `➖2`
@@ -733,38 +1021,6 @@
   - ➕ [`src/style.css`](https://github.com/TaiAiAc/web/blob/335614a93074230d8c0b59573f43ff0a3be4e81f/src/style.css)
   - ➕ [`tsconfig.json`](https://github.com/TaiAiAc/web/blob/335614a93074230d8c0b59573f43ff0a3be4e81f/tsconfig.json)
 
-### 质量优化
-#### 2025-11-26 `✏️ 1+` `➕ 0+` `🗑️ 0+`
-- 🧹  **optimize** `styles`: demo
-  > **🕒  19:27** · `➕2` / `➖2`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`9d800445`](https://github.com/TaiAiAc/web/commit/9d800445ca7966c9d17183c1a52436f57bf81060))
-  - ✏️ [`docs/plugins/directives/components/PermissionDemo.vue`](https://github.com/TaiAiAc/web/blob/9d800445ca7966c9d17183c1a52436f57bf81060/docs/plugins/directives/components/PermissionDemo.vue)
-
-#### 2025-11-25 `✏️ 8+` `➕ 0+` `🗑️ 0+`
-- 🧹  **optimize** `release`: 类型提示增强
-  > **🕒  18:18** · `➕68` / `➖48`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`08b63d2c`](https://github.com/TaiAiAc/web/commit/08b63d2c99f61f9fad3268402b541f4fa460ade9))
-  - ✏️ [`CHANGELOG.md`](https://github.com/TaiAiAc/web/blob/08b63d2c99f61f9fad3268402b541f4fa460ade9/CHANGELOG.md)
-  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/TaiAiAc/web/blob/08b63d2c99f61f9fad3268402b541f4fa460ade9/CHANGELOG_TIMELINE.md)
-  - ✏️ [`packages/directives/index.ts`](https://github.com/TaiAiAc/web/blob/08b63d2c99f61f9fad3268402b541f4fa460ade9/packages/directives/index.ts)
-  - ✏️ [`playground/directives-test/src/main.ts`](https://github.com/TaiAiAc/web/blob/08b63d2c99f61f9fad3268402b541f4fa460ade9/playground/directives-test/src/main.ts)
-- 🧹  **optimize** `release`: 增加类型提示
-  > **🕒  17:52** · `➕49` / `➖5`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`65169683`](https://github.com/TaiAiAc/web/commit/65169683b45899ec9dffa74ccd030956214f751e))
-  - ✏️ [`CHANGELOG.md`](https://github.com/TaiAiAc/web/blob/65169683b45899ec9dffa74ccd030956214f751e/CHANGELOG.md)
-  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/TaiAiAc/web/blob/65169683b45899ec9dffa74ccd030956214f751e/CHANGELOG_TIMELINE.md)
-  - ✏️ [`packages/directives/index.ts`](https://github.com/TaiAiAc/web/blob/65169683b45899ec9dffa74ccd030956214f751e/packages/directives/index.ts)
-  - ✏️ [`playground/directives-test/src/App.vue`](https://github.com/TaiAiAc/web/blob/65169683b45899ec9dffa74ccd030956214f751e/playground/directives-test/src/App.vue)
-
-#### 2025-11-24 `✏️ 3+` `➕ 0+` `🗑️ 1+`
-- 🧹  **optimize** `packages`: axios 类型优化
-  > **🕒  10:56** · `➕95` / `➖64`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`fb9715e0`](https://github.com/TaiAiAc/web/commit/fb9715e08f86b39f4cbb4fc8f59ff201d396455a))
-  - ✏️ [`packages/axios/src/index.ts`](https://github.com/TaiAiAc/web/blob/fb9715e08f86b39f4cbb4fc8f59ff201d396455a/packages/axios/src/index.ts)
-  - ✏️ [`packages/axios/src/methods.ts`](https://github.com/TaiAiAc/web/blob/fb9715e08f86b39f4cbb4fc8f59ff201d396455a/packages/axios/src/methods.ts)
-  - ✏️ [`packages/axios/src/types.ts`](https://github.com/TaiAiAc/web/blob/fb9715e08f86b39f4cbb4fc8f59ff201d396455a/packages/axios/src/types.ts)
-  - 🗑️ [~~`packages/axios/src/env.ts`~~](https://github.com/TaiAiAc/web/commit/fb9715e08f86b39f4cbb4fc8f59ff201d396455a)
-
 ### 修复
 #### 2025-11-25 `✏️ 6+` `➕ 0+` `🗑️ 0+`
 - 🐛  **fix** `deps`: 修改构建配置
@@ -884,183 +1140,6 @@
   - ➕ [`packages/utils/src/index.ts`](https://github.com/TaiAiAc/web/blob/df3d53b727099f04860a1a82f7c6c051e2b63327/packages/utils/src/index.ts)
   - ✏️ [`.github/workflows/deploy.yml`](https://github.com/TaiAiAc/web/blob/df3d53b727099f04860a1a82f7c6c051e2b63327/.github/workflows/deploy.yml)
   - ✏️ [`packages/naive-extra/src/upload/index.ts`](https://github.com/TaiAiAc/web/blob/df3d53b727099f04860a1a82f7c6c051e2b63327/packages/naive-extra/src/upload/index.ts)
-
-### 文档
-#### 2025-11-25 `✏️ 2+` `➕ 0+` `🗑️ 0+`
-- 📝  **docs** `release`: 发包
-  > **🕒  16:20** · `➕292` / `➖132`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`a6e19557`](https://github.com/TaiAiAc/web/commit/a6e19557af2406c738d5c803faf94176217d6cf8))
-  - ✏️ [`CHANGELOG.md`](https://github.com/TaiAiAc/web/blob/a6e19557af2406c738d5c803faf94176217d6cf8/CHANGELOG.md)
-  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/TaiAiAc/web/blob/a6e19557af2406c738d5c803faf94176217d6cf8/CHANGELOG_TIMELINE.md)
-
-#### 2025-11-24 `✏️ 15+` `➕ 3+` `🗑️ 0+`
-- 📝  **docs** `packages`: 更新utils文档介绍
-  > **🕒  18:07** · `➕169` / `➖107`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`eb905552`](https://github.com/TaiAiAc/web/commit/eb905552035db032d1f076f9251dc3fe698f9222))
-  - ➕ [`docs/plugins/utils/random.md`](https://github.com/TaiAiAc/web/blob/eb905552035db032d1f076f9251dc3fe698f9222/docs/plugins/utils/random.md)
-  - ➕ [`docs/plugins/utils/time.md`](https://github.com/TaiAiAc/web/blob/eb905552035db032d1f076f9251dc3fe698f9222/docs/plugins/utils/time.md)
-  - ➕ [`packages/utils/README.md`](https://github.com/TaiAiAc/web/blob/eb905552035db032d1f076f9251dc3fe698f9222/packages/utils/README.md)
-  - ✏️ [`.trae/rules/project_rules.md`](https://github.com/TaiAiAc/web/blob/eb905552035db032d1f076f9251dc3fe698f9222/.trae/rules/project_rules.md)
-  - ✏️ [`docs/.vitepress/config.ts`](https://github.com/TaiAiAc/web/blob/eb905552035db032d1f076f9251dc3fe698f9222/docs/.vitepress/config.ts)
-  - ✏️ [`docs/plugins/utils/array.md`](https://github.com/TaiAiAc/web/blob/eb905552035db032d1f076f9251dc3fe698f9222/docs/plugins/utils/array.md)
-  - ✏️ [`docs/plugins/utils/classer.md`](https://github.com/TaiAiAc/web/blob/eb905552035db032d1f076f9251dc3fe698f9222/docs/plugins/utils/classer.md)
-  - ✏️ [`docs/plugins/utils/function.md`](https://github.com/TaiAiAc/web/blob/eb905552035db032d1f076f9251dc3fe698f9222/docs/plugins/utils/function.md)
-  - ✏️ [`docs/plugins/utils/index.md`](https://github.com/TaiAiAc/web/blob/eb905552035db032d1f076f9251dc3fe698f9222/docs/plugins/utils/index.md)
-  - ✏️ [`docs/plugins/utils/number.md`](https://github.com/TaiAiAc/web/blob/eb905552035db032d1f076f9251dc3fe698f9222/docs/plugins/utils/number.md)
-  - ✏️ [`docs/plugins/utils/type-utils.md`](https://github.com/TaiAiAc/web/blob/eb905552035db032d1f076f9251dc3fe698f9222/docs/plugins/utils/type-utils.md)
-- 📝  **docs** `packages`: utils发布
-  > **🕒  17:59** · `➕330` / `➖230`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`94a30252`](https://github.com/TaiAiAc/web/commit/94a302524d002180f4ccdb6d0396cf87235371e2))
-  - ✏️ [`CHANGELOG.md`](https://github.com/TaiAiAc/web/blob/94a302524d002180f4ccdb6d0396cf87235371e2/CHANGELOG.md)
-  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/TaiAiAc/web/blob/94a302524d002180f4ccdb6d0396cf87235371e2/CHANGELOG_TIMELINE.md)
-- 📝  **docs** `packages`: 配置文件的说明
-  > **🕒  14:46** · `➕83` / `➖11`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`c6e8438a`](https://github.com/TaiAiAc/web/commit/c6e8438af104e0f282c7cf9091415681c7b7e66e))
-  - ✏️ [`docs/ci/scripts.md`](https://github.com/TaiAiAc/web/blob/c6e8438af104e0f282c7cf9091415681c7b7e66e/docs/ci/scripts.md)
-  - ✏️ [`packages/quieter/1.md`](https://github.com/TaiAiAc/web/blob/c6e8438af104e0f282c7cf9091415681c7b7e66e/packages/quieter/1.md)
-  - ✏️ [`scripts/src/commands/release.ts`](https://github.com/TaiAiAc/web/blob/c6e8438af104e0f282c7cf9091415681c7b7e66e/scripts/src/commands/release.ts)
-- 📝  **docs** `projects`: changelog
-  > **🕒  11:06** · `➕3560` / `➖0`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`7ed49f19`](https://github.com/TaiAiAc/web/commit/7ed49f198620e5212be6034215570a150512f0f8))
-  - ✏️ [`CHANGELOG.md`](https://github.com/TaiAiAc/web/blob/7ed49f198620e5212be6034215570a150512f0f8/CHANGELOG.md)
-  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/TaiAiAc/web/blob/7ed49f198620e5212be6034215570a150512f0f8/CHANGELOG_TIMELINE.md)
-
-#### 2025-11-22 `✏️ 3+` `➕ 0+` `🗑️ 0+`
-- 📝  **docs** `packages`: 更新说明
-  > **🕒  11:58** · `➕1779` / `➖1`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`b121351a`](https://github.com/TaiAiAc/web/commit/b121351aa7a8e44c4564c7b79800ae1479b65514))
-  - ✏️ [`CHANGELOG.md`](https://github.com/TaiAiAc/web/blob/b121351aa7a8e44c4564c7b79800ae1479b65514/CHANGELOG.md)
-  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/TaiAiAc/web/blob/b121351aa7a8e44c4564c7b79800ae1479b65514/CHANGELOG_TIMELINE.md)
-  - ✏️ [`docs/ci/scripts.md`](https://github.com/TaiAiAc/web/blob/b121351aa7a8e44c4564c7b79800ae1479b65514/docs/ci/scripts.md)
-
-#### 2025-11-21 `✏️ 2+` `➕ 2+` `🗑️ 0+`
-- 📝  **docs** `projects`: changelog
-  > **🕒  12:44** · `➕39` / `➖0`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`655d138c`](https://github.com/TaiAiAc/web/commit/655d138cf92b3ec297319f3878470f80c6518986))
-  - ➕ [`CHANGELOG.md`](https://github.com/TaiAiAc/web/blob/655d138cf92b3ec297319f3878470f80c6518986/CHANGELOG.md)
-  - ➕ [`CHANGELOG_TIMELINE.md`](https://github.com/TaiAiAc/web/blob/655d138cf92b3ec297319f3878470f80c6518986/CHANGELOG_TIMELINE.md)
-- 📝  **docs** `changelog`: update
-  > **🕒  11:07** · `➕41` / `➖0`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`5dbf5d1e`](https://github.com/TaiAiAc/web/commit/5dbf5d1e3970bea7aa6138169d78a189a3e19236))
-  - ✏️ [`CHANGELOG.md`](https://github.com/TaiAiAc/web/blob/5dbf5d1e3970bea7aa6138169d78a189a3e19236/CHANGELOG.md)
-  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/TaiAiAc/web/blob/5dbf5d1e3970bea7aa6138169d78a189a3e19236/CHANGELOG_TIMELINE.md)
-
-#### 2025-11-19 `✏️ 2+` `➕ 2+` `🗑️ 0+`
-- 📝  **docs** `other`: 添加文档
-  > **🕒  21:40** · `➕144` / `➖1`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`a9ecb75a`](https://github.com/TaiAiAc/web/commit/a9ecb75ac4bac87e63731a00466802bc1cc3454f))
-  - ➕ [`docs/ci/index.md`](https://github.com/TaiAiAc/web/blob/a9ecb75ac4bac87e63731a00466802bc1cc3454f/docs/ci/index.md)
-  - ➕ [`docs/ci/scripts.md`](https://github.com/TaiAiAc/web/blob/a9ecb75ac4bac87e63731a00466802bc1cc3454f/docs/ci/scripts.md)
-  - ✏️ [`README.md`](https://github.com/TaiAiAc/web/blob/a9ecb75ac4bac87e63731a00466802bc1cc3454f/README.md)
-  - ✏️ [`docs/.vitepress/config.ts`](https://github.com/TaiAiAc/web/blob/a9ecb75ac4bac87e63731a00466802bc1cc3454f/docs/.vitepress/config.ts)
-
-#### 2025-11-18 `✏️ 60+` `➕ 0+` `🗑️ 0+`
-- 📝  **docs** `packages`: 项目架构调整
-  > **🕒  11:19** · `➕134` / `➖60`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`9f67fb70`](https://github.com/TaiAiAc/web/commit/9f67fb70636d8d29631ee6089826292dc271d6f6))
-  - ✏️ [`.github/workflows/deploy.yml`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/.github/workflows/deploy.yml)
-  - ✏️ [`.gitignore`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/.gitignore)
-  - ✏️ [`.vitepress/config.ts`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/.vitepress/config.ts)
-  - ✏️ [`.vitepress/theme/index.ts`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/.vitepress/theme/index.ts)
-  - ✏️ [`src/about/index.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/about/index.md)
-  - ✏️ [`src/index.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/index.md)
-  - ✏️ [`src/introduce/introduction.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/introduce/introduction.md)
-  - ✏️ [`src/introduce/project.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/introduce/project.md)
-  - ✏️ [`src/plugins/axios/index.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/axios/index.md)
-  - ✏️ [`src/plugins/box/components/BaseDemo.vue`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/box/components/BaseDemo.vue)
-  - ✏️ [`src/plugins/box/index.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/box/index.md)
-  - ✏️ [`src/plugins/directives/clickOutside.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/directives/clickOutside.md)
-  - ✏️ [`src/plugins/directives/components/PermissionDemo.vue`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/directives/components/PermissionDemo.vue)
-  - ✏️ [`src/plugins/directives/copy.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/directives/copy.md)
-  - ✏️ [`src/plugins/directives/debounce.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/directives/debounce.md)
-  - ✏️ [`src/plugins/directives/ellipsis.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/directives/ellipsis.md)
-  - ✏️ [`src/plugins/directives/index.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/directives/index.md)
-  - ✏️ [`src/plugins/directives/intersecting.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/directives/intersecting.md)
-  - ✏️ [`src/plugins/directives/lazy.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/directives/lazy.md)
-  - ✏️ [`src/plugins/directives/loading.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/directives/loading.md)
-  - ✏️ [`src/plugins/directives/permission.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/directives/permission.md)
-  - ✏️ [`src/plugins/directives/throttle.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/directives/throttle.md)
-  - ✏️ [`src/plugins/directives/watermark.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/directives/watermark.md)
-  - ✏️ [`src/plugins/index.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/index.md)
-  - ✏️ [`src/plugins/is.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/is.md)
-  - ✏️ [`src/plugins/naive-extra/QuiForm.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/naive-extra/QuiForm.md)
-  - ✏️ [`src/plugins/naive-extra/QuiLayout.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/naive-extra/QuiLayout.md)
-  - ✏️ [`src/plugins/naive-extra/QuiTable.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/naive-extra/QuiTable.md)
-  - ✏️ [`src/plugins/naive-extra/QuiUpload.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/naive-extra/QuiUpload.md)
-  - ✏️ [`src/plugins/naive-extra/components/AllDemo.vue`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/naive-extra/components/AllDemo.vue)
-  - ✏️ [`src/plugins/naive-extra/components/Demo.vue`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/naive-extra/components/Demo.vue)
-  - ✏️ [`src/plugins/naive-extra/components/FormDemo.vue`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/naive-extra/components/FormDemo.vue)
-  - ✏️ [`src/plugins/naive-extra/components/TableDemo.vue`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/naive-extra/components/TableDemo.vue)
-  - ✏️ [`src/plugins/naive-extra/components/UploadDemo.vue`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/naive-extra/components/UploadDemo.vue)
-  - ✏️ [`src/plugins/naive-extra/index.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/naive-extra/index.md)
-  - ✏️ [`src/plugins/unocss/index.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/unocss/index.md)
-  - ✏️ [`src/plugins/utils/array.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/utils/array.md)
-  - ✏️ [`src/plugins/utils/classer.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/utils/classer.md)
-  - ✏️ [`src/plugins/utils/function.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/utils/function.md)
-  - ✏️ [`src/plugins/utils/index.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/utils/index.md)
-  - ✏️ [`src/plugins/utils/number.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/utils/number.md)
-  - ✏️ [`src/plugins/utils/object.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/utils/object.md)
-  - ✏️ [`src/plugins/utils/string.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/utils/string.md)
-  - ✏️ [`src/plugins/utils/type-utils.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/utils/type-utils.md)
-  - ✏️ [`src/plugins/vite-plugin/env-types.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/vite-plugin/env-types.md)
-  - ✏️ [`src/plugins/vite-plugin/file-change-logger.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/vite-plugin/file-change-logger.md)
-  - ✏️ [`src/plugins/vite-plugin/index.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/vite-plugin/index.md)
-  - ✏️ [`src/plugins/vite-plugin/mock-router.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/vite-plugin/mock-router.md)
-  - ✏️ [`src/plugins/vite-plugin/progress.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/vite-plugin/progress.md)
-  - ✏️ [`src/plugins/vite-plugin/remove-console.md`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/plugins/vite-plugin/remove-console.md)
-  - ✏️ [`src/public/favicon.ico`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/public/favicon.ico)
-  - ✏️ [`src/public/home.png`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/public/home.png)
-  - ✏️ [`src/public/quiteer.jpg`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/src/public/quiteer.jpg)
-  - ✏️ [`package.json`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/package.json)
-  - ✏️ [`packages/naive-extra/src/form/index.vue`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/packages/naive-extra/src/form/index.vue)
-  - ✏️ [`packages/naive-extra/src/table/TableSetting.vue`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/packages/naive-extra/src/table/TableSetting.vue)
-  - ✏️ [`playground/naive-extra-test/src/App.vue`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/playground/naive-extra-test/src/App.vue)
-  - ✏️ [`playground/naive-extra-test/src/components/FormDemo.vue`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/playground/naive-extra-test/src/components/FormDemo.vue)
-  - ✏️ [`playground/naive-extra-test/src/components/TableDemo.vue`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/playground/naive-extra-test/src/components/TableDemo.vue)
-  - ✏️ [`pnpm-workspace.yaml`](https://github.com/TaiAiAc/web/blob/9f67fb70636d8d29631ee6089826292dc271d6f6/pnpm-workspace.yaml)
-
-#### 2025-11-14 `✏️ 8+` `➕ 2+` `🗑️ 0+`
-- 📝  **docs** `projects`: 项目介绍
-  > **🕒  19:41** · `➕323` / `➖11`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`b5501674`](https://github.com/TaiAiAc/web/commit/b5501674f51d1e71b2dc199fb0dca219de330bcd))
-  - ➕ [`src/plugins/unocss/index.md`](https://github.com/TaiAiAc/web/blob/b5501674f51d1e71b2dc199fb0dca219de330bcd/src/plugins/unocss/index.md)
-  - ➕ [`src/plugins/utils/classer.md`](https://github.com/TaiAiAc/web/blob/b5501674f51d1e71b2dc199fb0dca219de330bcd/src/plugins/utils/classer.md)
-  - ✏️ [`src/index.md`](https://github.com/TaiAiAc/web/blob/b5501674f51d1e71b2dc199fb0dca219de330bcd/src/index.md)
-  - ✏️ [`src/introduce/introduction.md`](https://github.com/TaiAiAc/web/blob/b5501674f51d1e71b2dc199fb0dca219de330bcd/src/introduce/introduction.md)
-  - ✏️ [`src/introduce/project.md`](https://github.com/TaiAiAc/web/blob/b5501674f51d1e71b2dc199fb0dca219de330bcd/src/introduce/project.md)
-  - ✏️ [`src/plugins/box/index.md`](https://github.com/TaiAiAc/web/blob/b5501674f51d1e71b2dc199fb0dca219de330bcd/src/plugins/box/index.md)
-  - ✏️ [`src/plugins/directives/index.md`](https://github.com/TaiAiAc/web/blob/b5501674f51d1e71b2dc199fb0dca219de330bcd/src/plugins/directives/index.md)
-  - ✏️ [`src/plugins/index.md`](https://github.com/TaiAiAc/web/blob/b5501674f51d1e71b2dc199fb0dca219de330bcd/src/plugins/index.md)
-  - ✏️ [`src/plugins/is.md`](https://github.com/TaiAiAc/web/blob/b5501674f51d1e71b2dc199fb0dca219de330bcd/src/plugins/is.md)
-  - ✏️ [`src/plugins/vite-plugin/index.md`](https://github.com/TaiAiAc/web/blob/b5501674f51d1e71b2dc199fb0dca219de330bcd/src/plugins/vite-plugin/index.md)
-
-#### 2025-11-12 `✏️ 12+` `➕ 7+` `🗑️ 1+`
-- 📝  **docs** `packages`: utils说明
-  > **🕒  18:54** · `➕584` / `➖19`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`ef74cf82`](https://github.com/TaiAiAc/web/commit/ef74cf82ff9d4b76b9e9ac8d970511502ea57dfb))
-  - ➕ [`src/plugins/utils/array.md`](https://github.com/TaiAiAc/web/blob/ef74cf82ff9d4b76b9e9ac8d970511502ea57dfb/src/plugins/utils/array.md)
-  - ➕ [`src/plugins/utils/function.md`](https://github.com/TaiAiAc/web/blob/ef74cf82ff9d4b76b9e9ac8d970511502ea57dfb/src/plugins/utils/function.md)
-  - ➕ [`src/plugins/utils/index.md`](https://github.com/TaiAiAc/web/blob/ef74cf82ff9d4b76b9e9ac8d970511502ea57dfb/src/plugins/utils/index.md)
-  - ➕ [`src/plugins/utils/number.md`](https://github.com/TaiAiAc/web/blob/ef74cf82ff9d4b76b9e9ac8d970511502ea57dfb/src/plugins/utils/number.md)
-  - ➕ [`src/plugins/utils/object.md`](https://github.com/TaiAiAc/web/blob/ef74cf82ff9d4b76b9e9ac8d970511502ea57dfb/src/plugins/utils/object.md)
-  - ➕ [`src/plugins/utils/string.md`](https://github.com/TaiAiAc/web/blob/ef74cf82ff9d4b76b9e9ac8d970511502ea57dfb/src/plugins/utils/string.md)
-  - ➕ [`src/plugins/utils/type-utils.md`](https://github.com/TaiAiAc/web/blob/ef74cf82ff9d4b76b9e9ac8d970511502ea57dfb/src/plugins/utils/type-utils.md)
-  - ✏️ [`.vitepress/config.ts`](https://github.com/TaiAiAc/web/blob/ef74cf82ff9d4b76b9e9ac8d970511502ea57dfb/.vitepress/config.ts)
-  - ✏️ [`package.json`](https://github.com/TaiAiAc/web/blob/ef74cf82ff9d4b76b9e9ac8d970511502ea57dfb/package.json)
-  - ✏️ [`pnpm-lock.yaml`](https://github.com/TaiAiAc/web/blob/ef74cf82ff9d4b76b9e9ac8d970511502ea57dfb/pnpm-lock.yaml)
-  - ✏️ [`src/plugins/utils.md`](https://github.com/TaiAiAc/web/blob/ef74cf82ff9d4b76b9e9ac8d970511502ea57dfb/src/plugins/utils.md)
-  - 🗑️ [~~`src/plugins/vite-plugin.md`~~](https://github.com/TaiAiAc/web/commit/ef74cf82ff9d4b76b9e9ac8d970511502ea57dfb)
-- 📝  **docs** `packages`: 添加homepage
-  > **🕒  08:54** · `➕8` / `➖1`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`f84c3552`](https://github.com/TaiAiAc/web/commit/f84c35529b5c69a7ddecdb7b1be4888c7a0b0452))
-  - ✏️ [`packages/axios/package.json`](https://github.com/TaiAiAc/web/blob/f84c35529b5c69a7ddecdb7b1be4888c7a0b0452/packages/axios/package.json)
-  - ✏️ [`packages/directives/package.json`](https://github.com/TaiAiAc/web/blob/f84c35529b5c69a7ddecdb7b1be4888c7a0b0452/packages/directives/package.json)
-  - ✏️ [`packages/fetch/package.json`](https://github.com/TaiAiAc/web/blob/f84c35529b5c69a7ddecdb7b1be4888c7a0b0452/packages/fetch/package.json)
-  - ✏️ [`packages/is/package.json`](https://github.com/TaiAiAc/web/blob/f84c35529b5c69a7ddecdb7b1be4888c7a0b0452/packages/is/package.json)
-  - ✏️ [`packages/naive-extra/package.json`](https://github.com/TaiAiAc/web/blob/f84c35529b5c69a7ddecdb7b1be4888c7a0b0452/packages/naive-extra/package.json)
-  - ✏️ [`packages/unocss/package.json`](https://github.com/TaiAiAc/web/blob/f84c35529b5c69a7ddecdb7b1be4888c7a0b0452/packages/unocss/package.json)
-  - ✏️ [`packages/utils/package.json`](https://github.com/TaiAiAc/web/blob/f84c35529b5c69a7ddecdb7b1be4888c7a0b0452/packages/utils/package.json)
-  - ✏️ [`packages/vite-plugins/package.json`](https://github.com/TaiAiAc/web/blob/f84c35529b5c69a7ddecdb7b1be4888c7a0b0452/packages/vite-plugins/package.json)
 
 ### 构建
 #### 2025-11-24 `✏️ 8+` `➕ 0+` `🗑️ 0+`
