@@ -174,7 +174,8 @@ function introduceSidebar() {
           items: [
             { text: '插件总览', link: '/plugins/vite-plugin/' },
             { text: '文件改动日志', link: '/plugins/vite-plugin/file-change-logger' },
-            { text: '环境变量类型', link: '/plugins/vite-plugin/env-types' },
+            { text: '环境变量配置', link: '/plugins/vite-plugin/env-config' },
+            { text: '自动生成环境变量类型', link: '/plugins/vite-plugin/env-types' },
             { text: 'API Mock 路由', link: '/plugins/vite-plugin/mock-router' },
             { text: '移除 console', link: '/plugins/vite-plugin/remove-console' },
             { text: '构建进度条（第三方）', link: '/plugins/vite-plugin/progress' }

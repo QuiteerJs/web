@@ -12,5 +12,5 @@
     "erasableSyntaxOnly": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"]
+  "include": ["**/*.ts", "**/*.tsx", "**/*.vue"]
 }

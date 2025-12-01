@@ -187,6 +187,9 @@ importers:
       '@types/node':
         specifier: ^24.10.1
         version: 24.10.1
+      c12:
+        specifier: 3.3.2
+        version: 3.3.2
       cac:
         specifier: 6.7.14
         version: 6.7.14
@@ -237,6 +240,9 @@ importers:
       '@vitejs/plugin-vue-jsx':
         specifier: ^5.1.1
         version: 5.1.1(rolldown-vite@7.2.2(@types/node@24.10.1)(esbuild@0.25.12)(jiti@2.6.1)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1))(vue@3.5.24(typescript@5.9.3))
+      c12:
+        specifier: 3.3.2
+        version: 3.3.2
       dotenv:
         specifier: ^17.2.3
         version: 17.2.3

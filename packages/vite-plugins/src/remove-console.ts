@@ -34,14 +34,14 @@ const SEVERITY: Record<Exclude<ConsoleLevel, 'off'>, number> = {
  */
 function shouldProcess(id: string, opt: Required<Omit<RemoveConsoleOptions, 'methods' | 'include' | 'exclude' | 'processVue'>> & Pick<RemoveConsoleOptions, 'methods' | 'include' | 'exclude' | 'processVue'>): boolean {
   const exts = [/\.[mc]?jsx?$/, /\.[mc]?tsx?$/]
-  const vueRe = /\.vue$/
+  const isVueSfc = /\.vue(?:$|\?)/.test(id) || id.includes('?vue')
   const inIncludes = !opt.include?.length || opt.include.some(r => r.test(id))
   const inExcludes = opt.exclude?.some(r => r.test(id)) ?? false
   if (inExcludes)
     return false
   if (!inIncludes)
     return false
-  if (vueRe.test(id))
+  if (isVueSfc)
     return !!opt.processVue
   return exts.some(r => r.test(id))
 }
@@ -208,9 +208,8 @@ export function stripConsoleCalls(code: string, methods: Set<string>): string {
         }
         k++
       }
-      // 跳过可能的尾随分号与空白
-      while (k < len && /[\s;]/.test(code[k])) k++
-      // 完全移除该调用表达式
+      // 保留原始尾随空白/分号由主循环继续处理，避免 "void 0const" 拼接
+      out += 'void 0'
       i = k
       continue
     }

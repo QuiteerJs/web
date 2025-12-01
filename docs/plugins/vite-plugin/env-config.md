@@ -1,0 +1,207 @@
+# 环境配置生成（env-config）
+
+## 为什么使用
+- 统一管理环境变量：将各环境的配置集中在 `env.config.ts`，免去手改多个 `.env.*` 文件。
+- 自动产物：启动/构建时生成 `.env.local` 与 `.env.{mode}.local`，并可生成类型文件，提升 IDE 体验。
+- 变更可见：内置文件监听，配置更新后自动再生成，日志清晰可见。
+- 风险可控：仅输出符合前缀（默认 `VITE_`）的变量；支持“必填项”校验，缺失时明确提醒并中止构建。
+- 混淆支持：提供 Base64 混淆以弱化肉眼读取；支持字段级与全局策略，避免 URL 等“直接使用型”字段受影响。
+
+## 使用方法
+```ts
+// vite.config.ts
+import { defineConfig } from 'vite'
+import { envConfigPlugin } from '@quiteer/vite-plugins'
+
+export default defineConfig(() => ({
+  plugins: [
+    envConfigPlugin({
+      // 根目录（默认 vite root）
+      // root: process.cwd(),
+
+      // 配置文件路径（默认在 root 下查找 env.config.ts）
+      // configFile: 'packages/quieter/env.config.ts',
+
+      // 全局混淆开关（Base64），默认 false；可配合字段级 obfuscate 使用
+      obfuscate: true,
+
+      // 跳过混淆的键名（原始键名，如 'testUrl'），避免 URL 等直接使用字段受到影响
+      obfuscateSkipKeys: ['testUrl'],
+
+      // 必填项校验，缺失时开发模式打印错误，构建阶段中止
+      requiredKeys: ['desc', 'baseURL', 'apiURL', 'uploadURL'],
+
+      // 前缀白名单（默认取 Vite 的 envPrefix 或 ['VITE_']）
+      includePrefixes: ['VITE_'],
+
+      // 生成文件名（默认 '.env.{mode}.local' 与 '.env.local'）
+      envFileTemplate: '.env.{mode}.local',
+      // defaultEnvFile: '.env.local',
+
+      // 类型文件（默认生成到 'env.d.ts'，可禁用）
+      // disableTypes: false,
+      // typesOutput: 'env.d.ts'
+    })
+  ]
+}))
+```
+
+```ts
+// env.config.ts（支持 TS / satisfies 写法）
+export default {
+  default: {
+    desc: { value: '通用环境变量', obfuscate: false },
+    testUrl: 'https://quiteerjs.github.io/web/'
+  },
+  development: {
+    desc: '开发环境变量',
+    baseURL: { value: 'http://localhost:3000', obfuscate: true },
+    apiURL: '/api',
+    uploadURL: '/files',
+    gisJs: '/gis',
+    gisCss: '/gis',
+    title: 'xxx'
+  },
+  production: {
+    desc: '生产环境变量',
+    baseURL: 'https://api.example.com',
+    apiURL: '/api',
+    uploadURL: '/files',
+    title: 'prod'
+  }
+}
+```
+
+## 生成内容
+- `.env.local`：仅 `default` 段；全局适用、不会被具体环境覆盖。
+- `.env.{mode}.local`：`default + 当前环境` 合并，当前环境同名键覆盖 `default`。
+- 类型文件（可选）：默认写入 `env.d.ts`，为 `import.meta.env` 提供类型提示与校验。
+
+## 选项说明
+- `root?: string`：项目根目录，默认 `vite` 的 `root`。
+- `configFile?: string`：配置文件路径，默认在 `root` 查找 `env.config.ts`（或工作区内广搜）。
+- `targetEnv?: string`：目标环境，默认 `vite` 的 `mode`。
+- `envFileTemplate?: string`：环境文件名模板，默认 `'.env.{mode}.local'`。
+- `defaultEnvFile?: string`：默认段文件名，默认 `'.env.local'`。
+- `includePrefixes?: string[]`：变量前缀白名单，默认取 `envPrefix` 或 `['VITE_']`。
+- `inferTypes?: boolean`：类型推断（boolean/number/string），默认 `true`。
+- `requiredKeys?: string[]`：必填项校验，缺失时开发模式报错，构建阶段中止。
+- `obfuscate?: boolean`：全局混淆开关（Base64），默认 `false`。
+- `obfuscateSkipKeys?: string[]`：跳过混淆的原始键名（如 `'testUrl'`）。
+- `disableTypes?: boolean`：禁用类型文件生成，默认 `false`。
+- `typesOutput?: string`：类型输出文件路径，默认 `'env.d.ts'`。
+
+## 字段级策略（EnvConfigOption）
+- 写法：字符串或对象 `{ value?: string; obfuscate?: boolean }`
+- 优先级：
+  1. 字段 `obfuscate`（强制）
+  2. `obfuscateSkipKeys` 白名单
+  3. 全局 `obfuscate`
+- 建议：URL/直接使用型字段设置 `obfuscate: false` 或加入 `obfuscateSkipKeys`。
+
+## 类型约束拓展（可选）
+- 为了在类型层面约束“必填键”，可使用泛型：
+  - `EnvConfig<EnvNames, RequiredKeys>`
+  - 示例：
+```ts
+// 约束必填键集合（EnvNames 可省略，默认五个环境）
+type Required = 'desc' | 'baseURL' | 'apiURL' | 'uploadURL' | 'gisJs' | 'gisCss' | 'title'
+
+export default {
+  // default 段可为 Partial，仅提供通用键
+  default: { desc: '通用环境变量' },
+  development: {
+    desc: '开发环境变量',
+    baseURL: { value: 'http://localhost:3000', obfuscate: true },
+    apiURL: '/api',
+    uploadURL: '/files',
+    gisJs: '/gis',
+    gisCss: '/gis',
+    title: 'xxx'
+  },
+  production: {
+    desc: '生产环境变量',
+    baseURL: 'https://api.example.com',
+    apiURL: '/api',
+    uploadURL: '/files',
+    title: 'prod'
+  }
+} satisfies EnvConfig<EnvName, Required>
+```
+
+## 应用场景
+- 多环境配置集中管理：`default` 提供通用配置，各环境覆盖差异。
+- 构建/启动自动生成 `.env.*`，统一团队实践与产物。
+- 弱化敏感字段的直观可读性（Base64），在前端使用前可选择性还原或直接跳过混淆。
+- 对关键配置强制校验，避免遗漏导致的运行期问题。
+
+## 运行机制与细节
+- 合并策略：`{ ...default, ...env[mode] }`，后者覆盖同名键。
+- 前缀过滤：仅生成符合 `includePrefixes` 的键（默认 `VITE_`）。
+- 读取实现：使用 `c12` 加载配置，原生支持 TS/`satisfies` 等写法。
+- 文件监听：开发模式监听 `env.config.ts`，变更时自动再生成并重启。
+- 错误提示：
+  - 开发模式：终端输出红色错误，避免向 HMR 客户端发送非标准错误包。
+  - 构建阶段：缺失必填项时中止并给出明确提示。
+
+## 示例：应用读取
+```ts
+// 在组件/应用中读取（推荐不在模板中直接写 import.meta）
+const baseURL = import.meta.env.VITE_BASEURL
+const testUrl = import.meta.env.VITE_TESTURL
+```
+
+> 提示：若启用了混淆，URL 类字段建议跳过混淆；如确需还原，可在应用层执行 Base64 解码，但不推荐对链接场景使用混淆。
+
+## 注意事项
+- Base64 仅为混淆，非加密；敏感信息不应下发到前端。
+- 仅生成到 `import.meta.env` 的变量应以 `VITE_` 前缀命名。
+- 模板中避免直接使用 `import.meta.env`，应在脚本中预处理后渲染。
+
+## 性能与安全
+- 生成流程轻量：文件读写与类型推断均为 O(n) 操作。
+- 安全实践：前缀白名单与必填项校验能减少误注入与缺失风险；避免在前端存放真正机密。
+// 自定义环境集合示例（中文环境名）
+export default {
+  default: { desc: '通用' },
+  环境1: { desc: '环境1', baseURL: 'https://env1', apiURL: '/api', uploadURL: '/files', gisJs: '/gis', gisCss: '/gis', title: 'e1' },
+  环境2: { desc: '环境2', baseURL: 'https://env2', apiURL: '/api', uploadURL: '/files', gisJs: '/gis', gisCss: '/gis', title: 'e2' }
+} satisfies EnvConfig<'环境1'|'环境2', 'baseURL'|'apiURL'>
+## IDE 代码提示与类型用法
+```ts
+import type { EnvConfig } from '@quiteer/vite-plugins'
+
+// 基本用法：默认内置环境集合，强制每个环境段包含必填键
+export default {
+  default: { desc: '通用' },
+  development: { desc: '开发', baseURL: 'http://localhost:3000', apiURL: '/api' },
+  production: { desc: '生产', baseURL: 'https://api.example.com', apiURL: '/api' },
+  test: { desc: '测试', baseURL: 'https://api.test', apiURL: '/api' },
+  staging: { desc: '预发布', baseURL: 'https://api.staging', apiURL: '/api' },
+  release: { desc: '发布', baseURL: 'https://api.release', apiURL: '/api' }
+} satisfies EnvConfig<'baseURL'|'apiURL'>
+
+// 自定义环境集合：仅需声明额外环境名，内置集合自动包含
+export default {
+  default: { desc: '通用' },
+  环境1: { desc: '环境1', baseURL: 'https://env1', apiURL: '/api' },
+  环境2: { desc: '环境2', baseURL: 'https://env2', apiURL: '/api' }
+} satisfies EnvConfig<'环境1'|'环境2','baseURL'|'apiURL'>
+
+// 字段值对象形态：支持按字段控制混淆
+export default {
+  default: { desc: '通用' },
+  development: {
+    desc: '开发',
+    baseURL: { value: 'http://localhost:3000', obfuscate: true },
+    apiURL: '/api'
+  }
+} satisfies EnvConfig<'baseURL'|'apiURL'>
+```
+
+- `EnvConfig<RequiredKeys>`：强制所有环境段包含 `RequiredKeys`；`default` 段仅强制 `desc`，其它键可选
+- `EnvConfig<EnvNames, RequiredKeys>`：在默认内置集合基础上加入 `EnvNames`，并强制每个环境段包含 `RequiredKeys`
+- `EnvValue` 支持字符串或对象 `{ value: string; obfuscate?: boolean }`，对象形态可按字段控制混淆
+- 使用 `satisfies` 能获得更精准的 IDE 提示与错误定位：
+  - 缺少必填键会类型报错
+  - 写入未声明的环境名会类型报错（仅限传入的 `EnvNames` 与内置集合）

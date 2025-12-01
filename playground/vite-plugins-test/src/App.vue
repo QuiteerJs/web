@@ -1,17 +1,26 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+const envStr = JSON.stringify(import.meta.env, null, 2)
+const testUrl = import.meta.env.VITE_TESTURL
+
+function runConsoleTests(): void {
+  console.log('standalone')
+  const a = (console.info('inExpr'), 1)
+  if ((console.debug('inIf'), false)) {
+    console.warn('branch')
+  }
+  console.error('keep error')
+  void a
+}
+
+runConsoleTests()
 </script>
 
 <template>
   <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo">
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo">
-    </a>
+    <a :href="testUrl" target="_blank">测试链接</a>
+    <h3>import.meta.env</h3>
+    <pre>{{ envStr }}</pre>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
 <style scoped>

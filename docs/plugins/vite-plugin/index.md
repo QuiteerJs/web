@@ -20,6 +20,8 @@ export default defineConfig({
   - 文档：[mock-router](/plugins/vite-plugin/mock-router)
 - 环境变量类型生成：扫描 `.env*` 自动生成 `env.d.ts`
   - 文档：[env-types](/plugins/vite-plugin/env-types)
+- 环境配置生成：读取 `env.config.ts` 生成 `.env.local/.env.{mode}.local` 并支持混淆、校验与类型
+  - 文档：[env-config](/plugins/vite-plugin/env-config)
 - 移除 console：按等级剔除 `console.*` 调用（含 `.vue` 脚本）
   - 文档：[remove-console](/plugins/vite-plugin/remove-console)
 - 构建进度条（第三方集成）：`vite-plugin-progress`
@@ -41,6 +43,7 @@ export default defineConfig({
     fileChangeLoggerPlugin(),
     mockRouterPlugin(),
     envTypesPlugin(),
+    envConfigPlugin({ obfuscate: true, obfuscateSkipKeys: ['testUrl'] }),
     removeConsolePlugin({ level: 'warn' }),
     progress()
   ]

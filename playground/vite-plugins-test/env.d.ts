@@ -1,10 +1,12 @@
 interface ImportMetaEnv {
-  readonly VITE_API_BASE: string
-  readonly VITE_FEATURE: boolean
-  readonly VITE_PORT: number
-  readonly VITE_PORT2: number
-  readonly VITE_TEST: boolean
-  readonly VITE_TIMEOUT: number
+  readonly VITE_APIURL: string
+  readonly VITE_BASEURL: string
+  readonly VITE_DESC: string
+  readonly VITE_GISCSS: string
+  readonly VITE_GISJS: string
+  readonly VITE_TESTURL: string
+  readonly VITE_TITLE: string
+  readonly VITE_UPLOADURL: string
 }
 interface ImportMeta {
   readonly env: ImportMetaEnv
