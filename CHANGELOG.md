@@ -1,7 +1,11 @@
 ## 变更日志
 
 ### 其他
-#### 2025-12-01 `✏️ 1+` `➕ 0+` `🗑️ 0+`
+#### 2025-12-01 `✏️ 2+` `➕ 0+` `🗑️ 0+`
+- 🔧  **chore** `release`: v0.0.2
+  > **🕒  09:52** · `➕1` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`43d4e2d`](https://github.com/QuiteerJs/web/commit/43d4e2d2994e9637e8f4f6f956e5778a9ce43681))
+  - ✏️ [`packages/is/package.json`](https://github.com/QuiteerJs/web/blob/43d4e2d2994e9637e8f4f6f956e5778a9ce43681/packages/is/package.json)
 - 🔧  **chore** `release`: v0.0.14
   > **🕒  09:51** · `➕1` / `➖1`
   > `👤 Quiteer`  <p602985@yeah.net> ([`e2d3146`](https://github.com/QuiteerJs/web/commit/e2d3146892910e7183d68c4a3412653875bce39e))
@@ -276,7 +280,12 @@
   - ✏️ [`pnpm-workspace.yaml`](https://github.com/QuiteerJs/web/blob/3a9e13397fe92cc5856e727ecae4b7dab09ee818/pnpm-workspace.yaml)
 
 ### 文档
-#### 2025-12-01 `✏️ 15+` `➕ 0+` `🗑️ 0+`
+#### 2025-12-01 `✏️ 17+` `➕ 0+` `🗑️ 0+`
+- 📝  **docs** `release`: 文档变更
+  > **🕒  09:51** · `➕2015` / `➖1879`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`a67b6a5`](https://github.com/QuiteerJs/web/commit/a67b6a5850f93912366dce64215cb2410250fbcd))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/a67b6a5850f93912366dce64215cb2410250fbcd/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/a67b6a5850f93912366dce64215cb2410250fbcd/CHANGELOG_TIMELINE.md)
 - 📝  **docs** `other`: 仓库迁移后的文档地址变更
   > **🕒  09:50** · `➕22` / `➖28`
   > `👤 Quiteer`  <p602985@yeah.net> ([`80b7737`](https://github.com/QuiteerJs/web/commit/80b77376f9fd82a67f32eca563eba33ba186a275))
