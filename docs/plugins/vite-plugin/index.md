@@ -24,6 +24,8 @@ export default defineConfig({
   - 文档：[env-config](/plugins/vite-plugin/env-config)
 - 移除 console：按等级剔除 `console.*` 调用（含 `.vue` 脚本）
   - 文档：[remove-console](/plugins/vite-plugin/remove-console)
+- 虚拟 HTML 生成：通过配置对象生成根 `index.html`，实现“无 HTML 文件”开发与构建
+  - 文档：[virtual-html](/plugins/vite-plugin/virtual-html)
 - 构建进度条（第三方集成）：`vite-plugin-progress`
   - 文档：[progress](/plugins/vite-plugin/progress)
 

@@ -6,8 +6,9 @@ import { envConfigPlugin } from './env-config'
 import { envTypesPlugin } from './env-types'
 import { fileChangeLoggerPlugin } from './file-change-logger'
 import { mockRouterPlugin } from './mock-router'
-
 import { removeConsolePlugin } from './remove-console'
+
+import { virtualHtmlPlugin } from './virtual-html'
 
 export type { EnvConfigPluginOptions } from './env-config'
 export type { EnvConfig } from './env-config'
@@ -15,6 +16,7 @@ export type { EnvTypesOptions } from './env-types'
 export * from './extra'
 export type { FileChangeLoggerOptions } from './file-change-logger'
 export type { MockRouterOptions } from './mock-router'
+export type { ConsoleLevel, RemoveConsoleOptions } from './remove-console'
 
 /**
  * 函数：创建 Quiteer 插件集合
@@ -34,6 +36,6 @@ export function createQuiteerPlugins(options?: RemoveConsoleOptions, envConfigOp
  * 函数：默认导出单个 removeConsolePlugin
  * 作用：方便在 vite 配置中直接使用；如需进度条请显式导入 buildProgressPlugin
  */
-export { envConfigPlugin, envTypesPlugin, fileChangeLoggerPlugin, mockRouterPlugin, removeConsolePlugin }
+export { envConfigPlugin, envTypesPlugin, fileChangeLoggerPlugin, mockRouterPlugin, removeConsolePlugin, virtualHtmlPlugin }
 
-export type { ConsoleLevel, RemoveConsoleOptions } from './remove-console'
+export type { VirtualHtmlConfig, VirtualHtmlOptions, VirtualHtmlTag } from './virtual-html'

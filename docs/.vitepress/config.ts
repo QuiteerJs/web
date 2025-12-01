@@ -178,6 +178,7 @@ function introduceSidebar() {
             { text: '自动生成环境变量类型', link: '/plugins/vite-plugin/env-types' },
             { text: 'API Mock 路由', link: '/plugins/vite-plugin/mock-router' },
             { text: '移除 console', link: '/plugins/vite-plugin/remove-console' },
+            { text: '虚拟 HTML 生成', link: '/plugins/vite-plugin/virtual-html' },
             { text: '构建进度条（第三方）', link: '/plugins/vite-plugin/progress' }
           ]
         },
