@@ -1,49 +1,36 @@
-import type { InlineConfig } from 'vite'
-import type { ConfigEnv, QviteConfig } from './typings'
-import process from 'node:process'
+import type { InlineConfig, Plugin } from 'vite'
+import type { QviteConfig, QvitePlugins } from './typings'
+import { isArray, isFunction } from '@quiteer/is'
+import { deepMerge } from '@quiteer/utils'
+import { loadEnv, mergeConfig } from 'vite'
 import { defaultOptions } from './defaults'
+import defaultPlugins from './plugins'
+import { store } from './store'
 
-/**
- * 规范化并合并 Qvite 配置
- *
- * 将默认配置、用户配置、命令行覆盖项进行组合，得到规范化的内部配置对象
- *
- * @param raw - 原始的 `QviteConfig` 对象，通常来自配置文件与 CLI 覆盖
- * @returns 规范化后的 `QviteConfig`，字段均已具备稳定的默认值
- * @throws {TypeError} 当传入的配置对象为 `null` 或类型非法时抛出
- *
- * @example
- * ```ts
- * const normalized = normalizeConfig({ mode: 'production', vite: { plugins: [] } })
- * ```
- *
- * @remarks
- * - 采用浅合并处理顶层字段，并对 `vite` 字段进行一层深合并
- * - `minify` 同时作用于 Vite 的 `build.minify`
- *
- * @security
- * 不处理任何敏感信息，仅做纯配置合并
- *
- * @performance
- * O(n) 合并成本（n 为字段数量），无额外 IO
- */
-export async function normalizeConfig(raw: QviteConfig, env?: ConfigEnv): Promise<QviteConfig> {
-  if (!raw || typeof raw !== 'object')
-    throw new TypeError('Invalid QviteConfig')
+export async function normalizeConfig(raw: QviteConfig): Promise<QviteConfig> {
+  const config = deepMerge<QviteConfig>({} as QviteConfig, defaultOptions, raw)
+  return config
+}
 
-  const viteRaw = typeof raw.vite === 'function' ? await raw?.vite(env ?? { command: 'serve', root: process.cwd() }) : (raw.vite || {})
-  const vite = { ...defaultOptions.vite, ...viteRaw }
-
-  const tsdownRaw = typeof raw.tsdown === 'function' ? await raw?.tsdown(env ?? { command: 'serve', root: process.cwd() }) : (raw.tsdown)
-
-  return {
-    cwd: raw.cwd ?? defaultOptions.cwd,
-    mode: raw.mode ?? defaultOptions.mode,
-    port: raw.port ?? defaultOptions.port,
-    minify: raw.minify ?? defaultOptions.minify,
-    tsdown: tsdownRaw ?? defaultOptions.tsdown,
-    vite
+export function geVitePlugins(plugins: QvitePlugins) {
+  if (!plugins) {
+    return []
   }
+
+  const pluginKeys = Object.keys(plugins) as (keyof QvitePlugins)[]
+
+  const vitePlugins = pluginKeys.map((key) => {
+    const pluginOptions = plugins[key]
+
+    const pluginFn = Reflect.get(defaultPlugins, key)
+
+    if (isFunction(pluginFn) && isArray(pluginOptions)) {
+      return pluginFn(...pluginOptions)
+    }
+
+    return null
+  }).filter(Boolean) as Plugin[]
+  return vitePlugins
 }
 
 /**
@@ -71,19 +58,32 @@ export async function normalizeConfig(raw: QviteConfig, env?: ConfigEnv): Promis
  * @performance
  * O(1) 映射过程，无额外开销
  */
-export async function toViteInlineConfig(config: QviteConfig, env: ConfigEnv): Promise<InlineConfig> {
-  const normalized = await normalizeConfig(config, env)
-
-  const inline: InlineConfig = {
-    configFile: false,
-    root: env.root,
-    mode: normalized.mode,
-    ...normalized.vite,
-    build: {
-      ...normalized.vite?.build,
-      minify: normalized.minify ? (normalized.vite?.build?.minify ?? 'esbuild') : false
+export async function toViteInlineConfig(raw: QviteConfig): Promise<InlineConfig> {
+  const config = {
+    ...defaultOptions,
+    ...raw,
+    plugins: {
+      ...defaultPlugins,
+      ...raw.plugins
     }
   }
+
+  const mode = store.get<string>('mode')!
+  const root = store.get<string>('root')!
+  const modeEnv = loadEnv(mode, root, store.get<string>('prefixes')!)
+  const defaultEnv = loadEnv('', root, store.get<string>('prefixes')!)
+
+  const envs = deepMerge({}, defaultEnv, modeEnv)
+  console.log('envs: ', envs)
+
+  const plugins = geVitePlugins(config.plugins as QvitePlugins)
+
+  const inline: InlineConfig = mergeConfig({
+    configFile: false,
+    root,
+    mode,
+    plugins
+  }, { ...config.vite })
 
   return inline
 }

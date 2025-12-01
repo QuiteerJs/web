@@ -2,40 +2,35 @@ import type { Components, createSvgIconsPlugin, envTypesPlugin, fileChangeLogger
 import type { UserConfig } from 'tsdown'
 import type { UserConfig as ViteUserConfig } from 'vite'
 
-export type PluginSwitch<T extends (...args: any) => any> = boolean | Parameters<T>
+export type PluginOptions<T extends (...args: any) => any> = boolean | Parameters<T>
 
 export interface QvitePlugins {
-  Vue?: PluginSwitch<typeof Vue>
-  UnoCSS?: PluginSwitch<typeof UnoCSS>
-  VueJsx?: PluginSwitch<typeof VueJsx>
-  Progress?: PluginSwitch<typeof Progress>
-  VueDevTools?: PluginSwitch<typeof VueDevTools>
-  Icons?: PluginSwitch<typeof Icons>
-  Components?: PluginSwitch<typeof Components>
-  SvgIcons?: PluginSwitch<typeof createSvgIconsPlugin>
-  RemoveConsole?: PluginSwitch<typeof removeConsolePlugin>
-  MockRouter?: PluginSwitch<typeof mockRouterPlugin>
-  EnvTypes?: PluginSwitch<typeof envTypesPlugin>
-  FileChangeLogger?: PluginSwitch<typeof fileChangeLoggerPlugin>
-  FileSystemIconLoader?: PluginSwitch<typeof FileSystemIconLoader>
-  IconsResolver?: PluginSwitch<typeof IconsResolver>
-  NaiveUiResolver?: PluginSwitch<typeof NaiveUiResolver>
+  Vue?: PluginOptions<typeof Vue>
+  UnoCSS?: PluginOptions<typeof UnoCSS>
+  VueJsx?: PluginOptions<typeof VueJsx>
+  Progress?: PluginOptions<typeof Progress>
+  VueDevTools?: PluginOptions<typeof VueDevTools>
+  Icons?: PluginOptions<typeof Icons>
+  Components?: PluginOptions<typeof Components>
+  SvgIcons?: PluginOptions<typeof createSvgIconsPlugin>
+  RemoveConsole?: PluginOptions<typeof removeConsolePlugin>
+  MockRouter?: PluginOptions<typeof mockRouterPlugin>
+  EnvTypes?: PluginOptions<typeof envTypesPlugin>
+  FileChangeLogger?: PluginOptions<typeof fileChangeLoggerPlugin>
+  FileSystemIconLoader?: PluginOptions<typeof FileSystemIconLoader>
+  IconsResolver?: PluginOptions<typeof IconsResolver>
+  NaiveUiResolver?: PluginOptions<typeof NaiveUiResolver>
 }
 
 export interface QviteConfig {
-  cwd?: string
   vite?: ViteUserConfig
   tsdown?: UserConfig | UserConfig[]
   plugins?: QvitePlugins
-  mode?: 'development' | 'production' | 'test' | 'staging' | 'production' | string
-  port?: number
-  proxy?: Record<string, string>
-  minify?: boolean
-  output?: string
 }
 
 export interface ConfigEnv {
   command: 'build' | 'serve'
+  mode: 'development' | 'production' | 'test' | 'staging' | 'production' | string
   root: string
 }
 

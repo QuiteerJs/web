@@ -1,5 +1,4 @@
 import type { QviteConfig } from './typings'
-import process from 'node:process'
 import { build as viteBuild } from 'vite'
 
 import { normalizeConfig, toViteInlineConfig } from './transform'
@@ -29,7 +28,7 @@ import { normalizeConfig, toViteInlineConfig } from './transform'
  * 构建性能取决于 Vite/tsdown 自身实现
  */
 export async function build(options: QviteConfig): Promise<void> {
-  const normalized = await normalizeConfig(options, { command: 'build', root: options.cwd || process.cwd() })
+  const normalized = await normalizeConfig(options)
 
   if (normalized.tsdown && (
     (Array.isArray(normalized.tsdown) && normalized.tsdown.length > 0)
@@ -39,6 +38,6 @@ export async function build(options: QviteConfig): Promise<void> {
     await tsdownBuild(normalized.tsdown as any)
   }
 
-  const inline = await toViteInlineConfig(normalized, { command: 'build', root: normalized.cwd || process.cwd() })
+  const inline = await toViteInlineConfig(normalized)
   await viteBuild(inline)
 }
