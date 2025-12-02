@@ -7,7 +7,8 @@ export default defineConfig([
     entry: ['index.ts'],
     platform: 'node',
     minify: false,
-    dts: true
+    dts: true,
+    external: ['fsevents']
   },
   {
     name: 'qvite-cli',
@@ -15,6 +16,7 @@ export default defineConfig([
     platform: 'node',
     dts: false,
     minify: false,
-    entry: { qvite: 'cli.ts' }
+    entry: { qvite: 'cli.ts' },
+    external: ['fsevents']
   }
 ])
