@@ -139,9 +139,9 @@ qvite build -m production --minify
   - `VueDevTools: [{}]`（开启）
   - `VueJsx: [{}]`（开启）
   - `Progress: [{}]`（开启）
-  - `FileChangeLogger: [{}]`（开启）
-  - `RemoveConsole: [{}]`（开启）
-  - `MockRouter: [{}]`（开启）
+  - `FileChangeLogger: false`（默认关闭）
+  - `RemoveConsole: false`（默认关闭）
+  - `MockRouter: false`（默认关闭）
 - HTML 默认：为空对象（不插入标题/脚本/样式/标签）
 - 环境默认：`{ obfuscate: false, requiredKeys: ['desc'] }`
 - Vite 默认：

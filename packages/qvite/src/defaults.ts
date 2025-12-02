@@ -8,9 +8,9 @@ export const defaultOptions = {
     VueDevTools: [{}],
     VueJsx: [{}],
     Progress: [{}],
-    FileChangeLogger: [{}],
-    RemoveConsole: [{}],
-    MockRouter: [{}]
+    FileChangeLogger: false,
+    RemoveConsole: false,
+    MockRouter: false
   },
   html: {
 

@@ -23,9 +23,12 @@ export default defineConfig((envConfig) => {
           attrs: { id: 'demo-style' }
         },
         tags: [
-          { tag: 'div', attrs: { style: 'width: 100px; height: 100px; background-color: red;' }, selfClosing: true, position: 'body-append' }
+          { tag: 'div', attrs: { style: 'width: 100px; height: 100px; background-color: red;' }, children: '测试文字', selfClosing: true, position: 'body-append' }
         ]
       }
+    },
+    env: {
+      requiredKeys: ['desc', 'baseURL']
     },
     vite: {
       server: {

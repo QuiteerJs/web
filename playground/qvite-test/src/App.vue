@@ -1,5 +1,6 @@
 <script setup lang="tsx">
 const Btn = <button>dasdadasbu</button>
+console.log('Btn: ', Btn)
 </script>
 
 <template>

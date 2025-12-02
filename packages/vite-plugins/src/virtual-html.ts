@@ -252,7 +252,8 @@ function renderAttrs(attrs?: Record<string, string | boolean | number | null | u
 function renderTag(d: HtmlTagDescriptor): string {
   const attrs = renderAttrs(d.attrs)
   const t = d.tag
-  if (d.selfClosing ?? ['meta', 'link', 'base'].includes(t))
+  const voidTags = ['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr']
+  if (voidTags.includes(t))
     return `<${t}${attrs}>`
   const children = d.children ?? ''
   return `<${t}${attrs}>${children}</${t}>`
