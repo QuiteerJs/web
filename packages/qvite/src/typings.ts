@@ -2,6 +2,8 @@ import type { EnvConfigPluginOptions, fileChangeLoggerPlugin, mockRouterPlugin, 
 import type { UserConfig } from 'tsdown'
 import type { UserConfig as ViteUserConfig } from 'vite'
 
+export type { EnvConfig } from '@quiteer/vite-plugins'
+
 export type PluginOptions<T extends (...args: any) => any> = boolean | Parameters<T>
 
 export interface QvitePlugins {

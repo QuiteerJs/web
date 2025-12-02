@@ -1,5 +1,5 @@
-import type { ConfigEnv } from 'qvite'
-import { defineConfig } from 'qvite'
+import type { ConfigEnv } from '@quiteer/vite'
+import { defineConfig } from '@quiteer/vite'
 
 export default defineConfig((envConfig) => {
   const { env } = envConfig as ConfigEnv<ImportMetaEnv>

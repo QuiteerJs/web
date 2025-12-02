@@ -7,7 +7,7 @@ import { defineConfig as viteDefineConfig } from 'vite'
 export type * from './src/typings'
 
 /**
- * `qvite` 配置声明函数（类型辅助）
+ * `@quiteer/vite` 配置声明函数（类型辅助）
  *
  * 为 `qvite.config.ts` 提供强类型提示，支持对象、Promise 与函数多种导出形式
  *

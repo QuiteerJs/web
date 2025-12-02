@@ -219,7 +219,8 @@ function introduceSidebar() {
       text: 'ci',
       items: [
         { text: '一些脚本工具', link: '/ci/' },
-        { text: 'scripts', link: '/ci/scripts' }
+        { text: 'scripts', link: '/ci/scripts' },
+        { text: 'qvite', link: '/ci/qvite' }
       ]
     }
   ]

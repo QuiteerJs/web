@@ -1,4 +1,4 @@
-import type { EnvConfig } from '@quiteer/vite-plugins'
+import type { EnvConfig } from '@quiteer/vite'
 
 type MyConfig = EnvConfig<'baseURL'>
 
