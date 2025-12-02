@@ -10,6 +10,30 @@ import type { VirtualHtmlConfig, VirtualHtmlTag } from '@quiteer/vite-plugins'
  */
 export default {
   title: '测试我自己的title',
+  /**
+   * 外链脚本演示：新增 script 配置
+   *
+   * - 支持 `type/async/defer/crossorigin/integrity/referrerpolicy/nonce/fetchpriority`
+   * - `position` 控制注入位置：`head` | `body-prepend` | `body-append`
+   */
+  script: {
+    src: 'https://unpkg.com/lodash@4.17.21/lodash.min.js',
+    async: true,
+    position: 'body-append',
+    attrs: { 'data-demo': 'quiteer' }
+  },
+  /**
+   * 外链样式演示：新增 style 配置
+   *
+   * - 以 `<link rel="stylesheet" href="...">` 的形式注入
+   * - 可指定 `media/crossorigin/integrity/referrerpolicy` 等属性
+   */
+  style: {
+    src: '/src/style.css',
+    media: 'screen',
+    position: 'head',
+    attrs: { id: 'demo-style' }
+  },
   tags: [
     { tag: 'div', attrs: { style: 'width: 100px; height: 100px; background-color: red;' }, selfClosing: true, position: 'body-append' } as VirtualHtmlTag
   ]

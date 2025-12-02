@@ -28,6 +28,19 @@ export default {
   entry: '/src/main.ts',
   htmlAttrs: { lang: 'zh-CN' },
   bodyAttrs: { class: 'theme-light' },
+  // 外链样式与脚本（可选）
+  style: {
+    src: '/src/style.css',
+    media: 'screen',
+    position: 'head',
+    attrs: { id: 'main-style' }
+  },
+  script: {
+    src: 'https://unpkg.com/lodash@4.17.21/lodash.min.js',
+    async: true,
+    position: 'body-append',
+    attrs: { 'data-demo': 'quiteer' }
+  },
   tags: [
     { tag: 'meta', attrs: { charset: 'utf-8' }, selfClosing: true, position: 'head' },
     { tag: 'meta', attrs: { name: 'viewport', content: 'width=device-width, initial-scale=1' }, selfClosing: true, position: 'head' },
@@ -52,6 +65,25 @@ export default {
 - `config?: VirtualHtmlConfig`：内联配置对象，优先于文件读取。
 - `fallbackWhenIndexExists?: boolean`：当根下存在真实 `index.html` 时是否仍启用虚拟 HTML，默认 `false`。
 
+## 外链脚本与样式（新增）
+- `script?: { src: string; position?: 'head' | 'body-prepend' | 'body-append'; attrs?: Record<string, any>; type?: string; async?: boolean; defer?: boolean; crossorigin?: 'anonymous' | 'use-credentials'; integrity?: string; referrerpolicy?: string; nonce?: string; fetchpriority?: 'high' | 'low' | 'auto' }`
+  - 生成 `<script>` 标签；默认位置为 `body-append`
+  - 可通过 `type: 'module'` 指定模块脚本；`async/defer` 控制加载与执行时机
+  - 外部资源建议配合 `integrity + crossorigin` 提升安全性
+  - `attrs` 可扩展自定义属性（如 `data-*`）
+- `style?: { src: string; position?: 'head' | 'body-prepend' | 'body-append'; attrs?: Record<string, any>; rel?: 'stylesheet'; media?: string; crossorigin?: 'anonymous' | 'use-credentials'; integrity?: string; referrerpolicy?: string }`
+  - 生成 `<link rel="stylesheet" href="...">`；默认位置为 `head`
+  - 可设置 `media`（如 `screen`/`print`）与 `crossorigin/integrity/referrerpolicy`
+  - 若需内联样式，使用 `tags: [{ tag: 'style', children: '...'}]`
+
+```ts
+// 示例：完整的脚本/样式外链
+export default {
+  style: { src: '/src/style.css', media: 'screen', position: 'head', attrs: { id: 'demo-style' } },
+  script: { src: 'https://cdn.example.com/analytics.js', async: true, position: 'body-append', attrs: { 'data-app': 'quiteer' } }
+}
+```
+
 ## 类型与 TS 提示
 ```ts
 import type { VirtualHtmlOptions, VirtualHtmlConfig, VirtualHtmlTag } from '@quiteer/vite-plugins'
@@ -67,6 +99,8 @@ const cfg: VirtualHtmlConfig = {
   entry: '/src/main.ts',
   htmlAttrs: { lang: 'zh-CN' },
   bodyAttrs: { class: 'theme-dark' },
+  style: { src: '/src/style.css', media: 'screen', position: 'head', attrs: { id: 'main-style' } },
+  script: { src: '/vendor/feature.js', defer: true, position: 'body-append' },
   tags,
   appRoot: { id: 'app', tag: 'div', attrs: { 'data-app': 'root' } }
 }
@@ -78,6 +112,7 @@ const opt: VirtualHtmlOptions = {
 ```
 - IDE 会对 `tag/attrs/selfClosing/position` 提示与约束；`attrs` 支持 `string|number|boolean|null|undefined`。
 - `position` 支持 `head | body-prepend | body-append`；当未指定且为 `script` 时默认视为 `body-append`。
+- `style` 以 `<link rel="stylesheet" href="...">` 注入，默认位置 `head`；`script` 默认位置 `body-append`。
 
 ## 工作机制
 - 开发阶段
@@ -112,6 +147,7 @@ export default {
 
 ## 注意事项
 - 安全：避免将不受信任的文本直接放入 `children`；必要时自行转义或过滤。
+- 外部资源：若引用第三方脚本/样式，建议设置 `integrity` 与 `crossorigin`，并评估可信来源。
 - 入口：`entry` 默认 `'/src/main.ts'`，需为 ES Module 并能正常挂载应用至 `appRoot`。
 - 真实 HTML：如需在某些项目保持手写 `index.html`，将 `fallbackWhenIndexExists` 设为 `false` 即可。
 
@@ -119,6 +155,4 @@ export default {
 - 性能：生成与渲染为轻量的字符串拼接操作，开销极小。
 - 安全：不对外注入环境变量；与 Vite 的 HTML 流程兼容，避免破坏其它插件的注入逻辑。
 
-## 演示项目
-- 参考 `playground/vite-plugins-test`：在 `vite.config.ts` 中启用 `virtualHtmlPlugin`，并提供 `html.config.ts` 或依赖默认配置即可运行。
 
