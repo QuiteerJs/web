@@ -1,6 +1,20 @@
 ## 变更日志
 
-### 2025-12-03 `✏️ 28+` `➕ 2+` `🗑️ 2+`
+### 2025-12-03 `✏️ 35+` `➕ 3+` `🗑️ 2+`
+- 🔧  **chore** `release`: v0.0.8
+  > **🕒  19:57** · `➕1` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`ea40020`](https://github.com/QuiteerJs/web/commit/ea400208a28fe4e0912c192d6b81985a63d963f0))
+  - ✏️ [`packages/vite-plugins/package.json`](https://github.com/QuiteerJs/web/blob/ea400208a28fe4e0912c192d6b81985a63d963f0/packages/vite-plugins/package.json)
+- 🐛  **fix** `release`: 解决第一次运行的时候环境变量未生成的bug
+  > **🕒  18:44** · `➕313` / `➖165`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`57e63eb`](https://github.com/QuiteerJs/web/commit/57e63ebe973dc820687fa6c35bf5cd6c0966a060))
+  - ➕ [`packages/vite-plugins/src/bootstrap-env.ts`](https://github.com/QuiteerJs/web/blob/57e63ebe973dc820687fa6c35bf5cd6c0966a060/packages/vite-plugins/src/bootstrap-env.ts)
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/57e63ebe973dc820687fa6c35bf5cd6c0966a060/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/57e63ebe973dc820687fa6c35bf5cd6c0966a060/CHANGELOG_TIMELINE.md)
+  - ✏️ [`packages/vite-plugins/src/env-config.ts`](https://github.com/QuiteerJs/web/blob/57e63ebe973dc820687fa6c35bf5cd6c0966a060/packages/vite-plugins/src/env-config.ts)
+  - ✏️ [`packages/vite-plugins/src/index.ts`](https://github.com/QuiteerJs/web/blob/57e63ebe973dc820687fa6c35bf5cd6c0966a060/packages/vite-plugins/src/index.ts)
+  - ✏️ [`playground/vite-plugins-test/env.d.ts`](https://github.com/QuiteerJs/web/blob/57e63ebe973dc820687fa6c35bf5cd6c0966a060/playground/vite-plugins-test/env.d.ts)
+  - ✏️ [`playground/vite-plugins-test/vite.config.ts`](https://github.com/QuiteerJs/web/blob/57e63ebe973dc820687fa6c35bf5cd6c0966a060/playground/vite-plugins-test/vite.config.ts)
 - 🔧  **chore** `release`: v0.0.7
   > **🕒  18:43** · `➕1` / `➖1`
   > `👤 Quiteer`  <p602985@yeah.net> ([`b80e131`](https://github.com/QuiteerJs/web/commit/b80e131486d5ac6e7b447f3a87f561ecb910ae0e))

@@ -48,6 +48,8 @@ export default defineConfig(() => ({
 
 ```ts
 // env.config.ts（支持 TS / satisfies 写法）
+// 若未使用类型约束，示例可包含额外键；当启用严格类型（见下文“严格键约束”）时，
+// 非 default 段的额外键（如 title）会触发类型错误
 export default {
   default: {
     desc: { value: '通用环境变量', obfuscate: false },
@@ -60,14 +62,14 @@ export default {
     uploadURL: '/files',
     gisJs: '/gis',
     gisCss: '/gis',
-    title: 'xxx'
+    title: 'xxx' // 严格类型启用时，这里将报错
   },
   production: {
     desc: '生产环境变量',
     baseURL: 'https://api.example.com',
     apiURL: '/api',
     uploadURL: '/files',
-    title: 'prod'
+    title: 'prod' // 严格类型启用时，这里将报错
   }
 }
 ```
@@ -99,35 +101,36 @@ export default {
   3. 全局 `obfuscate`
 - 建议：URL/直接使用型字段设置 `obfuscate: false` 或加入 `obfuscateSkipKeys`。
 
-## 类型约束拓展（可选）
+## 严格键约束（推荐）
 - 为了在类型层面约束“必填键”，可使用泛型：
-  - `EnvConfig<EnvNames, RequiredKeys>`
+  - `EnvConfig<RequiredKeys>`：默认五个环境；环境段仅允许 `desc` 与 `RequiredKeys`，其它键将报错；`default` 段可包含任意额外键
+  - `EnvConfig<EnvNames, RequiredKeys>`：在默认内置集合基础上加入自定义环境名；同样对环境段进行严格约束
   - 示例：
 ```ts
-// 约束必填键集合（EnvNames 可省略，默认五个环境）
-type Required = 'desc' | 'baseURL' | 'apiURL' | 'uploadURL' | 'gisJs' | 'gisCss' | 'title'
+// 约束必填键集合（EnvNames 可省略，默认五个环境）；default 段可包含其他键
+type Required = 'baseURL' | 'apiURL' | 'uploadURL' | 'gisJs' | 'gisCss'
 
 export default {
   // default 段可为 Partial，仅提供通用键
-  default: { desc: '通用环境变量' },
+  default: { desc: '通用环境变量', title: '可选额外键（仅限 default）' },
   development: {
     desc: '开发环境变量',
     baseURL: { value: 'http://localhost:3000', obfuscate: true },
     apiURL: '/api',
     uploadURL: '/files',
     gisJs: '/gis',
-    gisCss: '/gis',
-    title: 'xxx'
+    gisCss: '/gis'
   },
   production: {
     desc: '生产环境变量',
     baseURL: 'https://api.example.com',
     apiURL: '/api',
-    uploadURL: '/files',
-    title: 'prod'
+    uploadURL: '/files'
   }
-} satisfies EnvConfig<EnvName, Required>
+} satisfies EnvConfig<Required>
 ```
+
+> 说明：在上述严格约束中，非 default 段写入 `title` 将产生类型错误；这有助于保证不同环境的键集合一致与可预期。
 
 ## 应用场景
 - 多环境配置集中管理：`default` 提供通用配置，各环境覆盖差异。
@@ -147,15 +150,15 @@ export default {
 ## 示例：应用读取
 ```ts
 // 在组件/应用中读取（推荐不在模板中直接写 import.meta）
-const baseURL = import.meta.env.VITE_BASEURL
-const testUrl = import.meta.env.VITE_TESTURL
+const baseURL = import.meta.env.VITE_BASE_URL
+const testUrl = import.meta.env.VITE_TEST_URL
 ```
 
 > 提示：若启用了混淆，URL 类字段建议跳过混淆；如确需还原，可在应用层执行 Base64 解码，但不推荐对链接场景使用混淆。
 
 ## 注意事项
 - Base64 仅为混淆，非加密；敏感信息不应下发到前端。
-- 仅生成到 `import.meta.env` 的变量应以 `VITE_` 前缀命名。
+- 仅生成到 `import.meta.env` 的变量应以 `VITE_` 前缀命名；键名将自动按驼峰分词转为下划线大写（如 `baseURL -> VITE_BASE_URL`）。
 - 模板中避免直接使用 `import.meta.env`，应在脚本中预处理后渲染。
 
 ## 性能与安全

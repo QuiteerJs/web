@@ -1,6 +1,6 @@
 import type { EnvConfig } from '@quiteer/vite-plugins'
 
-type MyConfig = EnvConfig<'baseURL'>
+type MyConfig = EnvConfig<'baseURL' | 'apiURL' | 'uploadURL' | 'gisJs' | 'gisCss'>
 
 export default {
   default: {
@@ -27,6 +27,8 @@ export default {
     baseURL: 'https://api.example.com',
     apiURL: '/api',
     uploadURL: '/files',
+    gisJs: '/gis',
+    gisCss: '/gis',
     title: 'prod'
   },
   test: {
@@ -34,6 +36,8 @@ export default {
     baseURL: 'https://api.test.example.com',
     apiURL: '/api',
     uploadURL: '/files',
+    gisJs: '/gis',
+    gisCss: '/gis',
     title: 'test'
   },
   staging: {
@@ -41,6 +45,8 @@ export default {
     baseURL: 'https://api.staging.example.com',
     apiURL: '/api',
     uploadURL: '/files',
+    gisJs: '/gis',
+    gisCss: '/gis',
     title: 'staging'
   },
   release: {
@@ -48,6 +54,8 @@ export default {
     baseURL: 'https://api.release.example.com',
     apiURL: '/api',
     uploadURL: '/files',
+    gisJs: '/gis',
+    gisCss: '/gis',
     title: 'release'
   }
 } satisfies MyConfig

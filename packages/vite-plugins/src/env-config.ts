@@ -1,19 +1,23 @@
 import type { Plugin } from 'vite'
 import { Buffer } from 'node:buffer'
-import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import process from 'node:process'
-import { loadConfig } from 'c12'
 import fg from 'fast-glob'
 import { bold, cyan, gray, green, red, yellow } from 'kolorist'
 
+import { mergeByMode, parseConfigModule, resolveEnvConfigPath, toEnvKey, writeIfChanged } from './env-shared'
+
 type EnvValue = string | { value: string, obfuscate?: boolean }
-type EnvItem<RequiredKeys extends PropertyKey = never> = { desc: EnvValue } & Record<RequiredKeys, EnvValue> & Record<string, EnvValue>
 
 type EnvName = 'development' | 'production' | 'test' | 'staging' | 'release'
-export type EnvConfig<RequiredKeys extends PropertyKey = never, EnvNames extends string = EnvName> = {
-  default: { desc: EnvValue } & Partial<Omit<EnvItem<RequiredKeys>, 'desc'>>
-} & { [K in EnvNames]: EnvItem<RequiredKeys> }
+
+export type EnvConfig<Keys extends string = never, EnvNames extends string = EnvName> = {
+  /** default 段允许任意扩展键，且 Keys 为可选 */
+  default: { desc: EnvValue } & Partial<Record<Keys, EnvValue>> & Record<string, EnvValue>
+} & {
+  /** 具体环境段严格限制：只能包含 desc 与 Keys，不允许多余键 */
+  [K in EnvNames]: ({ desc: EnvValue } & Record<Keys, EnvValue>) & Record<Exclude<string, Keys | 'desc'>, never>
+}
 
 export interface EnvConfigPluginOptions {
   /** 根目录，默认使用 Vite 的 root */
@@ -41,8 +45,6 @@ export interface EnvConfigPluginOptions {
   /** 是否禁用类型文件生成，默认 false */
   disableTypes?: boolean
 }
-
-type EnvConfigShape = Record<string, Record<string, unknown>> & { default?: Record<string, unknown> }
 
 /**
  * 函数：envConfigPlugin
@@ -98,62 +100,12 @@ export function envConfigPlugin(options: EnvConfigPluginOptions = {}): Plugin {
    * @param root - 项目根目录
    * @returns 解析到的绝对路径
    */
-  async function resolveEnvConfigPath(root: string): Promise<string | null> {
-    if (resolvedConfigPath) {
-      const abs = path.isAbsolute(resolvedConfigPath) ? resolvedConfigPath : path.join(root, resolvedConfigPath)
-      try {
-        await fs.access(abs)
-        return abs
-      }
-      catch {}
-    }
-    const direct = path.join(root, 'env.config.ts')
-    try {
-      await fs.access(direct)
-      return direct
-    }
-    catch {}
+  async function findConfig(root: string): Promise<string | null> {
+    const fromShared = await resolveEnvConfigPath(root, resolvedConfigPath)
+    if (fromShared)
+      return fromShared
     const matches = await fg('**/env.config.ts', { cwd: root, dot: true, absolute: true, onlyFiles: true })
     return matches[0] ?? null
-  }
-
-  /**
-   * 函数：parseConfigModule
-   *
-   * 读取并解析 env.config.ts 的默认导出对象（不依赖额外编译器）。
-   * 实现：移除 `export default` 语句，利用 `vm` 等价方式安全求值。
-   *
-   * @param file - 配置文件绝对路径
-   * @returns 配置对象，形如 { default: {...}, development: {...}, ... }
-   */
-  async function parseConfigModule(file: string): Promise<EnvConfigShape> {
-    const { config } = await loadConfig<EnvConfigShape>({
-      name: 'env',
-      cwd: path.dirname(file),
-      configFile: file,
-      rcFile: false,
-      dotenv: false,
-      packageJson: false,
-      globalRc: false
-    })
-    if (!config || typeof config !== 'object')
-      throw new Error('env.config.ts 格式错误：默认导出必须为对象')
-    return config
-  }
-
-  /**
-   * 函数：mergeByMode
-   *
-   * 合并 default 与当前环境段，环境段覆盖 default。
-   *
-   * @param cfg - 完整配置对象
-   * @param mode - 当前环境名
-   * @returns 合并后的键值对象
-   */
-  function mergeByMode(cfg: EnvConfigShape, mode: string): Record<string, unknown> {
-    const base = { ...cfg.default }
-    const specific = { ...cfg[mode] }
-    return { ...base, ...specific }
   }
 
   /**
@@ -185,19 +137,7 @@ export function envConfigPlugin(options: EnvConfigPluginOptions = {}): Plugin {
    * @param key - 配置键名
    * @returns 环境变量名
    */
-  function toEnvKey(key: string): string {
-    const withUnderscore = key
-      // camelCase → snake_case (baseURL -> base_URL, testUrl -> test_Url)
-      .replace(/([a-z0-9])([A-Z])/g, '$1_$2')
-      // non-alphanumeric → _
-      .replace(/[^a-z0-9]+/gi, '_')
-      // collapse underscores
-      .replace(/_+/g, '_')
-      // trim underscores
-      .replace(/^_+|_+$/g, '')
-
-    return `${includePrefixes[0] ?? 'VITE_'}${withUnderscore.toUpperCase()}`
-  }
+  const toKey = (key: string) => toEnvKey(includePrefixes, key)
 
   /**
    * 函数：inferType
@@ -243,7 +183,7 @@ export function envConfigPlugin(options: EnvConfigPluginOptions = {}): Plugin {
   function generateEnvFileContent(obj: Record<string, unknown>): string {
     const lines: string[] = []
     for (const [k, v] of Object.entries(obj)) {
-      const key = toEnvKey(k)
+      const key = toKey(k)
       let raw = ''
       let shouldTransform: boolean | undefined
       if (v == null) {
@@ -286,7 +226,7 @@ export function envConfigPlugin(options: EnvConfigPluginOptions = {}): Plugin {
     lines.push('interface ImportMetaEnv {')
     const entries = Object.entries(obj)
     for (const [k, v] of entries.sort(([a], [b]) => a.localeCompare(b))) {
-      const key = toEnvKey(k)
+      const key = toKey(k)
       let raw = ''
       if (v == null)
         raw = ''
@@ -311,16 +251,7 @@ export function envConfigPlugin(options: EnvConfigPluginOptions = {}): Plugin {
    * @param file - 目标文件
    * @param content - 文本内容
    */
-  async function writeIfChanged(file: string, content: string): Promise<void> {
-    try {
-      const prev = await fs.readFile(file, 'utf8')
-      if (prev === content)
-        return
-    }
-    catch {}
-    await fs.mkdir(path.dirname(file), { recursive: true })
-    await fs.writeFile(file, content, 'utf8')
-  }
+  const writeOut = writeIfChanged
 
   /**
    * 函数：runGenerate
@@ -330,7 +261,7 @@ export function envConfigPlugin(options: EnvConfigPluginOptions = {}): Plugin {
   async function runGenerate(): Promise<{ missing: string[] }> {
     if (!resolvedRoot || !resolvedMode)
       return { missing: [] }
-    const cfgPath = await resolveEnvConfigPath(resolvedRoot)
+    const cfgPath = await findConfig(resolvedRoot)
     if (!cfgPath)
       throw new Error('未找到 env.config.ts，请在根目录或子包中提供')
     const full = await parseConfigModule(cfgPath)
@@ -339,16 +270,16 @@ export function envConfigPlugin(options: EnvConfigPluginOptions = {}): Plugin {
     const missing = getMissingRequired(merged)
     const envTextMerged = generateEnvFileContent(merged)
     const envFileMerged = path.join(resolvedRoot, envFileTemplate.replace('{mode}', resolvedMode))
-    await writeIfChanged(envFileMerged, envTextMerged)
+    await writeOut(envFileMerged, envTextMerged)
 
     const envTextDefault = generateEnvFileContent(baseOnly)
     const envFileDefault = path.join(resolvedRoot, defaultEnvFile)
-    await writeIfChanged(envFileDefault, envTextDefault)
+    await writeOut(envFileDefault, envTextDefault)
 
     if (!disableTypes) {
       const dtsText = generateTypes(merged)
       const dtsFile = typesOut ?? path.join(resolvedRoot, 'env.quiteer.d.ts')
-      await writeIfChanged(dtsFile, dtsText)
+      await writeOut(dtsFile, dtsText)
       // eslint-disable-next-line no-console
       console.log(`${bold(cyan('[env-config]'))} 生成 ${green(path.relative(resolvedRoot, envFileDefault))} 与 ${green(path.relative(resolvedRoot, envFileMerged))}，类型 ${green(path.relative(resolvedRoot, dtsFile))} ${gray(`(${Object.keys(merged).length} keys, obfuscate=${obfuscate})`)}`)
     }
