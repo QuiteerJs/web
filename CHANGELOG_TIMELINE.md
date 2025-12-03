@@ -1,6 +1,16 @@
 ## 变更日志
 
-### 2025-12-03 `✏️ 24+` `➕ 2+` `🗑️ 2+`
+### 2025-12-03 `✏️ 28+` `➕ 2+` `🗑️ 2+`
+- 🔧  **chore** `release`: v0.0.7
+  > **🕒  18:43** · `➕1` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`b80e131`](https://github.com/QuiteerJs/web/commit/b80e131486d5ac6e7b447f3a87f561ecb910ae0e))
+  - ✏️ [`packages/vite-plugins/package.json`](https://github.com/QuiteerJs/web/blob/b80e131486d5ac6e7b447f3a87f561ecb910ae0e/packages/vite-plugins/package.json)
+- 🐛  **fix** `release`: env插件分词
+  > **🕒  17:13** · `➕33` / `➖6`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`3287e48`](https://github.com/QuiteerJs/web/commit/3287e480881ab3d7dd7e6ca8c8e495de2675c67f))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/3287e480881ab3d7dd7e6ca8c8e495de2675c67f/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/3287e480881ab3d7dd7e6ca8c8e495de2675c67f/CHANGELOG_TIMELINE.md)
+  - ✏️ [`packages/vite-plugins/src/env-config.ts`](https://github.com/QuiteerJs/web/blob/3287e480881ab3d7dd7e6ca8c8e495de2675c67f/packages/vite-plugins/src/env-config.ts)
 - 🔧  **chore** `release`: v0.0.6
   > **🕒  17:12** · `➕1` / `➖1`
   > `👤 Quiteer`  <p602985@yeah.net> ([`1843d6d`](https://github.com/QuiteerJs/web/commit/1843d6ddff9a57fa63a1d8ce390148818c5ea68c))

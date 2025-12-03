@@ -2,6 +2,7 @@ import type { Plugin } from 'vite'
 import { Buffer } from 'node:buffer'
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
+import process from 'node:process'
 import { loadConfig } from 'c12'
 import fg from 'fast-glob'
 import { bold, cyan, gray, green, red, yellow } from 'kolorist'
@@ -363,12 +364,36 @@ export function envConfigPlugin(options: EnvConfigPluginOptions = {}): Plugin {
 
   return {
     name: 'quiteer-env-config',
+    enforce: 'pre',
     /**
      * 函数：apply
      *
      * 插件在开发与构建阶段均生效。
      */
     apply: () => true,
+    /**
+     * 函数：config
+     *
+     * 在配置解析前执行一次生成，确保首次运行时 `.env` 与类型已就绪，
+     * 便于用户在 `vite.config.ts` 中使用 `loadEnv` 或依赖环境变量的配置。
+     */
+    async config(userConfig, env) {
+      // 预解析 root/mode 与前缀
+      resolvedRoot = options.root ?? (userConfig.root || process.cwd())
+      resolvedMode = options.targetEnv ?? env.mode
+      includePrefixes = options.includePrefixes ?? (Array.isArray(userConfig.envPrefix)
+        ? userConfig.envPrefix
+        : typeof userConfig.envPrefix === 'string'
+          ? [userConfig.envPrefix]
+          : ['VITE_']
+      )
+      typesOut = options.disableTypes ? undefined : (options.typesOutput ?? path.join(resolvedRoot!, 'env.d.ts'))
+      envFileTemplate = options.envFileTemplate ?? '.env.{mode}.local'
+      defaultEnvFile = options.defaultEnvFile ?? '.env.local'
+
+      // 首次运行提前生成，避免用户配置读取不到环境变量
+      await runGenerate()
+    },
 
     /**
      * 函数：configResolved
