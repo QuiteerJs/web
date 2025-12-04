@@ -1,6 +1,15 @@
 ## 变更日志
 
-### 2025-12-04 `✏️ 20+` `➕ 0+` `🗑️ 0+`
+### 2025-12-04 `✏️ 23+` `➕ 0+` `🗑️ 0+`
+- 🔧  **chore** `release`: v0.0.12
+  > **🕒  15:46** · `➕2` / `➖2`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`1d51aee`](https://github.com/QuiteerJs/web/commit/1d51aee0ef7cccd9a15a307195c0a1f2394d94ab))
+  - ✏️ [`scripts/package.json`](https://github.com/QuiteerJs/web/blob/1d51aee0ef7cccd9a15a307195c0a1f2394d94ab/scripts/package.json)
+- 🐛  **fix** `release`: 每次读取配置时都生成env文件
+  > **🕒  15:01** · `➕264` / `➖246`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`a7aa8c4`](https://github.com/QuiteerJs/web/commit/a7aa8c404eee0852ee6051dedf970e389a31c786))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/a7aa8c404eee0852ee6051dedf970e389a31c786/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/a7aa8c404eee0852ee6051dedf970e389a31c786/CHANGELOG_TIMELINE.md)
 - 🔧  **chore** `release`: v0.0.6
   > **🕒  15:00** · `➕1` / `➖1`
   > `👤 Quiteer`  <p602985@yeah.net> ([`2bae2e9`](https://github.com/QuiteerJs/web/commit/2bae2e9452fdbb8a550f73933c8d949f77fe1628))

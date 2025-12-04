@@ -6,6 +6,7 @@ import enquirer from 'enquirer'
 import { loadCliOptions } from '../config'
 import { execCommand } from '../shared'
 import { generateChangelogFiles } from './changelog'
+import { gitCommit } from './git-commit'
 
 /**
  * 版本管理：交互选择需要提升版本的包、创建自定义前缀标签、生成变更日志
@@ -81,4 +82,7 @@ export async function release(tagPrefix?: string): Promise<void> {
     groupOutput: cli.changelog.groupOutput,
     timelineOutput: cli.changelog.timelineOutput
   })
+
+  await execCommand('git', ['-C', repoRoot, 'add', '-A'])
+  await gitCommit(lang)
 }
