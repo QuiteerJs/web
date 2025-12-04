@@ -5,7 +5,7 @@ import process from 'node:process'
 import fg from 'fast-glob'
 import { bold, cyan, gray, green, red, yellow } from 'kolorist'
 
-import { mergeByMode, parseConfigModule, resolveEnvConfigPath, toEnvKey, writeIfChanged } from './env-shared'
+import { mergeByMode, parseConfigModule, resolveEnvConfigPath, toEnvKey, writeIfChanged } from './shared/env-shared'
 
 type EnvValue = string | { value: string, obfuscate?: boolean }
 
