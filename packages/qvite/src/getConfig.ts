@@ -3,6 +3,7 @@ import { join } from 'node:path'
 import { isFunction } from '@quiteer/is'
 import { parserConfig } from '@quiteer/parser-config'
 import { deepMerge } from '@quiteer/utils'
+import { bootstrapEnv } from '@quiteer/vite-plugins'
 import { pathExists } from 'fs-extra'
 import { loadEnv } from 'vite'
 import { store } from './store'
@@ -30,7 +31,9 @@ export async function getConfig(filePath: string): Promise<QviteConfig> {
   const path = await configPath(filePath)
 
   const command = store.get<Command>('command')!
+
   const mode = store.get<Mode>('mode')!
+  await bootstrapEnv({ mode, includePrefixes: ['VITE_'] })
   const modeEnv = loadEnv(mode, root, store.get<string[]>('prefixes')!)
   const defaultEnv = loadEnv('', root, store.get<string[]>('prefixes')!)
 
