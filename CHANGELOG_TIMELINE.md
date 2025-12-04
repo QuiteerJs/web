@@ -1,6 +1,15 @@
 ## 变更日志
 
-### 2025-12-04 `✏️ 17+` `➕ 0+` `🗑️ 0+`
+### 2025-12-04 `✏️ 20+` `➕ 0+` `🗑️ 0+`
+- 🔧  **chore** `release`: v0.0.6
+  > **🕒  15:00** · `➕1` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`2bae2e9`](https://github.com/QuiteerJs/web/commit/2bae2e9452fdbb8a550f73933c8d949f77fe1628))
+  - ✏️ [`packages/qvite/package.json`](https://github.com/QuiteerJs/web/blob/2bae2e9452fdbb8a550f73933c8d949f77fe1628/packages/qvite/package.json)
+- 📝  **docs** `release`: vite插件更新
+  > **🕒  15:00** · `➕1070` / `➖980`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`c12caf5`](https://github.com/QuiteerJs/web/commit/c12caf5ea308709b385c00e10dd5d00ee74843d5))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/c12caf5ea308709b385c00e10dd5d00ee74843d5/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/c12caf5ea308709b385c00e10dd5d00ee74843d5/CHANGELOG_TIMELINE.md)
 - 🔧  **chore** `release`: v0.0.9
   > **🕒  14:59** · `➕1` / `➖1`
   > `👤 Quiteer`  <p602985@yeah.net> ([`5b33a93`](https://github.com/QuiteerJs/web/commit/5b33a93cbcd347031249ff2a4a6e4a7ee944b6b3))
