@@ -3,7 +3,7 @@ import type { LayoutType } from './types'
 
 export const DEFAULT_LAYOUT_PROPS: Required<Omit<Props, 'baseRoutes'>> = {
   /** @description 布局类型 */
-  type: 'side-mixed-menu',
+  type: 'side-menu',
   /** @description 是否显示边框 */
   bordered: true,
   /** @description 反色样式（Header/Sider/Footer/Menu） */

@@ -11,7 +11,6 @@
     "build": "turbo run build --filter './packages/*'",
     "naive:dev": "turbo run dev --filter @quiteer/naive-extra",
     "naive:build": "turbo run build --filter @quiteer/naive-extra",
-    "naive-extra-test:build": "turbo run build --filter './packages/*' && pnpm run build --filter './playground/naive-extra-test'",
     "scripts:dev": "turbo run dev --filter @quiteer/scripts",
     "scripts:build": "turbo run build --filter @quiteer/scripts",
     "docs:dev": "vitepress dev docs --port 8888",
