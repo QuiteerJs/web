@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { QuiUpload, useUploadProps } from 'naive-extra'
+import { QuiUpload, useUploadProps } from '@quiteer/naive-extra'
 import { ref } from 'vue'
 
 const { getUploadProps, getImageUploadProps, getAudioUploadProps, getVedioUploadProps } = useUploadProps({
@@ -7,8 +7,6 @@ const { getUploadProps, getImageUploadProps, getAudioUploadProps, getVedioUpload
   action: 'https://www.mocky.io/v2/5e4bafc63100007100d8b70f',
   dataType: 'string'
 })
-
-console.log('getUploadProps() :>> ', getUploadProps())
 
 const list1 = ref([
   { id: 'a1', name: '示例图片', status: 'finished', url: 'https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg' }

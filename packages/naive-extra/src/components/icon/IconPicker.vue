@@ -77,7 +77,7 @@ async function loadPage(page: number, reset = false) {
     }
 
     // 分页逻辑
-    const pageSize = props.pageSize || 100
+    const pageSize = props.pageSize || 200
     const start = (currentPage.value - 1) * pageSize
     const end = start + pageSize
 

@@ -1,15 +1,34 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
+import { hasSlotContent } from '../../../share/slot'
 import { useContext } from '../context'
 import { resolveLeafKeyFromMenu, resolveTopParentKeyFromMenu } from '../utils'
 import AppBreadcrumb from './AppBreadcrumb.vue'
 import AppLeftLogoInfo from './AppLeftLogoInfo.vue'
 
-const { type, bordered, inverted, headerHeight, activeKey, mainActiveKey, subActiveKey, hasSiderLayout, isLeftMain, isTopMain, menuOptions: options, mainMenuOptions, subMenuOptions, updateActiveKey } = useContext()
+const { type, bordered, inverted, headerHeight, sideWidth, siderMixedWidth, collapsedWidth, activeKey, mainActiveKey, subActiveKey, hasSiderLayout, hasBreadcrumb, isLeftMain, isTopMain, isLeftMixed, isCollapsed, menuOptions: options, mainMenuOptions, subMenuOptions, updateActiveKey } = useContext()
+
+const left = computed(() => {
+  if (unref(isTopMain))
+    return 0
+
+  if (unref(hasSiderLayout)) {
+    if (unref(isCollapsed))
+      return `${unref(collapsedWidth)}px`
+
+    if (unref(isLeftMixed))
+      return `${unref(siderMixedWidth)}px`
+
+    return `${unref(sideWidth)}px`
+  }
+
+  return 0
+})
 
 const headerStyle = computed(() => ({
   height: `${unref(headerHeight)}px`,
   zIndex: 1,
+  left: left.value,
   padding: unref(hasSiderLayout) ? '0' : '0 16px'
 }))
 
@@ -52,22 +71,27 @@ watchEffect(() => {
 
 const router = useRouter()
 function handleUpdateValue(key: string) {
-  console.log('key: ', key)
   updateActiveKey(key)
   active.value = key
   if (unref(isTopMain) && !isTopMenu.value) {
     const { leafKey } = getKey(key)
-    console.log('leafKey: ', leafKey)
     router.push(leafKey)
   }
 }
+
+const slots = useSlots()
+const hasDefaultSlot = computed(() => hasSlotContent(slots.default))
 </script>
 
 <template>
   <n-layout-header position="absolute" :bordered="bordered" :inverted="inverted" :style="headerStyle">
     <n-flex align="center" :wrap="false" class="w-full" :style="{ height: `${headerHeight}px` }">
-      <AppLeftLogoInfo v-if="!hasSiderLayout" />
-      <AppBreadcrumb v-if="type === 'side-menu'" />
+      <template v-if="isTopMain">
+        <slot v-if="hasDefaultSlot" />
+        <AppLeftLogoInfo v-else />
+      </template>
+
+      <AppBreadcrumb v-if="hasBreadcrumb" />
       <n-menu
         v-if="showMenu"
         v-model:value="active"

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { QuiLayout } from 'naive-extra'
+import { QuiLayout } from '@quiteer/naive-extra'
 import { storeToRefs } from 'pinia'
 import { useLayoutStore } from '../stores/layout'
 

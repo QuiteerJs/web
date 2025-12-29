@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { QuiIcon, QuiIconPicker } from 'naive-extra'
+import { QuiIcon, QuiIconPicker } from '@quiteer/naive-extra'
 import { ref } from 'vue'
 
 const selectedIcon = ref('mdi:home')

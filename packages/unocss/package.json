@@ -9,7 +9,8 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.mjs"
     },
-    "./uno.config.ts": "./src/uno.config.ts"
+    "./uno.config.ts": "./src/uno.config.ts",
+    "./preset": "./src/preset.ts"
   },
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",

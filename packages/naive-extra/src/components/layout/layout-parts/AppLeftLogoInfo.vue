@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useContext } from '../context'
 
-const { isCollapsed, headerHeight, isLeftMixed, hasSiderLayout } = useContext()!
+const { isCollapsed, headerHeight, isLeftMixed, isTopMain, hasSiderLayout } = useContext()!
 
 const isMixed = computed(() => unref(isLeftMixed) || unref(isCollapsed))
 
@@ -10,18 +10,18 @@ function getContainerStyle(_: void) {
     height: `${unref(headerHeight)}px`,
     display: 'flex',
     alignItems: 'center',
-    padding: isMixed.value ? '0' : '0 20px',
+    padding: isMixed.value && !isTopMain ? '0' : '0 20px',
     justifyContent: isMixed.value ? 'center' : 'flex-start'
   }
 }
 </script>
 
 <template>
-  <n-flex align="center" :wrap="false" :justify="isMixed ? 'center' : 'flex-start'" :style="hasSiderLayout ? getContainerStyle() : {}" class="cursor-pointer select-none">
+  <n-flex align="center" :wrap="false" :justify="isMixed && !isTopMain ? 'center' : 'flex-start'" :style="hasSiderLayout ? getContainerStyle() : {}" class="cursor-pointer select-none">
     <i class=" i-skill-icons:vuejs-dark text-3xl" />
     <div
       class=" transition-width duration-200"
-      :class="{ 'opacity-0 w-0 absolute': isMixed }"
+      :class="{ 'opacity-0 w-0 absolute': isMixed && !isTopMain }"
     >
       明天会好的111
     </div>

@@ -4,7 +4,7 @@ import type { MenuOption } from 'naive-ui'
 import type { Ref } from 'vue'
 import type { RouteRecordRaw } from 'vue-router'
 import type { LayoutType, RouteMeta } from './types'
-import { computed, isRef, reactive, ref } from 'vue'
+import { computed, isRef, onUnmounted, reactive, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { DEFAULT_LAYOUT_PROPS } from './const'
 import { transformRouteToMenu } from './route-to-menu'
@@ -18,7 +18,9 @@ export interface UseLayoutContext {
   isCollapsed: boolean
   headerHeight: number
   footerHeight: number
+  showFooter: boolean
   siderWidth: number
+  siderMixedWidth: number
   collapsedWidth: number
   routes: RouteLike[]
   activeKey: string
@@ -99,7 +101,9 @@ export function useLayout(option: {
   inverted?: boolean
   headerHeight?: number
   footerHeight?: number
+  showFooter?: boolean
   siderWidth?: number
+  siderMixedWidth?: number
   collapsedWidth?: number
   homePath?: string
   excludePaths?: string[]
@@ -117,7 +121,9 @@ export function useLayout(option: {
   const inverted = ref(option.inverted ?? DEFAULT_LAYOUT_PROPS.inverted)
   const headerHeight = ref(option.headerHeight ?? DEFAULT_LAYOUT_PROPS.headerHeight)
   const footerHeight = ref(option.footerHeight ?? DEFAULT_LAYOUT_PROPS.footerHeight)
+  const showFooter = ref(option.showFooter ?? DEFAULT_LAYOUT_PROPS.showFooter)
   const siderWidth = ref(option.siderWidth ?? DEFAULT_LAYOUT_PROPS.siderWidth)
+  const siderMixedWidth = ref(option.siderMixedWidth ?? DEFAULT_LAYOUT_PROPS.siderMixedWidth)
   const collapsedWidth = ref(option.collapsedWidth ?? DEFAULT_LAYOUT_PROPS.collapsedWidth)
 
   // 基础路由处理
@@ -141,6 +147,7 @@ export function useLayout(option: {
     isCollapsed: collapsed,
     headerHeight,
     footerHeight,
+    showFooter,
     siderWidth,
     collapsedWidth,
     activeKey,
@@ -237,6 +244,7 @@ export function useLayout(option: {
     headerHeight,
     footerHeight,
     siderWidth,
+    siderMixedWidth,
     collapsedWidth
   }
 }

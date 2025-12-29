@@ -11,12 +11,18 @@ export type Props = Partial<{
   inverted: boolean
   /** @description 是否折叠侧边栏 */
   isCollapsed: boolean
+  /** @description 是否显示底部 */
+  showFooter: boolean
   /** @description 头部高度 */
   headerHeight: number
   /** @description 底部高度 */
   footerHeight: number
+  /** @description 底部是否占满宽度 */
+  footerFull: boolean
   /** @description 侧边栏宽度 */
   siderWidth: number
+  /** @description 侧边栏混合模式的宽度 */
+  siderMixedWidth: number
   /** @description 折叠侧边栏宽度 */
   collapsedWidth: number
   /** @description 当前激活的路由键 */

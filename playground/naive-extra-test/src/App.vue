@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { QuiProvider } from 'naive-extra'
+import { QuiProvider } from '@quiteer/naive-extra'
 import { computed } from 'vue'
 import BaseLayout from './layout/index.vue'
 import { useAppStore } from './stores/app'

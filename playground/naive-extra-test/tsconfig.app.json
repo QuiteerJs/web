@@ -4,9 +4,7 @@
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
 
     "paths": {
-      "@/*": ["./src/*"],
-      "naive-extra": ["../../packages/naive-extra/src/index.ts"],
-      "naive-extra/*": ["../../packages/naive-extra/src/*"]
+      "@/*": ["./src/*"]
     }
   },
   "include": ["env.d.ts", "*/**/*.ts", "*/**/*.vue"],

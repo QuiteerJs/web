@@ -1,5 +1,5 @@
 import type { ConfigProviderProps, GlobalThemeOverrides } from 'naive-ui'
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 
 type BrandKey = 'primary' | 'info' | 'success' | 'warning' | 'error'
 type BrandPalette = Record<BrandKey, string>
@@ -68,6 +68,48 @@ function toOverrides(palette: BrandPalette): GlobalThemeOverrides {
   }
 }
 
+function camelToKebab(str: string): string {
+  return str.replace(/[A-Z]/g, match => `-${match.toLowerCase()}`)
+}
+
+function updateCssVars(overrides: GlobalThemeOverrides) {
+  if (typeof document === 'undefined')
+    return
+  const common = overrides.common
+  if (!common)
+    return
+
+  const keys = [
+    'primaryColor',
+    'primaryColorHover',
+    'primaryColorPressed',
+    'primaryColorSuppl',
+    'infoColor',
+    'infoColorHover',
+    'infoColorPressed',
+    'infoColorSuppl',
+    'successColor',
+    'successColorHover',
+    'successColorPressed',
+    'successColorSuppl',
+    'warningColor',
+    'warningColorHover',
+    'warningColorPressed',
+    'warningColorSuppl',
+    'errorColor',
+    'errorColorHover',
+    'errorColorPressed',
+    'errorColorSuppl'
+  ] as const
+
+  keys.forEach((key) => {
+    const value = common[key]
+    if (value) {
+      document.documentElement.style.setProperty(`--${camelToKebab(key)}`, value)
+    }
+  })
+}
+
 export function useColorScheme(defaults: BrandPalette = {
   primary: '#18a058',
   info: '#2080f0',
@@ -85,6 +127,10 @@ export function useColorScheme(defaults: BrandPalette = {
 } {
   const paletteRef = ref<BrandPalette>({ ...defaults })
   const overridesRef = ref<GlobalThemeOverrides>(toOverrides(paletteRef.value))
+
+  watch(overridesRef, (val) => {
+    updateCssVars(val)
+  }, { immediate: true })
 
   function setPrimary(color: string) {
     paletteRef.value.primary = color

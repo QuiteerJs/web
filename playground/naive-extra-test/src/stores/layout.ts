@@ -1,5 +1,5 @@
-import type { LayoutType } from 'naive-extra'
-import { useLayout } from 'naive-extra'
+import type { LayoutType } from '@quiteer/naive-extra'
+import { useLayout } from '@quiteer/naive-extra'
 import { defineStore } from 'pinia'
 import { useRouter } from 'vue-router'
 import { routes } from '../router'

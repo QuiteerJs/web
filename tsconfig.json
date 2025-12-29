@@ -21,5 +21,5 @@
     "skipLibCheck": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["packages/**/*.ts", "vite.config.ts", "quiteer.config.ts", "packages/naive-extra/src/button/index.tsx"]
+  "include": ["packages/**/*.ts", "docs/**/*.ts", "vite.config.ts", "quiteer.config.ts", "packages/naive-extra/src/button/index.tsx"]
 }

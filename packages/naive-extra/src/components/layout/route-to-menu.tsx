@@ -55,7 +55,11 @@ export function transformRouteToMenu(
     const menuItem: MenuOption = {
       key: fullPath,
       label: isParent ? (meta.title as string) : renderLabel(meta.title as string, name as string),
-      icon: renderIcon(meta.icon as string),
+      icon: renderIcon(meta.icon as string ?? 'fluent:document-one-page-24-filled'),
+      meta: {
+        icon: meta.icon as string ?? 'fluent:document-one-page-24-filled',
+        label: meta.title as string
+      },
       // 如果有子菜单，才添加 children 字段
       ...(childOptions && childOptions.length > 0 && { children: childOptions })
     }

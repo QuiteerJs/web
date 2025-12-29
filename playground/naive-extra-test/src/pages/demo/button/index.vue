@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { ActionItem } from 'naive-extra'
-import { QuiActionButton, QuiBaseButton } from 'naive-extra'
+import type { ActionItem } from '@quiteer/naive-extra'
+import { QuiActionButton, QuiBaseButton } from '@quiteer/naive-extra'
 import { useMessage } from 'naive-ui'
 import { computed, ref } from 'vue'
 

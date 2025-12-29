@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useBorderRadio } from 'naive-extra'
+import { useBorderRadio } from '@quiteer/naive-extra'
 import { NAlert, NAvatar, NButton, NCard, NColorPicker, NConfigProvider, NDatePicker, NFlex, NInput, NInputNumber, NPagination, NSelect, NSlider, NTag } from 'naive-ui'
 import { computed, ref } from 'vue'
 import { useAppStore } from '@/stores/app'
@@ -47,6 +47,23 @@ function handleLoadingBar() {
 </script>
 
 <template>
+  <NCard>
+    <div class="text-primary">
+      这是测试文字
+    </div>
+    <div class="text-info">
+      这是测试文字
+    </div>
+    <div class="text-warning">
+      这是测试文字
+    </div>
+    <div class="text-success">
+      这是测试文字
+    </div>
+    <div class="text-error">
+      这是测试文字
+    </div>
+  </NCard>
   <NCard title="Locale & Theme">
     <NFlex>
       <NButton @click="store.setZh">

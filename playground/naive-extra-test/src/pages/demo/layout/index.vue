@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { DEFAULT_LAYOUT_TYPE, QuiBaseButton } from 'naive-extra'
+import { DEFAULT_LAYOUT_TYPE, QuiBaseButton } from '@quiteer/naive-extra'
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
 import { useLayoutStore } from '@/stores/layout'

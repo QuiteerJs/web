@@ -1,11 +1,15 @@
+import process from 'node:process'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { defineConfig } from 'vitepress'
 import { version } from '../../package.json'
 
+// 判断是否在 Vercel 环境（Vercel 会注入 VERCEL 环境变量）
+const isVercel = Boolean(process.env.VERCEL)
+
 export default defineConfig({
   title: '@quiteer/web 中文文档',
   description: '一些 web 开发相关的 npm 包',
-  base: '/web/',
+  base: isVercel ? '/' : '/web/',
   lang: 'en',
   head: [['link', { rel: 'icon', href: '/web/favicon.ico' }]],
   markdown: {

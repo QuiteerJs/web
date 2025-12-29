@@ -9,14 +9,19 @@
   "keywords": [],
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
-    },
-    "./index.css": "./dist/index.css",
-    "./uno.config": "./uno.config.ts"
+      "import": "./src/index.ts"
+    }
   },
   "publishConfig": {
     "access": "public",
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js"
+      },
+      "./index.css": "./dist/index.css",
+      "./vue": "./src/index.ts"
+    },
     "registry": "https://registry.npmjs.org/"
   },
   "main": "dist/index.js",
@@ -25,7 +30,7 @@
   "style": "dist/index.css",
   "files": [
     "dist/**/*",
-    "uno.config.ts"
+    "src/**/*"
   ],
   "scripts": {
     "build": "vite build",

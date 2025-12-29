@@ -1,13 +1,26 @@
 <script setup lang="ts">
+import type { MenuInst } from 'naive-ui'
 import { computed, ref, unref, watch } from 'vue'
 import { useRouter } from 'vue-router'
+import { hasSlotContent } from '../../../share/slot'
 import { useContext } from '../context'
 import { resolveLeafKeyFromMenu, resolveTopParentKeyFromMenu } from '../utils'
 import AppLeftLogoInfo from './AppLeftLogoInfo.vue'
+import AppMixedMenu from './AppMixedMenu.vue'
 
-const { isCollapsed, collapsedWidth, siderWidth, headerHeight, bordered, inverted, isLeftMain, isTopMain, activeKey, mainActiveKey, subActiveKey, type, menuOptions: options, mainMenuOptions, subMenuOptions, isLeftMixed, updateActiveKey, updateIsCollapsed } = useContext()
+const { isCollapsed, collapsedWidth, siderWidth, siderMixedWidth, headerHeight, bordered, inverted, isLeftMain, isTopMain, activeKey, mainActiveKey, subActiveKey, type, menuOptions: options, mainMenuOptions, subMenuOptions, isLeftMixed, updateActiveKey, updateIsCollapsed } = useContext()
 
-const width = computed(() => (unref(isCollapsed) || unref(isLeftMixed) ? unref(collapsedWidth) : unref(siderWidth)))
+const menuInstRef = ref<MenuInst | null>(null)
+
+const width = computed(() => {
+  if (unref(isCollapsed))
+    return unref(collapsedWidth)
+
+  if (unref(isLeftMixed))
+    return unref(siderMixedWidth)
+
+  return unref(siderWidth)
+})
 
 function handleUpdateCollapsed(v: boolean) {
   updateIsCollapsed(v)
@@ -47,6 +60,8 @@ const router = useRouter()
 function handleUpdateValue(key: string) {
   updateActiveKey(key)
   active.value = key
+  menuInstRef.value?.showOption(key)
+
   if (unref(isLeftMain) && !isSideMenu.value) {
     const { leafKey } = getKey(key)
     router.push(leafKey)
@@ -59,51 +74,43 @@ const menuOptions = computed(() => {
   return unref(isLeftMain) ? unref(mainMenuOptions) : unref(subMenuOptions)
 })
 
-const expandedKeys = ref<string[]>([])
-function computeExpandedKeys(path: string) {
-  const parts = String(path ?? '').split('/').filter(Boolean)
-  const keys: string[] = []
-  for (let i = 0; i < parts.length - 1; i++) {
-    keys.push(`/${parts.slice(0, i + 1).join('/')}`)
-  }
-  return keys
-}
-
 watch(active, (p) => {
-  expandedKeys.value = computeExpandedKeys(p as string)
+  menuInstRef.value?.showOption(p as string)
 }, { immediate: true })
 
-function handleUpdateExpandedKeys(keys: string[]) {
-  expandedKeys.value = keys
-}
+const slots = useSlots()
+const hasDefaultSlot = computed(() => hasSlotContent(slots.default))
 </script>
 
 <template>
   <n-layout-sider
+    class="transition-all duration-300"
     position="absolute"
     collapse-mode="width"
-    :show-trigger="isLeftMixed ? false : 'bar'"
+    :show-trigger="isLeftMixed ? 'bar' : 'bar'"
     :width="width"
     :collapsed-width="collapsedWidth"
     :bordered="bordered"
     :inverted="inverted"
-    :collapsed="isLeftMixed ? true : isCollapsed"
+    :collapsed="isCollapsed"
     :native-scrollbar="false"
+    :style="{ top: unref(isTopMain) ? `${unref(headerHeight)}px` : 0 }"
     @update:collapsed="handleUpdateCollapsed"
   >
-    <n-layout-header :inverted="inverted">
-      <slot name="header">
-        <AppLeftLogoInfo :header-height="headerHeight" :is-collapsed="isCollapsed" />
-      </slot>
-    </n-layout-header>
+    <template v-if="isLeftMain">
+      <slot v-if="hasDefaultSlot" />
+      <AppLeftLogoInfo v-else />
+    </template>
+
+    <AppMixedMenu v-if="isLeftMixed && !isCollapsed" />
     <n-menu
+      v-else
+      ref="menuInstRef"
       :value="active"
       :options="menuOptions"
-      :expanded-keys="expandedKeys"
       :collapsed-width="collapsedWidth"
       :inverted="inverted"
       @update:value="handleUpdateValue"
-      @update:expanded-keys="handleUpdateExpandedKeys"
     />
   </n-layout-sider>
 </template>
