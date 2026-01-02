@@ -1,0 +1,20 @@
+{
+  "name": "playground-color",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@quiteer/color": "workspace:*",
+    "vue": "^3.5.22"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "typescript": "~5.9.0",
+    "unocss": "^66.5.10",
+    "vite": "npm:rolldown-vite@latest"
+  }
+}

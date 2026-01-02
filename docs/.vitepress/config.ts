@@ -221,6 +221,12 @@ function introduceSidebar() {
           ]
         },
         {
+          text: '@quiteer/color',
+          items: [
+            { text: '使用说明', link: '/plugins/color/' }
+          ]
+        },
+        {
           text: '@quiteer/axios',
           items: [
             { text: '使用说明', link: '/plugins/axios/' }
