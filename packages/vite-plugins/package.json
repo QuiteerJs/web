@@ -46,6 +46,7 @@
     "@vitejs/plugin-vue": "^6.0.2",
     "@vitejs/plugin-vue-jsx": "^5.1.1",
     "c12": "3.3.2",
+    "defu": "^6.1.4",
     "dotenv": "^17.2.3",
     "fast-glob": "^3.3.3",
     "kolorist": "1.8.0",

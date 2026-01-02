@@ -1,6 +1,7 @@
 import type { Plugin } from 'vite'
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
+import { defu } from 'defu'
 import dotenv from 'dotenv'
 import fg from 'fast-glob'
 import { bold, cyan, gray, green } from 'kolorist'
@@ -24,11 +25,17 @@ export interface EnvTypesOptions {
  * 作用：扫描 .env.* 文件并生成 env.d.ts，提供 import.meta.env 的 TypeScript 类型提示
  */
 export function envTypesPlugin(options: EnvTypesOptions = {}): Plugin {
-  let resolvedRoot = options.root
-  let prefixes: string[] = options.includePrefixes ?? ['VITE_']
-  const patterns = options.envFilePatterns ?? ['.env', '.env.*', '.env.*.local', '.env.local']
-  let output = options.outputFile
-  const literalUnions = options.literalUnions ?? true
+  const mergedOptions = defu(options, {
+    envFilePatterns: ['.env', '.env.*', '.env.*.local', '.env.local'],
+    includePrefixes: ['VITE_'],
+    literalUnions: true
+  })
+
+  let resolvedRoot = mergedOptions.root
+  let prefixes: string[] = mergedOptions.includePrefixes
+  const patterns = mergedOptions.envFilePatterns
+  let output = mergedOptions.outputFile
+  const literalUnions = mergedOptions.literalUnions
 
   /**
    * 函数：判断是否为允许的前缀

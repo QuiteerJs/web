@@ -3,6 +3,7 @@ import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import process from 'node:process'
 
+import { defu } from 'defu'
 import { bold, cyan, gray, green, red } from 'kolorist'
 
 /**
@@ -178,32 +179,14 @@ const DEFAULT_VIRTUAL_HTML_CONFIG: HtmlVirtualConfig = {
  * 函数：mergeVirtualConfig
  *
  * 合并虚拟 HTML 配置，允许对默认值进行覆盖；
- * tags 字段若提供则整体替换，否则沿用默认；attrs 进行浅合并。
+ * 使用 defu 进行递归合并。
  *
  * @param base - 默认配置
  * @param override - 用户覆盖配置
  * @returns 合并后的配置
  */
 function mergeVirtualConfig(base: HtmlVirtualConfig, override: HtmlVirtualConfig = {}): HtmlVirtualConfig {
-  const htmlAttrs = { ...base.htmlAttrs, ...override.htmlAttrs }
-  const headAttrs = { ...base.headAttrs, ...override.headAttrs }
-  const bodyAttrs = { ...base.bodyAttrs, ...override.bodyAttrs }
-  const appRoot = {
-    tag: override.appRoot?.tag ?? base.appRoot?.tag,
-    id: override.appRoot?.id ?? base.appRoot?.id,
-    attrs: { ...base.appRoot?.attrs, ...override.appRoot?.attrs }
-  }
-  return {
-    title: override.title ?? base.title,
-    entry: override.entry ?? base.entry,
-    htmlAttrs,
-    headAttrs,
-    bodyAttrs,
-    tags: override.tags ?? base.tags,
-    script: override.script ?? base.script,
-    link: override.link ?? base.link,
-    appRoot
-  }
+  return defu(override, base) as HtmlVirtualConfig
 }
 
 /**

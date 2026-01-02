@@ -1,6 +1,7 @@
 import type { Plugin } from 'vite'
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
+import { defu } from 'defu'
 import { bold, cyan, gray, green } from 'kolorist'
 
 export interface MockRouterOptions {
@@ -22,10 +23,13 @@ export interface MockRouterOptions {
  *      /api/user/list => <root>/mock/user/list.json
  */
 export function mockRouterPlugin(options: MockRouterOptions = {}): Plugin {
-  const apiPrefix = options.apiPrefix ?? '/api'
-  const extension = options.extension ?? '.json'
-  const delay = options.delay ?? 0
-  const onMiss = options.onMiss ?? 'pass'
+  const mergedOptions = defu(options, {
+    apiPrefix: '/api',
+    extension: '.json',
+    delay: 0,
+    onMiss: 'pass'
+  })
+  const { apiPrefix, extension, delay, onMiss } = mergedOptions as Required<MockRouterOptions>
 
   let rootDir: string = ''
   let mockAbsDir: string = ''

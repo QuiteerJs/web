@@ -1,4 +1,5 @@
 import type { Plugin } from 'vite'
+import { defu } from 'defu'
 
 export type ConsoleLevel = 'off' | 'error' | 'warn' | 'info' | 'log' | 'debug' | 'trace'
 
@@ -252,15 +253,13 @@ function processVueSFC(code: string, methods: Set<string>): string {
  * 作用：根据传入的等级与过滤规则剥离控制台调用
  */
 export function removeConsolePlugin(options: RemoveConsoleOptions = {}): Plugin {
-  const {
-    level = 'warn',
-    stripInDev = true,
-    stripInBuild = true,
-    methods,
-    include,
-    exclude,
-    processVue = true
-  } = options
+  const mergedOptions = defu(options, {
+    level: 'warn',
+    stripInDev: true,
+    stripInBuild: true,
+    processVue: true
+  })
+  const { level, stripInDev, stripInBuild, methods, include, exclude, processVue } = mergedOptions as Required<RemoveConsoleOptions>
 
   const methodsToStrip = buildMethodsToStrip(level, methods)
 

@@ -1,6 +1,7 @@
 import type { Plugin } from 'vite'
 import path from 'node:path'
 import { formatTimestamp } from '@quiteer/utils'
+import { defu } from 'defu'
 import { bold, cyan, gray, green, red, yellow } from 'kolorist'
 
 export interface FileChangeLoggerOptions {
@@ -17,9 +18,12 @@ export interface FileChangeLoggerOptions {
  * 作用：在开发服务器中美观地打印文件变更路径（新增/修改/删除）
  */
 export function fileChangeLoggerPlugin(options: FileChangeLoggerOptions = {}): Plugin {
-  const devOnly = options.devOnly ?? true
-  const events = options.events ?? ['change', 'add', 'unlink']
-  const label = options.label ?? 'file'
+  const mergedOptions = defu(options, {
+    devOnly: true,
+    events: ['change', 'add', 'unlink'],
+    label: 'file'
+  })
+  const { devOnly, events, label } = mergedOptions as Required<FileChangeLoggerOptions>
 
   /**
    * 函数：格式化输出

@@ -5,6 +5,7 @@ import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import process from 'node:process'
 
+import { defu } from 'defu'
 import dotenv from 'dotenv'
 import fg from 'fast-glob'
 import { bold, cyan, gray, green, red, yellow } from 'kolorist'
@@ -94,18 +95,28 @@ function encode(str: string): string {
  * - 文件读取/写入及类型生成均为轻量操作；监听模式下按需触发
  */
 export function envConfigPlugin(options: EnvConfigPluginOptions = {}): Plugin {
-  let resolvedRoot = options.root
-  let resolvedMode = options.targetEnv
-  const resolvedConfigPath = options.configFile
-  let includePrefixes = options.includePrefixes ?? ['VITE_']
-  const required = options.requiredKeys ?? ['desc']
-  const obfuscate = options.obfuscate ?? false
-  const obfuscateSkipKeys = options.obfuscateSkipKeys ?? []
-  let typesOut = options.typesOutput
-  let envFileTemplate = options.envFileTemplate ?? '.env.{mode}.local'
-  let defaultEnvFile = options.defaultEnvFile ?? '.env.local'
-  const disableTypes = options.disableTypes ?? false
-  const literalUnions = options.literalUnions ?? true
+  const mergedOptions = defu(options, {
+    includePrefixes: ['VITE_'],
+    requiredKeys: ['desc'],
+    obfuscate: false,
+    disableTypes: false,
+    literalUnions: true,
+    envFileTemplate: '.env.{mode}.local',
+    defaultEnvFile: '.env.local'
+  })
+
+  let resolvedRoot = mergedOptions.root
+  let resolvedMode = mergedOptions.targetEnv
+  const resolvedConfigPath = mergedOptions.configFile
+  let includePrefixes = mergedOptions.includePrefixes
+  const required = mergedOptions.requiredKeys
+  const obfuscate = mergedOptions.obfuscate
+  const obfuscateSkipKeys = mergedOptions.obfuscateSkipKeys ?? []
+  let typesOut = mergedOptions.typesOutput
+  let envFileTemplate = mergedOptions.envFileTemplate
+  let defaultEnvFile = mergedOptions.defaultEnvFile
+  const disableTypes = mergedOptions.disableTypes
+  const literalUnions = mergedOptions.literalUnions
   const envPatterns = ['.env', '.env.*', '.env.*.local', '.env.local']
 
   /**
