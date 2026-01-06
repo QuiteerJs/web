@@ -30,6 +30,7 @@
     "@antfu/eslint-config": "^6.2.0",
     "@quiteer/axios": "workspace:*",
     "@quiteer/box": "workspace:*",
+    "@quiteer/color": "workspace:*",
     "@quiteer/directives": "workspace:*",
     "@quiteer/is": "workspace:*",
     "@quiteer/naive-extra": "workspace:*",
