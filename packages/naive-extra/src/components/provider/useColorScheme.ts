@@ -1,7 +1,9 @@
 import type { ConfigProviderProps, GlobalThemeOverrides } from 'naive-ui'
 import type { Ref } from 'vue'
 import { generateColorScale } from '@quiteer/color'
-import { ref } from 'vue'
+import { provideNaiveTheme } from '@quiteer/unocss/provide'
+import { commonLight } from 'naive-ui'
+import { ref, watchEffect } from 'vue'
 
 type BrandKey = 'primary' | 'info' | 'success' | 'warning' | 'error'
 type BrandPalette = Record<BrandKey, string>
@@ -70,6 +72,17 @@ export function useColorScheme(defaults: BrandPalette = {
 }): ColorSchemeReturn {
   const paletteRef = ref<BrandPalette>({ ...defaults })
   const overridesRef = ref<GlobalThemeOverrides>(toOverrides(paletteRef.value))
+
+  // 使用 provideNaiveTheme 同步 CSS 变量
+  watchEffect(() => {
+    const commonVars = toCommonVars(paletteRef.value)
+    provideNaiveTheme({
+      theme: {
+        ...commonLight,
+        ...commonVars
+      }
+    })
+  })
 
   function setPrimary(color: string) {
     paletteRef.value.primary = color
