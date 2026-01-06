@@ -1,6 +1,16 @@
 ## 变更日志
 
-### 2026-01-06 `✏️ 44+` `➕ 11+` `🗑️ 1+`
+### 2026-01-06 `✏️ 48+` `➕ 11+` `🗑️ 1+`
+- 🔧  **chore** `release`: v0.0.5
+  > **🕒  18:01** · `➕1` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`fee8ef8`](https://github.com/QuiteerJs/web/commit/fee8ef8282fd720e6db90ed184a100136aa95fb5))
+  - ✏️ [`packages/unocss/package.json`](https://github.com/QuiteerJs/web/blob/fee8ef8282fd720e6db90ed184a100136aa95fb5/packages/unocss/package.json)
+- ✨  **feat** `release`: color 发布到 npm
+  > **🕒  17:55** · `➕1802` / `➖651`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`75c5093`](https://github.com/QuiteerJs/web/commit/75c50935f9e6c02e4581ccd6cbe21fc8eadddb55))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/75c50935f9e6c02e4581ccd6cbe21fc8eadddb55/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/75c50935f9e6c02e4581ccd6cbe21fc8eadddb55/CHANGELOG_TIMELINE.md)
+  - ✏️ [`packages/naive-extra/package.json`](https://github.com/QuiteerJs/web/blob/75c50935f9e6c02e4581ccd6cbe21fc8eadddb55/packages/naive-extra/package.json)
 - 🔧  **chore** `release`: v0.0.1
   > **🕒  17:54** · `➕0` / `➖0`
   > `👤 Quiteer`  <p602985@yeah.net> ([`4a8609a`](https://github.com/QuiteerJs/web/commit/4a8609a58f3b8432fb6d086fa136725120c818ae))
