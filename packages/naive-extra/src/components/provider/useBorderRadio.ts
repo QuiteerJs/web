@@ -1,7 +1,15 @@
 import type { ConfigProviderProps, GlobalThemeOverrides } from 'naive-ui'
 import type { Ref } from 'vue'
-import { ref } from 'vue'
+import { provideNaiveTheme } from '@quiteer/unocss/provide'
+import { commonLight } from 'naive-ui'
+import { ref, watchEffect } from 'vue'
 
+/**
+ * 圆角定制钩子
+ *
+ * @param defaultPx - 默认圆角像素值
+ * @returns 包含圆角引用及相关操作方法的对象
+ */
 export function useBorderRadio(defaultPx = 3): {
   radiusRef: Ref<number>
   setRadius: (px: number) => void
@@ -23,6 +31,18 @@ export function useBorderRadio(defaultPx = 3): {
       }
     }
   }
+
+  // 使用 provideNaiveTheme 同步 CSS 变量
+  watchEffect(() => {
+    const px = normalize(radiusRef.value)
+    provideNaiveTheme({
+      theme: {
+        ...commonLight,
+        borderRadius: `${px}px`,
+        borderRadiusSmall: `${Math.max(0, px - 1)}px`
+      }
+    })
+  })
 
   function setRadius(px: number) {
     radiusRef.value = normalize(px)

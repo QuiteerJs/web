@@ -35,3 +35,4 @@ env.d.ts
 # Turbo directories and files
 .turbo/*
 !.turbo/config.json
+.quiteer

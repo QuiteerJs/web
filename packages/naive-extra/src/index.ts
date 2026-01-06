@@ -40,7 +40,7 @@ export { useForm } from './components/form'
 export type { CustomSwitchProps, FormProps, FormSchema } from './components/form'
 export type { LayoutProps, LayoutType, RouteMeta } from './components/layout'
 
-export { useBorderRadio, useColorScheme, useLocale, useTheme } from './components/provider'
+export { useBorderRadio, useColorScheme, useLocale, useTableTheme, useTheme } from './components/provider'
 export type { ProviderProps } from './components/provider'
 export type { SearchBarProps } from './components/search-bar'
 export { useColumn, useTable } from './components/table'

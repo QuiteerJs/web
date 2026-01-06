@@ -1,10 +1,11 @@
-import { defineConfig } from 'unocss'
-import QuiteerPreset from './preset'
+import { defineConfig } from '@unocss/vite'
 
-export { defineConfig }
+import QuiteerPreset from './perset/default'
+import NaiveUIPreset from './perset/naive-ui'
 
-export const unoConfig = defineConfig({
+export default defineConfig({
   presets: [
-    QuiteerPreset()
+    QuiteerPreset(),
+    NaiveUIPreset()
   ]
 })

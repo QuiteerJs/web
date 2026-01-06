@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "@quiteer/is": "workspace:*",
+    "@quiteer/unocss": "workspace:*",
     "@vueuse/core": "^14.1.0",
     "vue-draggable-plus": "^0.6.0",
     "vue-router": "^4.6.3"

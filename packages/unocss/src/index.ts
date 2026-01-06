@@ -1,9 +1,14 @@
-import type { PluginOption } from 'vite'
-import UnoCSS from '@unocss/vite'
-import { unoConfig } from './uno.config'
+import UnoCSS, { defineConfig } from '@unocss/vite'
 
-function use(): PluginOption {
-  return UnoCSS(unoConfig)
+import QuiteerPreset from './perset/default'
+import NaiveUIPreset from './perset/naive-ui'
+
+export default () => {
+  return UnoCSS()
 }
 
-export default use
+export {
+  defineConfig,
+  NaiveUIPreset,
+  QuiteerPreset
+}

@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import type { Slots } from 'vue'
+import { computed, useSlots } from 'vue'
 import { hasSlotContent } from '../../../share/slot'
 import { useContext } from '../context'
 
 const { bordered, inverted, footerHeight } = useContext()!
-const slots = useSlots()
-const hasDefaultSlot = computed(() => hasSlotContent(slots.default))
+const slots: Slots = useSlots()
+const hasDefaultSlot = computed<boolean>(() => hasSlotContent(slots.default))
 </script>
 
 <template>

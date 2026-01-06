@@ -11,14 +11,39 @@ export const routes: RouteRecordRaw[] = [
       {
         path: 'provider',
         name: 'ProviderDemo',
-        component: () => import('@/pages/demo/provider/index.vue'),
-        meta: { title: '主题提供组件', icon: 'pixel:themes-solid', order: 20 }
+        meta: { title: '主题提供组件', icon: 'pixel:themes-solid', order: 20 },
+        redirect: '/demo/provider/naive',
+        children: [
+          {
+            path: 'naive',
+            name: 'NaiveProviderDemo',
+            component: () => import('@/pages/demo/provider/naive/index.vue'),
+            meta: { title: 'Naive UI 主题提供组件', icon: 'pixel:themes-solid', order: 20 }
+          },
+          {
+            path: 'unocss',
+            name: 'unocssDemo',
+            component: () => import('@/pages/demo/provider/unocss/index.vue'),
+            meta: { title: 'unocss 与 Naive UI 主题', icon: 'pixel:themes-solid', order: 20 }
+          }
+        ]
       },
       {
         path: 'layout',
         name: 'LayoutDemo',
         component: () => import('@/pages/demo/layout/index.vue'),
         meta: { title: '布局示例', icon: 'streamline-plump:layout-window-4-solid', order: 10 }
+      },
+      {
+        path: 'custom-theme',
+        name: 'CustomThemeDemo',
+        meta: { title: '定制主题', icon: 'icon-park-solid:theme', order: 11 },
+        children: [{
+          path: 'table',
+          name: 'CustomTable',
+          component: () => import('@/pages/demo/custom-theme/table/index.vue'),
+          meta: { title: '定制表格', icon: 'teenyicons:table-solid', order: 10 }
+        }]
       },
       {
         path: 'button',

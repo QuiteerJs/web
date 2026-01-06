@@ -1,5 +1,6 @@
 {
   "name": "@quiteer/unocss",
+  "type": "module",
   "version": "0.0.4",
   "description": "UnoCSS 集成插件与统一配置集合，面向 Vite 项目提供即插即用的预设组合、主题、规则与快捷类。",
   "homepage": "https://quiteerjs.github.io/web/plugins/unocss/index.html",
@@ -9,17 +10,38 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.mjs"
     },
-    "./uno.config.ts": "./src/uno.config.ts",
-    "./preset": "./src/preset.ts"
+    "./provide": "./src/provide/index.ts",
+    "./config": "./src/uno.config.ts"
   },
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
   "publishConfig": {
+    "bin": {
+      "quiteer-unocss": "./dist/cli.mjs"
+    },
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "import": "./dist/index.mjs",
+        "require": "./dist/index.mjs"
+      },
+      "./provide": {
+        "types": "./dist/provide.d.mts",
+        "import": "./dist/provide.mjs",
+        "require": "./dist/provide.mjs"
+      },
+      "./config": "./src/uno.config.ts"
+    },
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "files": ["dist", "src"],
+  "bin": {
+    "quiteer-unocss": "./src/cli.ts"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "tsdown --watch",
     "build": "tsdown",
@@ -31,10 +53,16 @@
   },
   "dependencies": {
     "@iconify/json": "2.2.405",
+    "@quiteer/color": "workspace:*",
     "@unocss/preset-web-fonts": "^66.5.10",
     "@unocss/preset-wind4": "^66.5.10",
     "@unocss/transformer-directives": "^66.5.10",
     "@unocss/transformer-variant-group": "^66.5.10",
+    "cac": "6.7.14",
+    "naive-ui": "2.43.1",
     "unocss": "^66.5.10"
+  },
+  "devDependencies": {
+    "tsx": "^4.20.6"
   }
 }

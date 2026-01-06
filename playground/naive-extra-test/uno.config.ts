@@ -1,8 +1,6 @@
-// import QuiteerPreset from '@quiteer/unocss/preset'
-// import { defineConfig, unoConfig } from '@quiteer/unocss/uno.config.ts'
+// import { defineConfig, NaiveUIPreset, QuiteerPreset } from '@quiteer/unocss'
 
 // export default defineConfig({
-//   ...unoConfig,
 //   content: {
 //     pipeline: {
 //       exclude: ['node_modules', 'dist']
@@ -10,8 +8,10 @@
 //   },
 //   presets: [
 //     QuiteerPreset(),
-//     ...unoConfig.presets as any[]
+//     NaiveUIPreset()
 //   ]
 // })
 
-export default {}
+import Config from '@quiteer/unocss/config'
+
+export default Config

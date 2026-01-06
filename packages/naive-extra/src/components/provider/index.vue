@@ -1,13 +1,23 @@
 <script setup lang="ts">
 import type { ProviderProps } from './props'
-import { dateZhCN, useDialog, useLoadingBar, useMessage, useNotification, zhCN } from 'naive-ui'
-import { createTextVNode } from 'vue'
+import { provideNaiveTheme } from '@quiteer/unocss/provide'
+import { dateZhCN, useDialog, useLoadingBar, useMessage, useNotification, useThemeVars, zhCN } from 'naive-ui'
+import { createTextVNode, defineComponent } from 'vue'
 
 defineOptions({
   name: 'QuiProvider'
 })
 
 const props = defineProps<ProviderProps>()
+
+const themeVars = useThemeVars()
+
+// 注入 CSS 变量到 :root
+const cleanup = provideNaiveTheme({
+  theme: themeVars.value as any
+})
+
+onUnmounted(() => cleanup())
 
 const ContextHolder = defineComponent({
   name: 'ContextHolder',

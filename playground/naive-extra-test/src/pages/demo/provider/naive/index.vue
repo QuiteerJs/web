@@ -47,23 +47,6 @@ function handleLoadingBar() {
 </script>
 
 <template>
-  <NCard>
-    <div class="text-primary">
-      这是测试文字
-    </div>
-    <div class="text-info">
-      这是测试文字
-    </div>
-    <div class="text-warning">
-      这是测试文字
-    </div>
-    <div class="text-success">
-      这是测试文字
-    </div>
-    <div class="text-error">
-      这是测试文字
-    </div>
-  </NCard>
   <NCard title="Locale & Theme">
     <NFlex>
       <NButton @click="store.setZh">

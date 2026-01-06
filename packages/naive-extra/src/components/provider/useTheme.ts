@@ -1,8 +1,16 @@
 import type { ConfigProviderProps, GlobalTheme } from 'naive-ui'
 import type { ComputedRef, Ref } from 'vue'
-import { darkTheme } from 'naive-ui'
-import { computed, ref } from 'vue'
+import { darkTheme, useOsTheme } from 'naive-ui'
+import { computed, ref, watch } from 'vue'
 
+/**
+ * [主题管理 Hook]
+ *
+ * [管理应用的明亮/暗黑主题，支持跟随系统主题变化]
+ *
+ * @param defaultMode - 默认主题模式 ('light' | 'dark' | 'system')
+ * @returns 包含主题引用、状态判断及控制方法的对象
+ */
 export function useTheme(defaultMode: 'light' | 'dark' | 'system' = 'light'): {
   themeRef: Ref<GlobalTheme | null>
   isDark: ComputedRef<boolean>
@@ -14,38 +22,36 @@ export function useTheme(defaultMode: 'light' | 'dark' | 'system' = 'light'): {
   getConfigProps: () => Pick<ConfigProviderProps, 'theme'>
 } {
   const themeRef = ref<GlobalTheme | null>(defaultMode === 'dark' ? darkTheme : null)
-  const mql: MediaQueryList | null
-    = typeof window !== 'undefined' && 'matchMedia' in window
-      ? window.matchMedia('(prefers-color-scheme: dark)')
-      : null
+  const osTheme = useOsTheme()
+
+  let stopWatch: (() => void) | undefined
 
   const isDark = computed<boolean>(() => themeRef.value === darkTheme)
 
+  function stopSystem() {
+    if (stopWatch) {
+      stopWatch()
+      stopWatch = undefined
+    }
+  }
+
   function setDark() {
+    stopSystem()
     themeRef.value = darkTheme
   }
 
   function setLight() {
+    stopSystem()
     themeRef.value = null
   }
 
-  function applySystem() {
-    if (!mql)
-      return
-    themeRef.value = mql.matches ? darkTheme : null
-  }
-
   function setSystem() {
-    if (!mql)
-      return
-    applySystem()
-    mql.addEventListener('change', applySystem as EventListener)
-  }
-
-  function stopSystem() {
-    if (!mql)
-      return
-    mql.removeEventListener('change', applySystem as EventListener)
+    stopSystem()
+    const updateTheme = () => {
+      themeRef.value = osTheme.value === 'dark' ? darkTheme : null
+    }
+    updateTheme()
+    stopWatch = watch(osTheme, updateTheme)
   }
 
   function toggle() {

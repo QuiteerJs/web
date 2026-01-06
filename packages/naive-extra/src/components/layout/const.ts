@@ -21,7 +21,7 @@ export const DEFAULT_LAYOUT_PROPS: Required<Omit<Props, 'baseRoutes'>> = {
   /** @description 侧边栏宽度 */
   siderWidth: 220,
   /** @description 侧边栏混合模式的宽度 */
-  siderMixedWidth: 100,
+  siderMixedWidth: 80,
   /** @description 折叠侧边栏宽度 */
   collapsedWidth: 60,
   /** @description 当前激活的路由键 */

@@ -20,6 +20,11 @@ export interface ColorScale {
   800: string
   900: string
   950: string
+  DEFAULT: string
+  hover: string
+  pressed: string
+  suppl: string
+  active: string
 }
 
 /**
@@ -57,18 +62,36 @@ export function generateColorScale(baseColor: string): ColorScale {
   const white = colord('#ffffff')
   const black = colord('#000000')
 
+  const scale50 = color.mix(white, 0.95).toHex()
+  const scale100 = color.mix(white, 0.9).toHex()
+  const scale200 = color.mix(white, 0.75).toHex()
+  const scale300 = color.mix(white, 0.6).toHex()
+  const scale400 = color.mix(white, 0.3).toHex()
+  const scale500 = color.toHex()
+  const scale600 = color.mix(black, 0.1).toHex()
+  const scale700 = color.mix(black, 0.3).toHex()
+  const scale800 = color.mix(black, 0.5).toHex()
+  const scale900 = color.mix(black, 0.7).toHex()
+  const scale950 = color.mix(black, 0.85).toHex()
+
   return {
-    50: color.mix(white, 0.95).toHex(),
-    100: color.mix(white, 0.9).toHex(),
-    200: color.mix(white, 0.75).toHex(),
-    300: color.mix(white, 0.6).toHex(),
-    400: color.mix(white, 0.3).toHex(),
-    500: color.toHex(),
-    600: color.mix(black, 0.1).toHex(),
-    700: color.mix(black, 0.3).toHex(),
-    800: color.mix(black, 0.5).toHex(),
-    900: color.mix(black, 0.7).toHex(),
-    950: color.mix(black, 0.85).toHex()
+    50: scale50,
+    100: scale100,
+    200: scale200,
+    300: scale300,
+    400: scale400,
+    500: scale500,
+    600: scale600,
+    700: scale700,
+    800: scale800,
+    900: scale900,
+    950: scale950,
+    DEFAULT: scale500,
+    hover: scale400,
+    pressed: scale700,
+    suppl: scale500,
+    // Active 使用 原色 + 0.1 透明度
+    active: color.alpha(color.alpha() + 0.1).toRgbString()
   }
 }
 

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { Slots } from 'vue'
+import { computed, ref, unref, useSlots, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
 import { hasSlotContent } from '../../../share/slot'
 import { useContext } from '../context'
@@ -6,9 +8,9 @@ import { resolveLeafKeyFromMenu, resolveTopParentKeyFromMenu } from '../utils'
 import AppBreadcrumb from './AppBreadcrumb.vue'
 import AppLeftLogoInfo from './AppLeftLogoInfo.vue'
 
-const { type, bordered, inverted, headerHeight, sideWidth, siderMixedWidth, collapsedWidth, activeKey, mainActiveKey, subActiveKey, hasSiderLayout, hasBreadcrumb, isLeftMain, isTopMain, isLeftMixed, isCollapsed, menuOptions: options, mainMenuOptions, subMenuOptions, updateActiveKey } = useContext()
+const { type, bordered, inverted, headerHeight, sideWidth, siderMixedWidth, collapsedWidth, activeKey, mainActiveKey, subActiveKey, hasSiderLayout, hasBreadcrumb, isLeftMain, isTopMain, isLeftMixed, isCollapsed, menuOptions: options, mainMenuOptions, subMenuOptions, updateActiveKey } = useContext()!
 
-const left = computed(() => {
+const left = computed<string | number>(() => {
   if (unref(isTopMain))
     return 0
 
@@ -32,8 +34,8 @@ const headerStyle = computed(() => ({
   padding: unref(hasSiderLayout) ? '0' : '0 16px'
 }))
 
-const showMenu = computed(() => ['top-menu', 'top-menu/2', 'top-mixed-menu/2', 'side-menu/2', 'side-mixed-menu/2'].includes(unref(type)!))
-const isTopMenu = computed(() => unref(type) === 'top-menu')
+const showMenu = computed<boolean>(() => ['top-menu', 'top-menu/2', 'top-mixed-menu/2', 'side-menu/2', 'side-mixed-menu/2'].includes(unref(type)!))
+const isTopMenu = computed<boolean>(() => unref(type) === 'top-menu')
 
 const active = ref('')
 
@@ -79,8 +81,8 @@ function handleUpdateValue(key: string) {
   }
 }
 
-const slots = useSlots()
-const hasDefaultSlot = computed(() => hasSlotContent(slots.default))
+const slots: Slots = useSlots()
+const hasDefaultSlot = computed<boolean>(() => hasSlotContent(slots.default))
 </script>
 
 <template>

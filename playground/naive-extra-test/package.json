@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
+    "theme-json": "quiteer-unocss theme",
     "preview": "vite preview",
     "type-check": "vue-tsc --build"
   },
@@ -27,6 +28,7 @@
     "@quiteer/vite-plugins": "workspace:*",
     "@tsconfig/node22": "^22.0.2",
     "@types/node": "^22.18.11",
+    "@unocss/vite": "^66.5.10",
     "@vue/tsconfig": "^0.8.1",
     "npm-run-all2": "^8.0.4",
     "typescript": "~5.9.0",
