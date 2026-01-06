@@ -59,15 +59,15 @@ export default defineConfig({
 
 - shortcuts
 
-<<< ../../../packages/unocss/src/shortcuts.ts
+<<< ../../../packages/unocss/src/preset/default/shortcuts.ts
 
 - theme
 
-<<< ../../../packages/unocss/src/theme.ts
+<<< ../../../packages/unocss/src/preset/default/theme.ts
 
 - rules
 
-<<< ../../../packages/unocss/src/rule.ts
+<<< ../../../packages/unocss/src/preset/default/rule.ts
 
 
 

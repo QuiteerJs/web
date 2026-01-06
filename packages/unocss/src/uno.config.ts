@@ -1,7 +1,7 @@
 import { defineConfig } from '@unocss/vite'
 
-import QuiteerPreset from './perset/default'
-import NaiveUIPreset from './perset/naive-ui'
+import QuiteerPreset from './preset/default'
+import NaiveUIPreset from './preset/naive-ui'
 
 export default defineConfig({
   presets: [

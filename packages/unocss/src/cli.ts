@@ -3,7 +3,7 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import process from 'node:process'
 import cac from 'cac'
-import { getNaiveTheme } from './perset/naive-ui/theme'
+import { getNaiveTheme } from './preset/naive-ui/theme'
 
 const cli = cac('quiteer-unocss')
 

@@ -1,6 +1,6 @@
 import { generateColorScale } from '@quiteer/color'
 import { commonLight, lightTheme } from 'naive-ui'
-import { camelToKebab, toCssVarName } from '../perset/naive-ui/vars'
+import { camelToKebab, toCssVarName } from '../preset/naive-ui/vars'
 
 /**
  * 注入配置选项接口
