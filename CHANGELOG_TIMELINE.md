@@ -1,6 +1,17 @@
 ## 变更日志
 
-### 2026-01-06 `✏️ 48+` `➕ 11+` `🗑️ 1+`
+### 2026-01-07 `✏️ 1+` `➕ 0+` `🗑️ 0+`
+- 🔧  **chore** `release`: v0.1.8
+  > **🕒  09:32** · `➕1` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`2277f52`](https://github.com/QuiteerJs/web/commit/2277f528f314f07b8ade9d7c03f519f42d790c78))
+  - ✏️ [`packages/qvite/package.json`](https://github.com/QuiteerJs/web/blob/2277f528f314f07b8ade9d7c03f519f42d790c78/packages/qvite/package.json)
+
+### 2026-01-06 `✏️ 50+` `➕ 11+` `🗑️ 1+`
+- ✨  **feat** `release`: 添加了默认预设和 naive 主题联动的预设以及注入方法
+  > **🕒  18:01** · `➕415` / `➖395`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`ec2f55a`](https://github.com/QuiteerJs/web/commit/ec2f55a6466d206933b9c6457c681201190b477c))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/ec2f55a6466d206933b9c6457c681201190b477c/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/ec2f55a6466d206933b9c6457c681201190b477c/CHANGELOG_TIMELINE.md)
 - 🔧  **chore** `release`: v0.0.5
   > **🕒  18:01** · `➕1` / `➖1`
   > `👤 Quiteer`  <p602985@yeah.net> ([`fee8ef8`](https://github.com/QuiteerJs/web/commit/fee8ef8282fd720e6db90ed184a100136aa95fb5))
