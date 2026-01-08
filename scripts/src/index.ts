@@ -4,9 +4,11 @@ import type { Lang } from './types'
 import cac from 'cac'
 import { bgGreen, blue, gray, lightBlue, lightCyan, lightGreen, white } from 'kolorist'
 import { version } from '../package.json'
-import { checkUpdateAndNotify, cleanup, generateConfig, generateDirTree, gitCommit, gitCommitAdd, gitCommitTz, gitCommitVerify, gitRemoteBranches, release, selfUpdate, updatePkg } from './commands'
+import { checkUpdateAndNotify, cleanup, generateConfig, generateDirTree, gitCommit, gitCommitAdd, gitCommitVerify, gitRemoteBranches, release, selfUpdate, updatePkg } from './commands'
 import { generateChangelogFiles } from './commands/changelog'
 import { loadCliOptions } from './config'
+import { gitCommitTz } from './customize/git-commit'
+import { gitCommitVerifyTz } from './customize/git-commit-verify'
 
 type CommandArg = Partial<{
   add: boolean
@@ -94,17 +96,6 @@ export async function setupCli() {
       await gitCommit(args?.lang)
     })
 
-  cli.command('git-commit-tianze', `${bgGreen(white('便捷命令'))} ${lightBlue('qui gz')}   天泽智联的 git 提交前后的操作和规范等`)
-    .alias('gz')
-    .option('--add', '添加所有变更文件到暂存区', { default: cliOptions.gitCommit.add })
-    .option('-l ,--lang', '校验提交信息的语言', { default: cliOptions.lang })
-    .action(async (args: CommandArg) => {
-      if (args?.add) {
-        await gitCommitAdd()
-      }
-      await gitCommitTz(args?.lang)
-    })
-
   cli.command('git-commit-verify', `${bgGreen(white('便捷命令'))} ${lightBlue('qui gv')}  校验提交信息是否符合 Conventional Commits 标准`)
     .alias('gv')
     .option('-l --lang', '校验提交信息的语言', { default: cliOptions.lang })
@@ -139,6 +130,22 @@ export async function setupCli() {
         groupOutput: args.groupOutput || cfg.groupOutput,
         timelineOutput: args.timelineOutput || cfg.timelineOutput
       })
+    })
+
+  cli.command('git-commit-tianze', `${bgGreen(white('便捷命令'))} ${lightBlue('qui gz')}   天泽智联的 git 提交前后的操作和规范等`)
+    .alias('gz')
+    .option('--add', '添加所有变更文件到暂存区', { default: cliOptions.gitCommit.add })
+    .action(async (args: CommandArg) => {
+      if (args?.add) {
+        await gitCommitAdd()
+      }
+      await gitCommitTz()
+    })
+
+  cli.command('git-commit-verify-tianze', `${bgGreen(white('便捷命令'))} ${lightBlue('qui gzv')}  天泽智联的 git commit 校验提交信息是否符合标准`)
+    .alias('gzv')
+    .action(async () => {
+      await gitCommitVerifyTz()
     })
 
   cli

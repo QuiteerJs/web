@@ -1,6 +1,12 @@
 ## 变更日志
 
 ### 其他
+#### 2026-01-08 `✏️ 1+` `➕ 0+` `🗑️ 0+`
+- 🔧  **chore** `release`: v0.1.0
+  > **🕒  10:44** · `➕1` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`cff8e61`](https://github.com/QuiteerJs/web/commit/cff8e61b7668ae8a46a29455f027722ece2176fc))
+  - ✏️ [`scripts/package.json`](https://github.com/QuiteerJs/web/blob/cff8e61b7668ae8a46a29455f027722ece2176fc/scripts/package.json)
+
 #### 2026-01-07 `✏️ 1+` `➕ 0+` `🗑️ 0+`
 - 🔧  **chore** `release`: v0.1.8
   > **🕒  09:32** · `➕1` / `➖1`
@@ -471,6 +477,15 @@
   - ✏️ [`pnpm-workspace.yaml`](https://github.com/QuiteerJs/web/blob/3a9e13397fe92cc5856e727ecae4b7dab09ee818/pnpm-workspace.yaml)
 
 ### 新功能
+#### 2026-01-07 `✏️ 4+` `➕ 0+` `🗑️ 0+`
+- ✨  **feat** `packages`: unocs配置更新
+  > **🕒  09:33** · `➕38` / `➖4`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`e9b614a`](https://github.com/QuiteerJs/web/commit/e9b614aed5e6aa1da5b67ef0038e5693e5ea993f))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/e9b614aed5e6aa1da5b67ef0038e5693e5ea993f/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/e9b614aed5e6aa1da5b67ef0038e5693e5ea993f/CHANGELOG_TIMELINE.md)
+  - ✏️ [`packages/qvite/index.ts`](https://github.com/QuiteerJs/web/blob/e9b614aed5e6aa1da5b67ef0038e5693e5ea993f/packages/qvite/index.ts)
+  - ✏️ [`packages/qvite/uno.config.ts`](https://github.com/QuiteerJs/web/blob/e9b614aed5e6aa1da5b67ef0038e5693e5ea993f/packages/qvite/uno.config.ts)
+
 #### 2026-01-06 `✏️ 33+` `➕ 11+` `🗑️ 1+`
 - ✨  **feat** `release`: 添加了默认预设和 naive 主题联动的预设以及注入方法
   > **🕒  18:01** · `➕415` / `➖395`
