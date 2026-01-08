@@ -1,7 +1,7 @@
 {
   "name": "@quiteer/scripts",
   "type": "module",
-  "version": "0.0.12",
+  "version": "0.1.0",
   "homepage": "https://quiteerjs.github.io/web/cli/scripts.html",
   "publishConfig": {
     "access": "public",
