@@ -29,7 +29,7 @@ async function getCurrentBinPath(): Promise<string> {
  */
 export async function checkUpdateAndNotify(): Promise<void> {
   try {
-    const latest = await execCommand('pnpm', ['view', '@quiteer/scripts', 'version'])
+    const latest = await execCommand('npm', ['view', '@quiteer/scripts', 'version'])
     const binPath = await getCurrentBinPath()
     const isLocal = binPath.includes('node_modules/.bin')
     if (latest && latest !== version) {
@@ -54,10 +54,10 @@ export async function checkUpdateAndNotify(): Promise<void> {
 
 /**
  * 自更新到最新版本
- * - 对比当前版本与远端版本，不一致则使用 pnpm 全局更新
+ * - 对比当前版本与远端版本，不一致则使用 npm 全局更新
  */
 export async function selfUpdate(): Promise<void> {
-  const latest = await execCommand('pnpm', ['view', '@quiteer/scripts', 'version'])
+  const latest = await execCommand('npm', ['view', '@quiteer/scripts', 'version'])
   if (!latest) {
     console.info('quiteer-script :>> ', lightBlue('无法获取远端版本，请检查网络后重试'))
     return
@@ -76,13 +76,13 @@ export async function selfUpdate(): Promise<void> {
     if (isLocal) {
       console.info('quiteer-script :>> ', lightBlue('检测到您正在开发环境中运行，将尝试通过本地构建更新...'))
       // 在本地工作区，尝试执行仓库内的构建命令
-      await execa('pnpm', ['install'], { stdio: 'inherit' })
-      await execa('pnpm', ['--filter', '@quiteer/scripts', 'build'], { stdio: 'inherit' })
+      await execa('npm', ['install'], { stdio: 'inherit' })
+      await execa('npm', ['--filter', '@quiteer/scripts', 'build'], { stdio: 'inherit' })
       console.info('quiteer-script :>> ', lightGreen('本地构建完成，版本已同步'))
     }
     else {
       // 外部使用情况：增加 --force 确保覆盖，增加 --no-cache 确保获取最新
-      await execa('pnpm', ['add', '-g', `@quiteer/scripts@${latest}`, '--force'], { stdio: 'inherit' })
+      await execa('npm', ['add', '-g', `@quiteer/scripts@${latest}`, '--force'], { stdio: 'inherit' })
       console.info('quiteer-script :>> ', lightGreen('全局更新完成'))
 
       // 验证更新是否真的生效
