@@ -1,6 +1,21 @@
 ## 变更日志
 
-### 2026-01-08 `✏️ 1+` `➕ 0+` `🗑️ 0+`
+### 2026-01-08 `✏️ 7+` `➕ 3+` `🗑️ 0+`
+- 🔧  **chore** `release`: v0.1.1
+  > **🕒  10:48** · `➕1` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`0334d62`](https://github.com/QuiteerJs/web/commit/0334d6253d24ac4587833cef91599b316b9e8363))
+  - ✏️ [`scripts/package.json`](https://github.com/QuiteerJs/web/blob/0334d6253d24ac4587833cef91599b316b9e8363/scripts/package.json)
+- ✨  **feat** `packages`: 添加了一个定制命令
+  > **🕒  10:44** · `➕426` / `➖76`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`17d4281`](https://github.com/QuiteerJs/web/commit/17d4281158a991e0de910502a7ccc8a4230417b8))
+  - ➕ [`packages/unocss/src/perset/naive-ui/theme.ts`](https://github.com/QuiteerJs/web/blob/17d4281158a991e0de910502a7ccc8a4230417b8/packages/unocss/src/perset/naive-ui/theme.ts)
+  - ➕ [`scripts/src/customize/git-commit-verify.ts`](https://github.com/QuiteerJs/web/blob/17d4281158a991e0de910502a7ccc8a4230417b8/scripts/src/customize/git-commit-verify.ts)
+  - ➕ [`scripts/src/customize/git-commit.ts`](https://github.com/QuiteerJs/web/blob/17d4281158a991e0de910502a7ccc8a4230417b8/scripts/src/customize/git-commit.ts)
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/17d4281158a991e0de910502a7ccc8a4230417b8/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/17d4281158a991e0de910502a7ccc8a4230417b8/CHANGELOG_TIMELINE.md)
+  - ✏️ [`package.json`](https://github.com/QuiteerJs/web/blob/17d4281158a991e0de910502a7ccc8a4230417b8/package.json)
+  - ✏️ [`scripts/src/commands/git-commit.ts`](https://github.com/QuiteerJs/web/blob/17d4281158a991e0de910502a7ccc8a4230417b8/scripts/src/commands/git-commit.ts)
+  - ✏️ [`scripts/src/index.ts`](https://github.com/QuiteerJs/web/blob/17d4281158a991e0de910502a7ccc8a4230417b8/scripts/src/index.ts)
 - 🔧  **chore** `release`: v0.1.0
   > **🕒  10:44** · `➕1` / `➖1`
   > `👤 Quiteer`  <p602985@yeah.net> ([`cff8e61`](https://github.com/QuiteerJs/web/commit/cff8e61b7668ae8a46a29455f027722ece2176fc))
