@@ -14,14 +14,36 @@
 
 ## 安装与运行
 
+
+
 - 全局安装（推荐）：
-  - `pnpm i -g @quiteer/scripts` 或 `npm i -g @quiteer/scripts`
-  - 直接执行 `qui <command>` 或 `quiteer <command>`
 
+```bash
+npm i -g @quiteer/scripts
+```
 
-> 运行环境：Node.js ≥ 22.14.0，包管理器建议使用 pnpm。
+- 使用项目内安装（作为开发依赖）
 
-> 提示：CLI 启动时会自动检查 `@quiteer/scripts` 是否有新版本，如有则在终端提示执行 `qui su` 进行更新。
+```bash
+pnpm add -D @quiteer/scripts
+```
+
+- 使用帮助
+
+```bash
+qui -h
+```
+或
+```bash
+quiteer -h
+```
+
+:::warning
+运行环境：Node.js ≥ 22.14.0。
+提示：CLI 启动时会自动检查 `@quiteer/scripts` 是否有新版本，如有则在终端提示执行 `qui su` 进行更新。
+建议使用 npm 全局安装，因为自更新命令依赖 npm 执行 避免后续自动更新会冲突或者不生效的情况，
+目前只支持对 npm 进行自更新，如果是安装在项目下的话建议根据具体的包管理器进行更新。
+:::
 
 ## 命令总览与示例
 

@@ -7,8 +7,6 @@
 - 全局安装（推荐）
 
 ```bash
-pnpm i -g @quiteer/scripts
-# 或者
 npm i -g @quiteer/scripts
 ```
 
