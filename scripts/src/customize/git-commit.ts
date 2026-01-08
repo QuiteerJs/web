@@ -20,11 +20,11 @@ import { execCommand } from '../shared'
 function parseBranchToVersion(branch: string): string {
   if (!branch)
     return ''
-  // 匹配 dev-1.2.3.4 或 dev-1.2.3.4-patch 等格式
-  const reg = /^dev-(\d+\.\d+\.\d+\.\d+(?:-[a-z0-9]+)?)$/
+  // 从第一个数字开始提取到结尾作为版本号部分
+  const reg = /(\d.*)$/
   const match = branch.match(reg)
-  if (match && match[1]) {
-    return `v${match[1]}`
+  if (match && match[0]) {
+    return `v${match[0]}`
   }
   return branch
 }

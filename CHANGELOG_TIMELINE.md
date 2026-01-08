@@ -1,6 +1,16 @@
 ## 变更日志
 
-### 2026-01-08 `✏️ 14+` `➕ 3+` `🗑️ 0+`
+### 2026-01-08 `✏️ 18+` `➕ 3+` `🗑️ 0+`
+- 🔧  **chore** `release`: v0.1.4
+  > **🕒  11:12** · `➕1` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`6ff558a`](https://github.com/QuiteerJs/web/commit/6ff558a41ba9e2eb5dc01437ade4ed679930b76a))
+  - ✏️ [`scripts/package.json`](https://github.com/QuiteerJs/web/blob/6ff558a41ba9e2eb5dc01437ade4ed679930b76a/scripts/package.json)
+- 🐛  **fix** `packages`: 修改自更新的包管理器使用
+  > **🕒  11:07** · `➕29` / `➖9`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`2287522`](https://github.com/QuiteerJs/web/commit/228752274877db053bb23fe4181c1399e4be7715))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/228752274877db053bb23fe4181c1399e4be7715/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/228752274877db053bb23fe4181c1399e4be7715/CHANGELOG_TIMELINE.md)
+  - ✏️ [`scripts/src/commands/self-update.ts`](https://github.com/QuiteerJs/web/blob/228752274877db053bb23fe4181c1399e4be7715/scripts/src/commands/self-update.ts)
 - 🔧  **chore** `release`: v0.1.3
   > **🕒  11:07** · `➕1` / `➖1`
   > `👤 Quiteer`  <p602985@yeah.net> ([`eb48378`](https://github.com/QuiteerJs/web/commit/eb483787f9cb0ca6615166d21c455412f6c4e36b))

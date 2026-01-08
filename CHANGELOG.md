@@ -1,7 +1,11 @@
 ## 变更日志
 
 ### 其他
-#### 2026-01-08 `✏️ 4+` `➕ 0+` `🗑️ 0+`
+#### 2026-01-08 `✏️ 5+` `➕ 0+` `🗑️ 0+`
+- 🔧  **chore** `release`: v0.1.4
+  > **🕒  11:12** · `➕1` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`6ff558a`](https://github.com/QuiteerJs/web/commit/6ff558a41ba9e2eb5dc01437ade4ed679930b76a))
+  - ✏️ [`scripts/package.json`](https://github.com/QuiteerJs/web/blob/6ff558a41ba9e2eb5dc01437ade4ed679930b76a/scripts/package.json)
 - 🔧  **chore** `release`: v0.1.3
   > **🕒  11:07** · `➕1` / `➖1`
   > `👤 Quiteer`  <p602985@yeah.net> ([`eb48378`](https://github.com/QuiteerJs/web/commit/eb483787f9cb0ca6615166d21c455412f6c4e36b))
@@ -489,7 +493,13 @@
   - ✏️ [`pnpm-workspace.yaml`](https://github.com/QuiteerJs/web/blob/3a9e13397fe92cc5856e727ecae4b7dab09ee818/pnpm-workspace.yaml)
 
 ### 修复
-#### 2026-01-08 `✏️ 5+` `➕ 0+` `🗑️ 0+`
+#### 2026-01-08 `✏️ 8+` `➕ 0+` `🗑️ 0+`
+- 🐛  **fix** `packages`: 修改自更新的包管理器使用
+  > **🕒  11:07** · `➕29` / `➖9`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`2287522`](https://github.com/QuiteerJs/web/commit/228752274877db053bb23fe4181c1399e4be7715))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/228752274877db053bb23fe4181c1399e4be7715/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/228752274877db053bb23fe4181c1399e4be7715/CHANGELOG_TIMELINE.md)
+  - ✏️ [`scripts/src/commands/self-update.ts`](https://github.com/QuiteerJs/web/blob/228752274877db053bb23fe4181c1399e4be7715/scripts/src/commands/self-update.ts)
 - 🐛  **fix** `packages`: 修复 qui su 命令无法更新的 bug
   > **🕒  10:58** · `➕1558` / `➖1517`
   > `👤 Quiteer`  <p602985@yeah.net> ([`f4f339c`](https://github.com/QuiteerJs/web/commit/f4f339ca48b3393ab6631eb0b39cc29c5d9ab885))
