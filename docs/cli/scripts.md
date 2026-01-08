@@ -134,6 +134,10 @@ quiteer -h
 - 示例：
   - `qui r --tag-prefix scripts`
 
+:::tip
+需要注意的是该命令执行后 ， 需要手动执行 `git push --follow-tags` 推送标签到远程仓库。
+:::
+
 ### changelog / cl
 
 生成变更日志文件，支持“分组样式”“时间轴样式”“同时生成两种样式”。默认读取配置文件中的输出文件名与样式。
@@ -254,19 +258,24 @@ pnpm add -D simple-git-hooks lint-staged eslint
     "prepare": "simple-git-hooks",
     "commit": "qui gc"
   },
-  "simple-git-hooks": {
-    "commit-msg": "pnpm qui gv",
-    "pre-commit": "pnpm lint-staged"
-  },
-  "lint-staged": {
-    "*": "eslint --fix"
-  }
+    "simple-git-hooks": {
+      "commit-msg": "pnpm qui gv",
+      "pre-commit": "pnpm lint-staged"
+    },
+    "lint-staged": {
+      "*": "eslint --fix"
+    }
 }
 ```
 
 - `prepare`：在安装依赖后自动写入 Git 钩子到 `.git/hooks`
 - `pre-commit`：仅对暂存文件执行 `eslint --fix`，速度快、影响面小
 - `commit-msg`：执行 `qui gv` 校验最近一次提交信息是否符合 Conventional Commits
+
+
+:::tip
+当你执行 `pnpm install` 时，通常会触发 `prepare` 脚本（定义在 `scripts` 中），运行 `simple-git-hooks` 。这个命令会将上述配置写入到 `.git/hooks/pre-commit` 和 `.git/hooks/commit-msg` 文件中。可以查看根目录下隐藏文件夹 `.git/hooks` 确认。
+:::
 
 初始化钩子：
 

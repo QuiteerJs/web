@@ -87,7 +87,7 @@ export async function setupCli() {
 
   cli.command('git-commit', `${bgGreen(white('便捷命令'))} ${lightBlue('qui gc')}  git 提交前后的操作和规范等`)
     .alias('gc')
-    .option('--add', '添加所有变更文件到暂存区', { default: cliOptions.gitCommit.add })
+    .option('--add', '是否执行 git add 操作', { default: cliOptions.gitCommit.add })
     .option('-l ,--lang', '校验提交信息的语言', { default: cliOptions.lang })
     .action(async (args: CommandArg) => {
       if (args?.add) {
@@ -134,7 +134,7 @@ export async function setupCli() {
 
   cli.command('git-commit-tianze', `${bgGreen(white('便捷命令'))} ${lightBlue('qui gz')}   天泽智联的 git 提交前后的操作和规范等`)
     .alias('gz')
-    .option('--add', '添加所有变更文件到暂存区', { default: cliOptions.gitCommit.add })
+    .option('--add', '是否执行 git add 操作', { default: cliOptions.gitCommit.add })
     .action(async (args: CommandArg) => {
       if (args?.add) {
         await gitCommitAdd()
