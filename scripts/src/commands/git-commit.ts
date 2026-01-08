@@ -62,6 +62,23 @@ export async function gitCommitAdd(): Promise<void> {
 }
 
 /**
+ * 获取当前 Git 分支名称
+ *
+ * 使用 git symbolic-ref 获取当前分支的短名称
+ *
+ * @returns {Promise<string>} 分支名称，获取失败返回空字符串
+ */
+async function getBranchName(): Promise<string> {
+  try {
+    const branch = await execCommand('git', ['symbolic-ref', '--short', 'HEAD'])
+    return branch.trim()
+  }
+  catch {
+    return ''
+  }
+}
+
+/**
  * 交互式生成符合 Conventional Commits 的提交信息并执行提交
  * - 支持取消或非交互环境下安全退出
  * @param {Lang} lang 交互提示语言
@@ -115,11 +132,55 @@ export async function gitCommitVerify(lang: Lang = 'zh-cn', ignores: RegExp[] = 
     return
 
   // eslint-disable-next-line regexp/no-unused-capturing-group
-  const REG_EXP = /(?<type>[a-z]+)(?:\((?<scope>.+)\))?(?<breaking>!)?: (?<description>.+)/i
+  const REG_EXP = /(?<type>[a-z-]+)(?:\((?<scope>.+)\))?(?:\[(?<branch>.+)\])?(?<breaking>!)?: (?<description>.+)/i
 
   if (!REG_EXP.test(commitMsg)) {
     const errorMsg = locales[lang].gitCommitVerify
 
     throw new Error(errorMsg)
+  }
+}
+
+/**
+ * 交互式生成符合 Conventional Commits 的提交信息并执行提交 (天泽智联定制版)
+ * - 提交信息格式: type(scope)[branch]: description
+ * - 支持取消或非交互环境下安全退出
+ * @param {Lang} lang 交互提示语言
+ * @returns {Promise<void>} 异步任务
+ */
+export async function gitCommitTz(lang: Lang = 'en-us'): Promise<void> {
+  try {
+    const { prompt: ask } = enquirer
+    const { gitCommitMessages, gitCommitTypes, gitCommitScopes } = locales[lang]
+    const branchName = await getBranchName()
+
+    const typesChoices = gitCommitTypes.map(([value, msg]) => {
+      const nameWithSuffix = `${value}:`
+      const message = `${nameWithSuffix.padEnd(12)}${msg}`
+      return { name: value, message }
+    })
+
+    const scopesChoices = gitCommitScopes.map(([value, msg]) => ({
+      name: value,
+      message: `${value.padEnd(30)} (${msg})`
+    }))
+
+    const result = await ask<PromptObject>([
+      { name: 'types', type: 'select', message: gitCommitMessages.types, choices: typesChoices },
+      { name: 'scopes', type: 'select', message: gitCommitMessages.scopes, choices: scopesChoices },
+      { name: 'description', type: 'text', message: gitCommitMessages.description }
+    ])
+
+    if (!result)
+      return
+
+    const breaking = result.description.startsWith('!') ? '!' : ''
+    const description = result.description.replace(/^!/, '').trim()
+    const commitMsg = `${result.types}(${result.scopes})[${branchName}]${breaking}: ${description}`
+
+    await execCommand('git', ['commit', '-m', commitMsg], { stdio: 'inherit' })
+  }
+  catch {
+
   }
 }

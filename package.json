@@ -21,7 +21,7 @@
     "lint": "eslint",
     "lint:fix": "eslint --fix",
     "prepare": "simple-git-hooks",
-    "commit": "qui gc"
+    "commit": "qui gz"
   },
   "dependencies": {
     "naive-ui": "2.43.1"

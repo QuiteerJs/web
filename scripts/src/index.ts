@@ -4,7 +4,7 @@ import type { Lang } from './types'
 import cac from 'cac'
 import { bgGreen, blue, gray, lightBlue, lightCyan, lightGreen, white } from 'kolorist'
 import { version } from '../package.json'
-import { checkUpdateAndNotify, cleanup, generateConfig, generateDirTree, gitCommit, gitCommitAdd, gitCommitVerify, gitRemoteBranches, release, selfUpdate, updatePkg } from './commands'
+import { checkUpdateAndNotify, cleanup, generateConfig, generateDirTree, gitCommit, gitCommitAdd, gitCommitTz, gitCommitVerify, gitRemoteBranches, release, selfUpdate, updatePkg } from './commands'
 import { generateChangelogFiles } from './commands/changelog'
 import { loadCliOptions } from './config'
 
@@ -92,6 +92,17 @@ export async function setupCli() {
         await gitCommitAdd()
       }
       await gitCommit(args?.lang)
+    })
+
+  cli.command('git-commit-tianze', `${bgGreen(white('便捷命令'))} ${lightBlue('qui gz')}   天泽智联的 git 提交前后的操作和规范等`)
+    .alias('gz')
+    .option('--add', '添加所有变更文件到暂存区', { default: cliOptions.gitCommit.add })
+    .option('-l ,--lang', '校验提交信息的语言', { default: cliOptions.lang })
+    .action(async (args: CommandArg) => {
+      if (args?.add) {
+        await gitCommitAdd()
+      }
+      await gitCommitTz(args?.lang)
     })
 
   cli.command('git-commit-verify', `${bgGreen(white('便捷命令'))} ${lightBlue('qui gv')}  校验提交信息是否符合 Conventional Commits 标准`)
