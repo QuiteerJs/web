@@ -70,14 +70,35 @@ export async function selfUpdate(): Promise<void> {
 
   console.info('quiteer-script :>> ', lightCyan(`开始更新到最新版本 ${latest}（当前 ${version}）`))
   try {
-    await execa('pnpm', ['add', '-g', `@quiteer/scripts@${latest}`], { stdio: 'inherit' })
-    console.info('quiteer-script :>> ', lightGreen('更新完成，请重新运行命令'))
     const binPath = await getCurrentBinPath()
     const isLocal = binPath.includes('node_modules/.bin')
+
     if (isLocal) {
-      console.info('quiteer-script :>> ', lightBlue('当前命令来源于本地工作区，如需使用全局最新版本：'))
-      console.info('quiteer-script :>> ', lightBlue('1) 退出当前仓库目录后执行 `qui`'))
-      console.info('quiteer-script :>> ', lightBlue('2) 或使用临时执行：`pnpm dlx @quiteer/scripts <command>`'))
+      console.info('quiteer-script :>> ', lightBlue('检测到您正在开发环境中运行，将尝试通过本地构建更新...'))
+      // 在本地工作区，尝试执行仓库内的构建命令
+      await execa('pnpm', ['install'], { stdio: 'inherit' })
+      await execa('pnpm', ['--filter', '@quiteer/scripts', 'build'], { stdio: 'inherit' })
+      console.info('quiteer-script :>> ', lightGreen('本地构建完成，版本已同步'))
+    }
+    else {
+      // 外部使用情况：增加 --force 确保覆盖，增加 --no-cache 确保获取最新
+      await execa('pnpm', ['add', '-g', `@quiteer/scripts@${latest}`, '--force'], { stdio: 'inherit' })
+      console.info('quiteer-script :>> ', lightGreen('全局更新完成'))
+
+      // 验证更新是否真的生效
+      try {
+        const newVersion = await execCommand('qui', ['-v'])
+        if (!newVersion.includes(latest)) {
+          console.info('quiteer-script :>> ', lightBlue('警告：检测到更新后版本号未变，可能是由于您的环境变量中存在多个 qui 路径。'))
+          console.info('quiteer-script :>> ', lightBlue(`请运行 ${lightGreen('which -a qui')} 检查是否存在路径冲突。`))
+        }
+        else {
+          console.info('quiteer-script :>> ', lightGreen('验证成功：已更新至最新版本'))
+        }
+      }
+      catch {
+        // 忽略验证失败
+      }
     }
   }
   catch (e) {
