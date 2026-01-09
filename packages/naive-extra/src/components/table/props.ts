@@ -1,4 +1,5 @@
 import type { DataTableColumn, DataTableProps } from 'naive-ui'
+import type { Recordable } from '../../const'
 
 export type TableSize = 'medium' | 'small' | 'large' | undefined
 

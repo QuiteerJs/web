@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { ProviderProps } from './props'
-import { provideNaiveTheme } from '@quiteer/unocss/provide'
-import { dateZhCN, useDialog, useLoadingBar, useMessage, useNotification, useThemeVars, zhCN } from 'naive-ui'
-import { createTextVNode, defineComponent } from 'vue'
+import { useDialog, useLoadingBar, useMessage, useNotification } from 'naive-ui'
+import { computed, createTextVNode, defineComponent, watch } from 'vue'
+import { createProviderContext } from '../../context/index'
 
 defineOptions({
   name: 'QuiProvider'
@@ -10,14 +10,21 @@ defineOptions({
 
 const props = defineProps<ProviderProps>()
 
-const themeVars = useThemeVars()
+// 创建并整合主题上下文
+const { providerProps: internalProviderProps, updateConfig } = createProviderContext(props.config)
 
-// 注入 CSS 变量到 :root
-const cleanup = provideNaiveTheme({
-  theme: themeVars.value as any
-})
+// 监听外部传入的 config 变化并同步到 context
+watch(() => props.config, (newConfig) => {
+  if (newConfig) {
+    updateConfig(newConfig)
+  }
+}, { deep: true })
 
-onUnmounted(() => cleanup())
+// 合并外部传入的 configProviderProps
+const mergedConfigProviderProps = computed(() => ({
+  ...internalProviderProps.value,
+  ...props.configProviderProps
+}))
 
 const ContextHolder = defineComponent({
   name: 'ContextHolder',
@@ -38,10 +45,8 @@ const ContextHolder = defineComponent({
 
 <template>
   <n-config-provider
-    :locale="props.configProviderProps?.locale ?? zhCN"
-    :date-locale="props.configProviderProps?.dateLocale ?? dateZhCN"
     class="h-full"
-    v-bind="props.configProviderProps"
+    v-bind="mergedConfigProviderProps"
   >
     <n-loading-bar-provider v-bind="props.loadingBarProviderProps">
       <n-dialog-provider v-bind="props.dialogProviderProps">

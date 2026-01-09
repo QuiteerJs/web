@@ -19,7 +19,7 @@ export function findNodeByKey(options: AnyMenuOption[], key: string | number): A
 export function findFirstLeaf(node: AnyMenuOption | null | undefined): AnyMenuOption | null {
   let cur = node ?? null
   while (cur && Array.isArray(cur.children) && cur.children.length) {
-    cur = cur.children![0]
+    cur = cur.children[0] ?? null
   }
   return cur ?? null
 }

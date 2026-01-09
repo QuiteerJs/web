@@ -36,7 +36,7 @@ async function initCollections() {
     selectedCollection.value = 'mdi'
   }
   else if (cols.length > 0) {
-    selectedCollection.value = cols[0]
+    selectedCollection.value = cols[0] || ''
   }
 }
 

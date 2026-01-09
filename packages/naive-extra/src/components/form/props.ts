@@ -1,5 +1,6 @@
 import type { GridItemProps, GridProps, SwitchProps } from 'naive-ui'
 import type { CSSProperties } from 'vue'
+import type { Recordable } from '../../const'
 
 export type ComponentType
   = | 'NInput'

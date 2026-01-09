@@ -4,7 +4,7 @@ import type { CascaderProps, SelectProps } from 'naive-ui'
 import { QuiSearchBar, useForm } from '@quiteer/naive-extra'
 import { reactive, ref } from 'vue'
 
-const schemas: FormSchema<any>[] = reactive([
+const schemas: FormSchema[] = reactive([
   {
     field: 'categoryId',
     label: '类目',

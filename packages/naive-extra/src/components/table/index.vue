@@ -1,19 +1,20 @@
 <script setup lang="ts">
 import type { DataTableColumn, DataTableProps, NDataTable, PaginationProps } from 'naive-ui'
 import type { Props, Settings } from './props'
+import { useProviderContext } from '../../hooks'
 import TableSetting from './TableSetting.vue'
 
-const props = withDefaults(defineProps<Props>(), {
-  size: 'medium',
-  striped: true,
-  hidebar: false
-})
+const props = defineProps<Props>()
+
+const { mergedConfig } = useProviderContext()
+
+const isHideBar = computed(() => props.hidebar ?? false)
 
 const attrs = useAttrs() as Omit<DataTableProps, 'size' | 'striped'>
 
 const settings = ref<Settings>({
-  size: props.size,
-  striped: props.striped,
+  size: props.size ?? mergedConfig.value.common?.heightMedium === '34px' ? 'medium' : 'medium', // 这里暂时用 medium，因为 common 中没有直接的 size 映射
+  striped: props.striped ?? mergedConfig.value.table.striped ?? true,
   columns: attrs.columns!.map(item => ({
     fixed: false,
     ellipsis: { tooltip: true },
@@ -151,13 +152,13 @@ defineExpose({
 
 <template>
   <NFlex vertical class="h-full flex-col-stretch">
-    <NFlex v-if="!hidebar" align="center" justify="space-between">
+    <NFlex v-if="!isHideBar" align="center" justify="space-between">
       <div>
         <slot name="left" />
       </div>
       <NFlex align="center">
         <slot name="right" />
-        <TableSetting v-if="!hidebar" v-model="settings" @realod="fetchData" @export="handleExport" />
+        <TableSetting v-if="!isHideBar" v-model="settings" @realod="fetchData" @export="handleExport" />
       </NFlex>
     </NFlex>
     <NDataTable

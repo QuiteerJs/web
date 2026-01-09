@@ -46,7 +46,9 @@ export function normalizeAndRedirect(raw: RouteRecordRaw[], parent = ''): RouteR
     if (!redirect && kids && kids.length) {
       const idx = kids.find(c => c.path === 'index' || c.path === '')
       const target = idx ?? kids[0]
-      redirect = joinPath(curPathAbs, target.path)
+      if (target) {
+        redirect = joinPath(curPathAbs, target.path)
+      }
     }
     return {
       ...r,

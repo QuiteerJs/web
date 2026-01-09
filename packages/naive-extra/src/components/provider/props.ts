@@ -5,11 +5,17 @@ import type {
   MessageProviderProps,
   NotificationProviderProps
 } from 'naive-ui'
+import type { NaiveExtraThemeConfig } from '../../const'
 
 export interface ProviderProps {
   /**
+   * NaiveExtra 主题配置
+   */
+  config?: NaiveExtraThemeConfig
+
+  /**
    * Config Provider Props
-   * 透传 NConfigProvider 的所有属性
+   * 透传 NConfigProvider 的所有属性 (优先级高于 config)
    */
   configProviderProps?: ConfigProviderProps
 

@@ -175,7 +175,7 @@ function handleBeforeUpload(options: { file: UploadFileInfo, fileList: UploadFil
             </template>
             <template v-if="accept">
               ，且格式为
-              <b class="text-red-500">{{ accept?.replaceAll(',', '/') }}</b>
+              <b class="text-red-500">{{ accept?.split(',').join('/') }}</b>
             </template>
             的文件
           </NP>

@@ -87,7 +87,7 @@ function findLeaf(path: string): string {
     if (!kids || kids.length === 0) {
       return current
     }
-    current = kids[0]
+    current = kids[0] || ''
   }
   return current
 }

@@ -1,5 +1,5 @@
 import type { DataTableColumn } from 'naive-ui'
-import type QuiTable from './index.vue'
+import type { QuiTable } from '../components/table'
 import { NImage } from 'naive-ui'
 import { h, ref } from 'vue'
 
@@ -26,6 +26,7 @@ interface UseTableReturn<T> {
   createTextColumn: (key: keyof T & string, title: string, width?: number) => DataTableColumn<T>
   createMoneyColumn: (key: keyof T & string, title?: string, precision?: number) => DataTableColumn<T>
 }
+
 /**
  * 表格辅助函数集合
  *

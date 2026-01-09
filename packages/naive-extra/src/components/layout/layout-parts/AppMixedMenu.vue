@@ -7,7 +7,7 @@ import { useRouter } from 'vue-router'
 import { useContext } from '../context'
 import { findNodeByKey, resolveLeafKeyFromMenu, resolveTopParentKeyFromMenu } from '../utils'
 
-const { type, isLeftMain, isTopMain, activeKey, mainActiveKey, subActiveKey, siderMixedWidth, menuOptions: options, mainMenuOptions, subMenuOptions, updateActiveKey } = useContext()!
+const { isLeftMain, isTopMain, activeKey, mainActiveKey, subActiveKey, siderMixedWidth, menuOptions: options, mainMenuOptions, subMenuOptions, updateActiveKey } = useContext()!
 const router = useRouter()
 
 const LabelRender = defineComponent({
@@ -65,8 +65,8 @@ watchEffect(() => {
 })
 
 const menuOptions = computed(() => {
-  if (unref(type) === 'side-mixed-menu')
-    return unref(options)
+  // if (unref(type) === 'side-mixed-menu')
+  //   return unref(options)
   return unref(isLeftMain) ? unref(mainMenuOptions) : unref(subMenuOptions)
 })
 

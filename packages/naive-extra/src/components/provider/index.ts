@@ -2,10 +2,5 @@ import QuiProvider from './index.vue'
 
 export { QuiProvider }
 
+export * from '../../context'
 export type { ProviderProps } from './props'
-export { useBorderRadio } from './useBorderRadio'
-export { useColorScheme } from './useColorScheme'
-export { useLocale } from './useLocale'
-export { useTableTheme } from './useTableTheme'
-
-export { useTheme } from './useTheme'

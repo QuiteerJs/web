@@ -88,7 +88,7 @@ function updateAutoMax() {
   const moreBtnEl = children[children.length - 2]
   const actionBtns = children.slice(0, -2)
 
-  const getWidth = (el: HTMLElement) => el?.getBoundingClientRect().width || 0
+  const getWidth = (el: HTMLElement | undefined) => el?.getBoundingClientRect().width || 0
 
   const dividerWidth = getWidth(dividerEl)
   const moreBtnWidth = getWidth(moreBtnEl)

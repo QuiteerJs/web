@@ -142,6 +142,9 @@ importers:
       '@vueuse/core':
         specifier: ^14.1.0
         version: 14.1.0(vue@3.5.24(typescript@5.9.3))
+      defu:
+        specifier: ^6.1.4
+        version: 6.1.4
       vue-draggable-plus:
         specifier: ^0.6.0
         version: 0.6.0(@types/sortablejs@1.15.9)
@@ -274,10 +277,10 @@ importers:
         version: link:../utils
       '@vitejs/plugin-vue':
         specifier: ^6.0.2
-        version: 6.0.2(vite@7.3.0(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1))(vue@3.5.24(typescript@5.9.3))
+        version: 6.0.2(vite@7.3.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1))(vue@3.5.24(typescript@5.9.3))
       '@vitejs/plugin-vue-jsx':
         specifier: ^5.1.1
-        version: 5.1.1(vite@7.3.0(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1))(vue@3.5.24(typescript@5.9.3))
+        version: 5.1.1(vite@7.3.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1))(vue@3.5.24(typescript@5.9.3))
       c12:
         specifier: 3.3.2
         version: 3.3.2
@@ -304,13 +307,13 @@ importers:
         version: 30.0.0(@babel/parser@7.28.5)(vue@3.5.24(typescript@5.9.3))
       vite-plugin-progress:
         specifier: ^0.0.7
-        version: 0.0.7(vite@7.3.0(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1))
+        version: 0.0.7(vite@7.3.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1))
       vite-plugin-svg-icons:
         specifier: ^2.0.1
-        version: 2.0.1(vite@7.3.0(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1))
+        version: 2.0.1(vite@7.3.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1))
       vite-plugin-vue-devtools:
         specifier: ^8.0.3
-        version: 8.0.3(vite@7.3.0(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1))(vue@3.5.24(typescript@5.9.3))
+        version: 8.0.3(vite@7.3.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1))(vue@3.5.24(typescript@5.9.3))
 
   playground/color:
     dependencies:
@@ -5539,8 +5542,8 @@ packages:
     peerDependencies:
       vite: ^3.0.0-0 || ^4.0.0-0 || ^5.0.0-0 || ^6.0.0-0 || ^7.0.0-0
 
-  vite@7.3.0:
-    resolution: {integrity: sha512-dZwN5L1VlUBewiP6H9s2+B3e3Jg96D0vzN+Ry73sOefebhYr9f94wwkMNN/9ouoU8pV1BqA1d1zGk8928cx0rg==}
+  vite@7.3.1:
+    resolution: {integrity: sha512-w+N7Hifpc3gRjZ63vYBXA56dvvRlNWRczTdmCBBa+CotUzAPf5b7YMdMR/8CQoeYE5LX3W4wj6RYTgonm1b9DA==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
     peerDependencies:
@@ -7186,14 +7189,14 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@vitejs/plugin-vue-jsx@5.1.1(vite@7.3.0(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1))(vue@3.5.24(typescript@5.9.3))':
+  '@vitejs/plugin-vue-jsx@5.1.1(vite@7.3.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1))(vue@3.5.24(typescript@5.9.3))':
     dependencies:
       '@babel/core': 7.28.5
       '@babel/plugin-syntax-typescript': 7.27.1(@babel/core@7.28.5)
       '@babel/plugin-transform-typescript': 7.28.5(@babel/core@7.28.5)
       '@rolldown/pluginutils': 1.0.0-beta.50
       '@vue/babel-plugin-jsx': 1.5.0(@babel/core@7.28.5)
-      vite: 7.3.0(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1)
+      vite: 7.3.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1)
       vue: 3.5.24(typescript@5.9.3)
     transitivePeerDependencies:
       - supports-color
@@ -7221,10 +7224,10 @@ snapshots:
       vite: rolldown-vite@7.2.2(@types/node@24.10.0)(esbuild@0.25.12)(jiti@2.6.1)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1)
       vue: 3.5.24(typescript@5.9.3)
 
-  '@vitejs/plugin-vue@6.0.2(vite@7.3.0(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1))(vue@3.5.24(typescript@5.9.3))':
+  '@vitejs/plugin-vue@6.0.2(vite@7.3.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1))(vue@3.5.24(typescript@5.9.3))':
     dependencies:
       '@rolldown/pluginutils': 1.0.0-beta.50
-      vite: 7.3.0(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1)
+      vite: 7.3.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1)
       vue: 3.5.24(typescript@5.9.3)
 
   '@vitest/eslint-plugin@1.4.1(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)':
@@ -7338,14 +7341,14 @@ snapshots:
     dependencies:
       '@vue/devtools-kit': 8.0.3
 
-  '@vue/devtools-core@8.0.3(vite@7.3.0(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1))(vue@3.5.24(typescript@5.9.3))':
+  '@vue/devtools-core@8.0.3(vite@7.3.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1))(vue@3.5.24(typescript@5.9.3))':
     dependencies:
       '@vue/devtools-kit': 8.0.3
       '@vue/devtools-shared': 8.0.3
       mitt: 3.0.1
       nanoid: 5.1.6
       pathe: 2.0.3
-      vite-hot-client: 2.1.0(vite@7.3.0(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1))
+      vite-hot-client: 2.1.0(vite@7.3.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1))
       vue: 3.5.24(typescript@5.9.3)
     transitivePeerDependencies:
       - vite
@@ -11193,15 +11196,15 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.3
 
-  vite-dev-rpc@1.1.0(vite@7.3.0(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1)):
+  vite-dev-rpc@1.1.0(vite@7.3.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1)):
     dependencies:
       birpc: 2.7.0
-      vite: 7.3.0(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1)
-      vite-hot-client: 2.1.0(vite@7.3.0(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1))
+      vite: 7.3.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1)
+      vite-hot-client: 2.1.0(vite@7.3.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1))
 
-  vite-hot-client@2.1.0(vite@7.3.0(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1)):
+  vite-hot-client@2.1.0(vite@7.3.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1)):
     dependencies:
-      vite: 7.3.0(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1)
+      vite: 7.3.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1)
 
   vite-plugin-dts@4.5.4(@types/node@24.10.1)(rolldown-vite@7.2.2(@types/node@24.10.1)(esbuild@0.25.12)(jiti@2.6.1)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1))(rollup@4.53.1)(typescript@5.9.3):
     dependencies:
@@ -11222,7 +11225,7 @@ snapshots:
       - rollup
       - supports-color
 
-  vite-plugin-inspect@11.3.3(vite@7.3.0(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1)):
+  vite-plugin-inspect@11.3.3(vite@7.3.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1)):
     dependencies:
       ansis: 4.2.0
       debug: 4.4.3
@@ -11232,19 +11235,19 @@ snapshots:
       perfect-debounce: 2.0.0
       sirv: 3.0.2
       unplugin-utils: 0.3.1
-      vite: 7.3.0(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1)
-      vite-dev-rpc: 1.1.0(vite@7.3.0(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1))
+      vite: 7.3.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1)
+      vite-dev-rpc: 1.1.0(vite@7.3.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1))
     transitivePeerDependencies:
       - supports-color
 
-  vite-plugin-progress@0.0.7(vite@7.3.0(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1)):
+  vite-plugin-progress@0.0.7(vite@7.3.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1)):
     dependencies:
       picocolors: 1.1.1
       progress: 2.0.3
       rd: 2.0.1
-      vite: 7.3.0(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1)
+      vite: 7.3.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1)
 
-  vite-plugin-svg-icons@2.0.1(vite@7.3.0(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1)):
+  vite-plugin-svg-icons@2.0.1(vite@7.3.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1)):
     dependencies:
       '@types/svgo': 2.6.4
       cors: 2.8.5
@@ -11254,25 +11257,25 @@ snapshots:
       pathe: 0.2.0
       svg-baker: 1.7.0
       svgo: 2.8.0
-      vite: 7.3.0(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1)
+      vite: 7.3.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1)
     transitivePeerDependencies:
       - supports-color
 
-  vite-plugin-vue-devtools@8.0.3(vite@7.3.0(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1))(vue@3.5.24(typescript@5.9.3)):
+  vite-plugin-vue-devtools@8.0.3(vite@7.3.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1))(vue@3.5.24(typescript@5.9.3)):
     dependencies:
-      '@vue/devtools-core': 8.0.3(vite@7.3.0(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1))(vue@3.5.24(typescript@5.9.3))
+      '@vue/devtools-core': 8.0.3(vite@7.3.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1))(vue@3.5.24(typescript@5.9.3))
       '@vue/devtools-kit': 8.0.3
       '@vue/devtools-shared': 8.0.3
       sirv: 3.0.2
-      vite: 7.3.0(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1)
-      vite-plugin-inspect: 11.3.3(vite@7.3.0(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1))
-      vite-plugin-vue-inspector: 5.3.2(vite@7.3.0(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1))
+      vite: 7.3.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1)
+      vite-plugin-inspect: 11.3.3(vite@7.3.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1))
+      vite-plugin-vue-inspector: 5.3.2(vite@7.3.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1))
     transitivePeerDependencies:
       - '@nuxt/kit'
       - supports-color
       - vue
 
-  vite-plugin-vue-inspector@5.3.2(vite@7.3.0(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1)):
+  vite-plugin-vue-inspector@5.3.2(vite@7.3.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1)):
     dependencies:
       '@babel/core': 7.28.5
       '@babel/plugin-proposal-decorators': 7.28.0(@babel/core@7.28.5)
@@ -11283,11 +11286,11 @@ snapshots:
       '@vue/compiler-dom': 3.5.24
       kolorist: 1.8.0
       magic-string: 0.30.21
-      vite: 7.3.0(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1)
+      vite: 7.3.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1)
     transitivePeerDependencies:
       - supports-color
 
-  vite@7.3.0(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1):
+  vite@7.3.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.94.0)(tsx@4.20.6)(yaml@2.8.1):
     dependencies:
       esbuild: 0.27.2
       fdir: 6.5.0(picomatch@4.0.3)

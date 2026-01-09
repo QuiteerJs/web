@@ -3,12 +3,12 @@
 import type { MenuOption } from 'naive-ui'
 import type { Ref } from 'vue'
 import type { RouteRecordRaw } from 'vue-router'
-import type { LayoutType, RouteMeta } from './types'
+import type { LayoutType, RouteMeta } from '../components/layout/types'
 import { computed, isRef, onUnmounted, reactive, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { DEFAULT_LAYOUT_PROPS } from './const'
-import { transformRouteToMenu } from './route-to-menu'
-import { filterRouteTree, normalizeAndRedirect, sortRouteTree, toRouteTree } from './transformRoutes'
+import { DEFAULT_LAYOUT_PROPS } from '../components/layout/const'
+import { transformRouteToMenu } from '../components/layout/route-to-menu'
+import { filterRouteTree, normalizeAndRedirect, sortRouteTree, toRouteTree } from '../components/layout/transformRoutes'
 
 // 仅在此文件内用简化上下文类型，避免类型实例化过深
 export interface UseLayoutContext {
@@ -202,7 +202,9 @@ export function useLayout(option: {
       return
     baseRoutes.value = [...(baseRoutes.value as RouteRecordRaw[]), route]
     const [rec] = normalizeAndRedirect([route])
-    router.addRoute(rec)
+    if (rec) {
+      router.addRoute(rec)
+    }
   }
 
   function addRoutes(routes: RouteRecordRaw[]) {

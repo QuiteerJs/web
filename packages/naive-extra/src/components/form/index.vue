@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { FormProps, FormRules, GridProps, NForm } from 'naive-ui'
+import type { Recordable } from '../../const'
 import type { Props } from './props'
 import { isArray, isBoolean, isNullOrUnDef } from '@quiteer/is'
 import { computed, nextTick, onMounted, reactive, ref, toRaw, unref, useAttrs } from 'vue'
@@ -25,7 +26,7 @@ const formProps = computed((): FormProps => {
 
   props.schemas.forEach((item) => {
     if (item.rules && isArray(item.rules)) {
-      rules[item.field] = item.rules
+      rules[item.field as string] = item.rules
     }
   })
 
@@ -59,8 +60,8 @@ function initDefault() {
   props.schemas.forEach((item) => {
     const { defaultValue } = item
     if (!isNullOrUnDef(defaultValue)) {
-      obj[item.field] = defaultValue
-      formModel[item.field] = defaultValue
+      obj[item.field as string] = defaultValue
+      formModel[item.field as string] = defaultValue
     }
   })
   defaultFormModel.value = obj

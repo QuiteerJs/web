@@ -46,7 +46,7 @@ const options = [
   }
 ]
 
-const schemas = reactive<FormSchema<any>[]>([
+const schemas = reactive<FormSchema[]>([
   {
     field: 'input',
     label: '输入框',

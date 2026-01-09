@@ -82,7 +82,7 @@ function onMove(e: any) {
     <NDivider vertical />
     <NTooltip trigger="hover">
       <template #trigger>
-        <NButton text type="info">
+        <NButton text type="primary">
           <template #icon>
             <i class="i-ant-design-reload-outlined text-5" @click="emit('realod')" />
           </template>
@@ -96,7 +96,7 @@ function onMove(e: any) {
       <template #trigger>
         <NFlex align="center">
           <NDropdown v-model:value="settings.size" trigger="click" :options="sizeOptions" @select="selectSize">
-            <NButton text type="info">
+            <NButton text type="primary">
               <template #icon>
                 <i class="i-mdi-arrow-expand-vertical text-5" />
               </template>
@@ -112,7 +112,7 @@ function onMove(e: any) {
       <template #trigger>
         <NFlex align="center">
           <NDropdown trigger="click" :options="exportOptions" @select="selectExport">
-            <NButton text type="info">
+            <NButton text type="primary">
               <template #icon>
                 <i class="i-mdi-file-excel text-5" />
               </template>
@@ -129,7 +129,7 @@ function onMove(e: any) {
         <NFlex align="center">
           <NPopover trigger="click" :width="240" placement="bottom-end">
             <template #trigger>
-              <NButton text type="info">
+              <NButton text type="primary">
                 <template #icon>
                   <i class="i-ic-outline-settings text-5" />
                 </template>

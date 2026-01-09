@@ -1,5 +1,5 @@
 import type { Ref } from 'vue'
-import type { FormSchema } from './props'
+import type { FormSchema } from '../components/form/props'
 
 interface Option { label: string, value: any, disabled?: boolean }
 

@@ -1,5 +1,7 @@
 # @quiteer/naive-extra
 
+- [示例项目](https://web-naive-extra-test.vercel.app/)
+
 :::tip
 作者出于让开发者更多的关注数据无需考虑 ui 实现，而将 ui 封装成组件，开发者只需要关注数据即可。
 目标一切皆是响应式，极其灵活。

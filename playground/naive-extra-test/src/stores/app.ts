@@ -1,4 +1,4 @@
-import { useColorScheme, useLocale, useTheme } from '@quiteer/naive-extra'
+import type { NaiveExtraThemeConfig } from '@quiteer/naive-extra'
 import { defineStore } from 'pinia'
 
 const DEFAULT_COLORS = {
@@ -11,99 +11,77 @@ const DEFAULT_COLORS = {
 
 export const useAppStore = defineStore('app', {
   state: () => ({
-    lang: 'zh' as 'zh' | 'en',
-    mode: 'light' as 'light' | 'dark',
-    colors: { ...DEFAULT_COLORS }
+    config: {
+      themeMode: 'light',
+      localeMode: 'zh',
+      palette: { ...DEFAULT_COLORS },
+      borderRadius: 4
+    } as NaiveExtraThemeConfig
   }),
   actions: {
     init() {
-      const savedLang = localStorage.getItem('__app_lang__') as 'zh' | 'en' | null
-      const savedMode = localStorage.getItem('__app_mode__') as 'light' | 'dark' | null
-      const savedColors = localStorage.getItem('__app_colors__')
-      if (savedLang)
-        this.lang = savedLang
-      if (savedMode)
-        this.mode = savedMode
-      if (savedColors) {
+      const savedConfig = localStorage.getItem('__app_config__')
+      if (savedConfig) {
         try {
-          const parsed = JSON.parse(savedColors)
-          this.colors = { ...this.colors, ...parsed }
+          this.config = JSON.parse(savedConfig)
         }
         catch {}
       }
-      if (this.lang === 'zh')
-        this.locale.setZh()
-      else this.locale.setEn()
-      if (this.mode === 'dark')
-        this.theme.setDark()
-      else this.theme.setLight()
-      this.colorScheme.setPalette(this.colors)
+    },
+    save() {
+      localStorage.setItem('__app_config__', JSON.stringify(this.config))
     },
     setZh() {
-      this.lang = 'zh'
-      this.locale.setZh()
-      localStorage.setItem('__app_lang__', this.lang)
+      this.config.localeMode = 'zh'
+      this.save()
     },
     setEn() {
-      this.lang = 'en'
-      this.locale.setEn()
-      localStorage.setItem('__app_lang__', this.lang)
+      this.config.localeMode = 'en'
+      this.save()
     },
     toggleLocale() {
-      if (this.lang === 'zh')
-        this.setEn()
-      else this.setZh()
+      this.config.localeMode = this.config.localeMode === 'zh' ? 'en' : 'zh'
+      this.save()
     },
     setDark() {
-      this.mode = 'dark'
-      this.theme.setDark()
-      localStorage.setItem('__app_mode__', this.mode)
+      this.config.themeMode = 'dark'
+      this.save()
     },
     setLight() {
-      this.mode = 'light'
-      this.theme.setLight()
-      localStorage.setItem('__app_mode__', this.mode)
+      this.config.themeMode = 'light'
+      this.save()
     },
     toggleTheme() {
-      if (this.mode === 'dark')
-        this.setLight()
-      else this.setDark()
+      this.config.themeMode = this.config.themeMode === 'dark' ? 'light' : 'dark'
+      this.save()
     },
     setPrimary(hex: string) {
-      this.colors.primary = hex
-      this.colorScheme.setPrimary(hex)
-      localStorage.setItem('__app_colors__', JSON.stringify(this.colors))
+      if (!this.config.palette)
+        this.config.palette = { ...DEFAULT_COLORS }
+      this.config.palette.primary = hex
+      this.save()
     },
-    setPalette(next: Partial<typeof this.colors>) {
-      this.colors = { ...this.colors, ...next }
-      this.colorScheme.setPalette(this.colors)
-      localStorage.setItem('__app_colors__', JSON.stringify(this.colors))
+    setPalette(next: Partial<typeof DEFAULT_COLORS>) {
+      if (!this.config.palette)
+        this.config.palette = { ...DEFAULT_COLORS }
+      this.config.palette = { ...this.config.palette, ...next }
+      this.save()
+    },
+    setBorderRadius(radius: number) {
+      this.config.borderRadius = radius
+      this.save()
     },
     resetColors() {
-      this.colors = { ...DEFAULT_COLORS }
-      this.colorScheme.setPalette(this.colors)
-      localStorage.setItem('__app_colors__', JSON.stringify(this.colors))
+      this.config.palette = { ...DEFAULT_COLORS }
+      this.save()
     }
   },
   getters: {
-    locale(): ReturnType<typeof useLocale> {
-      return useLocale(this.lang)
-    },
-    theme(): ReturnType<typeof useTheme> {
-      return useTheme(this.mode)
-    },
-    colorScheme(): ReturnType<typeof useColorScheme> {
-      return useColorScheme(this.colors)
-    },
     isDark(): boolean {
-      return this.theme.isDark.value
+      return this.config.themeMode === 'dark'
     },
-    configProps(): Record<string, any> {
-      return {
-        ...this.locale.getConfigProps(),
-        ...this.theme.getConfigProps(),
-        ...this.colorScheme.getConfigProps()
-      }
+    colors(): typeof DEFAULT_COLORS {
+      return (this.config.palette || DEFAULT_COLORS) as typeof DEFAULT_COLORS
     },
     primary(): string {
       return this.colors.primary

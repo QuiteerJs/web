@@ -1,5 +1,8 @@
 # @quiteer/naive-extra
 
+- [使用文档](https://quiteerjs.github.io/web/plugins/naive-extra/)
+- [示例项目](https://web-naive-extra-test.vercel.app/)
+
 基于 Naive UI 的业务组件库封装，旨在让开发者更多关注数据逻辑，减少 UI 实现的繁琐细节。
 
 ## 特性

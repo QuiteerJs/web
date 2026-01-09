@@ -41,16 +41,16 @@ export const DEFAULT_LAYOUT_TYPE: { type: LayoutType, name: string, desc: string
     name: '左侧-顶部菜单布局',
     desc: '左侧为垂直导航菜单，顶部为水平导航菜单，下方为主内容区'
   },
-  {
-    type: 'side-mixed-menu',
-    name: '左侧混合-单菜单布局',
-    desc: '左侧为垂直导航菜单，菜单为双层折叠模式，顶部为面包屑，下方为主内容区'
-  },
-  {
-    type: 'side-mixed-menu/2',
-    name: '左侧混合-顶部菜单布局',
-    desc: '左侧为单层导航菜单，顶部为水平导航菜单，下方为主内容区'
-  },
+  // {
+  //   type: 'side-mixed-menu',
+  //   name: '左侧混合-单菜单布局',
+  //   desc: '左侧为垂直导航菜单，菜单为双层折叠模式，顶部为面包屑，下方为主内容区'
+  // },
+  // {
+  //   type: 'side-mixed-menu/2',
+  //   name: '左侧混合-顶部菜单布局',
+  //   desc: '左侧为单层导航菜单，顶部为水平导航菜单，下方为主内容区'
+  // },
   {
     type: 'top-menu',
     name: '顶部菜单布局',
@@ -61,11 +61,11 @@ export const DEFAULT_LAYOUT_TYPE: { type: LayoutType, name: string, desc: string
     name: '顶部-左侧菜单布局',
     desc: '顶部菜单为主，顶部为水平导航菜单，左侧为垂直导航菜单，下方为主内容区'
   },
-  {
-    type: 'top-mixed-menu/2',
-    name: '顶部-左侧混合菜单布局',
-    desc: '顶部菜单为主，顶部为水平导航菜单，左侧为单层垂直导航菜单，下方为主内容区'
-  },
+  // {
+  //   type: 'top-mixed-menu/2',
+  //   name: '顶部-左侧混合菜单布局',
+  //   desc: '顶部菜单为主，顶部为水平导航菜单，左侧为单层垂直导航菜单，下方为主内容区'
+  // },
   {
     type: 'blank',
     name: '无菜单布局',

@@ -1,3 +1,4 @@
+import type { Recordable } from '../../const'
 import type { FormSchema } from './props'
 import { isArray, isBoolean, isFunction, isNullOrUnDef, isObject, isString } from '@quiteer/is'
 import {

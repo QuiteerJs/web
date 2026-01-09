@@ -5,6 +5,7 @@
  */
 import type {} from 'async-validator'
 import type { ButtonProps } from 'naive-ui'
+import type { Recordable } from '../../const'
 import type { Props } from './props'
 import { isNullOrUnDef } from '@quiteer/is'
 import { computed, nextTick, onMounted, ref, toRaw, unref, useAttrs, watch, watchEffect } from 'vue'

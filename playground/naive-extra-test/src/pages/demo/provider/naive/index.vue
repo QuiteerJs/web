@@ -1,17 +1,23 @@
 <script setup lang="ts">
-import { useBorderRadio } from '@quiteer/naive-extra'
-import { NAlert, NAvatar, NButton, NCard, NColorPicker, NConfigProvider, NDatePicker, NFlex, NInput, NInputNumber, NPagination, NSelect, NSlider, NTag } from 'naive-ui'
-import { computed, ref } from 'vue'
+import { useProviderContext } from '@quiteer/naive-extra'
+import { NAlert, NAvatar, NButton, NCard, NColorPicker, NDatePicker, NFlex, NInput, NPagination, NSelect, NSlider, NTag } from 'naive-ui'
+import { ref } from 'vue'
 import { useAppStore } from '@/stores/app'
 
 const store = useAppStore()
+const { setBorderRadius } = useProviderContext()
 
 const dateValue = ref<number | null>(Date.now())
 const page = ref(1)
 const pageSize = ref(10)
 
-const { radiusRef, setRadius, increase, decrease, reset, getConfigProps } = useBorderRadio(3)
-const configProps = computed(() => getConfigProps())
+const radius = ref(store.config.borderRadius || 4)
+
+function updateRadius(v: number) {
+  radius.value = v
+  setBorderRadius(v)
+  store.setBorderRadius(v)
+}
 const options = [
   { label: 'Option A', value: 'A' },
   { label: 'Option B', value: 'B' },
@@ -128,51 +134,48 @@ function handleLoadingBar() {
 
   <NCard title="主题圆角" class="mt-4">
     <NFlex align="center">
-      <NInputNumber :value="radiusRef" :min="0" :max="24" @update:value="(v) => setRadius(v ?? 0)" />
-      <NSlider :value="radiusRef" :min="0" :max="24" style="width: 320px;" @update:value="(v) => setRadius(v)" />
-      <NButton @click="decrease(1)">
+      <NSlider :value="radius" :min="0" :max="24" style="width: 320px;" @update:value="updateRadius" />
+      <NButton @click="updateRadius(radius - 1)">
         -1
       </NButton>
-      <NButton @click="increase(1)">
+      <NButton @click="updateRadius(radius + 1)">
         +1
       </NButton>
-      <NButton type="warning" @click="reset">
+      <NButton type="warning" @click="updateRadius(4)">
         重置
       </NButton>
       <NTag type="info">
-        当前：{{ radiusRef }}px
+        当前：{{ radius }}px
       </NTag>
     </NFlex>
-    <NConfigProvider v-bind="configProps">
-      <NCard title="组件示例（圆角覆盖）" class="mt-4">
-        <NFlex justify="space-between" wrap>
-          <NButton type="primary">
-            Primary
-          </NButton>
-          <NButton type="info">
-            Info
-          </NButton>
-          <NButton type="success">
-            Success
-          </NButton>
-          <NButton type="warning">
-            Warning
-          </NButton>
-          <NButton type="error">
-            Error
-          </NButton>
-          <NTag type="primary">
-            Tag
-          </NTag>
-          <NAvatar>U</NAvatar>
-        </NFlex>
-        <NFlex class="mt-4" vertical>
-          <NInput placeholder="圆角输入框" />
-          <NSelect :options="options" placeholder="圆角选择器" />
-          <NAlert type="info" title="圆角提示" />
-        </NFlex>
-      </NCard>
-    </NConfigProvider>
+    <NCard title="组件示例（圆角覆盖）" class="mt-4">
+      <NFlex justify="space-between" wrap>
+        <NButton type="primary">
+          Primary
+        </NButton>
+        <NButton type="info">
+          Info
+        </NButton>
+        <NButton type="success">
+          Success
+        </NButton>
+        <NButton type="warning">
+          Warning
+        </NButton>
+        <NButton type="error">
+          Error
+        </NButton>
+        <NTag type="primary">
+          Tag
+        </NTag>
+        <NAvatar>U</NAvatar>
+      </NFlex>
+      <NFlex class="mt-4" vertical>
+        <NInput placeholder="圆角输入框" />
+        <NSelect :options="options" placeholder="圆角选择器" />
+        <NAlert type="info" title="圆角提示" />
+      </NFlex>
+    </NCard>
   </NCard>
 
   <NCard title="Provider Demo (Window API)" class="mt-4">
