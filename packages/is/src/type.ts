@@ -75,7 +75,13 @@ export function isSymbol(val: unknown): val is symbol {
 
 /** @description: 是否为promise */
 export function isPromise<T = any>(val: unknown): val is Promise<T> {
-  return is(val, 'Promise') && isObject(val) && isFunction(val.then) && isFunction(val.catch)
+  return (
+    is(val, 'Promise')
+    || (val !== null
+      && typeof val === 'object'
+      && isFunction((val as any).then)
+      && isFunction((val as any).catch))
+  )
 }
 
 /** @description: 是否为AsyncFunction */

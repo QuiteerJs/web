@@ -32,7 +32,6 @@ export function useProviderContext(): NaiveExtraContext {
     config,
     mergedConfig: computed(() => DEFAULT_THEME_CONFIG as Required<NaiveExtraThemeConfig>),
     providerProps: computed(() => ({})),
-    dialogProviderProps: computed(() => ({})),
     loadingBarProviderProps: computed(() => ({})),
     messageProviderProps: computed(() => ({})),
     notificationProviderProps: computed(() => ({})),

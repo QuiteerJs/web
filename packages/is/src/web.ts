@@ -1,7 +1,5 @@
 /** @description: Web 环境相关判断方法集合 */
 
-import { is } from './type'
-
 /** @description: 判断当前浏览器是否为 WebKit 内核 */
 export function isWebkitBrowser(): boolean {
   return /webkit/i.test(navigator.userAgent)
@@ -34,7 +32,7 @@ export function isOperaBrowser(): boolean {
 
 /** @description: 判断当前浏览器是否为 Edge 浏览器 */
 export function isEdgeBrowser(): boolean {
-  return /edge/i.test(navigator.userAgent)
+  return /edge|edg/i.test(navigator.userAgent)
 }
 
 /** @description: 判断当前浏览器是否为 IE 浏览器 */
@@ -64,7 +62,7 @@ export function isAndroidBrowser(): boolean {
 
 /** @description: 判断当前系统是否为 iOS */
 export function isIOSBrowser(): boolean {
-  return /ios/i.test(navigator.userAgent)
+  return /iP(?:hone|od|ad)|ios/i.test(navigator.userAgent)
 }
 
 /** @description: 是否客户端 */
@@ -74,7 +72,7 @@ export function isClient() {
 
 /** @description: 是否为浏览器 */
 export function isWindow(val: any): val is Window {
-  return typeof window !== 'undefined' && is(val, 'Window')
+  return typeof window !== 'undefined' && val !== null && val === val.window
 }
 
 /** @description: 是否为微信小程序环境 */

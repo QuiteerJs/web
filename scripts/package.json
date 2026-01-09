@@ -6,17 +6,20 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/",
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "import": "./dist/index.mjs",
+        "require": "./dist/index.mjs"
+      }
+    },
     "bin": {
       "quiteer": "./dist/index.mjs",
       "qui": "./dist/index.mjs"
     }
   },
   "exports": {
-    ".": {
-      "types": "./dist/index.d.mts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.mjs"
-    }
+    ".": "./src/bin.ts"
   },
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
@@ -29,8 +32,8 @@
     }
   },
   "bin": {
-    "quiteer": "./src/bin.js",
-    "qui": "./src/bin.js"
+    "quiteer": "./src/bin.ts",
+    "qui": "./src/bin.ts"
   },
   "files": ["dist"],
   "scripts": {
@@ -50,7 +53,6 @@
     "rimraf": "6.1.0"
   },
   "devDependencies": {
-    "tsdown": "^0.16.1",
-    "tsx": "^4.20.6"
+    "tsdown": "^0.16.1"
   }
 }
