@@ -2,6 +2,7 @@ import type { GlobalThemeOverrides } from 'naive-ui'
 import type { ComputedRef } from 'vue'
 import type { NaiveExtraThemeConfig } from '../const'
 import { computed } from 'vue'
+import { compact } from '../share'
 
 /**
  * 表格组件样式覆盖模块
@@ -13,16 +14,16 @@ export function useTableModule(mergedConfig: ComputedRef<Required<NaiveExtraThem
   const tableOverrides = computed<GlobalThemeOverrides['DataTable']>(() => {
     const { table } = mergedConfig.value
 
-    return {
-      ...(table.tdPaddingHorizontal ? { tdPaddingHorizontal: table.tdPaddingHorizontal } : {}),
-      ...(table.tdPaddingVertical ? { tdPaddingVertical: table.tdPaddingVertical } : {}),
-      ...(table.thPaddingHorizontal ? { thPaddingHorizontal: table.thPaddingHorizontal } : {}),
-      ...(table.thPaddingVertical ? { thPaddingVertical: table.thPaddingVertical } : {}),
-      ...(table.tableColor ? { tableColor: table.tableColor } : {}),
-      ...(table.tableHeaderColor ? { thColor: table.tableHeaderColor } : {}),
-      ...(table.tableColorStriped ? { tdColorStriped: table.tableColorStriped } : {}),
-      ...(table.tableColorHover ? { tdColorHover: table.tableColorHover } : {})
-    }
+    return compact({
+      tdPaddingHorizontal: table.tdPaddingHorizontal,
+      tdPaddingVertical: table.tdPaddingVertical,
+      thPaddingHorizontal: table.thPaddingHorizontal,
+      thPaddingVertical: table.thPaddingVertical,
+      tableColor: table.tableColor,
+      thColor: table.tableHeaderColor,
+      tdColorStriped: table.tableColorStriped,
+      tdColorHover: table.tableColorHover
+    })
   })
 
   return {

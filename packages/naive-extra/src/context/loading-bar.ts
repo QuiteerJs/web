@@ -2,6 +2,7 @@ import type { LoadingBarProviderProps } from 'naive-ui'
 import type { ComputedRef } from 'vue'
 import type { NaiveExtraThemeConfig } from '../const'
 import { computed } from 'vue'
+import { compact } from '../share'
 
 /**
  * 加载条 (LoadingBar) 配置模块
@@ -14,9 +15,9 @@ import { computed } from 'vue'
 export function useLoadingBarModule(mergedConfig: ComputedRef<Required<NaiveExtraThemeConfig>>) {
   const loadingBarProviderProps = computed<LoadingBarProviderProps>(() => {
     const { loadingBar } = mergedConfig.value
-    return {
+    return compact({
       loadingBarStyle: loadingBar.loadingBarStyle
-    }
+    })
   })
 
   return {

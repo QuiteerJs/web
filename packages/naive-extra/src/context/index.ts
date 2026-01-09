@@ -7,10 +7,10 @@ import { computed, provide, ref } from 'vue'
 import { DEFAULT_THEME_CONFIG } from '../const'
 import { useColorModule } from './color'
 import { useCommonModule } from './common'
-import { useDialogModule } from './dialog'
 import { useLayoutModule } from './layout'
 import { useLoadingBarModule } from './loading-bar'
 import { useLocaleModule } from './locale'
+import { useMenuModule } from './menu'
 import { useMessageModule } from './message'
 import { useNotificationModule } from './notification'
 import { useTableModule } from './table'
@@ -29,8 +29,6 @@ export interface NaiveExtraContext {
   mergedConfig: ComputedRef<Required<NaiveExtraThemeConfig>>
   /** ConfigProvider 所需的所有 Props */
   providerProps: ComputedRef<ConfigProviderProps>
-  /** 各类 Provider 的 Props 聚合 */
-  dialogProviderProps: ComputedRef<any>
   loadingBarProviderProps: ComputedRef<any>
   messageProviderProps: ComputedRef<any>
   notificationProviderProps: ComputedRef<any>
@@ -75,13 +73,8 @@ export function createProviderContext(initialConfig: NaiveExtraThemeConfig = {})
   const { colorVars } = useColorModule(mergedConfig)
   const { commonVars } = useCommonModule(mergedConfig)
   const { tableOverrides } = useTableModule(mergedConfig)
-  const {
-    layoutOverrides,
-    menuOverrides,
-    tabsOverrides,
-    scrollbarOverrides
-  } = useLayoutModule(mergedConfig)
-  const { dialogProviderProps } = useDialogModule(mergedConfig)
+  const { menuOverrides } = useMenuModule(mergedConfig)
+  const { layoutOverrides } = useLayoutModule(mergedConfig)
   const { loadingBarProviderProps } = useLoadingBarModule(mergedConfig)
   const { messageProviderProps } = useMessageModule(mergedConfig)
   const { notificationProviderProps } = useNotificationModule(mergedConfig)
@@ -97,8 +90,7 @@ export function createProviderContext(initialConfig: NaiveExtraThemeConfig = {})
     DataTable: tableOverrides.value,
     Layout: layoutOverrides.value,
     Menu: menuOverrides.value,
-    Tabs: tabsOverrides.value,
-    Scrollbar: scrollbarOverrides.value
+    ...mergedConfig.value.overrides
   }))
 
   /**
@@ -130,7 +122,6 @@ export function createProviderContext(initialConfig: NaiveExtraThemeConfig = {})
     config,
     mergedConfig,
     providerProps,
-    dialogProviderProps,
     loadingBarProviderProps,
     messageProviderProps,
     notificationProviderProps,

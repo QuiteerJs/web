@@ -34,10 +34,15 @@ export const DEFAULT_THEME_CONFIG: NaiveExtraThemeConfig = {
   layout: {
     headerHeight: 64,
     footerHeight: 48,
-    sidebarWidth: 240,
-    sidebarCollapsedWidth: 64,
+    siderWidth: 240,
+    siderCollapsedWidth: 64,
     mixedMenuWidth: 80,
     mixedMenuCollapsedWidth: 48,
+    color: undefined,
+    colorEmbedded: undefined,
+    headerColor: undefined,
+    footerColor: undefined,
+    siderColor: undefined,
     showFooter: true,
     showHeader: true,
     showTabs: true,
@@ -85,9 +90,5 @@ export const DEFAULT_THEME_CONFIG: NaiveExtraThemeConfig = {
       error: undefined
     }
   },
-  dialog: {
-    maskClosable: false,
-    closable: true,
-    escToClose: true
-  }
+  overrides: {}
 }

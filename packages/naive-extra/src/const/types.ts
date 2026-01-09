@@ -71,10 +71,15 @@ export interface NaiveExtraThemeConfig {
   layout?: {
     headerHeight?: number
     footerHeight?: number
-    sidebarWidth?: number
-    sidebarCollapsedWidth?: number
+    siderWidth?: number
+    siderCollapsedWidth?: number
     mixedMenuWidth?: number
     mixedMenuCollapsedWidth?: number
+    color?: string
+    colorEmbedded?: string
+    headerColor?: string
+    footerColor?: string
+    siderColor?: string
     showFooter?: boolean
     showHeader?: boolean
     showTabs?: boolean
@@ -129,10 +134,6 @@ export interface NaiveExtraThemeConfig {
       error?: string
     }
   }
-  /** 弹窗与抽屉全局配置 */
-  dialog?: {
-    maskClosable?: boolean
-    closable?: boolean
-    escToClose?: boolean
-  }
+  /** 自定义 Naive UI 组件样式覆盖 (直接映射到 GlobalThemeOverrides) */
+  overrides?: GlobalThemeOverrides
 }

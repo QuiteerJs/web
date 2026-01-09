@@ -2,6 +2,7 @@ import type { MessageProviderProps } from 'naive-ui'
 import type { ComputedRef } from 'vue'
 import type { NaiveExtraThemeConfig } from '../const'
 import { computed } from 'vue'
+import { compact } from '../share'
 
 /**
  * 消息 (Message) 配置模块
@@ -14,13 +15,13 @@ import { computed } from 'vue'
 export function useMessageModule(mergedConfig: ComputedRef<Required<NaiveExtraThemeConfig>>) {
   const messageProviderProps = computed<MessageProviderProps>(() => {
     const { message } = mergedConfig.value
-    return {
+    return compact({
       duration: message.duration,
       max: message.max,
       placement: message.placement,
       closable: message.closable,
       keepAliveOnHover: true
-    }
+    })
   })
 
   return {

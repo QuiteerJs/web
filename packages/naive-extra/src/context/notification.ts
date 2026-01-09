@@ -2,6 +2,7 @@ import type { NotificationProviderProps } from 'naive-ui'
 import type { ComputedRef } from 'vue'
 import type { NaiveExtraThemeConfig } from '../const'
 import { computed } from 'vue'
+import { compact } from '../share'
 
 /**
  * 通知 (Notification) 配置模块
@@ -14,12 +15,12 @@ import { computed } from 'vue'
 export function useNotificationModule(mergedConfig: ComputedRef<Required<NaiveExtraThemeConfig>>) {
   const notificationProviderProps = computed<NotificationProviderProps>(() => {
     const { notification } = mergedConfig.value
-    return {
+    return compact({
       duration: notification.duration,
       max: notification.max,
       placement: notification.placement,
       keepAliveOnHover: true
-    }
+    })
   })
 
   return {
