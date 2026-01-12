@@ -3,6 +3,90 @@ import { commonLight, lightTheme } from 'naive-ui'
 import { camelToKebab, toCssVarName } from '../preset/naive-ui/vars'
 
 /**
+ * 内部状态管理：记录所有注入的 CSS 变量及其引用计数
+ * 结构: Map<Selector, Map<VarName, { value: string, count: number }>>
+ */
+const activeStyleState = new Map<string, Map<string, { value: string, count: number }>>()
+const STYLE_ID = 'quiteer-naive-ui-vars'
+
+/**
+ * 更新样式标签内容
+ */
+function updateStyleElement() {
+  if (typeof document === 'undefined')
+    return
+
+  let css = ''
+  for (const [selector, vars] of activeStyleState.entries()) {
+    if (vars.size === 0)
+      continue
+    css += `${selector} {\n`
+    for (const [key, { value }] of vars.entries()) {
+      css += `  ${key}: ${value};\n`
+    }
+    css += '}\n'
+  }
+
+  let style = document.getElementById(STYLE_ID) as HTMLStyleElement
+  if (!style) {
+    style = document.createElement('style')
+    style.id = STYLE_ID
+    document.head.appendChild(style)
+  }
+
+  if (!css) {
+    if (style.parentNode)
+      style.parentNode.removeChild(style)
+  }
+  else {
+    style.innerHTML = css
+  }
+}
+
+/**
+ * 注册变量并更新 DOM
+ */
+function registerVars(selector: string, vars: Record<string, string>) {
+  let selectorMap = activeStyleState.get(selector)
+  if (!selectorMap) {
+    selectorMap = new Map()
+    activeStyleState.set(selector, selectorMap)
+  }
+
+  const keys = Object.keys(vars)
+  keys.forEach((key) => {
+    const val = vars[key]
+    const state = selectorMap!.get(key)
+    if (state) {
+      state.count++
+      // 如果值发生变化，更新为新值（以最新注入的为准）
+      if (state.value !== val)
+        state.value = val
+    }
+    else {
+      selectorMap!.set(key, { value: val, count: 1 })
+    }
+  })
+
+  updateStyleElement()
+
+  return () => {
+    keys.forEach((key) => {
+      const state = selectorMap!.get(key)
+      if (state) {
+        state.count--
+        if (state.count <= 0)
+          selectorMap!.delete(key)
+      }
+    })
+    if (selectorMap!.size === 0)
+      activeStyleState.delete(selector)
+
+    updateStyleElement()
+  }
+}
+
+/**
  * 注入配置选项接口
  */
 export interface ProvideNaiveThemeOptions {
@@ -141,9 +225,10 @@ export function generateNaiveCssVars(options: ProvideNaiveThemeOptions = {}) {
  * 注入 Naive UI CSS 变量到文档中
  *
  * 在浏览器环境下创建一个 <style> 标签并插入到 <head> 中。
+ * 该函数支持增量更新，多次调用会合并变量，引用计数为 0 时自动移除。
  *
  * @param options - 配置选项
- * @returns 一个清理函数，执行后将移除注入的样式标签
+ * @returns 一个清理函数，执行后将减少引用计数，若计数归零则移除相应变量
  *
  * @example
  * ```ts
@@ -158,21 +243,38 @@ export function provideNaiveTheme(options: ProvideNaiveThemeOptions = {}) {
     return () => {}
   }
 
-  const css = generateNaiveCssVars(options)
-  const styleId = 'quiteer-naive-ui-vars'
+  const { selector = ':root', components = [], theme = commonLight } = options
+  const vars: Record<string, string> = {}
 
-  let style = document.getElementById(styleId) as HTMLStyleElement
-  if (!style) {
-    style = document.createElement('style')
-    style.id = styleId
-    document.head.appendChild(style)
-  }
+  // 1. 注入通用变量
+  Object.assign(vars, getCommonCssVars(theme))
 
-  style.innerHTML = css
+  // 2. 注入颜色阶梯变量
+  Object.assign(vars, getColorScaleCssVars(theme))
 
-  return () => {
-    if (style && style.parentNode) {
-      style.parentNode.removeChild(style)
-    }
-  }
+  // 3. 注入组件变量
+  components.forEach((comp) => {
+    Object.assign(vars, getComponentCssVars(comp, theme))
+  })
+
+  return registerVars(selector, vars)
+}
+
+/**
+ * 初始化 Naive UI 通用样式变量
+ *
+ * 这是一个辅助函数，用于在应用启动时一次性注入基础样式（common 和 color scale）。
+ * 内部调用 provideNaiveTheme，但语义上用于全局初始化。
+ *
+ * @param theme - Naive UI 的 common 变量对象
+ * @returns 清理函数
+ *
+ * @example
+ * ```ts
+ * // 在 main.ts 中
+ * initNaiveTheme()
+ * ```
+ */
+export function initNaiveTheme(theme = commonLight) {
+  return provideNaiveTheme({ theme, components: [] })
 }

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { ProviderProps } from './props'
+import { initNaiveTheme } from '@quiteer/unocss/provide'
 import { useDialog, useLoadingBar, useMessage, useNotification } from 'naive-ui'
 import { computed, createTextVNode, defineComponent, watch } from 'vue'
 import { createProviderContext } from '../../context/index'
@@ -19,6 +20,10 @@ watch(() => props.config, (newConfig) => {
     updateConfig(newConfig)
   }
 }, { deep: true })
+
+onMounted(() => {
+  initNaiveTheme()
+})
 
 // 合并外部传入的 configProviderProps
 const mergedConfigProviderProps = computed(() => ({

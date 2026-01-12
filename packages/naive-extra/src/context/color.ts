@@ -2,7 +2,7 @@ import type { ComputedRef } from 'vue'
 import type { NaiveExtraThemeConfig } from '../const'
 import { generateColorScale } from '@quiteer/color'
 import { provideNaiveTheme } from '@quiteer/unocss/provide'
-import { computed, onUnmounted, ref, watchEffect } from 'vue'
+import { computed, watchEffect } from 'vue'
 
 /**
  * 品牌色管理模块
@@ -37,18 +37,14 @@ export function useColorModule(mergedConfig: ComputedRef<Required<NaiveExtraThem
   })
 
   // 同步 CSS 变量到 :root
-  const cleanup = ref<() => void>()
-  watchEffect(() => {
-    if (cleanup.value)
-      cleanup.value()
-    cleanup.value = provideNaiveTheme({
+  watchEffect((onCleanup) => {
+    const cleanup = provideNaiveTheme({
       theme: colorVars.value as any
     })
-  })
-
-  onUnmounted(() => {
-    if (cleanup.value)
-      cleanup.value()
+    onCleanup(() => {
+      if (cleanup)
+        cleanup()
+    })
   })
 
   return {

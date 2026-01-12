@@ -1,6 +1,38 @@
 ## 变更日志
 
-### 2026-01-12 `✏️ 1+` `➕ 0+` `🗑️ 0+`
+### 2026-01-12 `✏️ 13+` `➕ 8+` `🗑️ 0+`
+- 🔧  **chore** `release`: v0.0.6
+  > **🕒  20:11** · `➕1` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`3697743`](https://github.com/QuiteerJs/web/commit/3697743911e49a475c11eda397046749ee853c10))
+  - ✏️ [`packages/unocss/package.json`](https://github.com/QuiteerJs/web/blob/3697743911e49a475c11eda397046749ee853c10/packages/unocss/package.json)
+- 🏗️  **build** `deps`: 依赖调整
+  > **🕒  19:41** · `➕356` / `➖83`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`f230141`](https://github.com/QuiteerJs/web/commit/f230141cdc4492bacfad186d69e739141a083956))
+  - ✏️ [`pnpm-lock.yaml`](https://github.com/QuiteerJs/web/blob/f230141cdc4492bacfad186d69e739141a083956/pnpm-lock.yaml)
+- 🔧  **chore** `projects`: 命令行调整
+  > **🕒  19:37** · `➕2` / `➖6`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`7a493af`](https://github.com/QuiteerJs/web/commit/7a493af60f3207b1cf5256625dbcdae818fea856))
+  - ✏️ [`package.json`](https://github.com/QuiteerJs/web/blob/7a493af60f3207b1cf5256625dbcdae818fea856/package.json)
+  - ✏️ [`packages/vite-plugins/package.json`](https://github.com/QuiteerJs/web/blob/7a493af60f3207b1cf5256625dbcdae818fea856/packages/vite-plugins/package.json)
+- ✨  **feat** `release`: 新增对环境变量对象数组等格式转换
+  > **🕒  19:28** · `➕2042` / `➖1252`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`d8c9987`](https://github.com/QuiteerJs/web/commit/d8c9987e38307c39a2f8fc54c57d56a7328b9e38))
+  - ➕ [`packages/vite-plugins/__tests__/env-config-integration.test.ts`](https://github.com/QuiteerJs/web/blob/d8c9987e38307c39a2f8fc54c57d56a7328b9e38/packages/vite-plugins/__tests__/env-config-integration.test.ts)
+  - ➕ [`packages/vite-plugins/__tests__/env-config.test.ts`](https://github.com/QuiteerJs/web/blob/d8c9987e38307c39a2f8fc54c57d56a7328b9e38/packages/vite-plugins/__tests__/env-config.test.ts)
+  - ➕ [`packages/vite-plugins/__tests__/env-shared.test.ts`](https://github.com/QuiteerJs/web/blob/d8c9987e38307c39a2f8fc54c57d56a7328b9e38/packages/vite-plugins/__tests__/env-shared.test.ts)
+  - ➕ [`packages/vite-plugins/__tests__/file-change-logger.test.ts`](https://github.com/QuiteerJs/web/blob/d8c9987e38307c39a2f8fc54c57d56a7328b9e38/packages/vite-plugins/__tests__/file-change-logger.test.ts)
+  - ➕ [`packages/vite-plugins/__tests__/mock-router.test.ts`](https://github.com/QuiteerJs/web/blob/d8c9987e38307c39a2f8fc54c57d56a7328b9e38/packages/vite-plugins/__tests__/mock-router.test.ts)
+  - ➕ [`packages/vite-plugins/__tests__/obfuscation.test.ts`](https://github.com/QuiteerJs/web/blob/d8c9987e38307c39a2f8fc54c57d56a7328b9e38/packages/vite-plugins/__tests__/obfuscation.test.ts)
+  - ➕ [`packages/vite-plugins/__tests__/remove-console.test.ts`](https://github.com/QuiteerJs/web/blob/d8c9987e38307c39a2f8fc54c57d56a7328b9e38/packages/vite-plugins/__tests__/remove-console.test.ts)
+  - ➕ [`packages/vite-plugins/__tests__/virtual-html.test.ts`](https://github.com/QuiteerJs/web/blob/d8c9987e38307c39a2f8fc54c57d56a7328b9e38/packages/vite-plugins/__tests__/virtual-html.test.ts)
+  - ✏️ [`.trae/rules/project_rules.md`](https://github.com/QuiteerJs/web/blob/d8c9987e38307c39a2f8fc54c57d56a7328b9e38/.trae/rules/project_rules.md)
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/d8c9987e38307c39a2f8fc54c57d56a7328b9e38/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/d8c9987e38307c39a2f8fc54c57d56a7328b9e38/CHANGELOG_TIMELINE.md)
+  - ✏️ [`packages/vite-plugins/src/env-config.ts`](https://github.com/QuiteerJs/web/blob/d8c9987e38307c39a2f8fc54c57d56a7328b9e38/packages/vite-plugins/src/env-config.ts)
+  - ✏️ [`packages/vite-plugins/src/file-change-logger.ts`](https://github.com/QuiteerJs/web/blob/d8c9987e38307c39a2f8fc54c57d56a7328b9e38/packages/vite-plugins/src/file-change-logger.ts)
+  - ✏️ [`packages/vite-plugins/src/virtual-html.ts`](https://github.com/QuiteerJs/web/blob/d8c9987e38307c39a2f8fc54c57d56a7328b9e38/packages/vite-plugins/src/virtual-html.ts)
+  - ✏️ [`playground/vite-plugins-test/env.config.ts`](https://github.com/QuiteerJs/web/blob/d8c9987e38307c39a2f8fc54c57d56a7328b9e38/playground/vite-plugins-test/env.config.ts)
+  - ✏️ [`pnpm-lock.yaml`](https://github.com/QuiteerJs/web/blob/d8c9987e38307c39a2f8fc54c57d56a7328b9e38/pnpm-lock.yaml)
 - 🔧  **chore** `release`: v0.1.3
   > **🕒  19:27** · `➕5` / `➖1`
   > `👤 Quiteer`  <p602985@yeah.net> ([`1b7f850`](https://github.com/QuiteerJs/web/commit/1b7f85031c9eb9bc8a07028d62f724d0edd242e3))
