@@ -35,7 +35,6 @@
   "scripts": {
     "dev": "tsdown -w",
     "build": "tsdown",
-    "test": "vitest",
     "release": "qui r --tag-prefix vite-plugins && tsdown && pnpm publish"
   },
   "publishConfig": {
@@ -57,8 +56,5 @@
     "vite-plugin-progress": "^0.0.7",
     "vite-plugin-svg-icons": "^2.0.1",
     "vite-plugin-vue-devtools": "^8.0.3"
-  },
-  "devDependencies": {
-    "vitest": "^4.0.16"
   }
 }
