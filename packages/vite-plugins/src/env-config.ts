@@ -11,7 +11,7 @@ import fg from 'fast-glob'
 import { bold, cyan, gray, green, red, yellow } from 'kolorist'
 import { fromEnvKey, generateEnvDtsFromTypeMap, mergeByMode, parseConfigModule, resolveEnvConfigPath, toEnvKey, writeIfChanged } from './shared/env-shared'
 
-type EnvValue = string | { value: string, obfuscate?: boolean }
+type EnvValue = string | { value: Record<string, unknown> | unknown[] | string, obfuscate?: boolean, desc?: string }
 
 type EnvName = 'development' | 'production' | 'test' | 'staging' | 'release'
 
@@ -64,6 +64,49 @@ function encode(str: string): string {
   // 将 UTF-8 字符串转为 Base64
   const base64 = Buffer.from(str, 'utf8').toString('base64')
   return `${PREFIX}${base64}${SUFFIX}`
+}
+
+/**
+ * 函数：resolveSectionFromFile
+ *
+ * 从 env 文件名推断所属段：`.env`/`.env.local` -> 'default'；
+ * `.env.{mode}`/`.env.{mode}.local` -> '{mode}'。
+ *
+ * @param file - 文件路径
+ * @returns 段名（default 或具体环境）
+ */
+export function resolveSectionFromFile(file: string): string {
+  const name = path.basename(file)
+  if (name === '.env' || name === '.env.local')
+    return 'default'
+  const m = name.match(/^\.env\.([^.]+)(?:\.local)?$/)
+  return m ? m[1] : 'default'
+}
+
+/**
+ * 函数：expandInterpolations
+ *
+ * 对 `VAL="${OTHER}/x"` 形式进行展开，支持多轮替换直至稳定，最大 5 轮。
+ *
+ * @param map - 同一段内的环境变量映射（键为 env 变量名，如 `VITE_API_URL`）
+ * @returns 展开后的映射
+ */
+export function expandInterpolations(map: Record<string, string>): Record<string, string> {
+  const out: Record<string, string> = { ...map }
+  const re = /\$\{([A-Z0-9_]+)\}/g
+  for (let i = 0; i < 5; i++) {
+    let changed = false
+    for (const [k, v] of Object.entries(out)) {
+      const nv = v.replace(re, (_, varName) => (out[varName] ?? ''))
+      if (nv !== v) {
+        out[k] = nv
+        changed = true
+      }
+    }
+    if (!changed)
+      break
+  }
+  return out
 }
 
 /**
@@ -167,49 +210,6 @@ export function envConfigPlugin(options: EnvConfigPluginOptions = {}): Plugin {
   const toKey = (key: string) => toEnvKey(includePrefixes, key)
 
   /**
-   * 函数：resolveSectionFromFile
-   *
-   * 从 env 文件名推断所属段：`.env`/`.env.local` -> 'default'；
-   * `.env.{mode}`/`.env.{mode}.local` -> '{mode}'。
-   *
-   * @param file - 文件路径
-   * @returns 段名（default 或具体环境）
-   */
-  function resolveSectionFromFile(file: string): string {
-    const name = path.basename(file)
-    if (name === '.env' || name === '.env.local')
-      return 'default'
-    const m = name.match(/^\.env\.([^.]+)(?:\.local)?$/)
-    return m ? m[1] : 'default'
-  }
-
-  /**
-   * 函数：expandInterpolations
-   *
-   * 对 `VAL="${OTHER}/x"` 形式进行展开，支持多轮替换直至稳定，最大 5 轮。
-   *
-   * @param map - 同一段内的环境变量映射（键为 env 变量名，如 `VITE_API_URL`）
-   * @returns 展开后的映射
-   */
-  function expandInterpolations(map: Record<string, string>): Record<string, string> {
-    const out: Record<string, string> = { ...map }
-    const re = /\$\{([A-Z0-9_]+)\}/g
-    for (let i = 0; i < 5; i++) {
-      let changed = false
-      for (const [k, v] of Object.entries(out)) {
-        const nv = v.replace(re, (_, varName) => (out[varName] ?? ''))
-        if (nv !== v) {
-          out[k] = nv
-          changed = true
-        }
-      }
-      if (!changed)
-        break
-    }
-    return out
-  }
-
-  /**
    * 函数：readEnvFilesToShape
    *
    * 扫描根目录下 `.env*` 文件，按段合并并展开嵌套引用，
@@ -279,7 +279,15 @@ export function envConfigPlugin(options: EnvConfigPluginOptions = {}): Plugin {
         const vv = (v as any).value
         const obfRaw = (v as any).obfuscate
         const obf = typeof obfRaw === 'string' ? obfRaw === 'true' ? true : obfRaw === 'false' ? false : undefined : (typeof obfRaw === 'boolean' ? obfRaw : undefined)
-        raw = vv == null ? '' : String(vv)
+        if (vv == null) {
+          raw = ''
+        }
+        else if (typeof vv === 'object') {
+          raw = JSON.stringify(vv)
+        }
+        else {
+          raw = String(vv)
+        }
         shouldTransform = obf !== undefined ? obf : undefined
       }
       else {
@@ -322,7 +330,13 @@ export function envConfigPlugin(options: EnvConfigPluginOptions = {}): Plugin {
           raw = ''
         }
         else if (typeof v === 'object') {
-          raw = String((v as any).value ?? '')
+          const vv = (v as any).value
+          if (typeof vv === 'object' && vv !== null) {
+            raw = JSON.stringify(vv)
+          }
+          else {
+            raw = String(vv ?? '')
+          }
         }
         else {
           raw = String(v)
@@ -432,11 +446,13 @@ export function envConfigPlugin(options: EnvConfigPluginOptions = {}): Plugin {
 
       const dRel = envFileDefaultPath ? green(path.relative(resolvedRoot, envFileDefaultPath)) : gray('(skip .env.local)')
       const mRel = envFileMergedPath ? green(path.relative(resolvedRoot, envFileMergedPath)) : gray(`(skip ${envFileTemplate.replace('{mode}', resolvedMode)})`)
+      // eslint-disable-next-line no-console
       console.log(`${bold(cyan('[env-config]'))} 生成 ${dRel} 与 ${mRel}，类型 ${green(path.relative(resolvedRoot, dtsFile))} ${gray(`(${Object.keys(merged).length} keys, obfuscate=${obfuscate})`)}`)
     }
     else {
       const dRel = envFileDefaultPath ? green(path.relative(resolvedRoot, envFileDefaultPath)) : gray('(skip .env.local)')
       const mRel = envFileMergedPath ? green(path.relative(resolvedRoot, envFileMergedPath)) : gray(`(skip ${envFileTemplate.replace('{mode}', resolvedMode)})`)
+      // eslint-disable-next-line no-console
       console.log(`${bold(cyan('[env-config]'))} 生成 ${dRel} 与 ${mRel} ${gray(`(${Object.keys(merged).length} keys, obfuscate=${obfuscate}, types disabled)`)}`)
     }
     if (missing.length > 0) {

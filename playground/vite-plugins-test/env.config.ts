@@ -10,6 +10,13 @@ export default {
       value: '通用环境变量',
       obfuscate: true
     },
+    testJson: {
+      value: {
+        a: 1,
+        b: '2'
+      },
+      obfuscate: false
+    },
     testUrl: {
       value: 'https://quiteerjs.github.io/web/',
       obfuscate: true

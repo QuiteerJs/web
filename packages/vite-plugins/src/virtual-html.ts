@@ -211,7 +211,7 @@ function mergeVirtualConfig(base: HtmlVirtualConfig, override: HtmlVirtualConfig
  * @performance
  * - 字符串处理，开销极小
  */
-function normalizePagePath(key: string): { primary: string, aliases: string[] } {
+export function normalizePagePath(key: string): { primary: string, aliases: string[] } {
   let k = key.trim()
   if (!k.startsWith('/'))
     k = `/${k}`
@@ -293,7 +293,7 @@ async function resolvePageConfigs(root: string, options: HtmlVirtualPluginOption
  * @performance
  * O(n) 线性遍历属性键
  */
-function renderAttrs(attrs?: Record<string, string | boolean | number | null | undefined>): string {
+export function renderAttrs(attrs?: Record<string, string | boolean | number | null | undefined>): string {
   if (!attrs)
     return ''
   const parts: string[] = []
@@ -323,7 +323,7 @@ function renderAttrs(attrs?: Record<string, string | boolean | number | null | u
  * renderTag({ tag: 'meta', attrs: { charset: 'utf-8' }, selfClosing: true })
  * ```
  */
-function renderTag(d: HtmlTagDescriptor): string {
+export function renderTag(d: HtmlTagDescriptor): string {
   const attrs = renderAttrs(d.attrs)
   const t = d.tag
   const voidTags = ['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr']
@@ -358,7 +358,7 @@ function renderTag(d: HtmlTagDescriptor): string {
  * @performance
  * 仅进行属性对象拼接，时间复杂度 O(1)
  */
-function toScriptTag(script: NonNullable<HtmlVirtualConfig['script']>[number]): HtmlTagDescriptor {
+export function toScriptTag(script: NonNullable<HtmlVirtualConfig['script']>[number]): HtmlTagDescriptor {
   const baseAttrs: Record<string, string | boolean | number> = { src: script.src }
   if (script.type)
     baseAttrs.type = script.type
@@ -408,7 +408,7 @@ function toScriptTag(script: NonNullable<HtmlVirtualConfig['script']>[number]): 
  * @performance
  * 仅进行属性对象拼接，时间复杂度 O(1)
  */
-function toLinkTag(link: NonNullable<HtmlVirtualConfig['link']>[number]): HtmlTagDescriptor {
+export function toLinkTag(link: NonNullable<HtmlVirtualConfig['link']>[number]): HtmlTagDescriptor {
   const baseAttrs: Record<string, string | boolean | number> = { rel: link.rel ?? 'stylesheet', href: link.src }
   if (link.media)
     baseAttrs.media = link.media
@@ -443,7 +443,7 @@ function toLinkTag(link: NonNullable<HtmlVirtualConfig['link']>[number]): HtmlTa
  * - 默认注入 viewport 与 charset 元信息，可通过 tags 覆盖
  * - 开发与构建阶段均依赖 `<script type="module" src="...">` 作为入口
  */
-function renderHtmlDocument(cfg: HtmlVirtualConfig): string {
+export function renderHtmlDocument(cfg: HtmlVirtualConfig): string {
   const htmlAttrs = renderAttrs(cfg.htmlAttrs)
   const headAttrs = renderAttrs(cfg.headAttrs)
   const bodyAttrs = renderAttrs(cfg.bodyAttrs)
