@@ -431,6 +431,9 @@ importers:
       '@quiteer/axios':
         specifier: workspace:^
         version: link:../../packages/axios
+      '@quiteer/directives':
+        specifier: workspace:*
+        version: link:../../packages/directives
       '@quiteer/vite':
         specifier: workspace:*
         version: link:../../packages/qvite

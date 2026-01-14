@@ -207,21 +207,21 @@
   },
   "rules": [
     [
-      "naive-in-out",
+      "ease-naive-in-out",
       {
-        "transitionTimingFunction": "var(--cubic-bezier-ease-in-out)"
+        "transition-timing-function": "var(--cubic-bezier-ease-in-out)"
       }
     ],
     [
-      "naive-out",
+      "ease-naive-out",
       {
-        "transitionTimingFunction": "var(--cubic-bezier-ease-out)"
+        "transition-timing-function": "var(--cubic-bezier-ease-out)"
       }
     ],
     [
-      "naive-in",
+      "ease-naive-in",
       {
-        "transitionTimingFunction": "var(--cubic-bezier-ease-in)"
+        "transition-timing-function": "var(--cubic-bezier-ease-in)"
       }
     ],
     [
