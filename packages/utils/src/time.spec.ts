@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { formatTimestamp } from '../time'
+import { formatTimestamp } from './time'
 
 describe('time module', () => {
   describe('formatTimestamp', () => {

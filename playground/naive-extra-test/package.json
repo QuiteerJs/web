@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@iconify/vue": "^5.0.0",
-    "@quiteer/unocss": "workspace:*",
+    "@quiteer/unocss": "workspace:^",
     "@quiteer/vite-plugins": "workspace:*",
     "@tsconfig/node22": "^22.0.2",
     "@types/node": "^22.18.11",

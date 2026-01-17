@@ -6,7 +6,7 @@ import {
   snakeCase,
   trim,
   truncate
-} from '../string'
+} from './string'
 
 describe('string module', () => {
   describe('capitalize', () => {

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { clamp, inRange } from '../number'
+import { clamp, inRange } from './number'
 
 describe('number module', () => {
   describe('clamp', () => {

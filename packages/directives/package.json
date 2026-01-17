@@ -7,18 +7,22 @@
   "license": "MIT",
   "homepage": "https://quiteerjs.github.io/web/plugins/directives/",
   "publishConfig": {
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "import": {
+          "types": "./dist/index.d.mts",
+          "default": "./dist/index.mjs"
+        }
+      }
+    },
     "access": "public",
     "registry": "https://registry.npmjs.org/"
+
   },
   "keywords": ["vue3", "directives"],
   "exports": {
-    ".": {
-      "types": "./dist/index.d.mts",
-      "import": {
-        "types": "./dist/index.d.mts",
-        "default": "./dist/index.mjs"
-      }
-    }
+    ".": "./index.ts"
   },
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",

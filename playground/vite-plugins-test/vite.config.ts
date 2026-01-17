@@ -1,5 +1,6 @@
 import process from 'node:process'
-import { bootstrapEnv, envConfigPlugin, fileChangeLoggerPlugin, mockRouterPlugin, Progress, removeConsolePlugin, virtualHtmlPlugin } from '@quiteer/vite-plugins'
+import { bootstrapEnv, envConfigPlugin, fileChangeLoggerPlugin, mockRouterPlugin, removeConsolePlugin, virtualHtmlPlugin } from '@quiteer/vite-plugins'
+import { Progress } from '@quiteer/vite-plugins/plugins'
 import vue from '@vitejs/plugin-vue'
 import { defineConfig, loadEnv } from 'vite'
 

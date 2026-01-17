@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { HistoryManager } from '../../classes/history-manager'
+import { HistoryManager } from './history-manager'
 
 describe('historyManager', () => {
   it('should initialize with maxSize', () => {

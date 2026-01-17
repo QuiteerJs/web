@@ -9,7 +9,7 @@ import {
   omit,
   pick,
   set
-} from '../object'
+} from './object'
 
 describe('object module', () => {
   describe('isObject', () => {

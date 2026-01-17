@@ -1,7 +1,7 @@
 import { fileURLToPath, URL } from 'node:url'
 
 import UnoCSS from '@quiteer/unocss'
-import { AutoImport, Components, Icons, NaiveUiResolver, Vue, VueDevTools, VueJsx } from '@quiteer/vite-plugins'
+import { AutoImport, Components, Icons, NaiveUiResolver, Vue, VueDevTools, VueJsx } from '@quiteer/vite-plugins/plugins'
 import { defineConfig } from 'vite'
 
 // https://vite.dev/config/

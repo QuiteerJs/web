@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { randomColor, randomInt, randomLetter } from '../random'
+import { randomColor, randomInt, randomLetter } from './random'
 
 describe('random module', () => {
   describe('randomInt', () => {

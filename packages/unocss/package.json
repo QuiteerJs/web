@@ -5,11 +5,7 @@
   "description": "UnoCSS 集成插件与统一配置集合，面向 Vite 项目提供即插即用的预设组合、主题、规则与快捷类。",
   "homepage": "https://quiteerjs.github.io/web/plugins/unocss/index.html",
   "exports": {
-    ".": {
-      "types": "./dist/index.d.mts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.mjs"
-    },
+    ".": "./dist/index.mjs",
     "./provide": "./src/provide/index.ts",
     "./config": "./src/uno.config.ts"
   },
@@ -37,7 +33,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "bin": {
-    "quiteer-unocss": "./src/cli.ts"
+    "quiteer-unocss": "./src/dev.ts"
   },
   "files": [
     "dist"

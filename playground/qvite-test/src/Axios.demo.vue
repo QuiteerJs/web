@@ -9,7 +9,11 @@ console.log('list: ', list)
 </script>
 
 <template>
-  <h1>Axios 示例</h1>
+  <h1 v-copy="['admin']">
+    Axios 示例
+
+    <div v-permission="" />
+  </h1>
 </template>
 
 <style lang="scss" scoped></style>

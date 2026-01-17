@@ -2,7 +2,7 @@
  * @vitest-environment jsdom
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { downloadByBase64, downloadByBlob, downloadByUrl } from '../../windows/download'
+import { downloadByBase64, downloadByBlob, downloadByUrl } from './download'
 
 describe('download module', () => {
   const originalURL = window.URL

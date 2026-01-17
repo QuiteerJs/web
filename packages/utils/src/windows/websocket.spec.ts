@@ -2,7 +2,7 @@
  * @vitest-environment jsdom
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { WebSocketClient } from '../../windows/websocket'
+import { WebSocketClient } from './websocket'
 
 // Mock WebSocket
 class MockWebSocket {
@@ -50,8 +50,8 @@ describe('webSocketClient', () => {
     const ws = new WebSocketClient('ws://test.com')
     // Wait for connection
     vi.advanceTimersByTime(100)
-    expect(ws.ws).toBeTruthy()
-    expect(ws.ws?.readyState).toBe(MockWebSocket.OPEN)
+    expect((ws as any).ws).toBeTruthy()
+    expect((ws as any).ws?.readyState).toBe(MockWebSocket.OPEN)
     ws.close()
   })
 
@@ -60,10 +60,10 @@ describe('webSocketClient', () => {
     vi.advanceTimersByTime(100)
 
     ws.send('hello')
-    expect(ws.ws?.send).toHaveBeenCalledWith('hello')
+    expect((ws as any).ws?.send).toHaveBeenCalledWith('hello')
 
     ws.send({ a: 1 })
-    expect(ws.ws?.send).toHaveBeenCalledWith(JSON.stringify({ a: 1 }))
+    expect((ws as any).ws?.send).toHaveBeenCalledWith(JSON.stringify({ a: 1 }))
 
     ws.close()
   })
@@ -77,7 +77,7 @@ describe('webSocketClient', () => {
 
     // Simulate message
     const msgEvent = { data: JSON.stringify({ type: 'test' }) }
-    ws.ws!.onmessage!(msgEvent as any)
+    ;(ws as any).ws!.onmessage!(msgEvent as any)
 
     expect(onMessage).toHaveBeenCalledWith({ type: 'test' }, msgEvent)
 
@@ -93,13 +93,13 @@ describe('webSocketClient', () => {
 
     // Simulate unexpected close (not calling ws.close())
     // We access private ws and call onclose
-    ws.ws!.onclose!({} as any)
+    ;(ws as any).ws!.onclose!({} as any)
 
     // Should be in reconnect wait
     vi.advanceTimersByTime(100)
 
     // Should have created a new websocket
-    expect(ws.ws).toBeTruthy()
+    expect((ws as any).ws).toBeTruthy()
 
     ws.close()
   })
@@ -113,7 +113,7 @@ describe('webSocketClient', () => {
 
     // Wait for heartbeat
     vi.advanceTimersByTime(1000)
-    expect(ws.ws?.send).toHaveBeenCalledWith('ping')
+    expect((ws as any).ws?.send).toHaveBeenCalledWith('ping')
 
     ws.close()
   })

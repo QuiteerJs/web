@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { TimedArray } from '../../classes/timed-array'
+import { TimedArray } from './timed-array'
 
 describe('timedArray', () => {
   beforeEach(() => {

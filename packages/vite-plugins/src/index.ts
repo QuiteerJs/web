@@ -1,10 +1,9 @@
 export { envConfigPlugin } from './env-config'
+
 export type { EnvConfig, EnvConfigPluginOptions } from './env-config'
-
 export { envTypesPlugin } from './env-types'
-export type { EnvTypesOptions } from './env-types'
 
-export * from './extra'
+export type { EnvTypesOptions } from './env-types'
 
 export { fileChangeLoggerPlugin } from './file-change-logger'
 export type { FileChangeLoggerOptions } from './file-change-logger'

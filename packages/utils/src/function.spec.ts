@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest'
-import { assert, debounce, once, throttle } from '../function'
+import { assert, debounce, once, throttle } from './function'
 
 describe('function module', () => {
   describe('debounce', () => {

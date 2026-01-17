@@ -1,6 +1,6 @@
 import type { QviteConfig } from './typings'
 import { resolve } from 'node:path'
-import { FileSystemIconLoader, IconsResolver, NaiveUiResolver } from '@quiteer/vite-plugins'
+import { FileSystemIconLoader, IconsResolver, NaiveUiResolver } from '@quiteer/vite-plugins/plugins'
 import { store } from './store'
 
 export function getDefaultOptions(config: QviteConfig) {

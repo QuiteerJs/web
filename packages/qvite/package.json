@@ -12,11 +12,7 @@
     "cli"
   ],
   "exports": {
-    ".": {
-      "types": "./dist/index.d.mts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.mjs"
-    },
+    ".": "./index.ts",
     "./client": {
       "types": "./client.d.ts"
     },
@@ -36,7 +32,7 @@
     }
   },
   "bin": {
-    "qvite": "./dist/bin/qvite.mjs"
+    "qvite": "./dev.ts"
   },
   "files": [
     "client.d.ts",
@@ -49,8 +45,23 @@
     "release": "qui r --tag-prefix qvite && tsdown && pnpm publish"
   },
   "publishConfig": {
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.mts",
+        "import": "./dist/index.mjs",
+        "require": "./dist/index.mjs"
+      },
+      "./client": {
+        "types": "./client.d.ts"
+      },
+      "./uno.config.ts": "./uno.config.ts"
+    },
+    "bin": {
+      "qvite": "./dist/bin/qvite.mjs"
+    },
     "access": "public",
     "registry": "https://registry.npmjs.org/"
+
   },
   "dependencies": {
     "@quiteer/is": "workspace:*",

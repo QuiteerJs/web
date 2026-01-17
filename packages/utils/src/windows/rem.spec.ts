@@ -2,7 +2,7 @@
  * @vitest-environment jsdom
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { setupRem } from '../../windows/rem'
+import { setupRem } from './rem'
 
 describe('rem module', () => {
   const docEl = document.documentElement

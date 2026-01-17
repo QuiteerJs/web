@@ -1,3 +1,12 @@
+type DeepMergeSource<T>
+  = T extends (...args: any[]) => any
+    ? T
+    : T extends readonly (infer U)[]
+      ? readonly DeepMergeSource<U>[]
+      : T extends Record<string, any>
+        ? { [K in keyof T]?: DeepMergeSource<T[K]> } & Record<string, any>
+        : T
+
 /**
  * 判断是否为对象（非 null）
  *
@@ -93,11 +102,12 @@ export function deepClone<T>(value: T): T {
  * deepMerge({a:1, b:{c:1}}, {b:{d:2}}) // { a:1, b:{ c:1, d:2 } }
  * ```
  */
-export function deepMerge<T extends Record<string, any>>(...sources: T[]): T {
+export function deepMerge<T extends Record<string, any>>(...sources: DeepMergeSource<T>[]): T {
   const result: Record<string, any> = {}
   for (const src of sources) {
-    for (const key of Object.keys(src || {})) {
-      const v = src[key]
+    const cur = (src || {}) as Record<string, any>
+    for (const key of Object.keys(cur)) {
+      const v = cur[key]
       if (isPlainObject(v))
         result[key] = deepMerge(result[key] || {}, v)
       else if (Array.isArray(v))

@@ -7,7 +7,7 @@ import {
   isUrlString,
   isVideoUrl,
   isWebsocketUrl
-} from '../url'
+} from './url'
 
 describe('url module', () => {
   describe('isUrlString', () => {

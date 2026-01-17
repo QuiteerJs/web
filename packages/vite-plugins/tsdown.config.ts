@@ -18,5 +18,14 @@ export default defineConfig([
     dts: true,
     sourcemap: false,
     minify: false
+  },
+  {
+    name: '@quiteer/vite-plugins/plugins',
+    entry: ['extra/plugins.ts'],
+    platform: 'node',
+    clean: true,
+    dts: true,
+    sourcemap: false,
+    minify: false
   }
 ])

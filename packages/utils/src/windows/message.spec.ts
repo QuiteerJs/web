@@ -2,7 +2,7 @@
  * @vitest-environment jsdom
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { WindowMessenger } from '../../windows/message'
+import { WindowMessenger } from './message'
 
 describe('windowMessenger', () => {
   let messenger: WindowMessenger

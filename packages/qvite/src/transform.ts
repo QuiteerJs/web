@@ -39,7 +39,7 @@ function withUnoInjection(config: NormalizeConfig) {
 }
 
 export async function normalizeConfig(raw: QviteConfig): Promise<NormalizeConfig> {
-  const config = deepMerge<QviteConfig>(getDefaultOptions(raw), raw) as NormalizeConfig
+  const config = deepMerge(getDefaultOptions(raw) as any, raw as any) as NormalizeConfig
   return config
 }
 

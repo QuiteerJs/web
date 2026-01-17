@@ -2,7 +2,7 @@
  * @vitest-environment jsdom
  */
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { WebStorage } from '../../windows/storage'
+import { WebStorage } from './storage'
 
 describe('webStorage', () => {
   let localStorageMock: any

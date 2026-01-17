@@ -22,7 +22,7 @@ import {
   isUnDef,
   isWeakMap,
   isWeakSet
-} from '../type'
+} from './type'
 
 describe('isType module', () => {
   it('is', () => {

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { isBase64, isJSON } from '../vanilla'
+import { isBase64, isJSON } from './vanilla'
 
 describe('vanilla module', () => {
   describe('isJSON', () => {

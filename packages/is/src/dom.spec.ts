@@ -19,7 +19,7 @@ import {
   isTagElement,
   isTextNode,
   isVideoElement
-} from '../dom'
+} from './dom'
 
 describe('isDOM module', () => {
   // Setup JSDOM environment objects for testing

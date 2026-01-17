@@ -21,7 +21,7 @@ import {
   prefersColorSchemeLight,
   prefersReducedMotion,
   supportsMatchMedia
-} from '../screen'
+} from './screen'
 
 describe('screen module', () => {
   const originalMatchMedia = window.matchMedia

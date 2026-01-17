@@ -10,7 +10,7 @@ import { theme } from './theme'
 
 export { FileSystemIconLoader } from '@iconify/utils/lib/loader/node-loaders'
 
-export function quiteerPreset(): Preset<any> {
+export function QuiteerPreset(): Preset<any> {
   const preset: Preset<any> = {
     name: 'quiteer-preset',
     content: {
@@ -41,4 +41,4 @@ export function quiteerPreset(): Preset<any> {
   return preset
 }
 
-export default quiteerPreset
+export default QuiteerPreset

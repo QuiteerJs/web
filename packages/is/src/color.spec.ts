@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { isColor, isColorName, isColorObject, isColorString, isHexColor, isRgbaColor, isRgbColor } from '../color'
+import { isColor, isColorName, isColorObject, isColorString, isHexColor, isRgbaColor, isRgbColor } from './color'
 
 describe('isColor module', () => {
   describe('isHexColor', () => {

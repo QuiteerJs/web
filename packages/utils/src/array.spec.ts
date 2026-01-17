@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { chunk, flatten, groupBy, partition, unique } from '../array'
+import { chunk, flatten, groupBy, partition, unique } from './array'
 
 describe('array module', () => {
   describe('unique', () => {

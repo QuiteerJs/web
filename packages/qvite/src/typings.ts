@@ -1,4 +1,5 @@
-import type { AutoImport, Components, createSvgIconsPlugin, EnvConfigPluginOptions, fileChangeLoggerPlugin, Icons, mockRouterPlugin, Progress, removeConsolePlugin, VirtualHtmlOptions, Vue, VueDevTools, VueJsx } from '@quiteer/vite-plugins'
+import type { EnvConfigPluginOptions, fileChangeLoggerPlugin, mockRouterPlugin, removeConsolePlugin, VirtualHtmlOptions } from '@quiteer/vite-plugins'
+import type { AutoImport, Components, createSvgIconsPlugin, Icons, Progress, Vue, VueDevTools, VueJsx } from '@quiteer/vite-plugins/plugins'
 import type { UserConfig } from 'tsdown'
 import type { UserConfig as ViteUserConfig } from 'vite'
 

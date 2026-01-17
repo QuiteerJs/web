@@ -1,6 +1,6 @@
 import { resolve } from 'node:path'
 import UnoCSS from '@quiteer/unocss'
-import { AutoImport, Components, Icons, NaiveUiResolver, Vue, VueJsx } from '@quiteer/vite-plugins'
+import { AutoImport, Components, Icons, NaiveUiResolver, Vue, VueJsx } from '@quiteer/vite-plugins/plugins'
 import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
 

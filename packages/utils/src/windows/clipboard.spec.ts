@@ -2,7 +2,7 @@
  * @vitest-environment jsdom
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { copyText, readText } from '../../windows/clipboard'
+import { copyText, readText } from './clipboard'
 
 describe('clipboard module', () => {
   const originalClipboard = navigator.clipboard

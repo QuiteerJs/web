@@ -23,7 +23,7 @@ import {
   isWechatMiniProgram,
   isWindow,
   isWindowsBrowser
-} from '../web'
+} from './web'
 
 describe('web module', () => {
   const originalUserAgent = navigator.userAgent

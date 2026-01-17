@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it } from 'vitest'
-import { createWebStorageAdapter, PersistentStore } from '../../classes/persistent-store'
+import { createWebStorageAdapter, PersistentStore } from './persistent-store'
 
 // Mock Storage
 class MockStorage {
