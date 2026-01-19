@@ -1,6 +1,85 @@
 ## 变更日志
 
 ### 其他
+#### 2026-01-19 `✏️ 1+` `➕ 0+` `🗑️ 0+`
+- 🔧  **chore** `release`: v0.1.6
+  > **🕒  18:56** · `➕1` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`6c5a305`](https://github.com/QuiteerJs/web/commit/6c5a305e7caf078780f900588b996f534a0c6bdc))
+  - ✏️ [`scripts/package.json`](https://github.com/QuiteerJs/web/blob/6c5a305e7caf078780f900588b996f534a0c6bdc/scripts/package.json)
+
+#### 2026-01-17 `✏️ 48+` `➕ 8+` `🗑️ 0+`
+-  **wip** `projects`: 一些架构的修改
+  > **🕒  16:38** · `➕528` / `➖447`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`40322ce`](https://github.com/QuiteerJs/web/commit/40322ce2fee24c81b5cc07914263193173a2969f))
+  - ➕ [`packages/naive-extra/src/utils/form.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/naive-extra/src/utils/form.ts)
+  - ➕ [`packages/naive-extra/src/utils/index.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/naive-extra/src/utils/index.ts)
+  - ➕ [`packages/naive-extra/src/utils/tree.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/naive-extra/src/utils/tree.ts)
+  - ➕ [`packages/qvite/dev.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/qvite/dev.ts)
+  - ➕ [`packages/unocss/src/dev.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/unocss/src/dev.ts)
+  - ➕ [`packages/utils/src/initType.spec.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/utils/src/initType.spec.ts)
+  - ➕ [`packages/utils/src/initType.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/utils/src/initType.ts)
+  - ➕ [`playground/qvite-test/src/style.css`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/playground/qvite-test/src/style.css)
+  - ✏️ [`packages/axios/package.json`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/axios/package.json)
+  - ✏️ [`packages/directives/package.json`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/directives/package.json)
+  - ✏️ [`packages/is/src/__tests__/color.spec.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/is/src/__tests__/color.spec.ts)
+  - ✏️ [`packages/is/src/__tests__/dom.spec.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/is/src/__tests__/dom.spec.ts)
+  - ✏️ [`packages/is/src/__tests__/screen.spec.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/is/src/__tests__/screen.spec.ts)
+  - ✏️ [`packages/is/src/__tests__/type.spec.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/is/src/__tests__/type.spec.ts)
+  - ✏️ [`packages/is/src/__tests__/url.spec.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/is/src/__tests__/url.spec.ts)
+  - ✏️ [`packages/is/src/__tests__/vanilla.spec.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/is/src/__tests__/vanilla.spec.ts)
+  - ✏️ [`packages/is/src/__tests__/web.spec.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/is/src/__tests__/web.spec.ts)
+  - ✏️ [`packages/naive-extra/vite.config.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/naive-extra/vite.config.ts)
+  - ✏️ [`packages/qvite/index.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/qvite/index.ts)
+  - ✏️ [`packages/qvite/package.json`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/qvite/package.json)
+  - ✏️ [`packages/qvite/src/defaults.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/qvite/src/defaults.ts)
+  - ✏️ [`packages/qvite/src/plugins.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/qvite/src/plugins.ts)
+  - ✏️ [`packages/qvite/src/transform.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/qvite/src/transform.ts)
+  - ✏️ [`packages/qvite/src/typings.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/qvite/src/typings.ts)
+  - ✏️ [`packages/unocss/package.json`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/unocss/package.json)
+  - ✏️ [`packages/unocss/src/cli.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/unocss/src/cli.ts)
+  - ✏️ [`packages/unocss/src/preset/default/index.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/unocss/src/preset/default/index.ts)
+  - ✏️ [`packages/utils/src/__tests__/array.spec.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/utils/src/__tests__/array.spec.ts)
+  - ✏️ [`packages/utils/src/__tests__/classes/history-manager.spec.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/utils/src/__tests__/classes/history-manager.spec.ts)
+  - ✏️ [`packages/utils/src/__tests__/classes/persistent-store.spec.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/utils/src/__tests__/classes/persistent-store.spec.ts)
+  - ✏️ [`packages/utils/src/__tests__/classes/timed-array.spec.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/utils/src/__tests__/classes/timed-array.spec.ts)
+  - ✏️ [`packages/utils/src/__tests__/function.spec.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/utils/src/__tests__/function.spec.ts)
+  - ✏️ [`packages/utils/src/__tests__/number.spec.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/utils/src/__tests__/number.spec.ts)
+  - ✏️ [`packages/utils/src/__tests__/object.spec.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/utils/src/__tests__/object.spec.ts)
+  - ✏️ [`packages/utils/src/object.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/utils/src/object.ts)
+  - ✏️ [`packages/utils/src/__tests__/random.spec.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/utils/src/__tests__/random.spec.ts)
+  - ✏️ [`packages/utils/src/__tests__/string.spec.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/utils/src/__tests__/string.spec.ts)
+  - ✏️ [`packages/utils/src/__tests__/time.spec.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/utils/src/__tests__/time.spec.ts)
+  - ✏️ [`packages/utils/src/__tests__/windows/clipboard.spec.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/utils/src/__tests__/windows/clipboard.spec.ts)
+  - ✏️ [`packages/utils/src/__tests__/windows/download.spec.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/utils/src/__tests__/windows/download.spec.ts)
+  - ✏️ [`packages/utils/src/__tests__/windows/message.spec.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/utils/src/__tests__/windows/message.spec.ts)
+  - ✏️ [`packages/utils/src/__tests__/windows/rem.spec.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/utils/src/__tests__/windows/rem.spec.ts)
+  - ✏️ [`packages/utils/src/__tests__/windows/storage.spec.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/utils/src/__tests__/windows/storage.spec.ts)
+  - ✏️ [`packages/utils/src/__tests__/windows/websocket.spec.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/utils/src/__tests__/windows/websocket.spec.ts)
+  - ✏️ [`packages/vite-plugins/__tests__/obfuscation.test.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/vite-plugins/__tests__/obfuscation.test.ts)
+  - ✏️ [`packages/vite-plugins/src/extra.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/vite-plugins/src/extra.ts)
+  - ✏️ [`packages/vite-plugins/package.json`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/vite-plugins/package.json)
+  - ✏️ [`packages/vite-plugins/src/index.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/vite-plugins/src/index.ts)
+  - ✏️ [`packages/vite-plugins/tsconfig.json`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/vite-plugins/tsconfig.json)
+  - ✏️ [`packages/vite-plugins/tsdown.config.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/packages/vite-plugins/tsdown.config.ts)
+  - ✏️ [`playground/naive-extra-test/package.json`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/playground/naive-extra-test/package.json)
+  - ✏️ [`playground/naive-extra-test/vite.config.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/playground/naive-extra-test/vite.config.ts)
+  - ✏️ [`playground/qvite-test/src/Axios.demo.vue`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/playground/qvite-test/src/Axios.demo.vue)
+  - ✏️ [`playground/qvite-test/uno.config.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/playground/qvite-test/uno.config.ts)
+  - ✏️ [`playground/vite-plugins-test/vite.config.ts`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/playground/vite-plugins-test/vite.config.ts)
+  - ✏️ [`pnpm-lock.yaml`](https://github.com/QuiteerJs/web/blob/40322ce2fee24c81b5cc07914263193173a2969f/pnpm-lock.yaml)
+
+#### 2026-01-14 `✏️ 6+` `➕ 1+` `🗑️ 0+`
+-  **wip** `other`: 杂七杂八
+  > **🕒  18:55** · `➕34` / `➖22`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`dd00a9b`](https://github.com/QuiteerJs/web/commit/dd00a9b4dcd7e1f5e616a9e3ca71403709c4a1a6))
+  - ➕ [`packages/naive-extra/src/hooks/useAdmin.ts`](https://github.com/QuiteerJs/web/blob/dd00a9b4dcd7e1f5e616a9e3ca71403709c4a1a6/packages/naive-extra/src/hooks/useAdmin.ts)
+  - ✏️ [`packages/qvite/uno.config.ts`](https://github.com/QuiteerJs/web/blob/dd00a9b4dcd7e1f5e616a9e3ca71403709c4a1a6/packages/qvite/uno.config.ts)
+  - ✏️ [`playground/naive-extra-test/unocss-theme.json`](https://github.com/QuiteerJs/web/blob/dd00a9b4dcd7e1f5e616a9e3ca71403709c4a1a6/playground/naive-extra-test/unocss-theme.json)
+  - ✏️ [`playground/qvite-test/package.json`](https://github.com/QuiteerJs/web/blob/dd00a9b4dcd7e1f5e616a9e3ca71403709c4a1a6/playground/qvite-test/package.json)
+  - ✏️ [`playground/qvite-test/src/main.ts`](https://github.com/QuiteerJs/web/blob/dd00a9b4dcd7e1f5e616a9e3ca71403709c4a1a6/playground/qvite-test/src/main.ts)
+  - ✏️ [`playground/qvite-test/uno.config.ts`](https://github.com/QuiteerJs/web/blob/dd00a9b4dcd7e1f5e616a9e3ca71403709c4a1a6/playground/qvite-test/uno.config.ts)
+  - ✏️ [`pnpm-lock.yaml`](https://github.com/QuiteerJs/web/blob/dd00a9b4dcd7e1f5e616a9e3ca71403709c4a1a6/pnpm-lock.yaml)
+
 #### 2026-01-12 `✏️ 4+` `➕ 0+` `🗑️ 0+`
 - 🔧  **chore** `release`: v0.0.6
   > **🕒  20:11** · `➕1` / `➖1`
@@ -511,64 +590,17 @@
   - ✏️ [`pnpm-lock.yaml`](https://github.com/QuiteerJs/web/blob/3a9e13397fe92cc5856e727ecae4b7dab09ee818/pnpm-lock.yaml)
   - ✏️ [`pnpm-workspace.yaml`](https://github.com/QuiteerJs/web/blob/3a9e13397fe92cc5856e727ecae4b7dab09ee818/pnpm-workspace.yaml)
 
-### 构建
-#### 2026-01-12 `✏️ 1+` `➕ 0+` `🗑️ 0+`
-- 🏗️  **build** `deps`: 依赖调整
-  > **🕒  19:41** · `➕356` / `➖83`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`f230141`](https://github.com/QuiteerJs/web/commit/f230141cdc4492bacfad186d69e739141a083956))
-  - ✏️ [`pnpm-lock.yaml`](https://github.com/QuiteerJs/web/blob/f230141cdc4492bacfad186d69e739141a083956/pnpm-lock.yaml)
-
-#### 2025-12-18 `✏️ 3+` `➕ 0+` `🗑️ 0+`
-- 🏗️  **build** `projects`: 更新锁文件
-  > **🕒  15:15** · `➕7` / `➖49`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`b7bcb47`](https://github.com/QuiteerJs/web/commit/b7bcb471a201d6735b2e6be85ab10d6cfe799903))
-  - ✏️ [`pnpm-lock.yaml`](https://github.com/QuiteerJs/web/blob/b7bcb471a201d6735b2e6be85ab10d6cfe799903/pnpm-lock.yaml)
-- 🏗️  **build** `release`: 依赖问题
-  > **🕒  15:04** · `➕21` / `➖3`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`f93613d`](https://github.com/QuiteerJs/web/commit/f93613de12e38853ce427decda39f69141834416))
-  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/f93613de12e38853ce427decda39f69141834416/CHANGELOG.md)
-  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/f93613de12e38853ce427decda39f69141834416/CHANGELOG_TIMELINE.md)
-
-#### 2025-12-16 `✏️ 11+` `➕ 0+` `🗑️ 0+`
-- 🏗️  **build** `deps`: 内置更多依赖
-  > **🕒  15:11** · `➕482` / `➖603`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`975ed07`](https://github.com/QuiteerJs/web/commit/975ed0772564c108d62bb9fbb0c8aed009ba8e4f))
-  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/975ed0772564c108d62bb9fbb0c8aed009ba8e4f/CHANGELOG.md)
-  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/975ed0772564c108d62bb9fbb0c8aed009ba8e4f/CHANGELOG_TIMELINE.md)
-  - ✏️ [`packages/qvite/index.ts`](https://github.com/QuiteerJs/web/blob/975ed0772564c108d62bb9fbb0c8aed009ba8e4f/packages/qvite/index.ts)
-  - ✏️ [`packages/qvite/package.json`](https://github.com/QuiteerJs/web/blob/975ed0772564c108d62bb9fbb0c8aed009ba8e4f/packages/qvite/package.json)
-  - ✏️ [`packages/qvite/src/defaults.ts`](https://github.com/QuiteerJs/web/blob/975ed0772564c108d62bb9fbb0c8aed009ba8e4f/packages/qvite/src/defaults.ts)
-  - ✏️ [`packages/qvite/src/plugins.ts`](https://github.com/QuiteerJs/web/blob/975ed0772564c108d62bb9fbb0c8aed009ba8e4f/packages/qvite/src/plugins.ts)
-  - ✏️ [`packages/qvite/src/typings.ts`](https://github.com/QuiteerJs/web/blob/975ed0772564c108d62bb9fbb0c8aed009ba8e4f/packages/qvite/src/typings.ts)
-  - ✏️ [`packages/qvite/src/watch.ts`](https://github.com/QuiteerJs/web/blob/975ed0772564c108d62bb9fbb0c8aed009ba8e4f/packages/qvite/src/watch.ts)
-  - ✏️ [`packages/vite-plugins/src/extra.ts`](https://github.com/QuiteerJs/web/blob/975ed0772564c108d62bb9fbb0c8aed009ba8e4f/packages/vite-plugins/src/extra.ts)
-  - ✏️ [`playground/qvite-test/qvite.config.ts`](https://github.com/QuiteerJs/web/blob/975ed0772564c108d62bb9fbb0c8aed009ba8e4f/playground/qvite-test/qvite.config.ts)
-  - ✏️ [`pnpm-lock.yaml`](https://github.com/QuiteerJs/web/blob/975ed0772564c108d62bb9fbb0c8aed009ba8e4f/pnpm-lock.yaml)
-
-#### 2025-11-24 `✏️ 8+` `➕ 0+` `🗑️ 0+`
-- 🏗️  **build** `packages`: 完善各个包的package
-  > **🕒  17:47** · `➕34` / `➖6`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`38789c9`](https://github.com/QuiteerJs/web/commit/38789c907b5877f852ccd27758e3b55a6c57ae0d))
-  - ✏️ [`packages/axios/package.json`](https://github.com/QuiteerJs/web/blob/38789c907b5877f852ccd27758e3b55a6c57ae0d/packages/axios/package.json)
-  - ✏️ [`packages/box/package.json`](https://github.com/QuiteerJs/web/blob/38789c907b5877f852ccd27758e3b55a6c57ae0d/packages/box/package.json)
-  - ✏️ [`packages/directives/package.json`](https://github.com/QuiteerJs/web/blob/38789c907b5877f852ccd27758e3b55a6c57ae0d/packages/directives/package.json)
-  - ✏️ [`packages/naive-extra/package.json`](https://github.com/QuiteerJs/web/blob/38789c907b5877f852ccd27758e3b55a6c57ae0d/packages/naive-extra/package.json)
-  - ✏️ [`packages/unocss/package.json`](https://github.com/QuiteerJs/web/blob/38789c907b5877f852ccd27758e3b55a6c57ae0d/packages/unocss/package.json)
-  - ✏️ [`packages/utils/package.json`](https://github.com/QuiteerJs/web/blob/38789c907b5877f852ccd27758e3b55a6c57ae0d/packages/utils/package.json)
-  - ✏️ [`packages/vite-plugins/package.json`](https://github.com/QuiteerJs/web/blob/38789c907b5877f852ccd27758e3b55a6c57ae0d/packages/vite-plugins/package.json)
-- 🏗️  **build** `packages`: 给各个包添加发布地址
-  > **🕒  17:42** · `➕5` / `➖1`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`85670f8`](https://github.com/QuiteerJs/web/commit/85670f88284e3ef125ff17efb5bf55d02fc154dd))
-  - ✏️ [`packages/is/package.json`](https://github.com/QuiteerJs/web/blob/85670f88284e3ef125ff17efb5bf55d02fc154dd/packages/is/package.json)
-
-#### 2025-11-22 `✏️ 1+` `➕ 0+` `🗑️ 0+`
-- 🏗️  **build** `packages`: 增加指令
-  > **🕒  12:04** · `➕2` / `➖1`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`df6af47`](https://github.com/QuiteerJs/web/commit/df6af47d3ac986e8f50d8aa19fb9e31b32b4cb25))
-  - ✏️ [`scripts/package.json`](https://github.com/QuiteerJs/web/blob/df6af47d3ac986e8f50d8aa19fb9e31b32b4cb25/scripts/package.json)
-
 ### 新功能
-#### 2026-01-12 `✏️ 8+` `➕ 8+` `🗑️ 0+`
+#### 2026-01-12 `✏️ 13+` `➕ 8+` `🗑️ 1+`
+- ✨  **feat** `release`: 新增精准更新 css 变量注入方式
+  > **🕒  20:12** · `➕2457` / `➖2488`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`ff3f374`](https://github.com/QuiteerJs/web/commit/ff3f3747533f9614ac682a7d199e37528d04b233))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/ff3f3747533f9614ac682a7d199e37528d04b233/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/ff3f3747533f9614ac682a7d199e37528d04b233/CHANGELOG_TIMELINE.md)
+  - ✏️ [`packages/naive-extra/src/components/provider/index.vue`](https://github.com/QuiteerJs/web/blob/ff3f3747533f9614ac682a7d199e37528d04b233/packages/naive-extra/src/components/provider/index.vue)
+  - ✏️ [`packages/naive-extra/src/context/color.ts`](https://github.com/QuiteerJs/web/blob/ff3f3747533f9614ac682a7d199e37528d04b233/packages/naive-extra/src/context/color.ts)
+  - ✏️ [`packages/unocss/src/provide/naive-ui.ts`](https://github.com/QuiteerJs/web/blob/ff3f3747533f9614ac682a7d199e37528d04b233/packages/unocss/src/provide/naive-ui.ts)
+  - 🗑️ [~~`packages/unocss/src/perset/naive-ui/theme.ts`~~](https://github.com/QuiteerJs/web/commit/ff3f3747533f9614ac682a7d199e37528d04b233)
 - ✨  **feat** `release`: 新增对环境变量对象数组等格式转换
   > **🕒  19:28** · `➕2042` / `➖1252`
   > `👤 Quiteer`  <p602985@yeah.net> ([`d8c9987`](https://github.com/QuiteerJs/web/commit/d8c9987e38307c39a2f8fc54c57d56a7328b9e38))
@@ -1861,6 +1893,62 @@
   - ➕ [`src/public/quiteer.jpg`](https://github.com/QuiteerJs/web/blob/335614a93074230d8c0b59573f43ff0a3be4e81f/src/public/quiteer.jpg)
   - ➕ [`src/style.css`](https://github.com/QuiteerJs/web/blob/335614a93074230d8c0b59573f43ff0a3be4e81f/src/style.css)
   - ➕ [`tsconfig.json`](https://github.com/QuiteerJs/web/blob/335614a93074230d8c0b59573f43ff0a3be4e81f/tsconfig.json)
+
+### 构建
+#### 2026-01-12 `✏️ 1+` `➕ 0+` `🗑️ 0+`
+- 🏗️  **build** `deps`: 依赖调整
+  > **🕒  19:41** · `➕356` / `➖83`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`f230141`](https://github.com/QuiteerJs/web/commit/f230141cdc4492bacfad186d69e739141a083956))
+  - ✏️ [`pnpm-lock.yaml`](https://github.com/QuiteerJs/web/blob/f230141cdc4492bacfad186d69e739141a083956/pnpm-lock.yaml)
+
+#### 2025-12-18 `✏️ 3+` `➕ 0+` `🗑️ 0+`
+- 🏗️  **build** `projects`: 更新锁文件
+  > **🕒  15:15** · `➕7` / `➖49`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`b7bcb47`](https://github.com/QuiteerJs/web/commit/b7bcb471a201d6735b2e6be85ab10d6cfe799903))
+  - ✏️ [`pnpm-lock.yaml`](https://github.com/QuiteerJs/web/blob/b7bcb471a201d6735b2e6be85ab10d6cfe799903/pnpm-lock.yaml)
+- 🏗️  **build** `release`: 依赖问题
+  > **🕒  15:04** · `➕21` / `➖3`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`f93613d`](https://github.com/QuiteerJs/web/commit/f93613de12e38853ce427decda39f69141834416))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/f93613de12e38853ce427decda39f69141834416/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/f93613de12e38853ce427decda39f69141834416/CHANGELOG_TIMELINE.md)
+
+#### 2025-12-16 `✏️ 11+` `➕ 0+` `🗑️ 0+`
+- 🏗️  **build** `deps`: 内置更多依赖
+  > **🕒  15:11** · `➕482` / `➖603`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`975ed07`](https://github.com/QuiteerJs/web/commit/975ed0772564c108d62bb9fbb0c8aed009ba8e4f))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/975ed0772564c108d62bb9fbb0c8aed009ba8e4f/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/975ed0772564c108d62bb9fbb0c8aed009ba8e4f/CHANGELOG_TIMELINE.md)
+  - ✏️ [`packages/qvite/index.ts`](https://github.com/QuiteerJs/web/blob/975ed0772564c108d62bb9fbb0c8aed009ba8e4f/packages/qvite/index.ts)
+  - ✏️ [`packages/qvite/package.json`](https://github.com/QuiteerJs/web/blob/975ed0772564c108d62bb9fbb0c8aed009ba8e4f/packages/qvite/package.json)
+  - ✏️ [`packages/qvite/src/defaults.ts`](https://github.com/QuiteerJs/web/blob/975ed0772564c108d62bb9fbb0c8aed009ba8e4f/packages/qvite/src/defaults.ts)
+  - ✏️ [`packages/qvite/src/plugins.ts`](https://github.com/QuiteerJs/web/blob/975ed0772564c108d62bb9fbb0c8aed009ba8e4f/packages/qvite/src/plugins.ts)
+  - ✏️ [`packages/qvite/src/typings.ts`](https://github.com/QuiteerJs/web/blob/975ed0772564c108d62bb9fbb0c8aed009ba8e4f/packages/qvite/src/typings.ts)
+  - ✏️ [`packages/qvite/src/watch.ts`](https://github.com/QuiteerJs/web/blob/975ed0772564c108d62bb9fbb0c8aed009ba8e4f/packages/qvite/src/watch.ts)
+  - ✏️ [`packages/vite-plugins/src/extra.ts`](https://github.com/QuiteerJs/web/blob/975ed0772564c108d62bb9fbb0c8aed009ba8e4f/packages/vite-plugins/src/extra.ts)
+  - ✏️ [`playground/qvite-test/qvite.config.ts`](https://github.com/QuiteerJs/web/blob/975ed0772564c108d62bb9fbb0c8aed009ba8e4f/playground/qvite-test/qvite.config.ts)
+  - ✏️ [`pnpm-lock.yaml`](https://github.com/QuiteerJs/web/blob/975ed0772564c108d62bb9fbb0c8aed009ba8e4f/pnpm-lock.yaml)
+
+#### 2025-11-24 `✏️ 8+` `➕ 0+` `🗑️ 0+`
+- 🏗️  **build** `packages`: 完善各个包的package
+  > **🕒  17:47** · `➕34` / `➖6`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`38789c9`](https://github.com/QuiteerJs/web/commit/38789c907b5877f852ccd27758e3b55a6c57ae0d))
+  - ✏️ [`packages/axios/package.json`](https://github.com/QuiteerJs/web/blob/38789c907b5877f852ccd27758e3b55a6c57ae0d/packages/axios/package.json)
+  - ✏️ [`packages/box/package.json`](https://github.com/QuiteerJs/web/blob/38789c907b5877f852ccd27758e3b55a6c57ae0d/packages/box/package.json)
+  - ✏️ [`packages/directives/package.json`](https://github.com/QuiteerJs/web/blob/38789c907b5877f852ccd27758e3b55a6c57ae0d/packages/directives/package.json)
+  - ✏️ [`packages/naive-extra/package.json`](https://github.com/QuiteerJs/web/blob/38789c907b5877f852ccd27758e3b55a6c57ae0d/packages/naive-extra/package.json)
+  - ✏️ [`packages/unocss/package.json`](https://github.com/QuiteerJs/web/blob/38789c907b5877f852ccd27758e3b55a6c57ae0d/packages/unocss/package.json)
+  - ✏️ [`packages/utils/package.json`](https://github.com/QuiteerJs/web/blob/38789c907b5877f852ccd27758e3b55a6c57ae0d/packages/utils/package.json)
+  - ✏️ [`packages/vite-plugins/package.json`](https://github.com/QuiteerJs/web/blob/38789c907b5877f852ccd27758e3b55a6c57ae0d/packages/vite-plugins/package.json)
+- 🏗️  **build** `packages`: 给各个包添加发布地址
+  > **🕒  17:42** · `➕5` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`85670f8`](https://github.com/QuiteerJs/web/commit/85670f88284e3ef125ff17efb5bf55d02fc154dd))
+  - ✏️ [`packages/is/package.json`](https://github.com/QuiteerJs/web/blob/85670f88284e3ef125ff17efb5bf55d02fc154dd/packages/is/package.json)
+
+#### 2025-11-22 `✏️ 1+` `➕ 0+` `🗑️ 0+`
+- 🏗️  **build** `packages`: 增加指令
+  > **🕒  12:04** · `➕2` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`df6af47`](https://github.com/QuiteerJs/web/commit/df6af47d3ac986e8f50d8aa19fb9e31b32b4cb25))
+  - ✏️ [`scripts/package.json`](https://github.com/QuiteerJs/web/blob/df6af47d3ac986e8f50d8aa19fb9e31b32b4cb25/scripts/package.json)
 
 ### 测试
 #### 2026-01-10 `✏️ 8+` `➕ 30+` `🗑️ 1+`
