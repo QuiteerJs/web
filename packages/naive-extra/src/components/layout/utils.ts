@@ -1,6 +1,27 @@
 import type { MenuOption } from 'naive-ui'
+import { h } from 'vue'
+import { RouterLink } from 'vue-router'
 
 type AnyMenuOption = MenuOption & { key?: string | number, children?: AnyMenuOption[] }
+
+export function renderMenuLabel(option: AnyMenuOption) {
+  const { label, key, children } = option
+
+  // 如果有子菜单，直接渲染文本，不进行跳转
+  if (children && children.length > 0) {
+    return label as string
+  }
+
+  const k = typeof key === 'string' ? key : String(key)
+
+  if (/^https?:\/\//.test(k)) {
+    return h('a', { href: k, target: '_blank', rel: 'noopenner noreferrer' }, label as string)
+  }
+
+  // 如果 k 是路径（以 / 开头），则使用 path 跳转；否则使用 name 跳转
+  const to = k.startsWith('/') ? { path: k } : { name: k }
+  return h(RouterLink, { to }, { default: () => label })
+}
 
 // 查找指定 key 的菜单节点
 export function findNodeByKey(options: AnyMenuOption[], key: string | number): AnyMenuOption | null {

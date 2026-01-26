@@ -1,10 +1,14 @@
 import type { LayoutType } from '@quiteer/naive-extra'
 import { useLayout } from '@quiteer/naive-extra'
 import { defineStore } from 'pinia'
-import { useRouter } from 'vue-router'
-import { routes } from '../router'
+import { computed } from 'vue'
+import { routeToMenu } from '@/constants/route-to-menu'
+import { routes } from '@/router'
 
 export const useLayoutStore = defineStore('layout', () => {
+  const menus = computed(() => routeToMenu(routes))
+  console.log('menus: ', menus.value)
+
   const {
     collapsed,
     toggle,
@@ -25,6 +29,7 @@ export const useLayoutStore = defineStore('layout', () => {
     removeRoute
   } = useLayout({
     baseRoutes: routes,
+    menuOptions: menus,
     // initialCollapsed: false,
     initialActiveKey: '/button',
     homePath: '/'
@@ -40,17 +45,6 @@ export const useLayoutStore = defineStore('layout', () => {
   function setType(next: LayoutType) {
     type.value = next
   }
-
-  const router = useRouter()
-
-  router.addRoute({
-    path: '/',
-    name: 'home',
-    meta: {
-      title: '首页'
-    },
-    component: () => import('@/pages/home.vue')
-  })
 
   return {
     baseRoutes,

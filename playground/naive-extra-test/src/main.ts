@@ -5,6 +5,7 @@ import router from './router'
 import { useAppStore } from './stores/app'
 import '@unocss/reset/tailwind-v4.css'
 import 'virtual:uno.css'
+import 'github-markdown-css/github-markdown-light.css'
 
 const app = createApp(App)
 

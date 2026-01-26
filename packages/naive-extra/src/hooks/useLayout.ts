@@ -7,8 +7,7 @@ import type { LayoutType, RouteMeta } from '../components/layout/types'
 import { computed, isRef, onUnmounted, reactive, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { DEFAULT_LAYOUT_PROPS } from '../components/layout/const'
-import { transformRouteToMenu } from '../components/layout/route-to-menu'
-import { filterRouteTree, normalizeAndRedirect, sortRouteTree, toRouteTree } from '../components/layout/transformRoutes'
+import { filterRouteTree, normalizeAndRedirect, sortRouteTree, toRouteTree } from '../utils/transformRoutes'
 
 // 仅在此文件内用简化上下文类型，避免类型实例化过深
 export interface UseLayoutContext {
@@ -93,7 +92,8 @@ export function useActiveKey(initialKey = ''): {
  */
 
 export function useLayout(option: {
-  baseRoutes: Ref<RouteRecordRaw[]> | RouteRecordRaw[]
+  baseRoutes: Readonly<Ref<RouteRecordRaw[]> | RouteRecordRaw[]>
+  menuOptions?: Ref<MenuOption[]> | MenuOption[]
   initialCollapsed?: boolean
   initialActiveKey?: string
   type?: LayoutType
@@ -136,7 +136,12 @@ export function useLayout(option: {
     return filtered as any
   })
 
-  const menuOptions = computed<MenuOption[]>(() => transformRouteToMenu(normalizedBaseRoutes.value as any))
+  const menuOptions = computed<MenuOption[]>(() => {
+    if (option.menuOptions)
+      return isRef(option.menuOptions) ? option.menuOptions.value : option.menuOptions
+
+    return []
+  })
 
   // ✅ 构建响应式 context：直接放 ref/computed，不要 .value！
   const context = reactive({
@@ -165,15 +170,20 @@ export function useLayout(option: {
     },
     updateActiveKey(v: string) {
       setActiveKey(v)
-      router.push(v)
+      if (v.startsWith('/')) {
+        router.push(v)
+      }
+      else {
+        router.push({ name: v })
+      }
     }
   }) as unknown as UseLayoutContext
 
   // 监听路由变化，更新激活的菜单项
   const stop = watch(
-    () => route.path,
-    (path) => {
-      setActiveKey(path)
+    () => [route.name, route.path],
+    ([name, path]) => {
+      setActiveKey((name as string) || (path as string))
     },
     { immediate: true }
   )
@@ -200,7 +210,6 @@ export function useLayout(option: {
     const name = route.name as string | undefined
     if (name && existing.has(name))
       return
-    baseRoutes.value = [...(baseRoutes.value as RouteRecordRaw[]), route]
     const [rec] = normalizeAndRedirect([route])
     if (rec) {
       router.addRoute(rec)
@@ -215,7 +224,6 @@ export function useLayout(option: {
     })
     if (!toAdd.length)
       return
-    baseRoutes.value = [...(baseRoutes.value as RouteRecordRaw[]), ...toAdd]
     const recs = normalizeAndRedirect(toAdd)
     for (const rec of recs) router.addRoute(rec)
   }
@@ -225,7 +233,6 @@ export function useLayout(option: {
     if (router.hasRoute(name)) {
       router.removeRoute(name)
     }
-    baseRoutes.value = (baseRoutes.value as RouteRecordRaw[]).filter(r => r.name !== id && r.path !== id)
   }
 
   return {

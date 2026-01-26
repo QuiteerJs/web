@@ -1,30 +1,13 @@
 <script setup lang="tsx">
 import type { MenuOption } from 'naive-ui'
-import type { PropType, VNodeChild } from 'vue'
 import { createReusableTemplate } from '@vueuse/core'
-import { computed, defineComponent, ref, unref, watch, watchEffect } from 'vue'
+import { computed, ref, unref, watch, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
 import { useContext } from '../context'
-import { findNodeByKey, resolveLeafKeyFromMenu, resolveTopParentKeyFromMenu } from '../utils'
+import { findNodeByKey, renderMenuLabel, resolveLeafKeyFromMenu, resolveTopParentKeyFromMenu } from '../utils'
 
 const { isLeftMain, isTopMain, activeKey, mainActiveKey, subActiveKey, siderMixedWidth, menuOptions: options, mainMenuOptions, subMenuOptions, updateActiveKey } = useContext()!
 const router = useRouter()
-
-const LabelRender = defineComponent({
-  props: {
-    label: {
-      type: [String, Function] as PropType<string | (() => VNodeChild)>,
-      default: undefined
-    }
-  },
-  render() {
-    const { label } = this
-    if (typeof label === 'function') {
-      return label()
-    }
-    return label
-  }
-})
 
 interface MixMenuItemProps {
   item: MenuOption
@@ -120,7 +103,7 @@ function handleMenuClick(key: string, item: MenuOption) {
     >
       <component :is="item.icon" v-if="item.icon" class="h-6! w-6!" />
       <span class="text-xs text-ellipsis whitespace-nowrap overflow-hidden scale-90" :style="{ maxWidth: `${siderMixedWidth - 16}px` }">
-        <LabelRender :label="(item.label as any)" />
+        <component :is="renderMenuLabel(item)" />
       </span>
       <div v-if="(item.children as any)?.length" class="absolute right-1 top-1">
         <div class="w-1.5 h-1.5 rounded-full bg-current opacity-40" />
@@ -138,6 +121,7 @@ function handleMenuClick(key: string, item: MenuOption) {
       <n-menu
         :options="item.children"
         :value="activeKey"
+        :render-label="renderMenuLabel"
         @update:value="(key, option) => handleMenuClick(key, option)"
       />
     </n-popover>
@@ -156,7 +140,7 @@ function handleMenuClick(key: string, item: MenuOption) {
       >
         <component :is="menu.icon" class="h-7! w-7!" />
         <span class="text-ellipsis font-400!" :style="{ maxWidth: `${siderMixedWidth - 16}px` }">
-          <LabelRender :label="(menu.label as any)" />
+          <component :is="renderMenuLabel(menu)" />
         </span>
       </n-flex>
 

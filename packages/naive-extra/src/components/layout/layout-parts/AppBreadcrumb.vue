@@ -1,106 +1,82 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
-import { h } from 'vue'
+import { computed, h } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 
-import { useContext } from '../context'
+const route = useRoute()
+const router = useRouter()
 
-const { menuOptions, activeKey, updateActiveKey } = useContext()
-
-/**
- * 生成面包屑项（基于 baseRoutes），叶子页面可点击
- *
- * @returns 面包屑项数组：{ label, path, icon, clickable }
- */
-function joinPath(parent: string, p: string) {
-  const full = p?.startsWith('/') ? p : (parent ? `${parent}/${p}` : `/${p}`)
-  const single = full.replace(/\/+/g, '/')
-  return single.length > 1 && single.endsWith('/') ? single.slice(0, -1) : single
-}
-
-function buildIndex(list: any[], parent = '', index = new Map<string, any>(), children = new Map<string, string[]>()) {
-  for (const r of (list || [])) {
-    const full = joinPath(parent, r.key || r.path)
-    index.set(full, { ...r, path: full })
-    const childList = r.children ? (r.children as any[]) : []
-    children.set(full, childList.map(c => joinPath(full, c.key || c.path)))
-    if (childList.length)
-      buildIndex(childList, full, index, children)
-  }
-  return { index, children }
-}
-
-const routeIndex = computed(() => {
-  return buildIndex(unref(menuOptions) as any[] || [])
-})
+const DEFAULT_ICON = 'icon-park-solid:web-page'
 
 const crumbs = computed(() => {
-  const path = String(unref(activeKey) ?? '')
-  const parts = path.split('/').filter(Boolean)
-  const { index, children } = routeIndex.value
-  const items: { label: string | (() => any), path: string, icon?: any, clickable: boolean, children: { label: string | (() => any), key: string, icon?: any }[] }[] = []
-  for (let i = 0; i < parts.length; i++) {
-    const p = `/${parts.slice(0, i + 1).join('/')}`
-    const rec = index.get(p)
-    const label = rec?.label || rec?.meta?.title || (rec?.name as string) || p.split('/').filter(Boolean).pop() || ''
+  // 使用 route.matched 获取当前路由匹配到的所有嵌套路由记录
+  // 这天然支持 404、动态路由等所有已注册的路由
+  const matched = route.matched
 
-    let icon = rec?.icon
-    if (!icon && rec?.meta?.icon) {
-      icon = () => h(Icon, { icon: rec.meta.icon, width: '18px', height: '18px' })
-    }
+  // 过滤掉重定向路由或无意义的根路径（视情况而定，这里先不过滤，完全遵照用户指示）
+  // 通常我们过滤掉没有 meta.title 的布局路由，但用户要求“没有就取name或者path”，说明要尽可能展示
 
-    const directChildren = (children.get(p) || [])
-    const childOptions = directChildren.map((cp) => {
-      const cRec = index.get(cp)
-      const lbl = cRec?.label || cRec?.meta?.title || (cRec?.name as string) || cp.split('/').filter(Boolean).pop() || ''
+  return matched
+    .filter(item => item.meta?.breadcrumb !== false) // 支持通过 meta.breadcrumb: false 隐藏
+    .map((item) => {
+      // 优先使用 meta 中的 icon，否则使用默认图标
+      const iconName = (item.meta?.icon as string) || DEFAULT_ICON
+      const icon = () => h(Icon, { icon: iconName, width: '18px', height: '18px' })
 
-      let ic = cRec?.icon
-      if (!ic && cRec?.meta?.icon) {
-        ic = () => h(Icon, { icon: cRec.meta.icon, width: '18px', height: '18px' })
-      }
+      // 优先使用 meta.title，其次 name，最后 path
+      const label = (item.meta?.title as string) || (item.name as string) || item.path
 
-      const hasChildren = (children.get(cp) || []).length > 0
-      const target = hasChildren ? (cRec?.redirect as string | undefined) ?? cp : cp
+      // 获取当前层级的子路由，用于下拉菜单
+      // item 是 RouteRecordNormalized，它的 children 包含了所有子路由配置
+      const children = (item.children || [])
+        .filter(child => child.meta?.hideMenu !== true) // 过滤掉 hideMenu: true 的路由
+        .map((child) => {
+          const childIconName = (child.meta?.icon as string) || DEFAULT_ICON
+          const childIcon = () => h(Icon, { icon: childIconName, width: '18px', height: '18px' })
+          return {
+            label: (child.meta?.title as string) || (child.name as string) || child.path,
+            key: (child.name as string) || child.path, // 优先用 name 跳转
+            icon: childIcon
+          }
+        })
+
       return {
-        label: lbl,
-        key: target,
-        icon: ic
+        label,
+        path: item.path, // 这里的 path 是绝对路径或匹配模式
+        name: item.name,
+        icon,
+        clickable: true, // 默认可点击
+        children
       }
     })
-    items.push({ label, icon, path: p, clickable: true, children: childOptions })
-  }
-
-  return items
+    // 过滤掉 label 为空的项（防止空布局占位）
+    .filter(item => item.label)
 })
 
-function findLeaf(path: string): string {
-  const { index, children } = routeIndex.value
-  let current = path
-
-  for (let i = 0; i < 100; i++) { // Prevent infinite loops
-    const rec = index.get(current)
-    if (rec?.redirect) {
-      current = rec.redirect
-      continue
+function onSelectChild(key: string | number) {
+  // 查找目标路由
+  // 由于 key 可能是 name 或 path，我们需要在当前 crumbs 的 children 中寻找
+  // 但这里简单处理，直接尝试跳转
+  if (typeof key === 'string') {
+    // 尝试解析路由
+    try {
+      // 如果 key 是 name
+      router.push({ name: key }).catch(() => {
+        // 如果失败，尝试作为 path
+        router.push(key)
+      })
     }
-
-    const kids = children.get(current)
-    if (!kids || kids.length === 0) {
-      return current
+    catch (_) {
+      router.push(key)
     }
-    current = kids[0] || ''
   }
-  return current
-}
-
-function onSelectChild(key: string) {
-  updateActiveKey(findLeaf(key))
 }
 </script>
 
 <template>
   <n-breadcrumb class="px-2 w-full">
     <n-breadcrumb-item v-for="item in crumbs" :key="item.path">
-      <n-flex :size="2">
+      <n-flex :size="4">
         <component :is="item.icon" v-if="item.icon" />
         <n-dropdown
           v-if="item.children.length"

@@ -9,12 +9,13 @@ import AppSidebar from './layout-parts/AppSidebar.vue'
 import LayoutTransition from './layout-parts/LayoutTransition.vue'
 
 const props = withDefaults(defineProps<Props>(), { ...DEFAULT_LAYOUT_PROPS, menuOptions: () => [], baseRoutes: () => [] })
-
 const emit = defineEmits<{
   'update:isCollapsed': [value: boolean]
   'update:inverted': [value: boolean]
   'update:activeKey': [value: string]
 }>()
+
+console.log('props: ', props)
 
 provide(LayoutEmitsKey, {
   updateIsCollapsed(value: boolean) {

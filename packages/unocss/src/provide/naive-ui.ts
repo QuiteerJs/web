@@ -56,6 +56,8 @@ function registerVars(selector: string, vars: Record<string, string>) {
   const keys = Object.keys(vars)
   keys.forEach((key) => {
     const val = vars[key]
+    if (val === undefined)
+      return
     const state = selectorMap!.get(key)
     if (state) {
       state.count++

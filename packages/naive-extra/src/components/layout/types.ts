@@ -69,7 +69,7 @@ export interface RouteMeta {
    * 是否在侧边栏菜单中显示
    * @default true
    */
-  showInMenu?: boolean
+  hideMenu?: boolean
 
   /**
    * 菜单图标（Iconify 格式，如 'mdi:home'）

@@ -4,12 +4,11 @@ import type { MenuInst } from 'naive-ui'
 // 显式引用这些类型以确保生成的声明文件是可移植的
 import type {} from 'treemate'
 import type { Slots } from 'vue'
-import type {} from 'vueuc'
 import { computed, ref, unref, useSlots, watch, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
 import { hasSlotContent } from '../../../share/slot'
 import { useContext } from '../context'
-import { resolveLeafKeyFromMenu, resolveTopParentKeyFromMenu } from '../utils'
+import { renderMenuLabel, resolveLeafKeyFromMenu, resolveTopParentKeyFromMenu } from '../utils'
 
 import AppLeftLogoInfo from './AppLeftLogoInfo.vue'
 import AppMixedMenu from './AppMixedMenu.vue'
@@ -64,6 +63,7 @@ watchEffect(() => {
 
 const router = useRouter()
 function handleUpdateValue(key: string) {
+  console.log('key: ', key)
   updateActiveKey(key)
   active.value = key
   menuInstRef.value?.showOption(key)
@@ -114,8 +114,10 @@ const hasDefaultSlot = computed<boolean>(() => hasSlotContent(slots.default))
       ref="menuInstRef"
       :value="active"
       :options="menuOptions"
+      :render-label="renderMenuLabel"
       :collapsed-width="collapsedWidth"
       :inverted="inverted"
+      accordion
       @update:value="handleUpdateValue"
     />
   </n-layout-sider>

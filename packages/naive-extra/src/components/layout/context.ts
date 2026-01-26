@@ -4,8 +4,8 @@ import type { RouteRecordRaw } from 'vue-router'
 import type { Props } from './props'
 import type { LayoutType } from './types'
 import { computed, inject, provide, reactive, ref, toRef, unref } from 'vue'
+import { normalizeAndRedirect } from '../../utils/transformRoutes'
 import { BREADCRUMB_LAYOUT_TYPES, SIDE_LAYOUT_TYPES } from './const'
-import { normalizeAndRedirect } from './transformRoutes'
 
 export interface LayoutEmits {
   /** @description 更新是否折叠侧边栏 */

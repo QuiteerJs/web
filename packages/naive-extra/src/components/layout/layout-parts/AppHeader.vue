@@ -4,7 +4,7 @@ import { computed, ref, unref, useSlots, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
 import { hasSlotContent } from '../../../share/slot'
 import { useContext } from '../context'
-import { resolveLeafKeyFromMenu, resolveTopParentKeyFromMenu } from '../utils'
+import { renderMenuLabel, resolveLeafKeyFromMenu, resolveTopParentKeyFromMenu } from '../utils'
 import AppBreadcrumb from './AppBreadcrumb.vue'
 import AppLeftLogoInfo from './AppLeftLogoInfo.vue'
 
@@ -100,6 +100,7 @@ const hasDefaultSlot = computed<boolean>(() => hasSlotContent(slots.default))
         class="flex-1"
         mode="horizontal"
         :options="menuOptions"
+        :render-label="renderMenuLabel"
         responsive
         :inverted="inverted"
         @update:value="handleUpdateValue"

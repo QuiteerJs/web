@@ -13,8 +13,7 @@ const {
   footerHeight,
   siderWidth,
   collapsedWidth,
-  type,
-  baseRoutes
+  type
 } = storeToRefs(useLayoutStore())
 </script>
 
@@ -24,7 +23,6 @@ const {
       v-model:is-collapsed="collapsed"
       v-model:active-key="activeKey"
       v-model:inverted="inverted"
-      :base-routes="baseRoutes"
       :type="type"
       :bordered="bordered"
       :header-height="headerHeight"

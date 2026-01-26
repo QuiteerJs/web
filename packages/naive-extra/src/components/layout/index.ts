@@ -5,6 +5,4 @@ export { DEFAULT_LAYOUT_TYPE } from './const'
 export { QuiLayout }
 export type { Props as LayoutProps } from './props'
 
-export { transformRouteToMenu } from './route-to-menu'
-
 export type { LayoutType, RouteMeta } from './types'
