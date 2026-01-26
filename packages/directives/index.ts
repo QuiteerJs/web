@@ -70,15 +70,15 @@ declare module 'vue' {
   }
 
   export interface GlobalDirectives {
-    copy: CopyDirective
-    loading: LoadingDirective
-    throttle: ThrottleDirective
-    debounce: DebounceDirective
-    lazy: LazyDirective
-    watermark: WatermarkDirective
-    ellipsis: EllipsisDirective
-    intersecting: IntersectingDirective
-    clickOutside: ClickOutsideDirective
-    permission: PermissionDirective
+    vCopy: CopyDirective
+    vLoading: LoadingDirective
+    vThrottle: ThrottleDirective
+    vDebounce: DebounceDirective
+    vLazy: LazyDirective
+    vWatermark: WatermarkDirective
+    vEllipsis: EllipsisDirective
+    vIntersecting: IntersectingDirective
+    vClickOutside: ClickOutsideDirective
+    vPermission: PermissionDirective
   }
 }
