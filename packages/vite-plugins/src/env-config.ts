@@ -162,6 +162,9 @@ export function envConfigPlugin(options: EnvConfigPluginOptions = {}): Plugin {
   const literalUnions = mergedOptions.literalUnions
   const envPatterns = ['.env', '.env.*', '.env.*.local', '.env.local']
 
+  let isConfigGenerated = false
+  let lastMissing: string[] = []
+
   /**
    * 函数：resolveEnvConfigPath
    *
@@ -491,7 +494,9 @@ export function envConfigPlugin(options: EnvConfigPluginOptions = {}): Plugin {
       defaultEnvFile = options.defaultEnvFile ?? '.env.local'
 
       // 首次运行提前生成，避免用户配置读取不到环境变量
-      await runGenerate()
+      const { missing } = await runGenerate()
+      lastMissing = missing
+      isConfigGenerated = true
     },
 
     /**
@@ -514,9 +519,16 @@ export function envConfigPlugin(options: EnvConfigPluginOptions = {}): Plugin {
      * 构建启动时执行生成流程。
      */
     async buildStart() {
-      const { missing } = await runGenerate()
-      if (missing.length > 0) {
-        const msg = `必填项缺失：${missing.join(', ')}（环境 ${resolvedMode}）。请补齐 env.config.ts 或调整 requiredKeys。`
+      if (isConfigGenerated) {
+        isConfigGenerated = false
+      }
+      else {
+        const { missing } = await runGenerate()
+        lastMissing = missing
+      }
+
+      if (lastMissing.length > 0) {
+        const msg = `必填项缺失：${lastMissing.join(', ')}（环境 ${resolvedMode}）。请补齐 env.config.ts 或调整 requiredKeys。`
 
         console.error(red(`[env-config] 构建中止：${msg}`))
         this.error(msg)
@@ -534,7 +546,9 @@ export function envConfigPlugin(options: EnvConfigPluginOptions = {}): Plugin {
       if (!cfgPath)
         return
       server.watcher.add(cfgPath)
-      const handler = async () => {
+      const handler = async (file: string) => {
+        if (path.normalize(file) !== path.normalize(cfgPath))
+          return
         try {
           const { missing } = await runGenerate()
           if (missing.length > 0) {

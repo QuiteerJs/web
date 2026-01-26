@@ -1,7 +1,11 @@
 ## 变更日志
 
 ### 其他
-#### 2026-01-26 `✏️ 45+` `➕ 24+` `🗑️ 4+`
+#### 2026-01-26 `✏️ 46+` `➕ 24+` `🗑️ 4+`
+- 🔧  **chore** `release`: v0.1.4
+  > **🕒  20:28** · `➕5` / `➖2`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`ee88093`](https://github.com/QuiteerJs/web/commit/ee8809393e43b8df4218879471d5eb740d3a124c))
+  - ✏️ [`packages/vite-plugins/package.json`](https://github.com/QuiteerJs/web/blob/ee8809393e43b8df4218879471d5eb740d3a124c/packages/vite-plugins/package.json)
 - 🔧  **chore** `release`: v0.0.15
   > **🕒  20:13** · `➕1` / `➖1`
   > `👤 Quiteer`  <p602985@yeah.net> ([`b3702ec`](https://github.com/QuiteerJs/web/commit/b3702ecd031dd49f195d57cc3a124339b2683eca))
@@ -675,7 +679,12 @@
   - ✏️ [`pnpm-workspace.yaml`](https://github.com/QuiteerJs/web/blob/3a9e13397fe92cc5856e727ecae4b7dab09ee818/pnpm-workspace.yaml)
 
 ### 修复
-#### 2026-01-26 `✏️ 1+` `➕ 0+` `🗑️ 0+`
+#### 2026-01-26 `✏️ 3+` `➕ 0+` `🗑️ 0+`
+- 🐛  **fix** `release`: 修复因为vue插件更新后类型提示丢失的bug
+  > **🕒  20:14** · `➕2133` / `➖1939`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`acabf06`](https://github.com/QuiteerJs/web/commit/acabf06009ffef030371285f153f14f205cc32e2))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/acabf06009ffef030371285f153f14f205cc32e2/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/acabf06009ffef030371285f153f14f205cc32e2/CHANGELOG_TIMELINE.md)
 - 🐛  **fix** `packages`: 指令插件类型提示丢失的bug
   > **🕒  20:10** · `➕10` / `➖10`
   > `👤 Quiteer`  <p602985@yeah.net> ([`448328d`](https://github.com/QuiteerJs/web/commit/448328d3dfc054a8e160be5dbec6934b69cdcf0d))

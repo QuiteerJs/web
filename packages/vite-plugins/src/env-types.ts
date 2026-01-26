@@ -5,7 +5,12 @@ import { defu } from 'defu'
 import dotenv from 'dotenv'
 import fg from 'fast-glob'
 import { bold, cyan, gray, green } from 'kolorist'
+import micromatch from 'micromatch'
 import { generateEnvDtsFromTypeMap, writeIfChanged } from './shared/env-shared'
+
+function slash(p: string): string {
+  return p.replace(/\\/g, '/')
+}
 
 export interface EnvTypesOptions {
   /** 项目根目录，默认使用 Vite 的 root */
@@ -141,8 +146,10 @@ export function envTypesPlugin(options: EnvTypesOptions = {}): Plugin {
      */
     configureServer(server) {
       server.watcher.add(patterns.map(p => path.join(resolvedRoot!, p)))
-      const handler = async () => {
-        await runGenerate()
+      const handler = async (file: string) => {
+        const relative = path.relative(resolvedRoot!, file)
+        if (micromatch.isMatch(slash(relative), patterns, { dot: true }))
+          await runGenerate()
       }
       server.watcher.on('add', handler)
       server.watcher.on('change', handler)
