@@ -28,6 +28,7 @@ export interface LayoutContextState extends Props {
   isTopMain: boolean
   isLeftMixed: boolean
   sideWidth: number
+  accordion?: boolean
 }
 
 export function provideLayoutContext(props: Required<Props>) {
@@ -60,6 +61,7 @@ export function provideLayoutContext(props: Required<Props>) {
     collapsedWidth: toRef(props, 'collapsedWidth'),
     activeKey: toRef(props, 'activeKey'),
     menuOptions: toRef(props, 'menuOptions'),
+    accordion: toRef(props, 'accordion'),
     baseRoutes: computed(() => normalizeAndRedirect(unref((props as any).baseRoutes))),
     mainActiveKey,
     subActiveKey,
@@ -90,6 +92,7 @@ export interface UseContextReturn extends LayoutEmits {
   subActiveKey: Ref<string>
   mainActiveKey: Ref<string>
   menuOptions: ComputedRef<MenuOption[]>
+  accordion: ComputedRef<boolean>
   baseRoutes: ComputedRef<RouteRecordRaw[]>
   mainMenuOptions: ComputedRef<MenuOption[]>
   subMenuOptions: ComputedRef<MenuOption[]>
@@ -119,6 +122,7 @@ export function useContext(): UseContextReturn {
 
   const activeKey = computed(() => unref(context.activeKey)!)
   const menuOptions = computed(() => unref(context.menuOptions)!)
+  const accordion = computed(() => unref(context.accordion)!)
 
   const mainActiveKey = toRef(context, 'mainActiveKey')
   const subActiveKey = toRef(context, 'subActiveKey')
@@ -162,6 +166,7 @@ export function useContext(): UseContextReturn {
     subActiveKey,
     mainActiveKey,
     menuOptions,
+    accordion,
     baseRoutes,
     mainMenuOptions,
     subMenuOptions,

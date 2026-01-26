@@ -27,7 +27,9 @@ export const DEFAULT_LAYOUT_PROPS: Required<Omit<Props, 'baseRoutes'>> = {
   /** @description 当前激活的路由键 */
   activeKey: '/',
   /** @description 菜单路由 */
-  menuOptions: []
+  menuOptions: [],
+  /** @description 是否开启手风琴模式 */
+  accordion: true
 }
 
 export const DEFAULT_LAYOUT_TYPE: { type: LayoutType, name: string, desc: string }[] = [
@@ -35,6 +37,11 @@ export const DEFAULT_LAYOUT_TYPE: { type: LayoutType, name: string, desc: string
     type: 'side-menu',
     name: '左侧菜单布局',
     desc: '左侧菜单布局，顶部为面包屑，右侧为主内容区'
+  },
+  {
+    type: 'side-group-menu',
+    name: '左侧分组菜单布局',
+    desc: '左侧菜单布局，第一级菜单作为分组标题展示，不可折叠，右侧为主内容区'
   },
   {
     type: 'side-menu/2',
@@ -74,19 +81,19 @@ export const DEFAULT_LAYOUT_TYPE: { type: LayoutType, name: string, desc: string
 ]
 
 /** @description 所有布局类型 */
-export const ALL_LAYOUT_TYPES = ['side-menu', 'side-menu/2', 'side-mixed-menu', 'side-mixed-menu/2', 'top-menu', 'top-menu/2', 'top-mixed-menu/2', 'blank']
+export const ALL_LAYOUT_TYPES = ['side-menu', 'side-menu/2', 'side-mixed-menu', 'side-mixed-menu/2', 'side-group-menu', 'top-menu', 'top-menu/2', 'top-mixed-menu/2', 'blank']
 
 /** @description 侧边栏布局类型 */
-export const SIDE_LAYOUT_TYPES = ['side-menu', 'side-menu/2', 'side-mixed-menu', 'side-mixed-menu/2', 'top-menu/2', 'top-mixed-menu/2']
+export const SIDE_LAYOUT_TYPES = ['side-menu', 'side-menu/2', 'side-mixed-menu', 'side-mixed-menu/2', 'side-group-menu', 'top-menu/2', 'top-mixed-menu/2']
 
 /** @description 顶部布局类型 */
 export const TOP_LAYOUT_TYPES = ['top-menu', 'top-menu/2', 'top-mixed-menu/2']
 
 /** @description 面包屑布局类型 */
-export const BREADCRUMB_LAYOUT_TYPES = ['side-menu', 'side-mixed-menu']
+export const BREADCRUMB_LAYOUT_TYPES = ['side-menu', 'side-mixed-menu', 'side-group-menu']
 
 /** @description 混合布局类型 */
-export const MIXED_LAYOUT_TYPES = ['side-mixed-menu/2', 'side-mixed-menu', 'top-mixed-menu/2']
+export const MIXED_LAYOUT_TYPES = ['side-mixed-menu/2', 'side-mixed-menu', 'top-mixed-menu/2', 'side-group-menu']
 
 /** @description 无菜单布局类型 */
 export const BLANK_LAYOUT_TYPES = ['blank']

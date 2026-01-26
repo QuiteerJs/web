@@ -24,6 +24,7 @@ export interface UseLayoutContext {
   routes: RouteLike[]
   activeKey: string
   menuOptions: MenuOption[]
+  accordion: boolean
   homePath?: string
   excludePaths?: string[]
   updateIsCollapsed: (v: boolean) => void
@@ -105,6 +106,7 @@ export function useLayout(option: {
   siderWidth?: number
   siderMixedWidth?: number
   collapsedWidth?: number
+  accordion?: boolean
   homePath?: string
   excludePaths?: string[]
 }) {
@@ -125,6 +127,7 @@ export function useLayout(option: {
   const siderWidth = ref(option.siderWidth ?? DEFAULT_LAYOUT_PROPS.siderWidth)
   const siderMixedWidth = ref(option.siderMixedWidth ?? DEFAULT_LAYOUT_PROPS.siderMixedWidth)
   const collapsedWidth = ref(option.collapsedWidth ?? DEFAULT_LAYOUT_PROPS.collapsedWidth)
+  const accordion = ref(option.accordion ?? DEFAULT_LAYOUT_PROPS.accordion)
 
   // 基础路由处理
   const baseRoutes = isRef(option.baseRoutes) ? option.baseRoutes : ref(option.baseRoutes)
@@ -157,6 +160,7 @@ export function useLayout(option: {
     collapsedWidth,
     activeKey,
     menuOptions,
+    accordion,
     routes: routesTree as unknown as any,
     homePath: option.homePath,
     excludePaths: option.excludePaths,

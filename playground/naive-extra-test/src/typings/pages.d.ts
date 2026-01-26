@@ -37,7 +37,10 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | '/demo/button'
       | '/demo/custom-theme'
+      | '/demo/custom-theme/table'
       | '/demo/form'
+      | '/demo/provider/naive'
+      | '/demo/provider/unocss'
       | 'IconDemo'
       | 'LayoutDemo'
       | 'ProviderDemo'
@@ -55,6 +58,13 @@ declare module 'vue-router/auto-routes' {
     '/demo/custom-theme': RouteRecordInfo<
       '/demo/custom-theme',
       '/demo/custom-theme',
+      Record<never, never>,
+      Record<never, never>,
+      | '/demo/custom-theme/table'
+    >,
+    '/demo/custom-theme/table': RouteRecordInfo<
+      '/demo/custom-theme/table',
+      '/demo/custom-theme/table',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -83,6 +93,21 @@ declare module 'vue-router/auto-routes' {
     'ProviderDemo': RouteRecordInfo<
       'ProviderDemo',
       '/demo/provider',
+      Record<never, never>,
+      Record<never, never>,
+      | '/demo/provider/naive'
+      | '/demo/provider/unocss'
+    >,
+    '/demo/provider/naive': RouteRecordInfo<
+      '/demo/provider/naive',
+      '/demo/provider/naive',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/demo/provider/unocss': RouteRecordInfo<
+      '/demo/provider/unocss',
+      '/demo/provider/unocss',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -221,7 +246,10 @@ declare module 'vue-router/auto-routes' {
       routes:
         | '/demo/button'
         | '/demo/custom-theme'
+        | '/demo/custom-theme/table'
         | '/demo/form'
+        | '/demo/provider/naive'
+        | '/demo/provider/unocss'
         | 'IconDemo'
         | 'LayoutDemo'
         | 'ProviderDemo'
@@ -241,6 +269,13 @@ declare module 'vue-router/auto-routes' {
     'src/pages/demo/custom-theme.meta.vue': {
       routes:
         | '/demo/custom-theme'
+        | '/demo/custom-theme/table'
+      views:
+        | 'default'
+    }
+    'src/pages/demo/custom-theme/table.page.vue': {
+      routes:
+        | '/demo/custom-theme/table'
       views:
         | never
     }
@@ -264,7 +299,21 @@ declare module 'vue-router/auto-routes' {
     }
     'src/pages/demo/provider.meta.vue': {
       routes:
+        | '/demo/provider/naive'
+        | '/demo/provider/unocss'
         | 'ProviderDemo'
+      views:
+        | 'default'
+    }
+    'src/pages/demo/provider/naive.page.vue': {
+      routes:
+        | '/demo/provider/naive'
+      views:
+        | never
+    }
+    'src/pages/demo/provider/unocss.page.vue': {
+      routes:
+        | '/demo/provider/unocss'
       views:
         | never
     }

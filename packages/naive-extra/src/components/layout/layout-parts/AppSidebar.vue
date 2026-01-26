@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { MenuInst } from 'naive-ui'
+import type { MenuInst, MenuOption } from 'naive-ui'
 // 解决 TS2742: The inferred type cannot be named without a reference to ...
 // 显式引用这些类型以确保生成的声明文件是可移植的
 import type {} from 'treemate'
@@ -13,7 +13,7 @@ import { renderMenuLabel, resolveLeafKeyFromMenu, resolveTopParentKeyFromMenu } 
 import AppLeftLogoInfo from './AppLeftLogoInfo.vue'
 import AppMixedMenu from './AppMixedMenu.vue'
 
-const { isCollapsed, collapsedWidth, siderWidth, siderMixedWidth, headerHeight, bordered, inverted, isLeftMain, isTopMain, activeKey, mainActiveKey, subActiveKey, type, menuOptions: options, mainMenuOptions, subMenuOptions, isLeftMixed, updateActiveKey, updateIsCollapsed } = useContext()!
+const { isCollapsed, collapsedWidth, siderWidth, siderMixedWidth, headerHeight, bordered, inverted, isLeftMain, isTopMain, activeKey, mainActiveKey, subActiveKey, type, menuOptions: options, mainMenuOptions, subMenuOptions, isLeftMixed, updateActiveKey, updateIsCollapsed, accordion } = useContext()!
 
 const menuInstRef = ref<MenuInst | null>(null)
 
@@ -32,6 +32,7 @@ function handleUpdateCollapsed(v: boolean) {
 }
 
 const isSideMenu = computed<boolean>(() => unref(type) === 'side-menu')
+const isSideGroupMenu = computed<boolean>(() => unref(type) === 'side-group-menu')
 
 const active = ref('')
 
@@ -45,7 +46,7 @@ function getKey(key: string) {
 }
 
 watchEffect(() => {
-  if (isSideMenu.value) {
+  if (isSideMenu.value || isSideGroupMenu.value) {
     active.value = unref(activeKey)!
   }
   else {
@@ -68,7 +69,7 @@ function handleUpdateValue(key: string) {
   active.value = key
   menuInstRef.value?.showOption(key)
 
-  if (unref(isLeftMain) && !isSideMenu.value) {
+  if (unref(isLeftMain) && !isSideMenu.value && !isSideGroupMenu.value) {
     const { leafKey } = getKey(key)
     router.push(leafKey)
   }
@@ -77,6 +78,36 @@ function handleUpdateValue(key: string) {
 const menuOptions = computed(() => {
   if (unref(isSideMenu))
     return unref(options)
+
+  if (unref(isSideGroupMenu)) {
+    const transformToGroups = (items: MenuOption[]): MenuOption[] => {
+      return items.map((item) => {
+        if (item.children && item.children.length > 0) {
+          return {
+            ...item,
+            type: 'group',
+            key: item.key,
+            label: item.label,
+            icon: item.icon,
+            children: transformToGroups(item.children)
+          } as MenuOption
+        }
+        return item
+      })
+    }
+
+    return (unref(options) || []).map((item) => {
+      // 第一层不变
+      if (item.children && item.children.length) {
+        return {
+          ...item,
+          children: transformToGroups(item.children)
+        }
+      }
+      return item
+    })
+  }
+
   return unref(isLeftMain) ? unref(mainMenuOptions) : unref(subMenuOptions)
 })
 
@@ -117,7 +148,7 @@ const hasDefaultSlot = computed<boolean>(() => hasSlotContent(slots.default))
       :render-label="renderMenuLabel"
       :collapsed-width="collapsedWidth"
       :inverted="inverted"
-      accordion
+      :accordion="accordion"
       @update:value="handleUpdateValue"
     />
   </n-layout-sider>

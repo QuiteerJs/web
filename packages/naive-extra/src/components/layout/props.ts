@@ -31,4 +31,6 @@ export type Props = Partial<{
   menuOptions: MenuOption[]
   /** @description 基础路由 */
   baseRoutes: RouteRecordRaw[]
+  /** @description 是否开启手风琴模式 */
+  accordion: boolean
 }>

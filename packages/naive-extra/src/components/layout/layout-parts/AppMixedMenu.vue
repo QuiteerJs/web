@@ -6,7 +6,7 @@ import { useRouter } from 'vue-router'
 import { useContext } from '../context'
 import { findNodeByKey, renderMenuLabel, resolveLeafKeyFromMenu, resolveTopParentKeyFromMenu } from '../utils'
 
-const { isLeftMain, isTopMain, activeKey, mainActiveKey, subActiveKey, siderMixedWidth, menuOptions: options, mainMenuOptions, subMenuOptions, updateActiveKey } = useContext()!
+const { isLeftMain, isTopMain, activeKey, mainActiveKey, subActiveKey, siderMixedWidth, menuOptions: options, mainMenuOptions, subMenuOptions, updateActiveKey, accordion } = useContext()!
 const router = useRouter()
 
 interface MixMenuItemProps {
@@ -122,6 +122,7 @@ function handleMenuClick(key: string, item: MenuOption) {
         :options="item.children"
         :value="activeKey"
         :render-label="renderMenuLabel"
+        :accordion="accordion"
         @update:value="(key, option) => handleMenuClick(key, option)"
       />
     </n-popover>
