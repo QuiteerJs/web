@@ -80,7 +80,8 @@ export function routeToMenu(routes: RouteRecordRaw[], basePath = ''): MenuOption
     const menuOption: MenuOption = {
       key: (route.name as string) || currentPath,
       label,
-      icon: renderIcon(meta.icon as string)
+      icon: renderIcon(meta.icon as string),
+      href: meta.href as string
     }
 
     if (visibleChildren.length > 0) {

@@ -32,12 +32,12 @@ export const useLayoutStore = defineStore('layout', () => {
     menuOptions: menus,
     // initialCollapsed: false,
     initialActiveKey: '/button',
-    homePath: '/'
+    homePath: '/',
     // bordered: true,
     // inverted: false,
     // headerHeight: 56,
     // footerHeight: 50,
-    // siderWidth: 240,
+    siderWidth: 260
     // collapsedWidth: 60,
     // type: 'top-menu'
   })

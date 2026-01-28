@@ -18,20 +18,18 @@ const {
 </script>
 
 <template>
-  <div style="display: grid; grid-template-columns: 360px 1fr; gap: 16px; align-items: start;">
-    <QuiLayout
-      v-model:is-collapsed="collapsed"
-      v-model:active-key="activeKey"
-      v-model:inverted="inverted"
-      :type="type"
-      :bordered="bordered"
-      :header-height="headerHeight"
-      :footer-height="footerHeight"
-      :sider-width="siderWidth"
-      :collapsed-width="collapsedWidth"
-      :menu-options="menuOptions"
-    />
-  </div>
+  <QuiLayout
+    v-model:is-collapsed="collapsed"
+    v-model:active-key="activeKey"
+    v-model:inverted="inverted"
+    :type="type"
+    :bordered="bordered"
+    :header-height="headerHeight"
+    :footer-height="footerHeight"
+    :sider-width="siderWidth"
+    :collapsed-width="collapsedWidth"
+    :menu-options="menuOptions"
+  />
 </template>
 
 <style lang="scss" scoped></style>

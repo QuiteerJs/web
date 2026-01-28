@@ -116,7 +116,17 @@ export function useLayout(option: {
   // 状态管理
   const collapsed = ref(option.initialCollapsed ?? false)
   const { activeKey, setActiveKey } = useActiveKey(option.initialActiveKey ?? option.homePath ?? '/')
-  const type = ref<LayoutType>(option.type ?? DEFAULT_LAYOUT_PROPS.type)
+
+  // 全局布局类型（当页面没有指定 meta.layout 时使用）
+  const globalType = ref<LayoutType>(option.type ?? DEFAULT_LAYOUT_PROPS.type)
+
+  // 最终使用的布局类型（优先使用页面 meta.layout）
+  const type = computed<LayoutType>({
+    get: () => (route.meta.layout as LayoutType) || globalType.value,
+    set: (v) => {
+      globalType.value = v
+    }
+  })
 
   // 配置项全部转为 ref（统一响应式）
   const bordered = ref(option.bordered ?? DEFAULT_LAYOUT_PROPS.bordered)
@@ -174,6 +184,9 @@ export function useLayout(option: {
     },
     updateActiveKey(v: string) {
       setActiveKey(v)
+      if (/^https?:\/\//.test(v))
+        return
+
       if (v.startsWith('/')) {
         router.push(v)
       }
@@ -183,11 +196,11 @@ export function useLayout(option: {
     }
   }) as unknown as UseLayoutContext
 
-  // 监听路由变化，更新激活的菜单项
+  // 监听路由变化，同步更新 activeKey
   const stop = watch(
-    () => [route.name, route.path],
-    ([name, path]) => {
-      setActiveKey((name as string) || (path as string))
+    () => [route.name, route.path, route.meta.activeMenu],
+    ([name, path, activeMenu]) => {
+      setActiveKey((activeMenu as string) || (name as string) || (path as string))
     },
     { immediate: true }
   )

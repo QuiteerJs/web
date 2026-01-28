@@ -82,6 +82,10 @@ function isItemActive(item: MenuOption) {
 }
 
 function handleMenuClick(key: string, item: MenuOption) {
+  if ((item as any).href || /^https?:\/\//.test(key)) {
+    return
+  }
+
   updateActiveKey(key)
   const path = (item as any).path
   if (path) {

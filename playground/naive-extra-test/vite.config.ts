@@ -15,7 +15,7 @@ export default defineConfig({
     VueRouter({
       logs: true,
       dts: 'src/typings/pages.d.ts',
-      extensions: ['.page.vue', '.meta.vue']
+      extensions: ['.page.vue', '.meta.vue', '.link.vue', '.iframe.vue']
     }),
     Vue({ include: [/\.vue$/, /\.md$/] }),
     VueJsx(),

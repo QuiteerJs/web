@@ -182,11 +182,107 @@ declare module 'vue-router/auto-routes' {
       '/test',
       Record<never, never>,
       Record<never, never>,
+      | '/test/layout'
+      | '/test/layout/blank'
+      | '/test/layout/side-group-menu'
+      | '/test/layout/side-menu'
+      | '/test/layout/side-menu-2'
+      | '/test/layout/side-mixed-menu'
+      | '/test/layout/side-mixed-menu-2'
+      | '/test/layout/top-menu'
+      | '/test/layout/top-menu-2'
+      | '/test/layout/top-mixed-menu-2'
+      | '/test/link'
       | '/test/page-1/'
       | '/test/page-1/[id]'
       | '/test/page-2/'
       | '/test/page-3/page-4/page-4'
       | '/test/page-3/page-4/page-5'
+    >,
+    '/test/layout': RouteRecordInfo<
+      '/test/layout',
+      '/test/layout',
+      Record<never, never>,
+      Record<never, never>,
+      | '/test/layout/blank'
+      | '/test/layout/side-group-menu'
+      | '/test/layout/side-menu'
+      | '/test/layout/side-menu-2'
+      | '/test/layout/side-mixed-menu'
+      | '/test/layout/side-mixed-menu-2'
+      | '/test/layout/top-menu'
+      | '/test/layout/top-menu-2'
+      | '/test/layout/top-mixed-menu-2'
+    >,
+    '/test/layout/blank': RouteRecordInfo<
+      '/test/layout/blank',
+      '/test/layout/blank',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/test/layout/side-group-menu': RouteRecordInfo<
+      '/test/layout/side-group-menu',
+      '/test/layout/side-group-menu',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/test/layout/side-menu': RouteRecordInfo<
+      '/test/layout/side-menu',
+      '/test/layout/side-menu',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/test/layout/side-menu-2': RouteRecordInfo<
+      '/test/layout/side-menu-2',
+      '/test/layout/side-menu-2',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/test/layout/side-mixed-menu': RouteRecordInfo<
+      '/test/layout/side-mixed-menu',
+      '/test/layout/side-mixed-menu',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/test/layout/side-mixed-menu-2': RouteRecordInfo<
+      '/test/layout/side-mixed-menu-2',
+      '/test/layout/side-mixed-menu-2',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/test/layout/top-menu': RouteRecordInfo<
+      '/test/layout/top-menu',
+      '/test/layout/top-menu',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/test/layout/top-menu-2': RouteRecordInfo<
+      '/test/layout/top-menu-2',
+      '/test/layout/top-menu-2',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/test/layout/top-mixed-menu-2': RouteRecordInfo<
+      '/test/layout/top-mixed-menu-2',
+      '/test/layout/top-mixed-menu-2',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/test/link': RouteRecordInfo<
+      '/test/link',
+      '/test/link',
+      Record<never, never>,
+      Record<never, never>,
+      | never
     >,
     '/test/page-1/': RouteRecordInfo<
       '/test/page-1/',
@@ -376,6 +472,17 @@ declare module 'vue-router/auto-routes' {
     }
     'src/pages/test.meta.vue': {
       routes:
+        | '/test/layout'
+        | '/test/layout/blank'
+        | '/test/layout/side-group-menu'
+        | '/test/layout/side-menu'
+        | '/test/layout/side-menu-2'
+        | '/test/layout/side-mixed-menu'
+        | '/test/layout/side-mixed-menu-2'
+        | '/test/layout/top-menu'
+        | '/test/layout/top-menu-2'
+        | '/test/layout/top-mixed-menu-2'
+        | '/test/link'
         | '/test/page-1/'
         | '/test/page-1/[id]'
         | '/test/page-2/'
@@ -384,6 +491,81 @@ declare module 'vue-router/auto-routes' {
         | 'test'
       views:
         | 'default'
+    }
+    'src/pages/test/layout.page.vue': {
+      routes:
+        | '/test/layout'
+        | '/test/layout/blank'
+        | '/test/layout/side-group-menu'
+        | '/test/layout/side-menu'
+        | '/test/layout/side-menu-2'
+        | '/test/layout/side-mixed-menu'
+        | '/test/layout/side-mixed-menu-2'
+        | '/test/layout/top-menu'
+        | '/test/layout/top-menu-2'
+        | '/test/layout/top-mixed-menu-2'
+      views:
+        | 'default'
+    }
+    'src/pages/test/layout/blank.page.vue': {
+      routes:
+        | '/test/layout/blank'
+      views:
+        | never
+    }
+    'src/pages/test/layout/side-group-menu.page.vue': {
+      routes:
+        | '/test/layout/side-group-menu'
+      views:
+        | never
+    }
+    'src/pages/test/layout/side-menu.page.vue': {
+      routes:
+        | '/test/layout/side-menu'
+      views:
+        | never
+    }
+    'src/pages/test/layout/side-menu-2.page.vue': {
+      routes:
+        | '/test/layout/side-menu-2'
+      views:
+        | never
+    }
+    'src/pages/test/layout/side-mixed-menu.page.vue': {
+      routes:
+        | '/test/layout/side-mixed-menu'
+      views:
+        | never
+    }
+    'src/pages/test/layout/side-mixed-menu-2.page.vue': {
+      routes:
+        | '/test/layout/side-mixed-menu-2'
+      views:
+        | never
+    }
+    'src/pages/test/layout/top-menu.page.vue': {
+      routes:
+        | '/test/layout/top-menu'
+      views:
+        | never
+    }
+    'src/pages/test/layout/top-menu-2.page.vue': {
+      routes:
+        | '/test/layout/top-menu-2'
+      views:
+        | never
+    }
+    'src/pages/test/layout/top-mixed-menu-2.page.vue': {
+      routes:
+        | '/test/layout/top-mixed-menu-2'
+      views:
+        | never
+    }
+    'src/pages/test/link.link.vue': {
+      routes:
+        | '/test/link'
+      views:
+        | never
     }
     'src/pages/test/page-1/index.page.vue': {
       routes:

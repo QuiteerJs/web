@@ -37,9 +37,15 @@ export interface RouteMeta {
 
   /**
    * 是否在侧边栏菜单中显示
-   * @default true
+   * @default false
    */
   hideMenu?: boolean
+
+  /**
+   * 侧边栏菜单选中
+   * @default string
+   */
+  activeMenu?: import('vue-router').RouteRecordRedirectOption
 
   /**
    * 菜单图标（Iconify 格式，如 'mdi:home'）
@@ -65,4 +71,9 @@ export interface RouteMeta {
    * 排序
    */
   order?: number
+
+  /**
+   * 外链
+   */
+  href?: string
 }

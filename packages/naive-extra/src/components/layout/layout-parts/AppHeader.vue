@@ -4,7 +4,7 @@ import { computed, ref, unref, useSlots, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
 import { hasSlotContent } from '../../../share/slot'
 import { useContext } from '../context'
-import { renderMenuLabel, resolveLeafKeyFromMenu, resolveTopParentKeyFromMenu } from '../utils'
+import { findNodeByKey, renderMenuLabel, resolveLeafKeyFromMenu, resolveTopParentKeyFromMenu } from '../utils'
 import AppBreadcrumb from './AppBreadcrumb.vue'
 import AppLeftLogoInfo from './AppLeftLogoInfo.vue'
 
@@ -73,6 +73,11 @@ watchEffect(() => {
 
 const router = useRouter()
 function handleUpdateValue(key: string) {
+  const node = findNodeByKey(unref(options) as any[], key)
+  if (node?.href || /^https?:\/\//.test(key)) {
+    return
+  }
+
   updateActiveKey(key)
   active.value = key
   if (unref(isTopMain) && !isTopMenu.value) {

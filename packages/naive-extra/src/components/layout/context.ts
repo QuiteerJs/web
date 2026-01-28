@@ -3,9 +3,10 @@ import type { ComputedRef, Reactive, Ref } from 'vue'
 import type { RouteRecordRaw } from 'vue-router'
 import type { Props } from './props'
 import type { LayoutType } from './types'
-import { computed, inject, provide, reactive, ref, toRef, unref } from 'vue'
+import { computed, inject, provide, reactive, ref, toRef, unref, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import { normalizeAndRedirect } from '../../utils/transformRoutes'
-import { BREADCRUMB_LAYOUT_TYPES, SIDE_LAYOUT_TYPES } from './const'
+import { BREADCRUMB_LAYOUT_TYPES } from './const'
 
 export interface LayoutEmits {
   /** @description 更新是否折叠侧边栏 */
@@ -31,25 +32,38 @@ export interface LayoutContextState extends Props {
   accordion?: boolean
 }
 
-export function provideLayoutContext(props: Required<Props>) {
+export function provideLayoutContext(props: Required<Props>, extra?: { hasSiderLayout: ComputedRef<boolean> }) {
+  const route = useRoute()
   const mainActiveKey = ref(props.activeKey)
   const subActiveKey = ref(props.activeKey)
 
-  const hasSiderLayout = computed(() => SIDE_LAYOUT_TYPES.includes(props.type))
+  // 内部维护一个可变的布局类型，初始值为 props.type
+  const internalLayoutType = ref<LayoutType>(props.type)
 
-  const hasBreadcrumb = computed(() => BREADCRUMB_LAYOUT_TYPES.includes(props.type))
+  // 最终使用的布局类型：优先使用路由 meta.layout，否则使用内部状态
+  const effectiveLayoutType = computed(() => (route?.meta?.layout as LayoutType) || internalLayoutType.value)
 
-  const isLeftMain = computed(() => props.type!.includes('side'))
+  // 最终使用的激活键：优先使用路由 meta.activeMenu，否则使用 props.activeKey
+  const effectiveActiveKey = computed(() => (route?.meta?.activeMenu as string) || props.activeKey)
 
-  const isTopMain = computed(() => props.type!.includes('top'))
+  // 监听 props.type 的变化并同步到内部状态
+  watch(() => props.type, (newType) => {
+    internalLayoutType.value = newType
+  })
 
-  const isLeftMixed = computed(() => props.type!.includes('mixed'))
+  const hasBreadcrumb = computed(() => BREADCRUMB_LAYOUT_TYPES.includes(unref(effectiveLayoutType)))
+
+  const isLeftMain = computed(() => unref(effectiveLayoutType).includes('side'))
+
+  const isTopMain = computed(() => unref(effectiveLayoutType).includes('top'))
+
+  const isLeftMixed = computed(() => unref(effectiveLayoutType).includes('mixed'))
 
   const sideWidth = computed(() => unref(isLeftMixed) ? props.siderMixedWidth : props.siderWidth)
 
   const context = reactive({
-    // 使用 toRef 保持与 props 的响应式链接
-    type: toRef(props, 'type'),
+    // 使用 effectiveLayoutType 和 effectiveActiveKey 替代直接使用 props
+    type: effectiveLayoutType,
     bordered: toRef(props, 'bordered'),
     inverted: toRef(props, 'inverted'),
     isCollapsed: toRef(props, 'isCollapsed'),
@@ -59,13 +73,13 @@ export function provideLayoutContext(props: Required<Props>) {
     siderWidth: toRef(props, 'siderWidth'),
     siderMixedWidth: toRef(props, 'siderMixedWidth'),
     collapsedWidth: toRef(props, 'collapsedWidth'),
-    activeKey: toRef(props, 'activeKey'),
+    activeKey: effectiveActiveKey,
     menuOptions: toRef(props, 'menuOptions'),
     accordion: toRef(props, 'accordion'),
     baseRoutes: computed(() => normalizeAndRedirect(unref((props as any).baseRoutes))),
     mainActiveKey,
     subActiveKey,
-    hasSiderLayout,
+    hasSiderLayout: extra?.hasSiderLayout,
     hasBreadcrumb,
     isLeftMain,
     isTopMain,
@@ -74,6 +88,7 @@ export function provideLayoutContext(props: Required<Props>) {
   })
 
   provide(LayoutContextKey, context)
+  return context
 }
 
 export interface UseContextReturn extends LayoutEmits {
@@ -137,7 +152,7 @@ export function useContext(): UseContextReturn {
 
   const mainMenuOptions = computed(() => {
     const opts = unref(menuOptions) as any[] || []
-    return opts.map(o => ({ key: o.key, label: o.label, icon: o.icon }))
+    return opts.map(o => ({ key: o.key, label: o.label, icon: o.icon, href: o.href }))
   })
 
   const subMenuOptions = computed(() => {

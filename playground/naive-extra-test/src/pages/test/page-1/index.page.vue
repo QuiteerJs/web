@@ -3,7 +3,8 @@ definePage({
   meta: {
     title: 'page-1',
     icon: 'mdi:test-tube',
-    order: 1
+    order: 1,
+    layout: 'side-group-menu'
   }
 })
 </script>

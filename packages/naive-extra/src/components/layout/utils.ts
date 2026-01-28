@@ -2,20 +2,24 @@ import type { MenuOption } from 'naive-ui'
 import { h } from 'vue'
 import { RouterLink } from 'vue-router'
 
-type AnyMenuOption = MenuOption & { key?: string | number, children?: AnyMenuOption[] }
+type AnyMenuOption = MenuOption & { key?: string | number, children?: AnyMenuOption[], href?: string }
 
 export function renderMenuLabel(option: AnyMenuOption) {
-  const { label, key, children } = option
+  const { label, key, children, href } = option
 
   // 如果有子菜单，直接渲染文本，不进行跳转
   if (children && children.length > 0) {
     return label as string
   }
 
+  if (href) {
+    return h('a', { href, target: '_blank', rel: 'noopener noreferrer' }, label as string)
+  }
+
   const k = typeof key === 'string' ? key : String(key)
 
   if (/^https?:\/\//.test(k)) {
-    return h('a', { href: k, target: '_blank', rel: 'noopenner noreferrer' }, label as string)
+    return h('a', { href: k, target: '_blank', rel: 'noopener noreferrer' }, label as string)
   }
 
   // 如果 k 是路径（以 / 开头），则使用 path 跳转；否则使用 name 跳转
