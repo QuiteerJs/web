@@ -27,7 +27,6 @@ export interface LayoutContextState extends Props {
   hasBreadcrumb: boolean
   isLeftMain: boolean
   isTopMain: boolean
-  isLeftMixed: boolean
   sideWidth: number
   accordion?: boolean
 }
@@ -57,9 +56,7 @@ export function provideLayoutContext(props: Required<Props>, extra?: { hasSiderL
 
   const isTopMain = computed(() => unref(effectiveLayoutType).includes('top'))
 
-  const isLeftMixed = computed(() => unref(effectiveLayoutType).includes('mixed'))
-
-  const sideWidth = computed(() => unref(isLeftMixed) ? props.siderMixedWidth : props.siderWidth)
+  const sideWidth = computed(() => props.siderWidth)
 
   const context = reactive({
     // 使用 effectiveLayoutType 和 effectiveActiveKey 替代直接使用 props
@@ -83,7 +80,6 @@ export function provideLayoutContext(props: Required<Props>, extra?: { hasSiderL
     hasBreadcrumb,
     isLeftMain,
     isTopMain,
-    isLeftMixed,
     sideWidth
   })
 
@@ -115,7 +111,6 @@ export interface UseContextReturn extends LayoutEmits {
   hasBreadcrumb: Ref<boolean>
   isLeftMain: ComputedRef<boolean>
   isTopMain: ComputedRef<boolean>
-  isLeftMixed: ComputedRef<boolean>
   sideWidth: ComputedRef<number>
 }
 
@@ -146,7 +141,6 @@ export function useContext(): UseContextReturn {
   const hasBreadcrumb = computed(() => unref(context.hasBreadcrumb))
   const isLeftMain = computed(() => unref(context.isLeftMain))
   const isTopMain = computed(() => unref(context.isTopMain))
-  const isLeftMixed = computed(() => unref(context.isLeftMixed))
 
   const sideWidth = computed(() => unref(context.sideWidth))
 
@@ -189,7 +183,6 @@ export function useContext(): UseContextReturn {
     hasBreadcrumb,
     isLeftMain,
     isTopMain,
-    isLeftMixed,
     sideWidth,
     ...layoutEmit
   } as UseContextReturn

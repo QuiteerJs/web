@@ -4,8 +4,8 @@ import { useLayoutStore } from '@/stores/layout'
 
 definePage({
   meta: {
-    title: '顶部双菜单布局-2',
-    layout: 'top-mixed-menu/2',
+    title: '顶部-左侧分组菜单布局',
+    layout: 'top-group-menu/2',
     hideMenu: true,
     activeMenu: '/test/layout'
   }

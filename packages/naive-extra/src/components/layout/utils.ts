@@ -22,9 +22,7 @@ export function renderMenuLabel(option: AnyMenuOption) {
     return h('a', { href: k, target: '_blank', rel: 'noopener noreferrer' }, label as string)
   }
 
-  // 如果 k 是路径（以 / 开头），则使用 path 跳转；否则使用 name 跳转
-  const to = k.startsWith('/') ? { path: k } : { name: k }
-  return h(RouterLink, { to }, { default: () => label })
+  return h(RouterLink, { to: { name: k } }, { default: () => label })
 }
 
 // 查找指定 key 的菜单节点

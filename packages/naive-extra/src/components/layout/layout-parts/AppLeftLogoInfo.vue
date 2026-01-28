@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { useContext } from '../context'
 
-const { isCollapsed, headerHeight, isLeftMixed, isTopMain, hasSiderLayout } = useContext()!
+const { isCollapsed, headerHeight, isTopMain, hasSiderLayout, siderWidth } = useContext()!
 
-const isMixed = computed(() => unref(isLeftMixed) || unref(isCollapsed))
+const isMixed = computed(() => unref(isCollapsed))
 
 function getContainerStyle(_: void) {
   return {
     height: `${unref(headerHeight)}px`,
+    minWidth: `${unref(siderWidth)}px`,
     display: 'flex',
     alignItems: 'center',
     padding: isMixed.value && !isTopMain ? '0' : '0 20px',

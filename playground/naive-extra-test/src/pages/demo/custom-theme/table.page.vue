@@ -113,7 +113,7 @@ const data = [
     </NCard>
 
     <NCard title="当前配置 JSON">
-      <pre class="bg-gray-100 p-4 rounded overflow-auto text-xs">{{ JSON.stringify(tableConfig, null, 2) }}</pre>
+      <pre class="p-4 rounded overflow-auto text-xs">{{ JSON.stringify(tableConfig, null, 2) }}</pre>
     </NCard>
   </NSpace>
 </template>

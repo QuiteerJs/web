@@ -6,10 +6,10 @@ export type LayoutType
   = | 'side-menu'
     | 'side-menu/2'
     | 'side-mixed-menu'
-    | 'side-mixed-menu/2'
     | 'side-group-menu'
     | 'top-menu'
     | 'top-menu/2'
+    | 'top-group-menu/2'
     | 'top-mixed-menu/2'
     | 'blank'
 

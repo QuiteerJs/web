@@ -36,64 +36,67 @@ export const DEFAULT_LAYOUT_TYPE: { type: LayoutType, name: string, desc: string
   {
     type: 'side-menu',
     name: '左侧菜单布局',
-    desc: '左侧菜单布局，顶部为面包屑，右侧为主内容区'
+    desc: '左侧多层级菜单布局，顶部为面包屑'
   },
   {
     type: 'side-group-menu',
     name: '左侧分组菜单布局',
-    desc: '左侧菜单布局，第一级菜单作为分组标题展示，不可折叠，右侧为主内容区'
+    desc: '左侧多层级菜单布局，分组展示，顶部为面包屑'
+  },
+  {
+    type: 'side-mixed-menu',
+    name: '左侧混合菜单布局',
+    desc: '左侧多层级菜单布局，第一级菜单可折叠，其余层级为标题和分组展示，顶部为面包屑'
   },
   {
     type: 'side-menu/2',
     name: '左侧-顶部菜单布局',
-    desc: '左侧为垂直导航菜单，顶部为水平导航菜单，下方为主内容区'
-  },
-  {
-    type: 'side-mixed-menu',
-    name: '左侧混合-单菜单布局',
-    desc: '左侧为垂直导航菜单，菜单为双层折叠模式，顶部为面包屑，下方为主内容区'
-  },
-  {
-    type: 'side-mixed-menu/2',
-    name: '左侧混合-顶部菜单布局',
-    desc: '左侧为单层导航菜单，顶部为水平导航菜单，下方为主内容区'
+    desc: '左侧单层级菜单布局，顶部为水平多层级菜单，无面包屑'
   },
   {
     type: 'top-menu',
     name: '顶部菜单布局',
-    desc: '无侧边栏，顶部为水平导航菜单，下方为主内容区'
+    desc: '无侧边栏，顶部为水平多层级菜单，无面包屑'
   },
   {
     type: 'top-menu/2',
     name: '顶部-左侧菜单布局',
-    desc: '顶部菜单为主，顶部为水平导航菜单，左侧为垂直导航菜单，下方为主内容区'
+    desc: '顶部菜单为主，顶部为水平单层级菜单，左侧为垂直多层级菜单，无面包屑'
+  },
+  {
+    type: 'top-group-menu/2',
+    name: '顶部-左侧分组菜单布局',
+    desc: '顶部菜单为主，顶部为水平单层级菜单，左侧为垂直多层级菜单，分组展示，无面包屑'
   },
   {
     type: 'top-mixed-menu/2',
     name: '顶部-左侧混合菜单布局',
-    desc: '顶部菜单为主，顶部为水平导航菜单，左侧为单层垂直导航菜单，下方为主内容区'
+    desc: '顶部菜单为主，顶部为水平单层级菜单，左侧为垂直多层级菜单，左侧第一级菜单可折叠，其余层级为标题和分组展示，无面包屑'
   },
   {
     type: 'blank',
     name: '无菜单布局',
     desc: '无菜单布局，页面不包含任何主导航菜单，适用于登录页、引导页、全屏应用等场景'
   }
-]
+] as const
 
 /** @description 所有布局类型 */
-export const ALL_LAYOUT_TYPES = ['side-menu', 'side-menu/2', 'side-mixed-menu', 'side-mixed-menu/2', 'side-group-menu', 'top-menu', 'top-menu/2', 'top-mixed-menu/2', 'blank']
+export const ALL_LAYOUT_TYPES: LayoutType[] = DEFAULT_LAYOUT_TYPE.map(item => item.type)
 
 /** @description 侧边栏布局类型 */
-export const SIDE_LAYOUT_TYPES = ['side-menu', 'side-menu/2', 'side-mixed-menu', 'side-mixed-menu/2', 'side-group-menu', 'top-menu/2', 'top-mixed-menu/2']
+export const SIDE_LAYOUT_TYPES: LayoutType[] = ['side-menu', 'side-menu/2', 'side-group-menu', 'side-mixed-menu', 'top-menu/2', 'top-group-menu/2', 'top-mixed-menu/2']
+
+/** @description 侧边栏分组布局类型 */
+export const SIDE_GROUP_LAYOUT_TYPES: LayoutType[] = ['side-group-menu', 'top-group-menu/2']
+
+/** @description 侧边栏混合布局类型 */
+export const SIDE_MIXED_LAYOUT_TYPES: LayoutType[] = ['side-mixed-menu', 'top-mixed-menu/2']
 
 /** @description 顶部布局类型 */
-export const TOP_LAYOUT_TYPES = ['top-menu', 'top-menu/2', 'top-mixed-menu/2']
+export const TOP_LAYOUT_TYPES: LayoutType[] = ['top-menu', 'top-menu/2', 'top-group-menu/2', 'top-mixed-menu/2']
 
 /** @description 面包屑布局类型 */
-export const BREADCRUMB_LAYOUT_TYPES = ['side-menu', 'side-mixed-menu', 'side-group-menu']
-
-/** @description 混合布局类型 */
-export const MIXED_LAYOUT_TYPES = ['side-mixed-menu/2', 'side-mixed-menu', 'top-mixed-menu/2', 'side-group-menu']
+export const BREADCRUMB_LAYOUT_TYPES: LayoutType[] = ['side-menu', 'side-group-menu', 'side-mixed-menu']
 
 /** @description 无菜单布局类型 */
-export const BLANK_LAYOUT_TYPES = ['blank']
+export const BLANK_LAYOUT_TYPES: LayoutType[] = ['blank']

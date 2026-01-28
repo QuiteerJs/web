@@ -4,7 +4,7 @@ import { useLayoutStore } from '@/stores/layout'
 
 definePage({
   meta: {
-    title: '侧边双菜单布局',
+    title: '侧边菜单混合布局',
     layout: 'side-mixed-menu',
     hideMenu: true,
     activeMenu: '/test/layout'

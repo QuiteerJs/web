@@ -3,12 +3,13 @@ import type { Slots } from 'vue'
 import { computed, ref, unref, useSlots, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
 import { hasSlotContent } from '../../../share/slot'
+import { TOP_LAYOUT_TYPES } from '../const'
 import { useContext } from '../context'
 import { findNodeByKey, renderMenuLabel, resolveLeafKeyFromMenu, resolveTopParentKeyFromMenu } from '../utils'
 import AppBreadcrumb from './AppBreadcrumb.vue'
 import AppLeftLogoInfo from './AppLeftLogoInfo.vue'
 
-const { type, bordered, inverted, headerHeight, sideWidth, siderMixedWidth, collapsedWidth, activeKey, mainActiveKey, subActiveKey, hasSiderLayout, hasBreadcrumb, isLeftMain, isTopMain, isLeftMixed, isCollapsed, menuOptions: options, mainMenuOptions, subMenuOptions, updateActiveKey } = useContext()!
+const { type, bordered, inverted, headerHeight, sideWidth, collapsedWidth, activeKey, mainActiveKey, subActiveKey, hasSiderLayout, hasBreadcrumb, isLeftMain, isTopMain, isCollapsed, menuOptions: options, mainMenuOptions, subMenuOptions, updateActiveKey } = useContext()!
 
 const left = computed<string | number>(() => {
   if (unref(isTopMain))
@@ -17,9 +18,6 @@ const left = computed<string | number>(() => {
   if (unref(hasSiderLayout)) {
     if (unref(isCollapsed))
       return `${unref(collapsedWidth)}px`
-
-    if (unref(isLeftMixed))
-      return `${unref(siderMixedWidth)}px`
 
     return `${unref(sideWidth)}px`
   }
@@ -34,7 +32,7 @@ const headerStyle = computed(() => ({
   padding: unref(hasSiderLayout) ? '0' : '0 16px'
 }))
 
-const showMenu = computed<boolean>(() => ['top-menu', 'top-menu/2', 'top-mixed-menu/2', 'side-menu/2', 'side-mixed-menu/2'].includes(unref(type)!))
+const showMenu = computed<boolean>(() => TOP_LAYOUT_TYPES.includes(unref(type)!))
 const isTopMenu = computed<boolean>(() => unref(type) === 'top-menu')
 
 const active = ref('')
@@ -82,7 +80,7 @@ function handleUpdateValue(key: string) {
   active.value = key
   if (unref(isTopMain) && !isTopMenu.value) {
     const { leafKey } = getKey(key)
-    router.push(leafKey)
+    router.push({ name: leafKey })
   }
 }
 

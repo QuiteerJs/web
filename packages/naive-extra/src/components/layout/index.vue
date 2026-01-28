@@ -12,7 +12,6 @@ import AppSidebar from './layout-parts/AppSidebar.vue'
 import LayoutTransition from './layout-parts/LayoutTransition.vue'
 
 const props = withDefaults(defineProps<Props>(), { ...DEFAULT_LAYOUT_PROPS, menuOptions: () => [], baseRoutes: () => [] })
-
 const emit = defineEmits<{
   'update:isCollapsed': [value: boolean]
   'update:inverted': [value: boolean]
@@ -22,7 +21,7 @@ const emit = defineEmits<{
 const route = useRoute()
 const effectiveType = computed(() => (route?.meta?.layout as LayoutType) || props.type)
 const hasSiderLayout = computed(() => SIDE_LAYOUT_TYPES.includes(unref(effectiveType)))
-const isBlank = computed(() => props.type === 'blank')
+const isBlank = computed(() => unref(effectiveType) === 'blank')
 
 provideLayoutContext(props, { hasSiderLayout })
 provide(LayoutEmitsKey, {

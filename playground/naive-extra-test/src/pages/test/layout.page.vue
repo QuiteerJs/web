@@ -4,8 +4,7 @@ import { DEFAULT_LAYOUT_TYPE } from '@quiteer/naive-extra'
 definePage({
   meta: {
     title: '测试通过路由meta信息配置的布局',
-    order: 1,
-    hideMenu: true
+    order: 1
   }
 })
 

@@ -7,22 +7,19 @@ import type { Slots } from 'vue'
 import { computed, ref, unref, useSlots, watch, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
 import { hasSlotContent } from '../../../share/slot'
+import { SIDE_GROUP_LAYOUT_TYPES, SIDE_MIXED_LAYOUT_TYPES } from '../const'
 import { useContext } from '../context'
+
 import { findNodeByKey, renderMenuLabel, resolveLeafKeyFromMenu, resolveTopParentKeyFromMenu } from '../utils'
-
 import AppLeftLogoInfo from './AppLeftLogoInfo.vue'
-import AppMixedMenu from './AppMixedMenu.vue'
 
-const { isCollapsed, collapsedWidth, siderWidth, siderMixedWidth, headerHeight, bordered, inverted, isLeftMain, isTopMain, activeKey, mainActiveKey, subActiveKey, type, menuOptions: options, mainMenuOptions, subMenuOptions, isLeftMixed, updateActiveKey, updateIsCollapsed, accordion } = useContext()!
+const { isCollapsed, collapsedWidth, siderWidth, headerHeight, bordered, inverted, isLeftMain, isTopMain, activeKey, mainActiveKey, subActiveKey, type, menuOptions: options, mainMenuOptions, subMenuOptions, updateActiveKey, updateIsCollapsed, accordion, hasSiderLayout } = useContext()!
 
 const menuInstRef = ref<MenuInst | null>(null)
 
 const width = computed<number>(() => {
   if (unref(isCollapsed))
     return unref(collapsedWidth)!
-
-  if (unref(isLeftMixed))
-    return unref(siderMixedWidth)!
 
   return unref(siderWidth)!
 })
@@ -31,8 +28,8 @@ function handleUpdateCollapsed(v: boolean) {
   updateIsCollapsed(v)
 }
 
-const isSideMenu = computed<boolean>(() => unref(type) === 'side-menu')
-const isSideGroupMenu = computed<boolean>(() => unref(type) === 'side-group-menu')
+const isSideMixedMenu = computed<boolean>(() => SIDE_MIXED_LAYOUT_TYPES.includes(unref(type)))
+const isSideGroupMenu = computed<boolean>(() => SIDE_GROUP_LAYOUT_TYPES.includes(unref(type)))
 
 const active = ref('')
 
@@ -46,7 +43,7 @@ function getKey(key: string) {
 }
 
 watchEffect(() => {
-  if (isSideMenu.value || isSideGroupMenu.value) {
+  if (unref(type) === 'side-menu') {
     active.value = unref(activeKey)!
   }
   else {
@@ -64,8 +61,6 @@ watchEffect(() => {
 
 const router = useRouter()
 function handleUpdateValue(key: string) {
-  console.log('key: ', key)
-
   const node = findNodeByKey(unref(options) as any[], key)
   if (node?.href || /^https?:\/\//.test(key)) {
     return
@@ -75,35 +70,53 @@ function handleUpdateValue(key: string) {
   active.value = key
   menuInstRef.value?.showOption(key)
 
-  if (unref(isLeftMain) && !isSideMenu.value && !isSideGroupMenu.value) {
+  if (unref(isLeftMain) && hasSiderLayout.value) {
     const { leafKey } = getKey(key)
-    router.push(leafKey)
+    if (leafKey.startsWith('/')) {
+      router.push(leafKey)
+    }
+    else {
+      router.push({ name: leafKey })
+    }
   }
 }
 
 const menuOptions = computed(() => {
-  if (unref(isSideMenu))
-    return unref(options)
+  const transformToGroups = (items: MenuOption[]): MenuOption[] => {
+    return items.map((item) => {
+      if (item.children && item.children.length > 0) {
+        return {
+          ...item,
+          type: 'group',
+          key: item.key,
+          label: item.label,
+          icon: item.icon,
+          children: transformToGroups(item.children)
+        } as MenuOption
+      }
+      return item
+    })
+  }
 
+  // 1. 获取基础菜单项
+  let baseOptions: MenuOption[] = []
+  if (unref(type) === 'side-menu' || unref(type) === 'side-group-menu' || unref(type) === 'side-mixed-menu') {
+    // 如果是左侧主菜单类布局（非混合顶部），使用完整选项
+    baseOptions = unref(options) || []
+  }
+  else {
+    // 否则（如 top-menu/2, top-group-menu/2 等），根据主次关系选择子菜单
+    baseOptions = unref(isLeftMain) ? unref(mainMenuOptions) : unref(subMenuOptions)
+  }
+
+  // 2. 根据布局类型进行转换
   if (unref(isSideGroupMenu)) {
-    const transformToGroups = (items: MenuOption[]): MenuOption[] => {
-      return items.map((item) => {
-        if (item.children && item.children.length > 0) {
-          return {
-            ...item,
-            type: 'group',
-            key: item.key,
-            label: item.label,
-            icon: item.icon,
-            children: transformToGroups(item.children)
-          } as MenuOption
-        }
-        return item
-      })
-    }
+    return transformToGroups(baseOptions)
+  }
 
-    return (unref(options) || []).map((item) => {
-      // 第一层不变
+  if (unref(isSideMixedMenu)) {
+    // 混合菜单：第一层保持原样（通常是图标），第二层开始转为 group
+    return baseOptions.map((item) => {
       if (item.children && item.children.length) {
         return {
           ...item,
@@ -114,7 +127,7 @@ const menuOptions = computed(() => {
     })
   }
 
-  return unref(isLeftMain) ? unref(mainMenuOptions) : unref(subMenuOptions)
+  return baseOptions
 })
 
 watch(active, (p) => {
@@ -130,7 +143,7 @@ const hasDefaultSlot = computed<boolean>(() => hasSlotContent(slots.default))
     class="transition-all duration-300 relative"
     position="absolute"
     collapse-mode="width"
-    :show-trigger="isLeftMixed ? 'bar' : 'bar'"
+    show-trigger="bar"
     :width="width"
     :collapsed-width="collapsedWidth"
     :bordered="bordered"
@@ -145,9 +158,7 @@ const hasDefaultSlot = computed<boolean>(() => hasSlotContent(slots.default))
       <AppLeftLogoInfo v-else />
     </div>
 
-    <AppMixedMenu v-if="isLeftMixed && !isCollapsed" />
     <n-menu
-      v-else
       ref="menuInstRef"
       :value="active"
       :options="menuOptions"
