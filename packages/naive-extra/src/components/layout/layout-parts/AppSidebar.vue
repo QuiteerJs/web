@@ -43,8 +43,9 @@ function getKey(key: string) {
 }
 
 watchEffect(() => {
-  if (unref(type) === 'side-menu') {
+  if (unref(type) === 'side-menu' || unref(type) === 'side-group-menu' || unref(type) === 'side-mixed-menu') {
     active.value = unref(activeKey)!
+    menuInstRef.value?.showOption(active.value)
   }
   else {
     if (unref(isLeftMain)) {
@@ -56,6 +57,7 @@ watchEffect(() => {
       const { leafKey } = getKey(unref(activeKey)!)
       active.value = leafKey
     }
+    menuInstRef.value?.showOption(active.value)
   }
 })
 

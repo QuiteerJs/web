@@ -93,7 +93,7 @@ export const SIDE_GROUP_LAYOUT_TYPES: LayoutType[] = ['side-group-menu', 'top-gr
 export const SIDE_MIXED_LAYOUT_TYPES: LayoutType[] = ['side-mixed-menu', 'top-mixed-menu/2']
 
 /** @description 顶部布局类型 */
-export const TOP_LAYOUT_TYPES: LayoutType[] = ['top-menu', 'top-menu/2', 'top-group-menu/2', 'top-mixed-menu/2']
+export const TOP_LAYOUT_TYPES: LayoutType[] = ['side-menu/2', 'top-menu', 'top-menu/2', 'top-group-menu/2', 'top-mixed-menu/2']
 
 /** @description 面包屑布局类型 */
 export const BREADCRUMB_LAYOUT_TYPES: LayoutType[] = ['side-menu', 'side-group-menu', 'side-mixed-menu']

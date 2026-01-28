@@ -191,6 +191,7 @@ declare module 'vue-router/auto-routes' {
       | '/test/layout/top-group-menu-2'
       | '/test/layout/top-menu'
       | '/test/layout/top-menu-2'
+      | '/test/layout/top-mixed-menu-2'
       | '/test/link'
       | '/test/page-1/'
       | '/test/page-1/[id]'
@@ -211,6 +212,7 @@ declare module 'vue-router/auto-routes' {
       | '/test/layout/top-group-menu-2'
       | '/test/layout/top-menu'
       | '/test/layout/top-menu-2'
+      | '/test/layout/top-mixed-menu-2'
     >,
     '/test/layout/blank': RouteRecordInfo<
       '/test/layout/blank',
@@ -264,6 +266,13 @@ declare module 'vue-router/auto-routes' {
     '/test/layout/top-menu-2': RouteRecordInfo<
       '/test/layout/top-menu-2',
       '/test/layout/top-menu-2',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/test/layout/top-mixed-menu-2': RouteRecordInfo<
+      '/test/layout/top-mixed-menu-2',
+      '/test/layout/top-mixed-menu-2',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -472,6 +481,7 @@ declare module 'vue-router/auto-routes' {
         | '/test/layout/top-group-menu-2'
         | '/test/layout/top-menu'
         | '/test/layout/top-menu-2'
+        | '/test/layout/top-mixed-menu-2'
         | '/test/link'
         | '/test/page-1/'
         | '/test/page-1/[id]'
@@ -493,6 +503,7 @@ declare module 'vue-router/auto-routes' {
         | '/test/layout/top-group-menu-2'
         | '/test/layout/top-menu'
         | '/test/layout/top-menu-2'
+        | '/test/layout/top-mixed-menu-2'
       views:
         | 'default'
     }
@@ -541,6 +552,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/test/layout/top-menu-2.page.vue': {
       routes:
         | '/test/layout/top-menu-2'
+      views:
+        | never
+    }
+    'src/pages/test/layout/top-mixed-menu-2.page.vue': {
+      routes:
+        | '/test/layout/top-mixed-menu-2'
       views:
         | never
     }
