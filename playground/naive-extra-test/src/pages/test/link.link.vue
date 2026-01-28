@@ -8,3 +8,7 @@ definePage({
   }
 })
 </script>
+
+<template>
+  <div />
+</template>
