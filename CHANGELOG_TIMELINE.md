@@ -1,6 +1,83 @@
 ## 变更日志
 
-### 2026-01-26 `✏️ 49+` `➕ 24+` `🗑️ 4+`
+### 2026-01-29 `✏️ 1+` `➕ 0+` `🗑️ 0+`
+- 🔧  **chore** `release`: v0.0.3
+  > **🕒  14:12** · `➕1` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`717f7b0`](https://github.com/QuiteerJs/web/commit/717f7b0238611f3e7aaa129ddc263bae3fa47724))
+  - ✏️ [`packages/utils/package.json`](https://github.com/QuiteerJs/web/blob/717f7b0238611f3e7aaa129ddc263bae3fa47724/packages/utils/package.json)
+
+### 2026-01-28 `✏️ 34+` `➕ 12+` `🗑️ 2+`
+- 🐛  **fix** `components`: 解决构建错误
+  > **🕒  20:18** · `➕4` / `➖0`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`5feb650`](https://github.com/QuiteerJs/web/commit/5feb65066a3b2eb68d416ef9867f7285a72516d1))
+  - ✏️ [`playground/naive-extra-test/src/pages/test/link.link.vue`](https://github.com/QuiteerJs/web/blob/5feb65066a3b2eb68d416ef9867f7285a72516d1/playground/naive-extra-test/src/pages/test/link.link.vue)
+- 🐛  **fix** `components`: 侧边栏高亮选中
+  > **🕒  20:05** · `➕43` / `➖2`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`2c9dff5`](https://github.com/QuiteerJs/web/commit/2c9dff5bb55a731d247c2dec4cd0fe193339ee96))
+  - ➕ [`playground/naive-extra-test/src/pages/test/layout/top-mixed-menu-2.page.vue`](https://github.com/QuiteerJs/web/blob/2c9dff5bb55a731d247c2dec4cd0fe193339ee96/playground/naive-extra-test/src/pages/test/layout/top-mixed-menu-2.page.vue)
+  - ✏️ [`packages/naive-extra/src/components/layout/const.ts`](https://github.com/QuiteerJs/web/blob/2c9dff5bb55a731d247c2dec4cd0fe193339ee96/packages/naive-extra/src/components/layout/const.ts)
+  - ✏️ [`packages/naive-extra/src/components/layout/layout-parts/AppSidebar.vue`](https://github.com/QuiteerJs/web/blob/2c9dff5bb55a731d247c2dec4cd0fe193339ee96/packages/naive-extra/src/components/layout/layout-parts/AppSidebar.vue)
+  - ✏️ [`playground/naive-extra-test/src/typings/pages.d.ts`](https://github.com/QuiteerJs/web/blob/2c9dff5bb55a731d247c2dec4cd0fe193339ee96/playground/naive-extra-test/src/typings/pages.d.ts)
+- ⚡  **perf** `components`: 布局组件与路由联动优化
+  > **🕒  19:50** · `➕100` / `➖307`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`f924e9b`](https://github.com/QuiteerJs/web/commit/f924e9bc6a60c540b40baf2fa854cd56d98d0693))
+  - ✏️ [`packages/naive-extra/src/components/layout/const.ts`](https://github.com/QuiteerJs/web/blob/f924e9bc6a60c540b40baf2fa854cd56d98d0693/packages/naive-extra/src/components/layout/const.ts)
+  - ✏️ [`packages/naive-extra/src/components/layout/context.ts`](https://github.com/QuiteerJs/web/blob/f924e9bc6a60c540b40baf2fa854cd56d98d0693/packages/naive-extra/src/components/layout/context.ts)
+  - ✏️ [`packages/naive-extra/src/components/layout/index.vue`](https://github.com/QuiteerJs/web/blob/f924e9bc6a60c540b40baf2fa854cd56d98d0693/packages/naive-extra/src/components/layout/index.vue)
+  - ✏️ [`packages/naive-extra/src/components/layout/layout-parts/AppHeader.vue`](https://github.com/QuiteerJs/web/blob/f924e9bc6a60c540b40baf2fa854cd56d98d0693/packages/naive-extra/src/components/layout/layout-parts/AppHeader.vue)
+  - ✏️ [`packages/naive-extra/src/components/layout/layout-parts/AppLeftLogoInfo.vue`](https://github.com/QuiteerJs/web/blob/f924e9bc6a60c540b40baf2fa854cd56d98d0693/packages/naive-extra/src/components/layout/layout-parts/AppLeftLogoInfo.vue)
+  - ✏️ [`packages/naive-extra/src/components/layout/layout-parts/AppSidebar.vue`](https://github.com/QuiteerJs/web/blob/f924e9bc6a60c540b40baf2fa854cd56d98d0693/packages/naive-extra/src/components/layout/layout-parts/AppSidebar.vue)
+  - ✏️ [`packages/naive-extra/src/components/layout/types.ts`](https://github.com/QuiteerJs/web/blob/f924e9bc6a60c540b40baf2fa854cd56d98d0693/packages/naive-extra/src/components/layout/types.ts)
+  - ✏️ [`packages/naive-extra/src/components/layout/utils.ts`](https://github.com/QuiteerJs/web/blob/f924e9bc6a60c540b40baf2fa854cd56d98d0693/packages/naive-extra/src/components/layout/utils.ts)
+  - ✏️ [`playground/naive-extra-test/src/pages/demo/custom-theme/table.page.vue`](https://github.com/QuiteerJs/web/blob/f924e9bc6a60c540b40baf2fa854cd56d98d0693/playground/naive-extra-test/src/pages/demo/custom-theme/table.page.vue)
+  - ✏️ [`playground/naive-extra-test/src/pages/manage.meta.vue`](https://github.com/QuiteerJs/web/blob/f924e9bc6a60c540b40baf2fa854cd56d98d0693/playground/naive-extra-test/src/pages/manage.meta.vue)
+  - ✏️ [`playground/naive-extra-test/src/pages/test/layout.page.vue`](https://github.com/QuiteerJs/web/blob/f924e9bc6a60c540b40baf2fa854cd56d98d0693/playground/naive-extra-test/src/pages/test/layout.page.vue)
+  - ✏️ [`playground/naive-extra-test/src/pages/test/layout/side-mixed-menu.page.vue`](https://github.com/QuiteerJs/web/blob/f924e9bc6a60c540b40baf2fa854cd56d98d0693/playground/naive-extra-test/src/pages/test/layout/side-mixed-menu.page.vue)
+  - ✏️ [`playground/naive-extra-test/src/pages/test/layout/side-mixed-menu-2.page.vue`](https://github.com/QuiteerJs/web/blob/f924e9bc6a60c540b40baf2fa854cd56d98d0693/playground/naive-extra-test/src/pages/test/layout/side-mixed-menu-2.page.vue)
+  - ✏️ [`playground/naive-extra-test/src/typings/pages.d.ts`](https://github.com/QuiteerJs/web/blob/f924e9bc6a60c540b40baf2fa854cd56d98d0693/playground/naive-extra-test/src/typings/pages.d.ts)
+  - 🗑️ [~~`packages/naive-extra/src/components/layout/layout-parts/AppMixedMenu.vue`~~](https://github.com/QuiteerJs/web/commit/f924e9bc6a60c540b40baf2fa854cd56d98d0693)
+  - 🗑️ [~~`playground/naive-extra-test/src/pages/test/layout/top-mixed-menu-2.page.vue`~~](https://github.com/QuiteerJs/web/commit/f924e9bc6a60c540b40baf2fa854cd56d98d0693)
+-  **wip** `components`: 路由组件
+  > **🕒  15:35** · `➕579` / `➖122`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`ef4a5cc`](https://github.com/QuiteerJs/web/commit/ef4a5cc6d09636063385af02c3e161bc6e6d31f9))
+  - ➕ [`playground/naive-extra-test/src/pages/test/layout.page.vue`](https://github.com/QuiteerJs/web/blob/ef4a5cc6d09636063385af02c3e161bc6e6d31f9/playground/naive-extra-test/src/pages/test/layout.page.vue)
+  - ➕ [`playground/naive-extra-test/src/pages/test/layout/blank.page.vue`](https://github.com/QuiteerJs/web/blob/ef4a5cc6d09636063385af02c3e161bc6e6d31f9/playground/naive-extra-test/src/pages/test/layout/blank.page.vue)
+  - ➕ [`playground/naive-extra-test/src/pages/test/layout/side-group-menu.page.vue`](https://github.com/QuiteerJs/web/blob/ef4a5cc6d09636063385af02c3e161bc6e6d31f9/playground/naive-extra-test/src/pages/test/layout/side-group-menu.page.vue)
+  - ➕ [`playground/naive-extra-test/src/pages/test/layout/side-menu-2.page.vue`](https://github.com/QuiteerJs/web/blob/ef4a5cc6d09636063385af02c3e161bc6e6d31f9/playground/naive-extra-test/src/pages/test/layout/side-menu-2.page.vue)
+  - ➕ [`playground/naive-extra-test/src/pages/test/layout/side-menu.page.vue`](https://github.com/QuiteerJs/web/blob/ef4a5cc6d09636063385af02c3e161bc6e6d31f9/playground/naive-extra-test/src/pages/test/layout/side-menu.page.vue)
+  - ➕ [`playground/naive-extra-test/src/pages/test/layout/side-mixed-menu-2.page.vue`](https://github.com/QuiteerJs/web/blob/ef4a5cc6d09636063385af02c3e161bc6e6d31f9/playground/naive-extra-test/src/pages/test/layout/side-mixed-menu-2.page.vue)
+  - ➕ [`playground/naive-extra-test/src/pages/test/layout/side-mixed-menu.page.vue`](https://github.com/QuiteerJs/web/blob/ef4a5cc6d09636063385af02c3e161bc6e6d31f9/playground/naive-extra-test/src/pages/test/layout/side-mixed-menu.page.vue)
+  - ➕ [`playground/naive-extra-test/src/pages/test/layout/top-menu-2.page.vue`](https://github.com/QuiteerJs/web/blob/ef4a5cc6d09636063385af02c3e161bc6e6d31f9/playground/naive-extra-test/src/pages/test/layout/top-menu-2.page.vue)
+  - ➕ [`playground/naive-extra-test/src/pages/test/layout/top-menu.page.vue`](https://github.com/QuiteerJs/web/blob/ef4a5cc6d09636063385af02c3e161bc6e6d31f9/playground/naive-extra-test/src/pages/test/layout/top-menu.page.vue)
+  - ➕ [`playground/naive-extra-test/src/pages/test/layout/top-mixed-menu-2.page.vue`](https://github.com/QuiteerJs/web/blob/ef4a5cc6d09636063385af02c3e161bc6e6d31f9/playground/naive-extra-test/src/pages/test/layout/top-mixed-menu-2.page.vue)
+  - ➕ [`playground/naive-extra-test/src/pages/test/link.link.vue`](https://github.com/QuiteerJs/web/blob/ef4a5cc6d09636063385af02c3e161bc6e6d31f9/playground/naive-extra-test/src/pages/test/link.link.vue)
+  - ✏️ [`packages/naive-extra/src/components/layout/const.ts`](https://github.com/QuiteerJs/web/blob/ef4a5cc6d09636063385af02c3e161bc6e6d31f9/packages/naive-extra/src/components/layout/const.ts)
+  - ✏️ [`packages/naive-extra/src/components/layout/context.ts`](https://github.com/QuiteerJs/web/blob/ef4a5cc6d09636063385af02c3e161bc6e6d31f9/packages/naive-extra/src/components/layout/context.ts)
+  - ✏️ [`packages/naive-extra/src/components/layout/index.vue`](https://github.com/QuiteerJs/web/blob/ef4a5cc6d09636063385af02c3e161bc6e6d31f9/packages/naive-extra/src/components/layout/index.vue)
+  - ✏️ [`packages/naive-extra/src/components/layout/layout-parts/AppHeader.vue`](https://github.com/QuiteerJs/web/blob/ef4a5cc6d09636063385af02c3e161bc6e6d31f9/packages/naive-extra/src/components/layout/layout-parts/AppHeader.vue)
+  - ✏️ [`packages/naive-extra/src/components/layout/layout-parts/AppMixedMenu.vue`](https://github.com/QuiteerJs/web/blob/ef4a5cc6d09636063385af02c3e161bc6e6d31f9/packages/naive-extra/src/components/layout/layout-parts/AppMixedMenu.vue)
+  - ✏️ [`packages/naive-extra/src/components/layout/layout-parts/AppSidebar.vue`](https://github.com/QuiteerJs/web/blob/ef4a5cc6d09636063385af02c3e161bc6e6d31f9/packages/naive-extra/src/components/layout/layout-parts/AppSidebar.vue)
+  - ✏️ [`packages/naive-extra/src/components/layout/types.ts`](https://github.com/QuiteerJs/web/blob/ef4a5cc6d09636063385af02c3e161bc6e6d31f9/packages/naive-extra/src/components/layout/types.ts)
+  - ✏️ [`packages/naive-extra/src/components/layout/utils.ts`](https://github.com/QuiteerJs/web/blob/ef4a5cc6d09636063385af02c3e161bc6e6d31f9/packages/naive-extra/src/components/layout/utils.ts)
+  - ✏️ [`packages/naive-extra/src/hooks/useLayout.ts`](https://github.com/QuiteerJs/web/blob/ef4a5cc6d09636063385af02c3e161bc6e6d31f9/packages/naive-extra/src/hooks/useLayout.ts)
+  - ✏️ [`playground/naive-extra-test/src/constants/route-to-menu.ts`](https://github.com/QuiteerJs/web/blob/ef4a5cc6d09636063385af02c3e161bc6e6d31f9/playground/naive-extra-test/src/constants/route-to-menu.ts)
+  - ✏️ [`playground/naive-extra-test/src/layout/index.vue`](https://github.com/QuiteerJs/web/blob/ef4a5cc6d09636063385af02c3e161bc6e6d31f9/playground/naive-extra-test/src/layout/index.vue)
+  - ✏️ [`playground/naive-extra-test/src/pages/test/page-1/index.page.vue`](https://github.com/QuiteerJs/web/blob/ef4a5cc6d09636063385af02c3e161bc6e6d31f9/playground/naive-extra-test/src/pages/test/page-1/index.page.vue)
+  - ✏️ [`playground/naive-extra-test/src/stores/layout.ts`](https://github.com/QuiteerJs/web/blob/ef4a5cc6d09636063385af02c3e161bc6e6d31f9/playground/naive-extra-test/src/stores/layout.ts)
+  - ✏️ [`playground/naive-extra-test/src/typings/pages.d.ts`](https://github.com/QuiteerJs/web/blob/ef4a5cc6d09636063385af02c3e161bc6e6d31f9/playground/naive-extra-test/src/typings/pages.d.ts)
+  - ✏️ [`playground/naive-extra-test/src/typings/router.d.ts`](https://github.com/QuiteerJs/web/blob/ef4a5cc6d09636063385af02c3e161bc6e6d31f9/playground/naive-extra-test/src/typings/router.d.ts)
+  - ✏️ [`playground/naive-extra-test/vite.config.ts`](https://github.com/QuiteerJs/web/blob/ef4a5cc6d09636063385af02c3e161bc6e6d31f9/playground/naive-extra-test/vite.config.ts)
+
+### 2026-01-26 `✏️ 55+` `➕ 24+` `🗑️ 4+`
+- ⚡  **perf** `release`: 减少控制台输出的日志
+  > **🕒  20:28** · `➕70` / `➖10`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`c7cc6f4`](https://github.com/QuiteerJs/web/commit/c7cc6f429d3bca63a0410fc346301f4570f6c99d))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/c7cc6f429d3bca63a0410fc346301f4570f6c99d/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/c7cc6f429d3bca63a0410fc346301f4570f6c99d/CHANGELOG_TIMELINE.md)
+  - ✏️ [`packages/vite-plugins/src/env-config.ts`](https://github.com/QuiteerJs/web/blob/c7cc6f429d3bca63a0410fc346301f4570f6c99d/packages/vite-plugins/src/env-config.ts)
+  - ✏️ [`packages/vite-plugins/src/env-types.ts`](https://github.com/QuiteerJs/web/blob/c7cc6f429d3bca63a0410fc346301f4570f6c99d/packages/vite-plugins/src/env-types.ts)
+  - ✏️ [`playground/vite-plugins-test/src/main.ts`](https://github.com/QuiteerJs/web/blob/c7cc6f429d3bca63a0410fc346301f4570f6c99d/playground/vite-plugins-test/src/main.ts)
+  - ✏️ [`pnpm-lock.yaml`](https://github.com/QuiteerJs/web/blob/c7cc6f429d3bca63a0410fc346301f4570f6c99d/pnpm-lock.yaml)
 - 🔧  **chore** `release`: v0.1.4
   > **🕒  20:28** · `➕5` / `➖2`
   > `👤 Quiteer`  <p602985@yeah.net> ([`ee88093`](https://github.com/QuiteerJs/web/commit/ee8809393e43b8df4218879471d5eb740d3a124c))
