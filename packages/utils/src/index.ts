@@ -1,5 +1,6 @@
 export * from './array'
 export * from './classes'
+export * from './filename'
 export * from './function'
 export * from './number'
 export * from './object'

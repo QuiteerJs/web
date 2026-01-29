@@ -1,6 +1,15 @@
 ## 变更日志
 
-### 2026-01-29 `✏️ 1+` `➕ 0+` `🗑️ 0+`
+### 2026-01-29 `✏️ 4+` `➕ 0+` `🗑️ 0+`
+- 🔧  **chore** `release`: v0.0.4
+  > **🕒  16:01** · `➕1` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`aeb19df`](https://github.com/QuiteerJs/web/commit/aeb19df51ec137d0e8bd96805d34be6e892c0798))
+  - ✏️ [`packages/utils/package.json`](https://github.com/QuiteerJs/web/blob/aeb19df51ec137d0e8bd96805d34be6e892c0798/packages/utils/package.json)
+- ✨  **feat** `release`: 新增方法
+  > **🕒  14:13** · `➕169` / `➖9`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`33283a5`](https://github.com/QuiteerJs/web/commit/33283a51a44000f2212d23fa8eee74c8af119f30))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/33283a51a44000f2212d23fa8eee74c8af119f30/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/33283a51a44000f2212d23fa8eee74c8af119f30/CHANGELOG_TIMELINE.md)
 - 🔧  **chore** `release`: v0.0.3
   > **🕒  14:12** · `➕1` / `➖1`
   > `👤 Quiteer`  <p602985@yeah.net> ([`717f7b0`](https://github.com/QuiteerJs/web/commit/717f7b0238611f3e7aaa129ddc263bae3fa47724))
