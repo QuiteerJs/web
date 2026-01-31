@@ -3,6 +3,7 @@
 ## 基本用法
 
 <script setup lang="ts">
+import Demo from './components/Demo.vue'
 import FormDemo from './components/FormDemo.vue'
 </script>
 

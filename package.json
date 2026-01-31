@@ -15,7 +15,7 @@
     "scripts:build": "turbo run build --filter @quiteer/scripts",
     "docs:dev": "vitepress dev docs --port 8888",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview",
+    "docs:preview": "vitepress preview docs",
     "test": "vitest run",
     "test:dev": "vitest",
     "test:ui": "vitest --ui",
