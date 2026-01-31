@@ -1,6 +1,46 @@
 ## 变更日志
 
-### 2026-01-29 `✏️ 4+` `➕ 0+` `🗑️ 0+`
+### 2026-01-31 `✏️ 11+` `➕ 6+` `🗑️ 1+`
+- 🔧  **chore** `release`: v0.0.1
+  > **🕒  23:29** · `➕1` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`e6b4b6d`](https://github.com/QuiteerJs/web/commit/e6b4b6d81f16eb8bf883b4fd21d46a6ca4cb1c68))
+  - ✏️ [`packages/naive-extra/package.json`](https://github.com/QuiteerJs/web/blob/e6b4b6d81f16eb8bf883b4fd21d46a6ca4cb1c68/packages/naive-extra/package.json)
+- 🐛  **fix** `components`: 文档组件预览
+  > **🕒  22:47** · `➕3` / `➖2`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`090a6be`](https://github.com/QuiteerJs/web/commit/090a6be232f3f8c1d944fd998cc1a8219e17915c))
+  - ✏️ [`docs/plugins/naive-extra/QuiForm.md`](https://github.com/QuiteerJs/web/blob/090a6be232f3f8c1d944fd998cc1a8219e17915c/docs/plugins/naive-extra/QuiForm.md)
+  - ✏️ [`docs/plugins/naive-extra/components/Demo.vue`](https://github.com/QuiteerJs/web/blob/090a6be232f3f8c1d944fd998cc1a8219e17915c/docs/plugins/naive-extra/components/Demo.vue)
+  - ✏️ [`package.json`](https://github.com/QuiteerJs/web/blob/090a6be232f3f8c1d944fd998cc1a8219e17915c/package.json)
+  - ✏️ [`packages/naive-extra/src/components/upload/index.vue`](https://github.com/QuiteerJs/web/blob/090a6be232f3f8c1d944fd998cc1a8219e17915c/packages/naive-extra/src/components/upload/index.vue)
+- ✨  **feat** `components`: form表单示例
+  > **🕒  22:32** · `➕928` / `➖376`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`b3a9021`](https://github.com/QuiteerJs/web/commit/b3a902183c0e01877cf11c36930bd8449f80a7d3))
+  - ➕ [`playground/naive-extra-test/src/pages/demo/form.meta.vue`](https://github.com/QuiteerJs/web/blob/b3a902183c0e01877cf11c36930bd8449f80a7d3/playground/naive-extra-test/src/pages/demo/form.meta.vue)
+  - ➕ [`playground/naive-extra-test/src/pages/demo/form/basic.page.vue`](https://github.com/QuiteerJs/web/blob/b3a902183c0e01877cf11c36930bd8449f80a7d3/playground/naive-extra-test/src/pages/demo/form/basic.page.vue)
+  - ➕ [`playground/naive-extra-test/src/pages/demo/form/form-layout.page.vue`](https://github.com/QuiteerJs/web/blob/b3a902183c0e01877cf11c36930bd8449f80a7d3/playground/naive-extra-test/src/pages/demo/form/form-layout.page.vue)
+  - ➕ [`playground/naive-extra-test/src/pages/demo/form/modules/useBasicForm.ts`](https://github.com/QuiteerJs/web/blob/b3a902183c0e01877cf11c36930bd8449f80a7d3/playground/naive-extra-test/src/pages/demo/form/modules/useBasicForm.ts)
+  - ➕ [`playground/naive-extra-test/src/pages/demo/form/slot.page.vue`](https://github.com/QuiteerJs/web/blob/b3a902183c0e01877cf11c36930bd8449f80a7d3/playground/naive-extra-test/src/pages/demo/form/slot.page.vue)
+  - ➕ [`playground/naive-extra-test/src/pages/demo/form/validate.page.vue`](https://github.com/QuiteerJs/web/blob/b3a902183c0e01877cf11c36930bd8449f80a7d3/playground/naive-extra-test/src/pages/demo/form/validate.page.vue)
+  - ✏️ [`docs/plugins/naive-extra/QuiForm.md`](https://github.com/QuiteerJs/web/blob/b3a902183c0e01877cf11c36930bd8449f80a7d3/docs/plugins/naive-extra/QuiForm.md)
+  - ✏️ [`packages/naive-extra/src/components/form/index.vue`](https://github.com/QuiteerJs/web/blob/b3a902183c0e01877cf11c36930bd8449f80a7d3/packages/naive-extra/src/components/form/index.vue)
+  - ✏️ [`playground/naive-extra-test/src/pages/doc.md`](https://github.com/QuiteerJs/web/blob/b3a902183c0e01877cf11c36930bd8449f80a7d3/playground/naive-extra-test/src/pages/doc.md)
+  - ✏️ [`playground/naive-extra-test/src/typings/pages.d.ts`](https://github.com/QuiteerJs/web/blob/b3a902183c0e01877cf11c36930bd8449f80a7d3/playground/naive-extra-test/src/typings/pages.d.ts)
+  - 🗑️ [~~`playground/naive-extra-test/src/pages/demo/form.page.vue`~~](https://github.com/QuiteerJs/web/commit/b3a902183c0e01877cf11c36930bd8449f80a7d3)
+- 🐛  **fix** `components`: 修复侧边栏折叠的bug
+  > **🕒  13:49** · `➕57` / `➖59`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`639a7cf`](https://github.com/QuiteerJs/web/commit/639a7cf88753cfa98b4234fe69267f4c57b59b7e))
+  - ✏️ [`packages/naive-extra/src/components/layout/layout-parts/AppHeader.vue`](https://github.com/QuiteerJs/web/blob/639a7cf88753cfa98b4234fe69267f4c57b59b7e/packages/naive-extra/src/components/layout/layout-parts/AppHeader.vue)
+  - ✏️ [`packages/naive-extra/src/components/layout/layout-parts/AppSidebar.vue`](https://github.com/QuiteerJs/web/blob/639a7cf88753cfa98b4234fe69267f4c57b59b7e/packages/naive-extra/src/components/layout/layout-parts/AppSidebar.vue)
+
+### 2026-01-29 `✏️ 7+` `➕ 2+` `🗑️ 0+`
+- ✨  **feat** `release`: 新增filename模块
+  > **🕒  16:02** · `➕2059` / `➖1913`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`3b2c820`](https://github.com/QuiteerJs/web/commit/3b2c820ae183633da651f3a03709cd773ebcfedf))
+  - ➕ [`packages/utils/src/filename.spec.ts`](https://github.com/QuiteerJs/web/blob/3b2c820ae183633da651f3a03709cd773ebcfedf/packages/utils/src/filename.spec.ts)
+  - ➕ [`packages/utils/src/filename.ts`](https://github.com/QuiteerJs/web/blob/3b2c820ae183633da651f3a03709cd773ebcfedf/packages/utils/src/filename.ts)
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/3b2c820ae183633da651f3a03709cd773ebcfedf/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/3b2c820ae183633da651f3a03709cd773ebcfedf/CHANGELOG_TIMELINE.md)
+  - ✏️ [`packages/utils/src/index.ts`](https://github.com/QuiteerJs/web/blob/3b2c820ae183633da651f3a03709cd773ebcfedf/packages/utils/src/index.ts)
 - 🔧  **chore** `release`: v0.0.4
   > **🕒  16:01** · `➕1` / `➖1`
   > `👤 Quiteer`  <p602985@yeah.net> ([`aeb19df`](https://github.com/QuiteerJs/web/commit/aeb19df51ec137d0e8bd96805d34be6e892c0798))

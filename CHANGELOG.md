@@ -1,6 +1,12 @@
 ## 变更日志
 
 ### 其他
+#### 2026-01-31 `✏️ 1+` `➕ 0+` `🗑️ 0+`
+- 🔧  **chore** `release`: v0.0.1
+  > **🕒  23:29** · `➕1` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`e6b4b6d`](https://github.com/QuiteerJs/web/commit/e6b4b6d81f16eb8bf883b4fd21d46a6ca4cb1c68))
+  - ✏️ [`packages/naive-extra/package.json`](https://github.com/QuiteerJs/web/blob/e6b4b6d81f16eb8bf883b4fd21d46a6ca4cb1c68/packages/naive-extra/package.json)
+
 #### 2026-01-29 `✏️ 2+` `➕ 0+` `🗑️ 0+`
 - 🔧  **chore** `release`: v0.0.4
   > **🕒  16:01** · `➕1` / `➖1`
@@ -720,8 +726,382 @@
   - ✏️ [`pnpm-lock.yaml`](https://github.com/QuiteerJs/web/blob/3a9e13397fe92cc5856e727ecae4b7dab09ee818/pnpm-lock.yaml)
   - ✏️ [`pnpm-workspace.yaml`](https://github.com/QuiteerJs/web/blob/3a9e13397fe92cc5856e727ecae4b7dab09ee818/pnpm-workspace.yaml)
 
+### 修复
+#### 2026-01-31 `✏️ 6+` `➕ 0+` `🗑️ 0+`
+- 🐛  **fix** `components`: 文档组件预览
+  > **🕒  22:47** · `➕3` / `➖2`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`090a6be`](https://github.com/QuiteerJs/web/commit/090a6be232f3f8c1d944fd998cc1a8219e17915c))
+  - ✏️ [`docs/plugins/naive-extra/QuiForm.md`](https://github.com/QuiteerJs/web/blob/090a6be232f3f8c1d944fd998cc1a8219e17915c/docs/plugins/naive-extra/QuiForm.md)
+  - ✏️ [`docs/plugins/naive-extra/components/Demo.vue`](https://github.com/QuiteerJs/web/blob/090a6be232f3f8c1d944fd998cc1a8219e17915c/docs/plugins/naive-extra/components/Demo.vue)
+  - ✏️ [`package.json`](https://github.com/QuiteerJs/web/blob/090a6be232f3f8c1d944fd998cc1a8219e17915c/package.json)
+  - ✏️ [`packages/naive-extra/src/components/upload/index.vue`](https://github.com/QuiteerJs/web/blob/090a6be232f3f8c1d944fd998cc1a8219e17915c/packages/naive-extra/src/components/upload/index.vue)
+- 🐛  **fix** `components`: 修复侧边栏折叠的bug
+  > **🕒  13:49** · `➕57` / `➖59`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`639a7cf`](https://github.com/QuiteerJs/web/commit/639a7cf88753cfa98b4234fe69267f4c57b59b7e))
+  - ✏️ [`packages/naive-extra/src/components/layout/layout-parts/AppHeader.vue`](https://github.com/QuiteerJs/web/blob/639a7cf88753cfa98b4234fe69267f4c57b59b7e/packages/naive-extra/src/components/layout/layout-parts/AppHeader.vue)
+  - ✏️ [`packages/naive-extra/src/components/layout/layout-parts/AppSidebar.vue`](https://github.com/QuiteerJs/web/blob/639a7cf88753cfa98b4234fe69267f4c57b59b7e/packages/naive-extra/src/components/layout/layout-parts/AppSidebar.vue)
+
+#### 2026-01-28 `✏️ 4+` `➕ 1+` `🗑️ 0+`
+- 🐛  **fix** `components`: 解决构建错误
+  > **🕒  20:18** · `➕4` / `➖0`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`5feb650`](https://github.com/QuiteerJs/web/commit/5feb65066a3b2eb68d416ef9867f7285a72516d1))
+  - ✏️ [`playground/naive-extra-test/src/pages/test/link.link.vue`](https://github.com/QuiteerJs/web/blob/5feb65066a3b2eb68d416ef9867f7285a72516d1/playground/naive-extra-test/src/pages/test/link.link.vue)
+- 🐛  **fix** `components`: 侧边栏高亮选中
+  > **🕒  20:05** · `➕43` / `➖2`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`2c9dff5`](https://github.com/QuiteerJs/web/commit/2c9dff5bb55a731d247c2dec4cd0fe193339ee96))
+  - ➕ [`playground/naive-extra-test/src/pages/test/layout/top-mixed-menu-2.page.vue`](https://github.com/QuiteerJs/web/blob/2c9dff5bb55a731d247c2dec4cd0fe193339ee96/playground/naive-extra-test/src/pages/test/layout/top-mixed-menu-2.page.vue)
+  - ✏️ [`packages/naive-extra/src/components/layout/const.ts`](https://github.com/QuiteerJs/web/blob/2c9dff5bb55a731d247c2dec4cd0fe193339ee96/packages/naive-extra/src/components/layout/const.ts)
+  - ✏️ [`packages/naive-extra/src/components/layout/layout-parts/AppSidebar.vue`](https://github.com/QuiteerJs/web/blob/2c9dff5bb55a731d247c2dec4cd0fe193339ee96/packages/naive-extra/src/components/layout/layout-parts/AppSidebar.vue)
+  - ✏️ [`playground/naive-extra-test/src/typings/pages.d.ts`](https://github.com/QuiteerJs/web/blob/2c9dff5bb55a731d247c2dec4cd0fe193339ee96/playground/naive-extra-test/src/typings/pages.d.ts)
+
+#### 2026-01-26 `✏️ 3+` `➕ 0+` `🗑️ 0+`
+- 🐛  **fix** `release`: 修复因为vue插件更新后类型提示丢失的bug
+  > **🕒  20:14** · `➕2133` / `➖1939`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`acabf06`](https://github.com/QuiteerJs/web/commit/acabf06009ffef030371285f153f14f205cc32e2))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/acabf06009ffef030371285f153f14f205cc32e2/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/acabf06009ffef030371285f153f14f205cc32e2/CHANGELOG_TIMELINE.md)
+- 🐛  **fix** `packages`: 指令插件类型提示丢失的bug
+  > **🕒  20:10** · `➕10` / `➖10`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`448328d`](https://github.com/QuiteerJs/web/commit/448328d3dfc054a8e160be5dbec6934b69cdcf0d))
+  - ✏️ [`packages/directives/index.ts`](https://github.com/QuiteerJs/web/blob/448328d3dfc054a8e160be5dbec6934b69cdcf0d/packages/directives/index.ts)
+
+#### 2026-01-08 `✏️ 15+` `➕ 0+` `🗑️ 0+`
+- 🐛  **fix** `packages`: commit 交互文字修改
+  > **🕒  19:35** · `➕1002` / `➖961`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`efb1645`](https://github.com/QuiteerJs/web/commit/efb1645a717e1ae5b467d1e7038db09ef1b1ae7a))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/efb1645a717e1ae5b467d1e7038db09ef1b1ae7a/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/efb1645a717e1ae5b467d1e7038db09ef1b1ae7a/CHANGELOG_TIMELINE.md)
+  - ✏️ [`docs/cli/scripts.md`](https://github.com/QuiteerJs/web/blob/efb1645a717e1ae5b467d1e7038db09ef1b1ae7a/docs/cli/scripts.md)
+  - ✏️ [`scripts/src/index.ts`](https://github.com/QuiteerJs/web/blob/efb1645a717e1ae5b467d1e7038db09ef1b1ae7a/scripts/src/index.ts)
+- 🐛  **fix** `packages`: 取版本号的方法
+  > **🕒  11:13** · `➕27` / `➖7`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`140a119`](https://github.com/QuiteerJs/web/commit/140a119afabff16254831eb7a67f607ea3911d9f))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/140a119afabff16254831eb7a67f607ea3911d9f/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/140a119afabff16254831eb7a67f607ea3911d9f/CHANGELOG_TIMELINE.md)
+  - ✏️ [`scripts/src/customize/git-commit.ts`](https://github.com/QuiteerJs/web/blob/140a119afabff16254831eb7a67f607ea3911d9f/scripts/src/customize/git-commit.ts)
+- 🐛  **fix** `packages`: 修改自更新的包管理器使用
+  > **🕒  11:07** · `➕29` / `➖9`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`2287522`](https://github.com/QuiteerJs/web/commit/228752274877db053bb23fe4181c1399e4be7715))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/228752274877db053bb23fe4181c1399e4be7715/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/228752274877db053bb23fe4181c1399e4be7715/CHANGELOG_TIMELINE.md)
+  - ✏️ [`scripts/src/commands/self-update.ts`](https://github.com/QuiteerJs/web/blob/228752274877db053bb23fe4181c1399e4be7715/scripts/src/commands/self-update.ts)
+- 🐛  **fix** `packages`: 修复 qui su 命令无法更新的 bug
+  > **🕒  10:58** · `➕1558` / `➖1517`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`f4f339c`](https://github.com/QuiteerJs/web/commit/f4f339ca48b3393ab6631eb0b39cc29c5d9ab885))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/f4f339ca48b3393ab6631eb0b39cc29c5d9ab885/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/f4f339ca48b3393ab6631eb0b39cc29c5d9ab885/CHANGELOG_TIMELINE.md)
+  - ✏️ [`scripts/src/commands/self-update.ts`](https://github.com/QuiteerJs/web/blob/f4f339ca48b3393ab6631eb0b39cc29c5d9ab885/scripts/src/commands/self-update.ts)
+- 🐛  **fix** `packages`: 更新命令行
+  > **🕒  10:49** · `➕34` / `➖2`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`f04b67a`](https://github.com/QuiteerJs/web/commit/f04b67a3aa4bd48697f8a155927d5d69e6741583))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/f04b67a3aa4bd48697f8a155927d5d69e6741583/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/f04b67a3aa4bd48697f8a155927d5d69e6741583/CHANGELOG_TIMELINE.md)
+
+#### 2026-01-06 `✏️ 16+` `➕ 0+` `🗑️ 0+`
+- 🐛  **fix** `packages`: unocss与 naive 联动时效的 bug
+  > **🕒  17:52** · `➕14` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`4ad721f`](https://github.com/QuiteerJs/web/commit/4ad721fdfc41c09b9fd290b7c95fcfb5cb4dc890))
+  - ✏️ [`packages/naive-extra/src/components/provider/useColorScheme.ts`](https://github.com/QuiteerJs/web/blob/4ad721fdfc41c09b9fd290b7c95fcfb5cb4dc890/packages/naive-extra/src/components/provider/useColorScheme.ts)
+- 🐛  **fix** `projects`: 解决构建问题
+  > **🕒  17:40** · `➕359` / `➖35`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`0fbaf4a`](https://github.com/QuiteerJs/web/commit/0fbaf4a7b83fa7c482190a6b24fb91fabd182f3e))
+  - ✏️ [`package.json`](https://github.com/QuiteerJs/web/blob/0fbaf4a7b83fa7c482190a6b24fb91fabd182f3e/package.json)
+  - ✏️ [`packages/color/package.json`](https://github.com/QuiteerJs/web/blob/0fbaf4a7b83fa7c482190a6b24fb91fabd182f3e/packages/color/package.json)
+  - ✏️ [`pnpm-lock.yaml`](https://github.com/QuiteerJs/web/blob/0fbaf4a7b83fa7c482190a6b24fb91fabd182f3e/pnpm-lock.yaml)
+- 🐛  **fix** `components`: 文件重命名和路径引用问题
+  > **🕒  17:29** · `➕9` / `➖9`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`5b783fc`](https://github.com/QuiteerJs/web/commit/5b783fc43000417933108b6c6a3d645a49204d36))
+  - ✏️ [`docs/plugins/unocss/index.md`](https://github.com/QuiteerJs/web/blob/5b783fc43000417933108b6c6a3d645a49204d36/docs/plugins/unocss/index.md)
+  - ✏️ [`packages/unocss/src/cli.ts`](https://github.com/QuiteerJs/web/blob/5b783fc43000417933108b6c6a3d645a49204d36/packages/unocss/src/cli.ts)
+  - ✏️ [`packages/unocss/src/index.ts`](https://github.com/QuiteerJs/web/blob/5b783fc43000417933108b6c6a3d645a49204d36/packages/unocss/src/index.ts)
+  - ✏️ [`packages/unocss/src/perset/default/index.ts`](https://github.com/QuiteerJs/web/blob/5b783fc43000417933108b6c6a3d645a49204d36/packages/unocss/src/perset/default/index.ts)
+  - ✏️ [`packages/unocss/src/perset/default/rule.ts`](https://github.com/QuiteerJs/web/blob/5b783fc43000417933108b6c6a3d645a49204d36/packages/unocss/src/perset/default/rule.ts)
+  - ✏️ [`packages/unocss/src/perset/default/shortcuts.ts`](https://github.com/QuiteerJs/web/blob/5b783fc43000417933108b6c6a3d645a49204d36/packages/unocss/src/perset/default/shortcuts.ts)
+  - ✏️ [`packages/unocss/src/perset/default/theme.ts`](https://github.com/QuiteerJs/web/blob/5b783fc43000417933108b6c6a3d645a49204d36/packages/unocss/src/perset/default/theme.ts)
+  - ✏️ [`packages/unocss/src/perset/naive-ui/index.ts`](https://github.com/QuiteerJs/web/blob/5b783fc43000417933108b6c6a3d645a49204d36/packages/unocss/src/perset/naive-ui/index.ts)
+  - ✏️ [`packages/unocss/src/perset/naive-ui/theme.ts`](https://github.com/QuiteerJs/web/blob/5b783fc43000417933108b6c6a3d645a49204d36/packages/unocss/src/perset/naive-ui/theme.ts)
+  - ✏️ [`packages/unocss/src/perset/naive-ui/vars.ts`](https://github.com/QuiteerJs/web/blob/5b783fc43000417933108b6c6a3d645a49204d36/packages/unocss/src/perset/naive-ui/vars.ts)
+  - ✏️ [`packages/unocss/src/provide/naive-ui.ts`](https://github.com/QuiteerJs/web/blob/5b783fc43000417933108b6c6a3d645a49204d36/packages/unocss/src/provide/naive-ui.ts)
+  - ✏️ [`packages/unocss/src/uno.config.ts`](https://github.com/QuiteerJs/web/blob/5b783fc43000417933108b6c6a3d645a49204d36/packages/unocss/src/uno.config.ts)
+
+#### 2025-12-29 `✏️ 2+` `➕ 0+` `🗑️ 0+`
+- 🐛  **fix** `projects`: 配置调整解决打包报错
+  > **🕒  16:23** · `➕6` / `➖2`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`fa53808`](https://github.com/QuiteerJs/web/commit/fa53808cb1fd4eb2e96dd4ea9450a7657f640c2b))
+  - ✏️ [`docs/.vitepress/config.ts`](https://github.com/QuiteerJs/web/blob/fa53808cb1fd4eb2e96dd4ea9450a7657f640c2b/docs/.vitepress/config.ts)
+  - ✏️ [`playground/naive-extra-test/package.json`](https://github.com/QuiteerJs/web/blob/fa53808cb1fd4eb2e96dd4ea9450a7657f640c2b/playground/naive-extra-test/package.json)
+
+#### 2025-12-26 `✏️ 1+` `➕ 0+` `🗑️ 0+`
+- 🐛  **fix** `types`: 类型调整
+  > **🕒  20:24** · `➕6` / `➖5`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`cda845a`](https://github.com/QuiteerJs/web/commit/cda845a136abeb34983c0b0bf552c8eb20cd053f))
+  - ✏️ [`packages/naive-extra/src/layout/context.ts`](https://github.com/QuiteerJs/web/blob/cda845a136abeb34983c0b0bf552c8eb20cd053f/packages/naive-extra/src/layout/context.ts)
+
+#### 2025-12-18 `✏️ 24+` `➕ 16+` `🗑️ 0+`
+- 🐛  **fix** `deps`: 依赖更新
+  > **🕒  18:48** · `➕35` / `➖3`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`02f3fc8`](https://github.com/QuiteerJs/web/commit/02f3fc88dc640fc908f9645328bfb0d7d43ec769))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/02f3fc88dc640fc908f9645328bfb0d7d43ec769/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/02f3fc88dc640fc908f9645328bfb0d7d43ec769/CHANGELOG_TIMELINE.md)
+- 🐛  **fix** `release`: 修改导出
+  > **🕒  18:46** · `➕27` / `➖70`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`656a721`](https://github.com/QuiteerJs/web/commit/656a7211f997d226af3f181e7feebef6495c178b))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/656a7211f997d226af3f181e7feebef6495c178b/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/656a7211f997d226af3f181e7feebef6495c178b/CHANGELOG_TIMELINE.md)
+  - ✏️ [`docs/plugins/unocss/index.md`](https://github.com/QuiteerJs/web/blob/656a7211f997d226af3f181e7feebef6495c178b/docs/plugins/unocss/index.md)
+  - ✏️ [`package.json`](https://github.com/QuiteerJs/web/blob/656a7211f997d226af3f181e7feebef6495c178b/package.json)
+  - ✏️ [`packages/unocss/src/index.ts`](https://github.com/QuiteerJs/web/blob/656a7211f997d226af3f181e7feebef6495c178b/packages/unocss/src/index.ts)
+  - ✏️ [`playground/qvite-test/src/App.vue`](https://github.com/QuiteerJs/web/blob/656a7211f997d226af3f181e7feebef6495c178b/playground/qvite-test/src/App.vue)
+  - ✏️ [`playground/qvite-test/uno.config.ts`](https://github.com/QuiteerJs/web/blob/656a7211f997d226af3f181e7feebef6495c178b/playground/qvite-test/uno.config.ts)
+  - ✏️ [`playground/unocss-test/uno.config.ts`](https://github.com/QuiteerJs/web/blob/656a7211f997d226af3f181e7feebef6495c178b/playground/unocss-test/uno.config.ts)
+  - ✏️ [`pnpm-lock.yaml`](https://github.com/QuiteerJs/web/blob/656a7211f997d226af3f181e7feebef6495c178b/pnpm-lock.yaml)
+- 🐛  **fix** `release`: 适配 uno 编辑器提示
+  > **🕒  18:11** · `➕63` / `➖3`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`fa75531`](https://github.com/QuiteerJs/web/commit/fa75531e0e5be7263d0797639d52d32369246bd2))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/fa75531e0e5be7263d0797639d52d32369246bd2/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/fa75531e0e5be7263d0797639d52d32369246bd2/CHANGELOG_TIMELINE.md)
+- 🐛  **fix** `release`: 获得编辑器提示
+  > **🕒  18:09** · `➕407` / `➖17`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`fc2b538`](https://github.com/QuiteerJs/web/commit/fc2b53828a57c9a9fce49063b385c1573208c5f3))
+  - ➕ [`playground/unocss-test/.gitignore`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/playground/unocss-test/.gitignore)
+  - ➕ [`playground/unocss-test/.vscode/extensions.json`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/playground/unocss-test/.vscode/extensions.json)
+  - ➕ [`playground/unocss-test/README.md`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/playground/unocss-test/README.md)
+  - ➕ [`playground/unocss-test/index.html`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/playground/unocss-test/index.html)
+  - ➕ [`playground/unocss-test/package.json`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/playground/unocss-test/package.json)
+  - ➕ [`playground/unocss-test/public/vite.svg`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/playground/unocss-test/public/vite.svg)
+  - ➕ [`playground/unocss-test/src/App.vue`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/playground/unocss-test/src/App.vue)
+  - ➕ [`playground/unocss-test/src/assets/vue.svg`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/playground/unocss-test/src/assets/vue.svg)
+  - ➕ [`playground/unocss-test/src/components/HelloWorld.vue`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/playground/unocss-test/src/components/HelloWorld.vue)
+  - ➕ [`playground/unocss-test/src/main.ts`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/playground/unocss-test/src/main.ts)
+  - ➕ [`playground/unocss-test/src/style.css`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/playground/unocss-test/src/style.css)
+  - ➕ [`playground/unocss-test/tsconfig.app.json`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/playground/unocss-test/tsconfig.app.json)
+  - ➕ [`playground/unocss-test/tsconfig.json`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/playground/unocss-test/tsconfig.json)
+  - ➕ [`playground/unocss-test/tsconfig.node.json`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/playground/unocss-test/tsconfig.node.json)
+  - ➕ [`playground/unocss-test/uno.config.ts`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/playground/unocss-test/uno.config.ts)
+  - ➕ [`playground/unocss-test/vite.config.ts`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/playground/unocss-test/vite.config.ts)
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/CHANGELOG_TIMELINE.md)
+  - ✏️ [`packages/qvite/uno.config.ts`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/packages/qvite/uno.config.ts)
+  - ✏️ [`packages/unocss/src/index.ts`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/packages/unocss/src/index.ts)
+  - ✏️ [`packages/unocss/src/uno.config.ts`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/packages/unocss/src/uno.config.ts)
+  - ✏️ [`packages/unocss/tsdown.config.ts`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/packages/unocss/tsdown.config.ts)
+  - ✏️ [`pnpm-lock.yaml`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/pnpm-lock.yaml)
+- 🐛  **fix** `deps`: 更新 files 字段
+  > **🕒  16:42** · `➕202` / `➖182`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`abc09a9`](https://github.com/QuiteerJs/web/commit/abc09a96a68cfd7e4c39e8f893c30b11db015c73))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/abc09a96a68cfd7e4c39e8f893c30b11db015c73/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/abc09a96a68cfd7e4c39e8f893c30b11db015c73/CHANGELOG_TIMELINE.md)
+- 🐛  **fix** `release`: 解决编辑器丢失提示 bug
+  > **🕒  16:31** · `➕1150` / `➖1124`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`4567e42`](https://github.com/QuiteerJs/web/commit/4567e4277ec2ca4491872badb4776be891258397))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/4567e4277ec2ca4491872badb4776be891258397/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/4567e4277ec2ca4491872badb4776be891258397/CHANGELOG_TIMELINE.md)
+
+#### 2025-12-16 `✏️ 4+` `➕ 0+` `🗑️ 0+`
+- 🐛  **fix** `release`: 重新发布
+  > **🕒  16:26** · `➕190` / `➖170`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`fc04394`](https://github.com/QuiteerJs/web/commit/fc04394c6fa13c8312db559d8238544f4069b84d))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/fc04394c6fa13c8312db559d8238544f4069b84d/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/fc04394c6fa13c8312db559d8238544f4069b84d/CHANGELOG_TIMELINE.md)
+- 🐛  **fix** `release`: 工作空间依赖发布的问题
+  > **🕒  16:23** · `➕140` / `➖122`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`8887a28`](https://github.com/QuiteerJs/web/commit/8887a2862777eb416d4cd28312aa3818a75b686e))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/8887a2862777eb416d4cd28312aa3818a75b686e/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/8887a2862777eb416d4cd28312aa3818a75b686e/CHANGELOG_TIMELINE.md)
+
+#### 2025-12-05 `✏️ 5+` `➕ 0+` `🗑️ 0+`
+- 🐛  **fix** `release`: 修复类型提示的bug
+  > **🕒  18:23** · `➕109` / `➖78`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`cf05e53`](https://github.com/QuiteerJs/web/commit/cf05e530b739e156c9282ae26875addc2523755f))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/cf05e530b739e156c9282ae26875addc2523755f/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/cf05e530b739e156c9282ae26875addc2523755f/CHANGELOG_TIMELINE.md)
+  - ✏️ [`docs/plugins/vite-plugin/env-config.md`](https://github.com/QuiteerJs/web/blob/cf05e530b739e156c9282ae26875addc2523755f/docs/plugins/vite-plugin/env-config.md)
+  - ✏️ [`packages/vite-plugins/src/env-config.ts`](https://github.com/QuiteerJs/web/blob/cf05e530b739e156c9282ae26875addc2523755f/packages/vite-plugins/src/env-config.ts)
+  - ✏️ [`playground/vite-plugins-test/env.config.ts`](https://github.com/QuiteerJs/web/blob/cf05e530b739e156c9282ae26875addc2523755f/playground/vite-plugins-test/env.config.ts)
+
+#### 2025-12-04 `✏️ 3+` `➕ 0+` `🗑️ 0+`
+- 🐛  **fix** `release`: 每次读取配置时都生成env文件
+  > **🕒  15:01** · `➕264` / `➖246`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`a7aa8c4`](https://github.com/QuiteerJs/web/commit/a7aa8c404eee0852ee6051dedf970e389a31c786))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/a7aa8c404eee0852ee6051dedf970e389a31c786/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/a7aa8c404eee0852ee6051dedf970e389a31c786/CHANGELOG_TIMELINE.md)
+- 🐛  **fix** `projects`: 生成环境变量
+  > **🕒  14:58** · `➕3` / `➖0`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`6cc7c22`](https://github.com/QuiteerJs/web/commit/6cc7c22a899f65e2e66adac1bea3bbbd5a5f3d45))
+  - ✏️ [`packages/qvite/src/getConfig.ts`](https://github.com/QuiteerJs/web/blob/6cc7c22a899f65e2e66adac1bea3bbbd5a5f3d45/packages/qvite/src/getConfig.ts)
+
+#### 2025-12-03 `✏️ 9+` `➕ 1+` `🗑️ 0+`
+- 🐛  **fix** `release`: 解决第一次运行的时候环境变量未生成的bug
+  > **🕒  18:44** · `➕313` / `➖165`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`57e63eb`](https://github.com/QuiteerJs/web/commit/57e63ebe973dc820687fa6c35bf5cd6c0966a060))
+  - ➕ [`packages/vite-plugins/src/bootstrap-env.ts`](https://github.com/QuiteerJs/web/blob/57e63ebe973dc820687fa6c35bf5cd6c0966a060/packages/vite-plugins/src/bootstrap-env.ts)
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/57e63ebe973dc820687fa6c35bf5cd6c0966a060/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/57e63ebe973dc820687fa6c35bf5cd6c0966a060/CHANGELOG_TIMELINE.md)
+  - ✏️ [`packages/vite-plugins/src/env-config.ts`](https://github.com/QuiteerJs/web/blob/57e63ebe973dc820687fa6c35bf5cd6c0966a060/packages/vite-plugins/src/env-config.ts)
+  - ✏️ [`packages/vite-plugins/src/index.ts`](https://github.com/QuiteerJs/web/blob/57e63ebe973dc820687fa6c35bf5cd6c0966a060/packages/vite-plugins/src/index.ts)
+  - ✏️ [`playground/vite-plugins-test/env.d.ts`](https://github.com/QuiteerJs/web/blob/57e63ebe973dc820687fa6c35bf5cd6c0966a060/playground/vite-plugins-test/env.d.ts)
+  - ✏️ [`playground/vite-plugins-test/vite.config.ts`](https://github.com/QuiteerJs/web/blob/57e63ebe973dc820687fa6c35bf5cd6c0966a060/playground/vite-plugins-test/vite.config.ts)
+- 🐛  **fix** `release`: env插件分词
+  > **🕒  17:13** · `➕33` / `➖6`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`3287e48`](https://github.com/QuiteerJs/web/commit/3287e480881ab3d7dd7e6ca8c8e495de2675c67f))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/3287e480881ab3d7dd7e6ca8c8e495de2675c67f/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/3287e480881ab3d7dd7e6ca8c8e495de2675c67f/CHANGELOG_TIMELINE.md)
+  - ✏️ [`packages/vite-plugins/src/env-config.ts`](https://github.com/QuiteerJs/web/blob/3287e480881ab3d7dd7e6ca8c8e495de2675c67f/packages/vite-plugins/src/env-config.ts)
+
+#### 2025-12-02 `✏️ 4+` `➕ 0+` `🗑️ 0+`
+- 🐛  **fix** `release`: qvite发布后安装失败的bug
+  > **🕒  18:43** · `➕281` / `➖232`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`a0b594b`](https://github.com/QuiteerJs/web/commit/a0b594bc3ebe10a93372184931cf1e6fec8ee2f3))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/a0b594bc3ebe10a93372184931cf1e6fec8ee2f3/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/a0b594bc3ebe10a93372184931cf1e6fec8ee2f3/CHANGELOG_TIMELINE.md)
+  - ✏️ [`packages/qvite/tsdown.config.ts`](https://github.com/QuiteerJs/web/blob/a0b594bc3ebe10a93372184931cf1e6fec8ee2f3/packages/qvite/tsdown.config.ts)
+  - ✏️ [`pnpm-lock.yaml`](https://github.com/QuiteerJs/web/blob/a0b594bc3ebe10a93372184931cf1e6fec8ee2f3/pnpm-lock.yaml)
+
+#### 2025-11-25 `✏️ 6+` `➕ 0+` `🗑️ 0+`
+- 🐛  **fix** `deps`: 修改构建配置
+  > **🕒  17:07** · `➕26` / `➖7`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`909727e`](https://github.com/QuiteerJs/web/commit/909727e5eefdfd37b682ff46d661633dfb100ed9))
+  - ✏️ [`packages/qvite/package.json`](https://github.com/QuiteerJs/web/blob/909727e5eefdfd37b682ff46d661633dfb100ed9/packages/qvite/package.json)
+  - ✏️ [`packages/qvite/tsconfig.json`](https://github.com/QuiteerJs/web/blob/909727e5eefdfd37b682ff46d661633dfb100ed9/packages/qvite/tsconfig.json)
+  - ✏️ [`packages/qvite/tsdown.config.ts`](https://github.com/QuiteerJs/web/blob/909727e5eefdfd37b682ff46d661633dfb100ed9/packages/qvite/tsdown.config.ts)
+- 🐛  **fix** `packages`: 指令调优
+  > **🕒  16:13** · `➕115` / `➖40`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`5770ec8`](https://github.com/QuiteerJs/web/commit/5770ec8cb9e64cc6ecfeb7beceffab6e7d4cca41))
+  - ✏️ [`docs/plugins/directives/components/PermissionDemo.vue`](https://github.com/QuiteerJs/web/blob/5770ec8cb9e64cc6ecfeb7beceffab6e7d4cca41/docs/plugins/directives/components/PermissionDemo.vue)
+  - ✏️ [`packages/directives/package.json`](https://github.com/QuiteerJs/web/blob/5770ec8cb9e64cc6ecfeb7beceffab6e7d4cca41/packages/directives/package.json)
+  - ✏️ [`packages/directives/src/permission.ts`](https://github.com/QuiteerJs/web/blob/5770ec8cb9e64cc6ecfeb7beceffab6e7d4cca41/packages/directives/src/permission.ts)
+
+#### 2025-11-24 `✏️ 3+` `➕ 0+` `🗑️ 0+`
+- 🐛  **fix** `release`: 解决changelog生成重复的问题
+  > **🕒  11:13** · `➕210` / `➖8612`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`16fceb6`](https://github.com/QuiteerJs/web/commit/16fceb67874499111856f1c3501682d9786d36b8))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/16fceb67874499111856f1c3501682d9786d36b8/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/16fceb67874499111856f1c3501682d9786d36b8/CHANGELOG_TIMELINE.md)
+  - ✏️ [`scripts/src/commands/changelog.ts`](https://github.com/QuiteerJs/web/blob/16fceb67874499111856f1c3501682d9786d36b8/scripts/src/commands/changelog.ts)
+
+#### 2025-11-22 `✏️ 3+` `➕ 0+` `🗑️ 0+`
+- 🐛  **fix** `packages`: 发布
+  > **🕒  12:05** · `➕1718` / `➖0`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`258a1fc`](https://github.com/QuiteerJs/web/commit/258a1fcc5116ccd7ae4ca5776bf9171ef3e9a23c))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/258a1fcc5116ccd7ae4ca5776bf9171ef3e9a23c/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/258a1fcc5116ccd7ae4ca5776bf9171ef3e9a23c/CHANGELOG_TIMELINE.md)
+- 🐛  **fix** `release`: 解决版本号显示的问题
+  > **🕒  11:57** · `➕35` / `➖0`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`9a542a1`](https://github.com/QuiteerJs/web/commit/9a542a1aaf6971d3f1ce3bf72635d98812db63af))
+  - ✏️ [`scripts/src/commands/self-update.ts`](https://github.com/QuiteerJs/web/blob/9a542a1aaf6971d3f1ce3bf72635d98812db63af/scripts/src/commands/self-update.ts)
+
+#### 2025-11-21 `✏️ 1+` `➕ 0+` `🗑️ 0+`
+- 🐛  **fix** `projects`: 重复发布
+  > **🕒  12:58** · `➕1` / `➖2`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`34d9ef8`](https://github.com/QuiteerJs/web/commit/34d9ef8952f434ddff5079ea878f1f219786658a))
+  - ✏️ [`scripts/package.json`](https://github.com/QuiteerJs/web/blob/34d9ef8952f434ddff5079ea878f1f219786658a/scripts/package.json)
+
+#### 2025-11-15 `✏️ 3+` `➕ 0+` `🗑️ 0+`
+- 🐛  **fix** `packages`: 解决ts构建错误
+  > **🕒  18:11** · `➕11` / `➖2`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`2d7d703`](https://github.com/QuiteerJs/web/commit/2d7d7037a17987d3afd98be0f44ed5d7ef31fe64))
+  - ✏️ [`packages/box/src/components/BoxGroup.vue`](https://github.com/QuiteerJs/web/blob/2d7d7037a17987d3afd98be0f44ed5d7ef31fe64/packages/box/src/components/BoxGroup.vue)
+  - ✏️ [`packages/naive-extra/src/upload/props.ts`](https://github.com/QuiteerJs/web/blob/2d7d7037a17987d3afd98be0f44ed5d7ef31fe64/packages/naive-extra/src/upload/props.ts)
+- 🐛  **fix** `projects`: 解决构建报错的bug
+  > **🕒  09:13** · `➕2` / `➖2`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`63f7fc9`](https://github.com/QuiteerJs/web/commit/63f7fc9b055f5210a9829f5d1ddb3453477804c7))
+  - ✏️ [`src/plugins/index.md`](https://github.com/QuiteerJs/web/blob/63f7fc9b055f5210a9829f5d1ddb3453477804c7/src/plugins/index.md)
+
+#### 2025-11-14 `✏️ 5+` `➕ 0+` `🗑️ 0+`
+- 🐛  **fix** `packages`: 更换包
+  > **🕒  19:09** · `➕11` / `➖19`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`3b5bac4`](https://github.com/QuiteerJs/web/commit/3b5bac48bfe2192f8aa2f0e896b8149816c2a43a))
+  - ✏️ [`packages/naive-extra/package.json`](https://github.com/QuiteerJs/web/blob/3b5bac48bfe2192f8aa2f0e896b8149816c2a43a/packages/naive-extra/package.json)
+  - ✏️ [`packages/naive-extra/src/table/TableSetting.vue`](https://github.com/QuiteerJs/web/blob/3b5bac48bfe2192f8aa2f0e896b8149816c2a43a/packages/naive-extra/src/table/TableSetting.vue)
+  - ✏️ [`packages/naive-extra/vite.config.ts`](https://github.com/QuiteerJs/web/blob/3b5bac48bfe2192f8aa2f0e896b8149816c2a43a/packages/naive-extra/vite.config.ts)
+  - ✏️ [`pnpm-lock.yaml`](https://github.com/QuiteerJs/web/blob/3b5bac48bfe2192f8aa2f0e896b8149816c2a43a/pnpm-lock.yaml)
+- 🐛  **fix** `deps`: 更新依赖
+  > **🕒  17:20** · `➕90` / `➖25`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`cd4a1f7`](https://github.com/QuiteerJs/web/commit/cd4a1f735ade43dbdf7c75548cdef8a1bd14ae1f))
+  - ✏️ [`pnpm-lock.yaml`](https://github.com/QuiteerJs/web/blob/cd4a1f735ade43dbdf7c75548cdef8a1bd14ae1f/pnpm-lock.yaml)
+
+#### 2025-11-12 `✏️ 1+` `➕ 0+` `🗑️ 0+`
+- 🐛  **fix** `projects`: 修改配置
+  > **🕒  19:02** · `➕1` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`05f67da`](https://github.com/QuiteerJs/web/commit/05f67da5f2dd20046a7e5a0226ac97a1232c3b0c))
+  - ✏️ [`.github/workflows/deploy.yml`](https://github.com/QuiteerJs/web/blob/05f67da5f2dd20046a7e5a0226ac97a1232c3b0c/.github/workflows/deploy.yml)
+
+#### 2025-11-11 `✏️ 26+` `➕ 2+` `🗑️ 8+`
+- 🐛  **fix** `projects`: 解决vitepress打包报错
+  > **🕒  20:11** · `➕23` / `➖0`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`184f817`](https://github.com/QuiteerJs/web/commit/184f817bab981f9746a5afc79f8666f4316b55b5))
+  - ✏️ [`.vitepress/config.ts`](https://github.com/QuiteerJs/web/blob/184f817bab981f9746a5afc79f8666f4316b55b5/.vitepress/config.ts)
+- 🐛  **fix** `projects`: 解决构建报错和警告 引入naive
+  > **🕒  18:25** · `➕40` / `➖12`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`a12ee94`](https://github.com/QuiteerJs/web/commit/a12ee948845634c628ad28b23d059b8501a56c9d))
+  - ✏️ [`.vitepress/theme/index.ts`](https://github.com/QuiteerJs/web/blob/a12ee948845634c628ad28b23d059b8501a56c9d/.vitepress/theme/index.ts)
+  - ✏️ [`package.json`](https://github.com/QuiteerJs/web/blob/a12ee948845634c628ad28b23d059b8501a56c9d/package.json)
+  - ✏️ [`packages/naive-extra/src/form/index.vue`](https://github.com/QuiteerJs/web/blob/a12ee948845634c628ad28b23d059b8501a56c9d/packages/naive-extra/src/form/index.vue)
+  - ✏️ [`packages/naive-extra/src/search-bar/index.vue`](https://github.com/QuiteerJs/web/blob/a12ee948845634c628ad28b23d059b8501a56c9d/packages/naive-extra/src/search-bar/index.vue)
+  - ✏️ [`packages/naive-extra/src/table/index.vue`](https://github.com/QuiteerJs/web/blob/a12ee948845634c628ad28b23d059b8501a56c9d/packages/naive-extra/src/table/index.vue)
+  - ✏️ [`pnpm-lock.yaml`](https://github.com/QuiteerJs/web/blob/a12ee948845634c628ad28b23d059b8501a56c9d/pnpm-lock.yaml)
+  - ✏️ [`src/plugins/naive-extra/components/Demo.vue`](https://github.com/QuiteerJs/web/blob/a12ee948845634c628ad28b23d059b8501a56c9d/src/plugins/naive-extra/components/Demo.vue)
+- 🐛  **fix** `projects`: 删除多余文件 修改导入导出
+  > **🕒  18:14** · `➕594` / `➖783`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`063d62c`](https://github.com/QuiteerJs/web/commit/063d62cdc06f3ccd1a37c61bc953c60561eafc1f))
+  - ➕ [`packages/naive-extra/src/form/useForm.ts`](https://github.com/QuiteerJs/web/blob/063d62cdc06f3ccd1a37c61bc953c60561eafc1f/packages/naive-extra/src/form/useForm.ts)
+  - ✏️ [`.vscode/settings.json`](https://github.com/QuiteerJs/web/blob/063d62cdc06f3ccd1a37c61bc953c60561eafc1f/.vscode/settings.json)
+  - ✏️ [`packages/naive-extra/package.json`](https://github.com/QuiteerJs/web/blob/063d62cdc06f3ccd1a37c61bc953c60561eafc1f/packages/naive-extra/package.json)
+  - ✏️ [`packages/naive-extra/src/form/helper.ts`](https://github.com/QuiteerJs/web/blob/063d62cdc06f3ccd1a37c61bc953c60561eafc1f/packages/naive-extra/src/form/helper.ts)
+  - ✏️ [`packages/naive-extra/src/form/index.ts`](https://github.com/QuiteerJs/web/blob/063d62cdc06f3ccd1a37c61bc953c60561eafc1f/packages/naive-extra/src/form/index.ts)
+  - ✏️ [`packages/naive-extra/src/form/index.vue`](https://github.com/QuiteerJs/web/blob/063d62cdc06f3ccd1a37c61bc953c60561eafc1f/packages/naive-extra/src/form/index.vue)
+  - ✏️ [`packages/naive-extra/src/form/props.ts`](https://github.com/QuiteerJs/web/blob/063d62cdc06f3ccd1a37c61bc953c60561eafc1f/packages/naive-extra/src/form/props.ts)
+  - ✏️ [`packages/naive-extra/src/index.ts`](https://github.com/QuiteerJs/web/blob/063d62cdc06f3ccd1a37c61bc953c60561eafc1f/packages/naive-extra/src/index.ts)
+  - ✏️ [`packages/naive-extra/src/search-bar/index.vue`](https://github.com/QuiteerJs/web/blob/063d62cdc06f3ccd1a37c61bc953c60561eafc1f/packages/naive-extra/src/search-bar/index.vue)
+  - ✏️ [`packages/naive-extra/src/table/components/TableSetting.vue`](https://github.com/QuiteerJs/web/blob/063d62cdc06f3ccd1a37c61bc953c60561eafc1f/packages/naive-extra/src/table/components/TableSetting.vue)
+  - ✏️ [`packages/naive-extra/src/table/index.ts`](https://github.com/QuiteerJs/web/blob/063d62cdc06f3ccd1a37c61bc953c60561eafc1f/packages/naive-extra/src/table/index.ts)
+  - ✏️ [`packages/naive-extra/src/table/index.vue`](https://github.com/QuiteerJs/web/blob/063d62cdc06f3ccd1a37c61bc953c60561eafc1f/packages/naive-extra/src/table/index.vue)
+  - ✏️ [`packages/naive-extra/src/table/components/useColumn.ts`](https://github.com/QuiteerJs/web/blob/063d62cdc06f3ccd1a37c61bc953c60561eafc1f/packages/naive-extra/src/table/components/useColumn.ts)
+  - ✏️ [`packages/naive-extra/src/upload/index.ts`](https://github.com/QuiteerJs/web/blob/063d62cdc06f3ccd1a37c61bc953c60561eafc1f/packages/naive-extra/src/upload/index.ts)
+  - ✏️ [`packages/naive-extra/src/form/uses/useUploadProps.ts`](https://github.com/QuiteerJs/web/blob/063d62cdc06f3ccd1a37c61bc953c60561eafc1f/packages/naive-extra/src/form/uses/useUploadProps.ts)
+  - ✏️ [`packages/naive-extra/vite.config.ts`](https://github.com/QuiteerJs/web/blob/063d62cdc06f3ccd1a37c61bc953c60561eafc1f/packages/naive-extra/vite.config.ts)
+  - ✏️ [`pnpm-lock.yaml`](https://github.com/QuiteerJs/web/blob/063d62cdc06f3ccd1a37c61bc953c60561eafc1f/pnpm-lock.yaml)
+  - 🗑️ [~~`packages/naive-extra/src/form/components/UploadView.vue`~~](https://github.com/QuiteerJs/web/commit/063d62cdc06f3ccd1a37c61bc953c60561eafc1f)
+  - 🗑️ [~~`packages/naive-extra/src/form/types.ts`~~](https://github.com/QuiteerJs/web/commit/063d62cdc06f3ccd1a37c61bc953c60561eafc1f)
+  - 🗑️ [~~`packages/naive-extra/src/table/types.ts`~~](https://github.com/QuiteerJs/web/commit/063d62cdc06f3ccd1a37c61bc953c60561eafc1f)
+  - 🗑️ [~~`src/api-examples.md`~~](https://github.com/QuiteerJs/web/commit/063d62cdc06f3ccd1a37c61bc953c60561eafc1f)
+  - 🗑️ [~~`src/counter.ts`~~](https://github.com/QuiteerJs/web/commit/063d62cdc06f3ccd1a37c61bc953c60561eafc1f)
+  - 🗑️ [~~`src/main.ts`~~](https://github.com/QuiteerJs/web/commit/063d62cdc06f3ccd1a37c61bc953c60561eafc1f)
+  - 🗑️ [~~`src/markdown-examples.md`~~](https://github.com/QuiteerJs/web/commit/063d62cdc06f3ccd1a37c61bc953c60561eafc1f)
+  - 🗑️ [~~`src/style.css`~~](https://github.com/QuiteerJs/web/commit/063d62cdc06f3ccd1a37c61bc953c60561eafc1f)
+- 🐛  **fix** `projects`: 修改类型导入
+  > **🕒  17:15** · `➕5` / `➖2`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`df3d53b`](https://github.com/QuiteerJs/web/commit/df3d53b727099f04860a1a82f7c6c051e2b63327))
+  - ➕ [`packages/utils/src/index.ts`](https://github.com/QuiteerJs/web/blob/df3d53b727099f04860a1a82f7c6c051e2b63327/packages/utils/src/index.ts)
+  - ✏️ [`.github/workflows/deploy.yml`](https://github.com/QuiteerJs/web/blob/df3d53b727099f04860a1a82f7c6c051e2b63327/.github/workflows/deploy.yml)
+  - ✏️ [`packages/naive-extra/src/upload/index.ts`](https://github.com/QuiteerJs/web/blob/df3d53b727099f04860a1a82f7c6c051e2b63327/packages/naive-extra/src/upload/index.ts)
+
 ### 新功能
-#### 2026-01-29 `✏️ 2+` `➕ 0+` `🗑️ 0+`
+#### 2026-01-31 `✏️ 4+` `➕ 6+` `🗑️ 1+`
+- ✨  **feat** `components`: form表单示例
+  > **🕒  22:32** · `➕928` / `➖376`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`b3a9021`](https://github.com/QuiteerJs/web/commit/b3a902183c0e01877cf11c36930bd8449f80a7d3))
+  - ➕ [`playground/naive-extra-test/src/pages/demo/form.meta.vue`](https://github.com/QuiteerJs/web/blob/b3a902183c0e01877cf11c36930bd8449f80a7d3/playground/naive-extra-test/src/pages/demo/form.meta.vue)
+  - ➕ [`playground/naive-extra-test/src/pages/demo/form/basic.page.vue`](https://github.com/QuiteerJs/web/blob/b3a902183c0e01877cf11c36930bd8449f80a7d3/playground/naive-extra-test/src/pages/demo/form/basic.page.vue)
+  - ➕ [`playground/naive-extra-test/src/pages/demo/form/form-layout.page.vue`](https://github.com/QuiteerJs/web/blob/b3a902183c0e01877cf11c36930bd8449f80a7d3/playground/naive-extra-test/src/pages/demo/form/form-layout.page.vue)
+  - ➕ [`playground/naive-extra-test/src/pages/demo/form/modules/useBasicForm.ts`](https://github.com/QuiteerJs/web/blob/b3a902183c0e01877cf11c36930bd8449f80a7d3/playground/naive-extra-test/src/pages/demo/form/modules/useBasicForm.ts)
+  - ➕ [`playground/naive-extra-test/src/pages/demo/form/slot.page.vue`](https://github.com/QuiteerJs/web/blob/b3a902183c0e01877cf11c36930bd8449f80a7d3/playground/naive-extra-test/src/pages/demo/form/slot.page.vue)
+  - ➕ [`playground/naive-extra-test/src/pages/demo/form/validate.page.vue`](https://github.com/QuiteerJs/web/blob/b3a902183c0e01877cf11c36930bd8449f80a7d3/playground/naive-extra-test/src/pages/demo/form/validate.page.vue)
+  - ✏️ [`docs/plugins/naive-extra/QuiForm.md`](https://github.com/QuiteerJs/web/blob/b3a902183c0e01877cf11c36930bd8449f80a7d3/docs/plugins/naive-extra/QuiForm.md)
+  - ✏️ [`packages/naive-extra/src/components/form/index.vue`](https://github.com/QuiteerJs/web/blob/b3a902183c0e01877cf11c36930bd8449f80a7d3/packages/naive-extra/src/components/form/index.vue)
+  - ✏️ [`playground/naive-extra-test/src/pages/doc.md`](https://github.com/QuiteerJs/web/blob/b3a902183c0e01877cf11c36930bd8449f80a7d3/playground/naive-extra-test/src/pages/doc.md)
+  - ✏️ [`playground/naive-extra-test/src/typings/pages.d.ts`](https://github.com/QuiteerJs/web/blob/b3a902183c0e01877cf11c36930bd8449f80a7d3/playground/naive-extra-test/src/typings/pages.d.ts)
+  - 🗑️ [~~`playground/naive-extra-test/src/pages/demo/form.page.vue`~~](https://github.com/QuiteerJs/web/commit/b3a902183c0e01877cf11c36930bd8449f80a7d3)
+
+#### 2026-01-29 `✏️ 5+` `➕ 2+` `🗑️ 0+`
+- ✨  **feat** `release`: 新增filename模块
+  > **🕒  16:02** · `➕2059` / `➖1913`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`3b2c820`](https://github.com/QuiteerJs/web/commit/3b2c820ae183633da651f3a03709cd773ebcfedf))
+  - ➕ [`packages/utils/src/filename.spec.ts`](https://github.com/QuiteerJs/web/blob/3b2c820ae183633da651f3a03709cd773ebcfedf/packages/utils/src/filename.spec.ts)
+  - ➕ [`packages/utils/src/filename.ts`](https://github.com/QuiteerJs/web/blob/3b2c820ae183633da651f3a03709cd773ebcfedf/packages/utils/src/filename.ts)
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/3b2c820ae183633da651f3a03709cd773ebcfedf/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/3b2c820ae183633da651f3a03709cd773ebcfedf/CHANGELOG_TIMELINE.md)
+  - ✏️ [`packages/utils/src/index.ts`](https://github.com/QuiteerJs/web/blob/3b2c820ae183633da651f3a03709cd773ebcfedf/packages/utils/src/index.ts)
 - ✨  **feat** `release`: 新增方法
   > **🕒  14:13** · `➕169` / `➖9`
   > `👤 Quiteer`  <p602985@yeah.net> ([`33283a5`](https://github.com/QuiteerJs/web/commit/33283a51a44000f2212d23fa8eee74c8af119f30))
@@ -2030,342 +2410,6 @@
   - ➕ [`src/public/quiteer.jpg`](https://github.com/QuiteerJs/web/blob/335614a93074230d8c0b59573f43ff0a3be4e81f/src/public/quiteer.jpg)
   - ➕ [`src/style.css`](https://github.com/QuiteerJs/web/blob/335614a93074230d8c0b59573f43ff0a3be4e81f/src/style.css)
   - ➕ [`tsconfig.json`](https://github.com/QuiteerJs/web/blob/335614a93074230d8c0b59573f43ff0a3be4e81f/tsconfig.json)
-
-### 修复
-#### 2026-01-28 `✏️ 4+` `➕ 1+` `🗑️ 0+`
-- 🐛  **fix** `components`: 解决构建错误
-  > **🕒  20:18** · `➕4` / `➖0`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`5feb650`](https://github.com/QuiteerJs/web/commit/5feb65066a3b2eb68d416ef9867f7285a72516d1))
-  - ✏️ [`playground/naive-extra-test/src/pages/test/link.link.vue`](https://github.com/QuiteerJs/web/blob/5feb65066a3b2eb68d416ef9867f7285a72516d1/playground/naive-extra-test/src/pages/test/link.link.vue)
-- 🐛  **fix** `components`: 侧边栏高亮选中
-  > **🕒  20:05** · `➕43` / `➖2`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`2c9dff5`](https://github.com/QuiteerJs/web/commit/2c9dff5bb55a731d247c2dec4cd0fe193339ee96))
-  - ➕ [`playground/naive-extra-test/src/pages/test/layout/top-mixed-menu-2.page.vue`](https://github.com/QuiteerJs/web/blob/2c9dff5bb55a731d247c2dec4cd0fe193339ee96/playground/naive-extra-test/src/pages/test/layout/top-mixed-menu-2.page.vue)
-  - ✏️ [`packages/naive-extra/src/components/layout/const.ts`](https://github.com/QuiteerJs/web/blob/2c9dff5bb55a731d247c2dec4cd0fe193339ee96/packages/naive-extra/src/components/layout/const.ts)
-  - ✏️ [`packages/naive-extra/src/components/layout/layout-parts/AppSidebar.vue`](https://github.com/QuiteerJs/web/blob/2c9dff5bb55a731d247c2dec4cd0fe193339ee96/packages/naive-extra/src/components/layout/layout-parts/AppSidebar.vue)
-  - ✏️ [`playground/naive-extra-test/src/typings/pages.d.ts`](https://github.com/QuiteerJs/web/blob/2c9dff5bb55a731d247c2dec4cd0fe193339ee96/playground/naive-extra-test/src/typings/pages.d.ts)
-
-#### 2026-01-26 `✏️ 3+` `➕ 0+` `🗑️ 0+`
-- 🐛  **fix** `release`: 修复因为vue插件更新后类型提示丢失的bug
-  > **🕒  20:14** · `➕2133` / `➖1939`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`acabf06`](https://github.com/QuiteerJs/web/commit/acabf06009ffef030371285f153f14f205cc32e2))
-  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/acabf06009ffef030371285f153f14f205cc32e2/CHANGELOG.md)
-  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/acabf06009ffef030371285f153f14f205cc32e2/CHANGELOG_TIMELINE.md)
-- 🐛  **fix** `packages`: 指令插件类型提示丢失的bug
-  > **🕒  20:10** · `➕10` / `➖10`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`448328d`](https://github.com/QuiteerJs/web/commit/448328d3dfc054a8e160be5dbec6934b69cdcf0d))
-  - ✏️ [`packages/directives/index.ts`](https://github.com/QuiteerJs/web/blob/448328d3dfc054a8e160be5dbec6934b69cdcf0d/packages/directives/index.ts)
-
-#### 2026-01-08 `✏️ 15+` `➕ 0+` `🗑️ 0+`
-- 🐛  **fix** `packages`: commit 交互文字修改
-  > **🕒  19:35** · `➕1002` / `➖961`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`efb1645`](https://github.com/QuiteerJs/web/commit/efb1645a717e1ae5b467d1e7038db09ef1b1ae7a))
-  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/efb1645a717e1ae5b467d1e7038db09ef1b1ae7a/CHANGELOG.md)
-  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/efb1645a717e1ae5b467d1e7038db09ef1b1ae7a/CHANGELOG_TIMELINE.md)
-  - ✏️ [`docs/cli/scripts.md`](https://github.com/QuiteerJs/web/blob/efb1645a717e1ae5b467d1e7038db09ef1b1ae7a/docs/cli/scripts.md)
-  - ✏️ [`scripts/src/index.ts`](https://github.com/QuiteerJs/web/blob/efb1645a717e1ae5b467d1e7038db09ef1b1ae7a/scripts/src/index.ts)
-- 🐛  **fix** `packages`: 取版本号的方法
-  > **🕒  11:13** · `➕27` / `➖7`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`140a119`](https://github.com/QuiteerJs/web/commit/140a119afabff16254831eb7a67f607ea3911d9f))
-  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/140a119afabff16254831eb7a67f607ea3911d9f/CHANGELOG.md)
-  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/140a119afabff16254831eb7a67f607ea3911d9f/CHANGELOG_TIMELINE.md)
-  - ✏️ [`scripts/src/customize/git-commit.ts`](https://github.com/QuiteerJs/web/blob/140a119afabff16254831eb7a67f607ea3911d9f/scripts/src/customize/git-commit.ts)
-- 🐛  **fix** `packages`: 修改自更新的包管理器使用
-  > **🕒  11:07** · `➕29` / `➖9`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`2287522`](https://github.com/QuiteerJs/web/commit/228752274877db053bb23fe4181c1399e4be7715))
-  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/228752274877db053bb23fe4181c1399e4be7715/CHANGELOG.md)
-  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/228752274877db053bb23fe4181c1399e4be7715/CHANGELOG_TIMELINE.md)
-  - ✏️ [`scripts/src/commands/self-update.ts`](https://github.com/QuiteerJs/web/blob/228752274877db053bb23fe4181c1399e4be7715/scripts/src/commands/self-update.ts)
-- 🐛  **fix** `packages`: 修复 qui su 命令无法更新的 bug
-  > **🕒  10:58** · `➕1558` / `➖1517`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`f4f339c`](https://github.com/QuiteerJs/web/commit/f4f339ca48b3393ab6631eb0b39cc29c5d9ab885))
-  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/f4f339ca48b3393ab6631eb0b39cc29c5d9ab885/CHANGELOG.md)
-  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/f4f339ca48b3393ab6631eb0b39cc29c5d9ab885/CHANGELOG_TIMELINE.md)
-  - ✏️ [`scripts/src/commands/self-update.ts`](https://github.com/QuiteerJs/web/blob/f4f339ca48b3393ab6631eb0b39cc29c5d9ab885/scripts/src/commands/self-update.ts)
-- 🐛  **fix** `packages`: 更新命令行
-  > **🕒  10:49** · `➕34` / `➖2`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`f04b67a`](https://github.com/QuiteerJs/web/commit/f04b67a3aa4bd48697f8a155927d5d69e6741583))
-  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/f04b67a3aa4bd48697f8a155927d5d69e6741583/CHANGELOG.md)
-  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/f04b67a3aa4bd48697f8a155927d5d69e6741583/CHANGELOG_TIMELINE.md)
-
-#### 2026-01-06 `✏️ 16+` `➕ 0+` `🗑️ 0+`
-- 🐛  **fix** `packages`: unocss与 naive 联动时效的 bug
-  > **🕒  17:52** · `➕14` / `➖1`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`4ad721f`](https://github.com/QuiteerJs/web/commit/4ad721fdfc41c09b9fd290b7c95fcfb5cb4dc890))
-  - ✏️ [`packages/naive-extra/src/components/provider/useColorScheme.ts`](https://github.com/QuiteerJs/web/blob/4ad721fdfc41c09b9fd290b7c95fcfb5cb4dc890/packages/naive-extra/src/components/provider/useColorScheme.ts)
-- 🐛  **fix** `projects`: 解决构建问题
-  > **🕒  17:40** · `➕359` / `➖35`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`0fbaf4a`](https://github.com/QuiteerJs/web/commit/0fbaf4a7b83fa7c482190a6b24fb91fabd182f3e))
-  - ✏️ [`package.json`](https://github.com/QuiteerJs/web/blob/0fbaf4a7b83fa7c482190a6b24fb91fabd182f3e/package.json)
-  - ✏️ [`packages/color/package.json`](https://github.com/QuiteerJs/web/blob/0fbaf4a7b83fa7c482190a6b24fb91fabd182f3e/packages/color/package.json)
-  - ✏️ [`pnpm-lock.yaml`](https://github.com/QuiteerJs/web/blob/0fbaf4a7b83fa7c482190a6b24fb91fabd182f3e/pnpm-lock.yaml)
-- 🐛  **fix** `components`: 文件重命名和路径引用问题
-  > **🕒  17:29** · `➕9` / `➖9`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`5b783fc`](https://github.com/QuiteerJs/web/commit/5b783fc43000417933108b6c6a3d645a49204d36))
-  - ✏️ [`docs/plugins/unocss/index.md`](https://github.com/QuiteerJs/web/blob/5b783fc43000417933108b6c6a3d645a49204d36/docs/plugins/unocss/index.md)
-  - ✏️ [`packages/unocss/src/cli.ts`](https://github.com/QuiteerJs/web/blob/5b783fc43000417933108b6c6a3d645a49204d36/packages/unocss/src/cli.ts)
-  - ✏️ [`packages/unocss/src/index.ts`](https://github.com/QuiteerJs/web/blob/5b783fc43000417933108b6c6a3d645a49204d36/packages/unocss/src/index.ts)
-  - ✏️ [`packages/unocss/src/perset/default/index.ts`](https://github.com/QuiteerJs/web/blob/5b783fc43000417933108b6c6a3d645a49204d36/packages/unocss/src/perset/default/index.ts)
-  - ✏️ [`packages/unocss/src/perset/default/rule.ts`](https://github.com/QuiteerJs/web/blob/5b783fc43000417933108b6c6a3d645a49204d36/packages/unocss/src/perset/default/rule.ts)
-  - ✏️ [`packages/unocss/src/perset/default/shortcuts.ts`](https://github.com/QuiteerJs/web/blob/5b783fc43000417933108b6c6a3d645a49204d36/packages/unocss/src/perset/default/shortcuts.ts)
-  - ✏️ [`packages/unocss/src/perset/default/theme.ts`](https://github.com/QuiteerJs/web/blob/5b783fc43000417933108b6c6a3d645a49204d36/packages/unocss/src/perset/default/theme.ts)
-  - ✏️ [`packages/unocss/src/perset/naive-ui/index.ts`](https://github.com/QuiteerJs/web/blob/5b783fc43000417933108b6c6a3d645a49204d36/packages/unocss/src/perset/naive-ui/index.ts)
-  - ✏️ [`packages/unocss/src/perset/naive-ui/theme.ts`](https://github.com/QuiteerJs/web/blob/5b783fc43000417933108b6c6a3d645a49204d36/packages/unocss/src/perset/naive-ui/theme.ts)
-  - ✏️ [`packages/unocss/src/perset/naive-ui/vars.ts`](https://github.com/QuiteerJs/web/blob/5b783fc43000417933108b6c6a3d645a49204d36/packages/unocss/src/perset/naive-ui/vars.ts)
-  - ✏️ [`packages/unocss/src/provide/naive-ui.ts`](https://github.com/QuiteerJs/web/blob/5b783fc43000417933108b6c6a3d645a49204d36/packages/unocss/src/provide/naive-ui.ts)
-  - ✏️ [`packages/unocss/src/uno.config.ts`](https://github.com/QuiteerJs/web/blob/5b783fc43000417933108b6c6a3d645a49204d36/packages/unocss/src/uno.config.ts)
-
-#### 2025-12-29 `✏️ 2+` `➕ 0+` `🗑️ 0+`
-- 🐛  **fix** `projects`: 配置调整解决打包报错
-  > **🕒  16:23** · `➕6` / `➖2`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`fa53808`](https://github.com/QuiteerJs/web/commit/fa53808cb1fd4eb2e96dd4ea9450a7657f640c2b))
-  - ✏️ [`docs/.vitepress/config.ts`](https://github.com/QuiteerJs/web/blob/fa53808cb1fd4eb2e96dd4ea9450a7657f640c2b/docs/.vitepress/config.ts)
-  - ✏️ [`playground/naive-extra-test/package.json`](https://github.com/QuiteerJs/web/blob/fa53808cb1fd4eb2e96dd4ea9450a7657f640c2b/playground/naive-extra-test/package.json)
-
-#### 2025-12-26 `✏️ 1+` `➕ 0+` `🗑️ 0+`
-- 🐛  **fix** `types`: 类型调整
-  > **🕒  20:24** · `➕6` / `➖5`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`cda845a`](https://github.com/QuiteerJs/web/commit/cda845a136abeb34983c0b0bf552c8eb20cd053f))
-  - ✏️ [`packages/naive-extra/src/layout/context.ts`](https://github.com/QuiteerJs/web/blob/cda845a136abeb34983c0b0bf552c8eb20cd053f/packages/naive-extra/src/layout/context.ts)
-
-#### 2025-12-18 `✏️ 24+` `➕ 16+` `🗑️ 0+`
-- 🐛  **fix** `deps`: 依赖更新
-  > **🕒  18:48** · `➕35` / `➖3`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`02f3fc8`](https://github.com/QuiteerJs/web/commit/02f3fc88dc640fc908f9645328bfb0d7d43ec769))
-  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/02f3fc88dc640fc908f9645328bfb0d7d43ec769/CHANGELOG.md)
-  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/02f3fc88dc640fc908f9645328bfb0d7d43ec769/CHANGELOG_TIMELINE.md)
-- 🐛  **fix** `release`: 修改导出
-  > **🕒  18:46** · `➕27` / `➖70`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`656a721`](https://github.com/QuiteerJs/web/commit/656a7211f997d226af3f181e7feebef6495c178b))
-  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/656a7211f997d226af3f181e7feebef6495c178b/CHANGELOG.md)
-  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/656a7211f997d226af3f181e7feebef6495c178b/CHANGELOG_TIMELINE.md)
-  - ✏️ [`docs/plugins/unocss/index.md`](https://github.com/QuiteerJs/web/blob/656a7211f997d226af3f181e7feebef6495c178b/docs/plugins/unocss/index.md)
-  - ✏️ [`package.json`](https://github.com/QuiteerJs/web/blob/656a7211f997d226af3f181e7feebef6495c178b/package.json)
-  - ✏️ [`packages/unocss/src/index.ts`](https://github.com/QuiteerJs/web/blob/656a7211f997d226af3f181e7feebef6495c178b/packages/unocss/src/index.ts)
-  - ✏️ [`playground/qvite-test/src/App.vue`](https://github.com/QuiteerJs/web/blob/656a7211f997d226af3f181e7feebef6495c178b/playground/qvite-test/src/App.vue)
-  - ✏️ [`playground/qvite-test/uno.config.ts`](https://github.com/QuiteerJs/web/blob/656a7211f997d226af3f181e7feebef6495c178b/playground/qvite-test/uno.config.ts)
-  - ✏️ [`playground/unocss-test/uno.config.ts`](https://github.com/QuiteerJs/web/blob/656a7211f997d226af3f181e7feebef6495c178b/playground/unocss-test/uno.config.ts)
-  - ✏️ [`pnpm-lock.yaml`](https://github.com/QuiteerJs/web/blob/656a7211f997d226af3f181e7feebef6495c178b/pnpm-lock.yaml)
-- 🐛  **fix** `release`: 适配 uno 编辑器提示
-  > **🕒  18:11** · `➕63` / `➖3`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`fa75531`](https://github.com/QuiteerJs/web/commit/fa75531e0e5be7263d0797639d52d32369246bd2))
-  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/fa75531e0e5be7263d0797639d52d32369246bd2/CHANGELOG.md)
-  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/fa75531e0e5be7263d0797639d52d32369246bd2/CHANGELOG_TIMELINE.md)
-- 🐛  **fix** `release`: 获得编辑器提示
-  > **🕒  18:09** · `➕407` / `➖17`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`fc2b538`](https://github.com/QuiteerJs/web/commit/fc2b53828a57c9a9fce49063b385c1573208c5f3))
-  - ➕ [`playground/unocss-test/.gitignore`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/playground/unocss-test/.gitignore)
-  - ➕ [`playground/unocss-test/.vscode/extensions.json`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/playground/unocss-test/.vscode/extensions.json)
-  - ➕ [`playground/unocss-test/README.md`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/playground/unocss-test/README.md)
-  - ➕ [`playground/unocss-test/index.html`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/playground/unocss-test/index.html)
-  - ➕ [`playground/unocss-test/package.json`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/playground/unocss-test/package.json)
-  - ➕ [`playground/unocss-test/public/vite.svg`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/playground/unocss-test/public/vite.svg)
-  - ➕ [`playground/unocss-test/src/App.vue`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/playground/unocss-test/src/App.vue)
-  - ➕ [`playground/unocss-test/src/assets/vue.svg`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/playground/unocss-test/src/assets/vue.svg)
-  - ➕ [`playground/unocss-test/src/components/HelloWorld.vue`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/playground/unocss-test/src/components/HelloWorld.vue)
-  - ➕ [`playground/unocss-test/src/main.ts`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/playground/unocss-test/src/main.ts)
-  - ➕ [`playground/unocss-test/src/style.css`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/playground/unocss-test/src/style.css)
-  - ➕ [`playground/unocss-test/tsconfig.app.json`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/playground/unocss-test/tsconfig.app.json)
-  - ➕ [`playground/unocss-test/tsconfig.json`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/playground/unocss-test/tsconfig.json)
-  - ➕ [`playground/unocss-test/tsconfig.node.json`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/playground/unocss-test/tsconfig.node.json)
-  - ➕ [`playground/unocss-test/uno.config.ts`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/playground/unocss-test/uno.config.ts)
-  - ➕ [`playground/unocss-test/vite.config.ts`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/playground/unocss-test/vite.config.ts)
-  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/CHANGELOG.md)
-  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/CHANGELOG_TIMELINE.md)
-  - ✏️ [`packages/qvite/uno.config.ts`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/packages/qvite/uno.config.ts)
-  - ✏️ [`packages/unocss/src/index.ts`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/packages/unocss/src/index.ts)
-  - ✏️ [`packages/unocss/src/uno.config.ts`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/packages/unocss/src/uno.config.ts)
-  - ✏️ [`packages/unocss/tsdown.config.ts`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/packages/unocss/tsdown.config.ts)
-  - ✏️ [`pnpm-lock.yaml`](https://github.com/QuiteerJs/web/blob/fc2b53828a57c9a9fce49063b385c1573208c5f3/pnpm-lock.yaml)
-- 🐛  **fix** `deps`: 更新 files 字段
-  > **🕒  16:42** · `➕202` / `➖182`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`abc09a9`](https://github.com/QuiteerJs/web/commit/abc09a96a68cfd7e4c39e8f893c30b11db015c73))
-  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/abc09a96a68cfd7e4c39e8f893c30b11db015c73/CHANGELOG.md)
-  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/abc09a96a68cfd7e4c39e8f893c30b11db015c73/CHANGELOG_TIMELINE.md)
-- 🐛  **fix** `release`: 解决编辑器丢失提示 bug
-  > **🕒  16:31** · `➕1150` / `➖1124`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`4567e42`](https://github.com/QuiteerJs/web/commit/4567e4277ec2ca4491872badb4776be891258397))
-  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/4567e4277ec2ca4491872badb4776be891258397/CHANGELOG.md)
-  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/4567e4277ec2ca4491872badb4776be891258397/CHANGELOG_TIMELINE.md)
-
-#### 2025-12-16 `✏️ 4+` `➕ 0+` `🗑️ 0+`
-- 🐛  **fix** `release`: 重新发布
-  > **🕒  16:26** · `➕190` / `➖170`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`fc04394`](https://github.com/QuiteerJs/web/commit/fc04394c6fa13c8312db559d8238544f4069b84d))
-  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/fc04394c6fa13c8312db559d8238544f4069b84d/CHANGELOG.md)
-  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/fc04394c6fa13c8312db559d8238544f4069b84d/CHANGELOG_TIMELINE.md)
-- 🐛  **fix** `release`: 工作空间依赖发布的问题
-  > **🕒  16:23** · `➕140` / `➖122`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`8887a28`](https://github.com/QuiteerJs/web/commit/8887a2862777eb416d4cd28312aa3818a75b686e))
-  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/8887a2862777eb416d4cd28312aa3818a75b686e/CHANGELOG.md)
-  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/8887a2862777eb416d4cd28312aa3818a75b686e/CHANGELOG_TIMELINE.md)
-
-#### 2025-12-05 `✏️ 5+` `➕ 0+` `🗑️ 0+`
-- 🐛  **fix** `release`: 修复类型提示的bug
-  > **🕒  18:23** · `➕109` / `➖78`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`cf05e53`](https://github.com/QuiteerJs/web/commit/cf05e530b739e156c9282ae26875addc2523755f))
-  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/cf05e530b739e156c9282ae26875addc2523755f/CHANGELOG.md)
-  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/cf05e530b739e156c9282ae26875addc2523755f/CHANGELOG_TIMELINE.md)
-  - ✏️ [`docs/plugins/vite-plugin/env-config.md`](https://github.com/QuiteerJs/web/blob/cf05e530b739e156c9282ae26875addc2523755f/docs/plugins/vite-plugin/env-config.md)
-  - ✏️ [`packages/vite-plugins/src/env-config.ts`](https://github.com/QuiteerJs/web/blob/cf05e530b739e156c9282ae26875addc2523755f/packages/vite-plugins/src/env-config.ts)
-  - ✏️ [`playground/vite-plugins-test/env.config.ts`](https://github.com/QuiteerJs/web/blob/cf05e530b739e156c9282ae26875addc2523755f/playground/vite-plugins-test/env.config.ts)
-
-#### 2025-12-04 `✏️ 3+` `➕ 0+` `🗑️ 0+`
-- 🐛  **fix** `release`: 每次读取配置时都生成env文件
-  > **🕒  15:01** · `➕264` / `➖246`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`a7aa8c4`](https://github.com/QuiteerJs/web/commit/a7aa8c404eee0852ee6051dedf970e389a31c786))
-  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/a7aa8c404eee0852ee6051dedf970e389a31c786/CHANGELOG.md)
-  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/a7aa8c404eee0852ee6051dedf970e389a31c786/CHANGELOG_TIMELINE.md)
-- 🐛  **fix** `projects`: 生成环境变量
-  > **🕒  14:58** · `➕3` / `➖0`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`6cc7c22`](https://github.com/QuiteerJs/web/commit/6cc7c22a899f65e2e66adac1bea3bbbd5a5f3d45))
-  - ✏️ [`packages/qvite/src/getConfig.ts`](https://github.com/QuiteerJs/web/blob/6cc7c22a899f65e2e66adac1bea3bbbd5a5f3d45/packages/qvite/src/getConfig.ts)
-
-#### 2025-12-03 `✏️ 9+` `➕ 1+` `🗑️ 0+`
-- 🐛  **fix** `release`: 解决第一次运行的时候环境变量未生成的bug
-  > **🕒  18:44** · `➕313` / `➖165`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`57e63eb`](https://github.com/QuiteerJs/web/commit/57e63ebe973dc820687fa6c35bf5cd6c0966a060))
-  - ➕ [`packages/vite-plugins/src/bootstrap-env.ts`](https://github.com/QuiteerJs/web/blob/57e63ebe973dc820687fa6c35bf5cd6c0966a060/packages/vite-plugins/src/bootstrap-env.ts)
-  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/57e63ebe973dc820687fa6c35bf5cd6c0966a060/CHANGELOG.md)
-  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/57e63ebe973dc820687fa6c35bf5cd6c0966a060/CHANGELOG_TIMELINE.md)
-  - ✏️ [`packages/vite-plugins/src/env-config.ts`](https://github.com/QuiteerJs/web/blob/57e63ebe973dc820687fa6c35bf5cd6c0966a060/packages/vite-plugins/src/env-config.ts)
-  - ✏️ [`packages/vite-plugins/src/index.ts`](https://github.com/QuiteerJs/web/blob/57e63ebe973dc820687fa6c35bf5cd6c0966a060/packages/vite-plugins/src/index.ts)
-  - ✏️ [`playground/vite-plugins-test/env.d.ts`](https://github.com/QuiteerJs/web/blob/57e63ebe973dc820687fa6c35bf5cd6c0966a060/playground/vite-plugins-test/env.d.ts)
-  - ✏️ [`playground/vite-plugins-test/vite.config.ts`](https://github.com/QuiteerJs/web/blob/57e63ebe973dc820687fa6c35bf5cd6c0966a060/playground/vite-plugins-test/vite.config.ts)
-- 🐛  **fix** `release`: env插件分词
-  > **🕒  17:13** · `➕33` / `➖6`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`3287e48`](https://github.com/QuiteerJs/web/commit/3287e480881ab3d7dd7e6ca8c8e495de2675c67f))
-  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/3287e480881ab3d7dd7e6ca8c8e495de2675c67f/CHANGELOG.md)
-  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/3287e480881ab3d7dd7e6ca8c8e495de2675c67f/CHANGELOG_TIMELINE.md)
-  - ✏️ [`packages/vite-plugins/src/env-config.ts`](https://github.com/QuiteerJs/web/blob/3287e480881ab3d7dd7e6ca8c8e495de2675c67f/packages/vite-plugins/src/env-config.ts)
-
-#### 2025-12-02 `✏️ 4+` `➕ 0+` `🗑️ 0+`
-- 🐛  **fix** `release`: qvite发布后安装失败的bug
-  > **🕒  18:43** · `➕281` / `➖232`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`a0b594b`](https://github.com/QuiteerJs/web/commit/a0b594bc3ebe10a93372184931cf1e6fec8ee2f3))
-  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/a0b594bc3ebe10a93372184931cf1e6fec8ee2f3/CHANGELOG.md)
-  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/a0b594bc3ebe10a93372184931cf1e6fec8ee2f3/CHANGELOG_TIMELINE.md)
-  - ✏️ [`packages/qvite/tsdown.config.ts`](https://github.com/QuiteerJs/web/blob/a0b594bc3ebe10a93372184931cf1e6fec8ee2f3/packages/qvite/tsdown.config.ts)
-  - ✏️ [`pnpm-lock.yaml`](https://github.com/QuiteerJs/web/blob/a0b594bc3ebe10a93372184931cf1e6fec8ee2f3/pnpm-lock.yaml)
-
-#### 2025-11-25 `✏️ 6+` `➕ 0+` `🗑️ 0+`
-- 🐛  **fix** `deps`: 修改构建配置
-  > **🕒  17:07** · `➕26` / `➖7`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`909727e`](https://github.com/QuiteerJs/web/commit/909727e5eefdfd37b682ff46d661633dfb100ed9))
-  - ✏️ [`packages/qvite/package.json`](https://github.com/QuiteerJs/web/blob/909727e5eefdfd37b682ff46d661633dfb100ed9/packages/qvite/package.json)
-  - ✏️ [`packages/qvite/tsconfig.json`](https://github.com/QuiteerJs/web/blob/909727e5eefdfd37b682ff46d661633dfb100ed9/packages/qvite/tsconfig.json)
-  - ✏️ [`packages/qvite/tsdown.config.ts`](https://github.com/QuiteerJs/web/blob/909727e5eefdfd37b682ff46d661633dfb100ed9/packages/qvite/tsdown.config.ts)
-- 🐛  **fix** `packages`: 指令调优
-  > **🕒  16:13** · `➕115` / `➖40`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`5770ec8`](https://github.com/QuiteerJs/web/commit/5770ec8cb9e64cc6ecfeb7beceffab6e7d4cca41))
-  - ✏️ [`docs/plugins/directives/components/PermissionDemo.vue`](https://github.com/QuiteerJs/web/blob/5770ec8cb9e64cc6ecfeb7beceffab6e7d4cca41/docs/plugins/directives/components/PermissionDemo.vue)
-  - ✏️ [`packages/directives/package.json`](https://github.com/QuiteerJs/web/blob/5770ec8cb9e64cc6ecfeb7beceffab6e7d4cca41/packages/directives/package.json)
-  - ✏️ [`packages/directives/src/permission.ts`](https://github.com/QuiteerJs/web/blob/5770ec8cb9e64cc6ecfeb7beceffab6e7d4cca41/packages/directives/src/permission.ts)
-
-#### 2025-11-24 `✏️ 3+` `➕ 0+` `🗑️ 0+`
-- 🐛  **fix** `release`: 解决changelog生成重复的问题
-  > **🕒  11:13** · `➕210` / `➖8612`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`16fceb6`](https://github.com/QuiteerJs/web/commit/16fceb67874499111856f1c3501682d9786d36b8))
-  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/16fceb67874499111856f1c3501682d9786d36b8/CHANGELOG.md)
-  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/16fceb67874499111856f1c3501682d9786d36b8/CHANGELOG_TIMELINE.md)
-  - ✏️ [`scripts/src/commands/changelog.ts`](https://github.com/QuiteerJs/web/blob/16fceb67874499111856f1c3501682d9786d36b8/scripts/src/commands/changelog.ts)
-
-#### 2025-11-22 `✏️ 3+` `➕ 0+` `🗑️ 0+`
-- 🐛  **fix** `packages`: 发布
-  > **🕒  12:05** · `➕1718` / `➖0`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`258a1fc`](https://github.com/QuiteerJs/web/commit/258a1fcc5116ccd7ae4ca5776bf9171ef3e9a23c))
-  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/258a1fcc5116ccd7ae4ca5776bf9171ef3e9a23c/CHANGELOG.md)
-  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/258a1fcc5116ccd7ae4ca5776bf9171ef3e9a23c/CHANGELOG_TIMELINE.md)
-- 🐛  **fix** `release`: 解决版本号显示的问题
-  > **🕒  11:57** · `➕35` / `➖0`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`9a542a1`](https://github.com/QuiteerJs/web/commit/9a542a1aaf6971d3f1ce3bf72635d98812db63af))
-  - ✏️ [`scripts/src/commands/self-update.ts`](https://github.com/QuiteerJs/web/blob/9a542a1aaf6971d3f1ce3bf72635d98812db63af/scripts/src/commands/self-update.ts)
-
-#### 2025-11-21 `✏️ 1+` `➕ 0+` `🗑️ 0+`
-- 🐛  **fix** `projects`: 重复发布
-  > **🕒  12:58** · `➕1` / `➖2`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`34d9ef8`](https://github.com/QuiteerJs/web/commit/34d9ef8952f434ddff5079ea878f1f219786658a))
-  - ✏️ [`scripts/package.json`](https://github.com/QuiteerJs/web/blob/34d9ef8952f434ddff5079ea878f1f219786658a/scripts/package.json)
-
-#### 2025-11-15 `✏️ 3+` `➕ 0+` `🗑️ 0+`
-- 🐛  **fix** `packages`: 解决ts构建错误
-  > **🕒  18:11** · `➕11` / `➖2`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`2d7d703`](https://github.com/QuiteerJs/web/commit/2d7d7037a17987d3afd98be0f44ed5d7ef31fe64))
-  - ✏️ [`packages/box/src/components/BoxGroup.vue`](https://github.com/QuiteerJs/web/blob/2d7d7037a17987d3afd98be0f44ed5d7ef31fe64/packages/box/src/components/BoxGroup.vue)
-  - ✏️ [`packages/naive-extra/src/upload/props.ts`](https://github.com/QuiteerJs/web/blob/2d7d7037a17987d3afd98be0f44ed5d7ef31fe64/packages/naive-extra/src/upload/props.ts)
-- 🐛  **fix** `projects`: 解决构建报错的bug
-  > **🕒  09:13** · `➕2` / `➖2`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`63f7fc9`](https://github.com/QuiteerJs/web/commit/63f7fc9b055f5210a9829f5d1ddb3453477804c7))
-  - ✏️ [`src/plugins/index.md`](https://github.com/QuiteerJs/web/blob/63f7fc9b055f5210a9829f5d1ddb3453477804c7/src/plugins/index.md)
-
-#### 2025-11-14 `✏️ 5+` `➕ 0+` `🗑️ 0+`
-- 🐛  **fix** `packages`: 更换包
-  > **🕒  19:09** · `➕11` / `➖19`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`3b5bac4`](https://github.com/QuiteerJs/web/commit/3b5bac48bfe2192f8aa2f0e896b8149816c2a43a))
-  - ✏️ [`packages/naive-extra/package.json`](https://github.com/QuiteerJs/web/blob/3b5bac48bfe2192f8aa2f0e896b8149816c2a43a/packages/naive-extra/package.json)
-  - ✏️ [`packages/naive-extra/src/table/TableSetting.vue`](https://github.com/QuiteerJs/web/blob/3b5bac48bfe2192f8aa2f0e896b8149816c2a43a/packages/naive-extra/src/table/TableSetting.vue)
-  - ✏️ [`packages/naive-extra/vite.config.ts`](https://github.com/QuiteerJs/web/blob/3b5bac48bfe2192f8aa2f0e896b8149816c2a43a/packages/naive-extra/vite.config.ts)
-  - ✏️ [`pnpm-lock.yaml`](https://github.com/QuiteerJs/web/blob/3b5bac48bfe2192f8aa2f0e896b8149816c2a43a/pnpm-lock.yaml)
-- 🐛  **fix** `deps`: 更新依赖
-  > **🕒  17:20** · `➕90` / `➖25`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`cd4a1f7`](https://github.com/QuiteerJs/web/commit/cd4a1f735ade43dbdf7c75548cdef8a1bd14ae1f))
-  - ✏️ [`pnpm-lock.yaml`](https://github.com/QuiteerJs/web/blob/cd4a1f735ade43dbdf7c75548cdef8a1bd14ae1f/pnpm-lock.yaml)
-
-#### 2025-11-12 `✏️ 1+` `➕ 0+` `🗑️ 0+`
-- 🐛  **fix** `projects`: 修改配置
-  > **🕒  19:02** · `➕1` / `➖1`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`05f67da`](https://github.com/QuiteerJs/web/commit/05f67da5f2dd20046a7e5a0226ac97a1232c3b0c))
-  - ✏️ [`.github/workflows/deploy.yml`](https://github.com/QuiteerJs/web/blob/05f67da5f2dd20046a7e5a0226ac97a1232c3b0c/.github/workflows/deploy.yml)
-
-#### 2025-11-11 `✏️ 26+` `➕ 2+` `🗑️ 8+`
-- 🐛  **fix** `projects`: 解决vitepress打包报错
-  > **🕒  20:11** · `➕23` / `➖0`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`184f817`](https://github.com/QuiteerJs/web/commit/184f817bab981f9746a5afc79f8666f4316b55b5))
-  - ✏️ [`.vitepress/config.ts`](https://github.com/QuiteerJs/web/blob/184f817bab981f9746a5afc79f8666f4316b55b5/.vitepress/config.ts)
-- 🐛  **fix** `projects`: 解决构建报错和警告 引入naive
-  > **🕒  18:25** · `➕40` / `➖12`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`a12ee94`](https://github.com/QuiteerJs/web/commit/a12ee948845634c628ad28b23d059b8501a56c9d))
-  - ✏️ [`.vitepress/theme/index.ts`](https://github.com/QuiteerJs/web/blob/a12ee948845634c628ad28b23d059b8501a56c9d/.vitepress/theme/index.ts)
-  - ✏️ [`package.json`](https://github.com/QuiteerJs/web/blob/a12ee948845634c628ad28b23d059b8501a56c9d/package.json)
-  - ✏️ [`packages/naive-extra/src/form/index.vue`](https://github.com/QuiteerJs/web/blob/a12ee948845634c628ad28b23d059b8501a56c9d/packages/naive-extra/src/form/index.vue)
-  - ✏️ [`packages/naive-extra/src/search-bar/index.vue`](https://github.com/QuiteerJs/web/blob/a12ee948845634c628ad28b23d059b8501a56c9d/packages/naive-extra/src/search-bar/index.vue)
-  - ✏️ [`packages/naive-extra/src/table/index.vue`](https://github.com/QuiteerJs/web/blob/a12ee948845634c628ad28b23d059b8501a56c9d/packages/naive-extra/src/table/index.vue)
-  - ✏️ [`pnpm-lock.yaml`](https://github.com/QuiteerJs/web/blob/a12ee948845634c628ad28b23d059b8501a56c9d/pnpm-lock.yaml)
-  - ✏️ [`src/plugins/naive-extra/components/Demo.vue`](https://github.com/QuiteerJs/web/blob/a12ee948845634c628ad28b23d059b8501a56c9d/src/plugins/naive-extra/components/Demo.vue)
-- 🐛  **fix** `projects`: 删除多余文件 修改导入导出
-  > **🕒  18:14** · `➕594` / `➖783`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`063d62c`](https://github.com/QuiteerJs/web/commit/063d62cdc06f3ccd1a37c61bc953c60561eafc1f))
-  - ➕ [`packages/naive-extra/src/form/useForm.ts`](https://github.com/QuiteerJs/web/blob/063d62cdc06f3ccd1a37c61bc953c60561eafc1f/packages/naive-extra/src/form/useForm.ts)
-  - ✏️ [`.vscode/settings.json`](https://github.com/QuiteerJs/web/blob/063d62cdc06f3ccd1a37c61bc953c60561eafc1f/.vscode/settings.json)
-  - ✏️ [`packages/naive-extra/package.json`](https://github.com/QuiteerJs/web/blob/063d62cdc06f3ccd1a37c61bc953c60561eafc1f/packages/naive-extra/package.json)
-  - ✏️ [`packages/naive-extra/src/form/helper.ts`](https://github.com/QuiteerJs/web/blob/063d62cdc06f3ccd1a37c61bc953c60561eafc1f/packages/naive-extra/src/form/helper.ts)
-  - ✏️ [`packages/naive-extra/src/form/index.ts`](https://github.com/QuiteerJs/web/blob/063d62cdc06f3ccd1a37c61bc953c60561eafc1f/packages/naive-extra/src/form/index.ts)
-  - ✏️ [`packages/naive-extra/src/form/index.vue`](https://github.com/QuiteerJs/web/blob/063d62cdc06f3ccd1a37c61bc953c60561eafc1f/packages/naive-extra/src/form/index.vue)
-  - ✏️ [`packages/naive-extra/src/form/props.ts`](https://github.com/QuiteerJs/web/blob/063d62cdc06f3ccd1a37c61bc953c60561eafc1f/packages/naive-extra/src/form/props.ts)
-  - ✏️ [`packages/naive-extra/src/index.ts`](https://github.com/QuiteerJs/web/blob/063d62cdc06f3ccd1a37c61bc953c60561eafc1f/packages/naive-extra/src/index.ts)
-  - ✏️ [`packages/naive-extra/src/search-bar/index.vue`](https://github.com/QuiteerJs/web/blob/063d62cdc06f3ccd1a37c61bc953c60561eafc1f/packages/naive-extra/src/search-bar/index.vue)
-  - ✏️ [`packages/naive-extra/src/table/components/TableSetting.vue`](https://github.com/QuiteerJs/web/blob/063d62cdc06f3ccd1a37c61bc953c60561eafc1f/packages/naive-extra/src/table/components/TableSetting.vue)
-  - ✏️ [`packages/naive-extra/src/table/index.ts`](https://github.com/QuiteerJs/web/blob/063d62cdc06f3ccd1a37c61bc953c60561eafc1f/packages/naive-extra/src/table/index.ts)
-  - ✏️ [`packages/naive-extra/src/table/index.vue`](https://github.com/QuiteerJs/web/blob/063d62cdc06f3ccd1a37c61bc953c60561eafc1f/packages/naive-extra/src/table/index.vue)
-  - ✏️ [`packages/naive-extra/src/table/components/useColumn.ts`](https://github.com/QuiteerJs/web/blob/063d62cdc06f3ccd1a37c61bc953c60561eafc1f/packages/naive-extra/src/table/components/useColumn.ts)
-  - ✏️ [`packages/naive-extra/src/upload/index.ts`](https://github.com/QuiteerJs/web/blob/063d62cdc06f3ccd1a37c61bc953c60561eafc1f/packages/naive-extra/src/upload/index.ts)
-  - ✏️ [`packages/naive-extra/src/form/uses/useUploadProps.ts`](https://github.com/QuiteerJs/web/blob/063d62cdc06f3ccd1a37c61bc953c60561eafc1f/packages/naive-extra/src/form/uses/useUploadProps.ts)
-  - ✏️ [`packages/naive-extra/vite.config.ts`](https://github.com/QuiteerJs/web/blob/063d62cdc06f3ccd1a37c61bc953c60561eafc1f/packages/naive-extra/vite.config.ts)
-  - ✏️ [`pnpm-lock.yaml`](https://github.com/QuiteerJs/web/blob/063d62cdc06f3ccd1a37c61bc953c60561eafc1f/pnpm-lock.yaml)
-  - 🗑️ [~~`packages/naive-extra/src/form/components/UploadView.vue`~~](https://github.com/QuiteerJs/web/commit/063d62cdc06f3ccd1a37c61bc953c60561eafc1f)
-  - 🗑️ [~~`packages/naive-extra/src/form/types.ts`~~](https://github.com/QuiteerJs/web/commit/063d62cdc06f3ccd1a37c61bc953c60561eafc1f)
-  - 🗑️ [~~`packages/naive-extra/src/table/types.ts`~~](https://github.com/QuiteerJs/web/commit/063d62cdc06f3ccd1a37c61bc953c60561eafc1f)
-  - 🗑️ [~~`src/api-examples.md`~~](https://github.com/QuiteerJs/web/commit/063d62cdc06f3ccd1a37c61bc953c60561eafc1f)
-  - 🗑️ [~~`src/counter.ts`~~](https://github.com/QuiteerJs/web/commit/063d62cdc06f3ccd1a37c61bc953c60561eafc1f)
-  - 🗑️ [~~`src/main.ts`~~](https://github.com/QuiteerJs/web/commit/063d62cdc06f3ccd1a37c61bc953c60561eafc1f)
-  - 🗑️ [~~`src/markdown-examples.md`~~](https://github.com/QuiteerJs/web/commit/063d62cdc06f3ccd1a37c61bc953c60561eafc1f)
-  - 🗑️ [~~`src/style.css`~~](https://github.com/QuiteerJs/web/commit/063d62cdc06f3ccd1a37c61bc953c60561eafc1f)
-- 🐛  **fix** `projects`: 修改类型导入
-  > **🕒  17:15** · `➕5` / `➖2`
-  > `👤 Quiteer`  <p602985@yeah.net> ([`df3d53b`](https://github.com/QuiteerJs/web/commit/df3d53b727099f04860a1a82f7c6c051e2b63327))
-  - ➕ [`packages/utils/src/index.ts`](https://github.com/QuiteerJs/web/blob/df3d53b727099f04860a1a82f7c6c051e2b63327/packages/utils/src/index.ts)
-  - ✏️ [`.github/workflows/deploy.yml`](https://github.com/QuiteerJs/web/blob/df3d53b727099f04860a1a82f7c6c051e2b63327/.github/workflows/deploy.yml)
-  - ✏️ [`packages/naive-extra/src/upload/index.ts`](https://github.com/QuiteerJs/web/blob/df3d53b727099f04860a1a82f7c6c051e2b63327/packages/naive-extra/src/upload/index.ts)
 
 ### 性能优化
 #### 2026-01-28 `✏️ 14+` `➕ 0+` `🗑️ 2+`
