@@ -1,6 +1,19 @@
 ## 变更日志
 
-### 2026-02-01 `✏️ 41+` `➕ 4+` `🗑️ 5+`
+### 2026-02-01 `✏️ 48+` `➕ 4+` `🗑️ 5+`
+- 🔧  **chore** `release`: v0.1.12
+  > **🕒  03:45** · `➕1` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`e9f413b`](https://github.com/QuiteerJs/web/commit/e9f413b78ec5fb1589584342c5bc8a49122d9083))
+  - ✏️ [`packages/qvite/package.json`](https://github.com/QuiteerJs/web/blob/e9f413b78ec5fb1589584342c5bc8a49122d9083/packages/qvite/package.json)
+- ⚙️  **ci** `packages`: 包信息修改
+  > **🕒  03:43** · `➕224` / `➖202`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`ccf4502`](https://github.com/QuiteerJs/web/commit/ccf4502175b0cf133a2cc3e35d993ff410acbecb))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/ccf4502175b0cf133a2cc3e35d993ff410acbecb/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/ccf4502175b0cf133a2cc3e35d993ff410acbecb/CHANGELOG_TIMELINE.md)
+  - ✏️ [`packages/naive-extra/package.json`](https://github.com/QuiteerJs/web/blob/ccf4502175b0cf133a2cc3e35d993ff410acbecb/packages/naive-extra/package.json)
+  - ✏️ [`packages/unocss/package.json`](https://github.com/QuiteerJs/web/blob/ccf4502175b0cf133a2cc3e35d993ff410acbecb/packages/unocss/package.json)
+  - ✏️ [`playground/naive-extra-test/qvite.config.ts`](https://github.com/QuiteerJs/web/blob/ccf4502175b0cf133a2cc3e35d993ff410acbecb/playground/naive-extra-test/qvite.config.ts)
+  - ✏️ [`playground/naive-extra-test/src/main.ts`](https://github.com/QuiteerJs/web/blob/ccf4502175b0cf133a2cc3e35d993ff410acbecb/playground/naive-extra-test/src/main.ts)
 - 🔧  **chore** `release`: v0.0.7
   > **🕒  03:38** · `➕2` / `➖4`
   > `👤 Quiteer`  <p602985@yeah.net> ([`99ccd3a`](https://github.com/QuiteerJs/web/commit/99ccd3a4cf5f0c38fe45591cf811b98a602d6bab))
