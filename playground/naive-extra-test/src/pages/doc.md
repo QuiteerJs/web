@@ -1,47 +1,73 @@
 <route lang="json">
 {
   "meta": {
-    "title": "文档",
+    "title": "路由开发文档"
   }
 }
 </route>
 
-# 关于自动路由的使用说明
+# 自动路由开发指南
 
-## 路由规则
+本项目基于 `unplugin-vue-router` 实现了约定式自动路由，为了确保路由解析正确及菜单渲染无冲突，请务必遵守以下规范。
 
-- 所有的路由都需要在 `src/pages` 目录下
-- 每个路由都需要有一个对应的 `*.page.vue` 文件
-- 每个路由都可以有一个对应的 `*.meta.vue` 文件，用于配置路由元信息
+## 1. 文件后缀与类型定义
 
-## 关于路由嵌套规则
+我们通过不同的文件后缀来区分路由的用途，请严格遵守：
 
-- 当当前层级是目录时，meta信息无法通过文件中添加的时候，需要在目录同级下添加一个 `*.meta.vue` 文件，用于配置路由元信息
-- 目录下的 `index` 文件并不会提升到目录信息中 ， 而是嵌套在创建的目录下。
+| 后缀 | 类型 | 说明 |
+| :--- | :--- | :--- |
+| `*.page.vue` | **功能页面** | 存放具体的业务逻辑页面。 |
+| `*.meta.vue` | **嵌套父级** | **仅用于定义嵌套路由的父级元信息**（如菜单组标题、图标等）。<br>⚠️ **必须包含 `<RouterView />` 标签**，否则子页面无法渲染。 |
+| `*.link.vue` | **外链** | 用于定义外部链接。 |
 
-## 示例
-- 比如你需要创建一个目录 `test`
-1. `/test`
-2. `/test/index.page.vue` （无需重定向别名配置，访问 `/test` 会自动跳转到 `/test/` 页面展示内容）
-3. `/test.meta.vue` （主要还是为了使用 `definePage` 为 `/test` 配置路由元信息）
+## 2. 目录与嵌套规则
 
-如果不想创建 index.page.vue 文件，记得在 `test.meta.vue` 文件中添加路由重定向或别名选项，否则会导致访问 `/test` 时，无法展示内容。
+### 嵌套逻辑
+- 如果你想为一个目录（如 `demo/`）定义整体的菜单信息（标题、图标），请在同级目录下创建 `demo.meta.vue`。
+- `demo.meta.vue` 会自动成为 `demo/` 目录下所有路由的父级。
+
+### 示例结构
+```text
+src/pages/
+  ├── demo.meta.vue       # 定义“示例”组的信息（父级）
+  └── demo/               # 目录下存放子页面
+      ├── basic.page.vue  # 路径: /demo/basic
+      └── table.page.vue  # 路径: /demo/table
+```
+
+## 3. 避坑指南（重要）
+
+### ⚠️ 规避 Duplicate keys 警告
+当你在使用 `.meta.vue` 定义父级时，**请务必规避在目录下使用 `index.page.vue`**。
+
+- **错误做法**：
+  - `demo.meta.vue` (解析为 `/demo`)
+  - `demo/index.page.vue` (解析为 `/demo`)
+  - **后果**：由于两个文件解析到了同一个路径，Vue 在渲染菜单时会报 `Duplicate keys` 错误，且路由解析会产生冲突。
+
+- **正确做法**：
+  - 将子页面命名为具体的名称，如 `demo/basic.page.vue` 或 `demo/main.page.vue`。
+  - 如果需要访问 `/demo` 自动跳转，请在 `demo.meta.vue` 的 `definePage` 中配置 `redirect`。
+
+### ⚠️ 必须携带 RouterView
+在所有的 `*.meta.vue` 文件模板中，必须包含 `<RouterView />`，它是嵌套路由的出口。
 
 ```vue
-// test.meta.vue
+<!-- 正确的 *.meta.vue 示例 -->
 <script setup lang="ts">
 definePage({
-  name: 'test',
-  meta: {
-    title: '测试示例',
-    icon: 'mdi:test-tube',
-    order: 100
-  }
+  meta: { title: '组标题', icon: 'xxx' }
 })
 </script>
 
 <template>
-  <RouterView />
+  <RouterView /> 
 </template>
-
 ```
+
+## 4. 最佳实践建议
+
+1. **命名语义化**：子页面尽量使用描述性名称，而不是简单的 `index`。
+2. **元数据位置**：
+   - 叶子节点页面直接在 `*.page.vue` 中使用 `definePage`。
+   - 目录/组节点信息在同级的 `*.meta.vue` 中定义。

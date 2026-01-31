@@ -43,7 +43,7 @@ const formProps = computed((): FormProps => {
 
 const getGrid = computed((): GridProps => {
   return {
-    cols: props.inline ? '1 s:2 m:4 l:5  2xl:6' : '1',
+    cols: props.inline ? '1 s:2 m:4 l:5 2xl:6' : '1',
     xGap: 10,
     responsive: 'screen',
     ...props.gridProps
@@ -159,13 +159,15 @@ defineExpose({
       >
         <!-- 标签名右侧温馨提示 -->
         <template v-if="schema.labelMessage" #label>
-          {{ schema.label }}
-          <NTooltip trigger="hover" :style="schema.labelMessageStyle">
-            <template #trigger>
-              <i class="i-material-symbols-info-outline relative top--1 text-4 text-amber" />
-            </template>
-            {{ schema.labelMessage }}
-          </NTooltip>
+          <span class="inline-flex items-center">
+            {{ schema.label }}
+            <NTooltip trigger="hover" :style="schema.labelMessageStyle">
+              <template #trigger>
+                <i class="i-material-symbols-info-outline ml-1 text-4 text-amber" />
+              </template>
+              {{ schema.labelMessage }}
+            </NTooltip>
+          </span>
         </template>
 
         <!-- 判断插槽 -->

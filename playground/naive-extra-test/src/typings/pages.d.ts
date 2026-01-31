@@ -41,6 +41,10 @@ declare module 'vue-router/auto-routes' {
       | '/demo/form'
       | '/demo/provider/naive'
       | '/demo/provider/unocss'
+      | 'BasicForm'
+      | 'FormLayoutDemo'
+      | 'FormSlotDemo'
+      | 'FormValidateDemo'
       | 'IconDemo'
       | 'LayoutDemo'
       | 'ProviderDemo'
@@ -72,6 +76,37 @@ declare module 'vue-router/auto-routes' {
     '/demo/form': RouteRecordInfo<
       '/demo/form',
       '/demo/form',
+      Record<never, never>,
+      Record<never, never>,
+      | 'BasicForm'
+      | 'FormLayoutDemo'
+      | 'FormSlotDemo'
+      | 'FormValidateDemo'
+    >,
+    'BasicForm': RouteRecordInfo<
+      'BasicForm',
+      '/demo/form/basic',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    'FormLayoutDemo': RouteRecordInfo<
+      'FormLayoutDemo',
+      '/demo/form/form-layout',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    'FormSlotDemo': RouteRecordInfo<
+      'FormSlotDemo',
+      '/demo/form/slot',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    'FormValidateDemo': RouteRecordInfo<
+      'FormValidateDemo',
+      '/demo/form/validate',
       Record<never, never>,
       Record<never, never>,
       | never
@@ -346,6 +381,10 @@ declare module 'vue-router/auto-routes' {
         | '/demo/form'
         | '/demo/provider/naive'
         | '/demo/provider/unocss'
+        | 'BasicForm'
+        | 'FormLayoutDemo'
+        | 'FormSlotDemo'
+        | 'FormValidateDemo'
         | 'IconDemo'
         | 'LayoutDemo'
         | 'ProviderDemo'
@@ -375,9 +414,37 @@ declare module 'vue-router/auto-routes' {
       views:
         | never
     }
-    'src/pages/demo/form.page.vue': {
+    'src/pages/demo/form.meta.vue': {
       routes:
         | '/demo/form'
+        | 'BasicForm'
+        | 'FormLayoutDemo'
+        | 'FormSlotDemo'
+        | 'FormValidateDemo'
+      views:
+        | 'default'
+    }
+    'src/pages/demo/form/basic.page.vue': {
+      routes:
+        | 'BasicForm'
+      views:
+        | never
+    }
+    'src/pages/demo/form/form-layout.page.vue': {
+      routes:
+        | 'FormLayoutDemo'
+      views:
+        | never
+    }
+    'src/pages/demo/form/slot.page.vue': {
+      routes:
+        | 'FormSlotDemo'
+      views:
+        | never
+    }
+    'src/pages/demo/form/validate.page.vue': {
+      routes:
+        | 'FormValidateDemo'
       views:
         | never
     }

@@ -15,7 +15,7 @@ import FormDemo from './components/FormDemo.vue'
 
 | 参数 | 类型 | 默认值 | 描述 |
 |------|------|--------|------|
-| `` `schemas` `` | `{ field: string; label: string; component: string; rules?: any[]; }[]` | — | 表单字段定义数组，每个项包含字段名、标签、组件类型及校验规则等 |
+| `` schemas `` | `{ field: string; label: string; component: string; rules?: any[]; }[]` | — | 表单字段定义数组，每个项包含字段名、标签、组件类型及校验规则等 |
 | `` `model` `` | `Record<string, any>` | — | 初始表单数据对象（可选） |
 | `` `size` `` | `` 'small' \| 'medium' \| 'large' `` | — | 表单控件尺寸 |
 | `` `layout` `` | `object` | — | 布局配置，透传给 `naive-ui` 的 `NForm` 属性（如 `labelPlacement`、`labelWidth` 等） |
