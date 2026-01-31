@@ -1,5 +1,6 @@
 import type { ConfigEnv } from '@quiteer/vite'
 import { defineConfig } from '@quiteer/vite'
+import VueRouter from 'unplugin-vue-router/vite'
 
 export default defineConfig((envConfig) => {
   const { env } = envConfig as ConfigEnv<ImportMetaEnv>
@@ -28,7 +29,12 @@ export default defineConfig((envConfig) => {
     vite: {
       server: {
         port: 8091
-      }
+      },
+      plugins: [VueRouter({
+        logs: true,
+        dts: 'src/typings/pages.d.ts',
+        extensions: ['.page.vue', '.meta.vue', '.link.vue', '.iframe.vue']
+      })]
     },
     UnoCSS: true,
     plugins: {

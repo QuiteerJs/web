@@ -1,6 +1,12 @@
 ## 变更日志
 
 ### 其他
+#### 2026-02-01 `✏️ 1+` `➕ 0+` `🗑️ 0+`
+- 🔧  **chore** `release`: v0.1.9
+  > **🕒  00:33** · `➕1` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`fd0fec7`](https://github.com/QuiteerJs/web/commit/fd0fec7cb0cf68abf4888910effcdf19fa9bdf45))
+  - ✏️ [`packages/qvite/package.json`](https://github.com/QuiteerJs/web/blob/fd0fec7cb0cf68abf4888910effcdf19fa9bdf45/packages/qvite/package.json)
+
 #### 2026-01-31 `✏️ 2+` `➕ 0+` `🗑️ 0+`
 - 🔧  **chore** `release`: v0.0.1
   > **🕒  23:44** · `➕1` / `➖1`
@@ -731,7 +737,17 @@
   - ✏️ [`pnpm-workspace.yaml`](https://github.com/QuiteerJs/web/blob/3a9e13397fe92cc5856e727ecae4b7dab09ee818/pnpm-workspace.yaml)
 
 ### 新功能
-#### 2026-01-31 `✏️ 6+` `➕ 6+` `🗑️ 1+`
+#### 2026-01-31 `✏️ 13+` `➕ 6+` `🗑️ 1+`
+- ✨  **feat** `release`: naive-extra发布
+  > **🕒  23:46** · `➕1249` / `➖1206`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`6ea589e`](https://github.com/QuiteerJs/web/commit/6ea589efca0ca97a800c1452f5e7be6d20c30bac))
+  - ✏️ [`.npmrc`](https://github.com/QuiteerJs/web/blob/6ea589efca0ca97a800c1452f5e7be6d20c30bac/.npmrc)
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/6ea589efca0ca97a800c1452f5e7be6d20c30bac/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/6ea589efca0ca97a800c1452f5e7be6d20c30bac/CHANGELOG_TIMELINE.md)
+  - ✏️ [`packages/naive-extra/package.json`](https://github.com/QuiteerJs/web/blob/6ea589efca0ca97a800c1452f5e7be6d20c30bac/packages/naive-extra/package.json)
+  - ✏️ [`packages/naive-extra/src/components/layout/layout-parts/AppSidebar.vue`](https://github.com/QuiteerJs/web/blob/6ea589efca0ca97a800c1452f5e7be6d20c30bac/packages/naive-extra/src/components/layout/layout-parts/AppSidebar.vue)
+  - ✏️ [`packages/naive-extra/src/hooks/useLayout.ts`](https://github.com/QuiteerJs/web/blob/6ea589efca0ca97a800c1452f5e7be6d20c30bac/packages/naive-extra/src/hooks/useLayout.ts)
+  - ✏️ [`packages/naive-extra/src/hooks/useThemeOverrides.ts`](https://github.com/QuiteerJs/web/blob/6ea589efca0ca97a800c1452f5e7be6d20c30bac/packages/naive-extra/src/hooks/useThemeOverrides.ts)
 - ✨  **feat** `release`: naive-extra 发布
   > **🕒  23:30** · `➕1683` / `➖1599`
   > `👤 Quiteer`  <p602985@yeah.net> ([`51a0c63`](https://github.com/QuiteerJs/web/commit/51a0c6315809c2e87cd41742a3d036de9ddba776))

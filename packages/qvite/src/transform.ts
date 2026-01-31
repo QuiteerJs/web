@@ -69,12 +69,18 @@ export async function toViteInlineConfig(config: NormalizeConfig): Promise<Inlin
 
   const plugins = geVitePlugins(config)
 
+  // 确保用户自定义插件在默认插件之前加载，特别是 unplugin-vue-router 需要在 vite:vue 之前
+  const userViteConfig = { ...config.vite }
+  const userPlugins = userViteConfig.plugins || []
+  const userPluginsArray = Array.isArray(userPlugins) ? userPlugins : [userPlugins]
+  delete userViteConfig.plugins
+
   const inline: InlineConfig = mergeConfig({
     configFile: false,
     root,
     mode,
-    plugins
-  }, { ...config.vite })
+    plugins: [...userPluginsArray, ...plugins]
+  }, userViteConfig)
 
   return inline
 }

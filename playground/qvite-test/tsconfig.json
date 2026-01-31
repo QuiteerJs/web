@@ -12,7 +12,7 @@
       "~/*": ["./*"]
     },
     "resolveJsonModule": true,
-    "types": ["@quiteer/vite/client", "node"],
+    "types": ["@quiteer/vite/client", "node", "unplugin-vue-router/client"],
     "strict": true,
     "strictNullChecks": true,
     "noUnusedLocals": false,

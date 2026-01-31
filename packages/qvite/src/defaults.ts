@@ -48,7 +48,7 @@ export function getDefaultOptions(config: QviteConfig) {
         types: [{ from: 'vue-router', names: ['RouterLink', 'RouterView'] }],
         resolvers: [
           NaiveUiResolver(),
-          IconsResolver({ customCollections: 'local', componentPrefix: 'icon-loacl' })
+          IconsResolver({ customCollections: 'local', componentPrefix: 'icon-local' })
         ]
       }]
     },

@@ -14,6 +14,7 @@ const Btn = <button>我来自 tsx 组件</button>
   </div>
   <Btn />
   <AxiosDemo />
+  <RouterView />
 </template>
 
 <style scoped></style>

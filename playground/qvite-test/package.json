@@ -23,6 +23,7 @@
     "@types/node": "^22.18.11",
     "@vue/tsconfig": "^0.8.1",
     "npm-run-all2": "^8.0.4",
-    "typescript": "~5.9.0"
+    "typescript": "~5.9.0",
+    "unplugin-vue-router": "^0.19.2"
   }
 }

@@ -1,6 +1,22 @@
 ## 变更日志
 
-### 2026-01-31 `✏️ 14+` `➕ 6+` `🗑️ 1+`
+### 2026-02-01 `✏️ 1+` `➕ 0+` `🗑️ 0+`
+- 🔧  **chore** `release`: v0.1.9
+  > **🕒  00:33** · `➕1` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`fd0fec7`](https://github.com/QuiteerJs/web/commit/fd0fec7cb0cf68abf4888910effcdf19fa9bdf45))
+  - ✏️ [`packages/qvite/package.json`](https://github.com/QuiteerJs/web/blob/fd0fec7cb0cf68abf4888910effcdf19fa9bdf45/packages/qvite/package.json)
+
+### 2026-01-31 `✏️ 21+` `➕ 6+` `🗑️ 1+`
+- ✨  **feat** `release`: naive-extra发布
+  > **🕒  23:46** · `➕1249` / `➖1206`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`6ea589e`](https://github.com/QuiteerJs/web/commit/6ea589efca0ca97a800c1452f5e7be6d20c30bac))
+  - ✏️ [`.npmrc`](https://github.com/QuiteerJs/web/blob/6ea589efca0ca97a800c1452f5e7be6d20c30bac/.npmrc)
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/6ea589efca0ca97a800c1452f5e7be6d20c30bac/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/6ea589efca0ca97a800c1452f5e7be6d20c30bac/CHANGELOG_TIMELINE.md)
+  - ✏️ [`packages/naive-extra/package.json`](https://github.com/QuiteerJs/web/blob/6ea589efca0ca97a800c1452f5e7be6d20c30bac/packages/naive-extra/package.json)
+  - ✏️ [`packages/naive-extra/src/components/layout/layout-parts/AppSidebar.vue`](https://github.com/QuiteerJs/web/blob/6ea589efca0ca97a800c1452f5e7be6d20c30bac/packages/naive-extra/src/components/layout/layout-parts/AppSidebar.vue)
+  - ✏️ [`packages/naive-extra/src/hooks/useLayout.ts`](https://github.com/QuiteerJs/web/blob/6ea589efca0ca97a800c1452f5e7be6d20c30bac/packages/naive-extra/src/hooks/useLayout.ts)
+  - ✏️ [`packages/naive-extra/src/hooks/useThemeOverrides.ts`](https://github.com/QuiteerJs/web/blob/6ea589efca0ca97a800c1452f5e7be6d20c30bac/packages/naive-extra/src/hooks/useThemeOverrides.ts)
 - 🔧  **chore** `release`: v0.0.1
   > **🕒  23:44** · `➕1` / `➖1`
   > `👤 Quiteer`  <p602985@yeah.net> ([`76fe5b7`](https://github.com/QuiteerJs/web/commit/76fe5b7101ac36026cc1426dce1fd30e55fa038e))
