@@ -170,7 +170,7 @@ importers:
         specifier: ^0.6.0
         version: 0.6.0(@types/sortablejs@1.15.9)
       vue-router:
-        specifier: ^4.6.3
+        specifier: ^4.0.0
         version: 4.6.3(vue@3.5.24(typescript@5.9.3))
     devDependencies:
       '@quiteer/vite-plugins':
