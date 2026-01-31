@@ -168,6 +168,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/doc': RouteRecordInfo<
+      '/doc',
+      '/doc',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     'DynamicExample': RouteRecordInfo<
       'DynamicExample',
       '/dynamic-example',
@@ -495,6 +502,12 @@ declare module 'vue-router/auto-routes' {
     'src/pages/demo/upload.page.vue': {
       routes:
         | 'UploadDemo'
+      views:
+        | never
+    }
+    'src/pages/doc.md': {
+      routes:
+        | '/doc'
       views:
         | never
     }

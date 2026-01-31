@@ -1,6 +1,7 @@
 import type { QviteConfig } from './typings'
 import { resolve } from 'node:path'
 import { FileSystemIconLoader, IconsResolver, NaiveUiResolver } from '@quiteer/vite-plugins/plugins'
+import { VueRouterAutoImports } from 'unplugin-vue-router'
 import { store } from './store'
 
 export function getDefaultOptions(config: QviteConfig) {
@@ -11,9 +12,14 @@ export function getDefaultOptions(config: QviteConfig) {
   const defaultOptions = {
     minify,
     localIconDir,
-    UnoCSS: false,
+    UnoCSS: true,
     plugins: {
-      Vue: [{ customElement: true }],
+      VueRouter: [{
+        logs: true,
+        dts: 'src/typings/pages.d.ts',
+        extensions: ['.page.vue', '.meta.vue', '.link.vue', '.iframe.vue', '.md']
+      }],
+      Vue: [{ customElement: true, include: [/\.vue$/, /\.md$/] }],
       VueDevTools: [{}],
       VueJsx: [{}],
       Progress: [{}],
@@ -31,9 +37,11 @@ export function getDefaultOptions(config: QviteConfig) {
       }],
       SvgIcons: false,
       AutoImport: [{
+        dts: 'src/typings/auto-imports.d.ts',
         imports: [
           'vue',
           'vue-router',
+          VueRouterAutoImports,
           {
             'naive-ui': [
               'useDialog',
@@ -45,6 +53,7 @@ export function getDefaultOptions(config: QviteConfig) {
         ]
       }],
       Components: [{
+        dts: 'src/typings/components.d.ts',
         types: [{ from: 'vue-router', names: ['RouterLink', 'RouterView'] }],
         resolvers: [
           NaiveUiResolver(),

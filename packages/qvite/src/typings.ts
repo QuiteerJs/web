@@ -1,6 +1,7 @@
 import type { EnvConfigPluginOptions, fileChangeLoggerPlugin, mockRouterPlugin, removeConsolePlugin, VirtualHtmlOptions } from '@quiteer/vite-plugins'
 import type { AutoImport, Components, createSvgIconsPlugin, Icons, Progress, Vue, VueDevTools, VueJsx } from '@quiteer/vite-plugins/plugins'
 import type { UserConfig } from 'tsdown'
+import type VueRouter from 'unplugin-vue-router/vite'
 import type { UserConfig as ViteUserConfig } from 'vite'
 
 export type { EnvConfig } from '@quiteer/vite-plugins'
@@ -8,6 +9,7 @@ export type { EnvConfig } from '@quiteer/vite-plugins'
 export type PluginOptions<T extends (...args: any) => any> = boolean | Parameters<T>
 
 export interface QvitePlugins {
+  VueRouter?: PluginOptions<typeof VueRouter>
   Vue?: PluginOptions<typeof Vue>
   VueJsx?: PluginOptions<typeof VueJsx>
   Progress?: PluginOptions<typeof Progress>

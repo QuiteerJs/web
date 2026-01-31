@@ -105,4 +105,4 @@ export function defineTsdownConfig(
   return tsdownDefineConfig(config as TsdownUserConfig | TsdownUserConfig[])
 }
 
-export { FileSystemIconLoader, IconsResolver, NaiveUiResolver } from '@quiteer/vite-plugins/plugins'
+export { AutoImport, Components, FileSystemIconLoader, Icons, IconsResolver, NaiveUiResolver, Progress, Vue, VueDevTools, VueJsx } from '@quiteer/vite-plugins/plugins'

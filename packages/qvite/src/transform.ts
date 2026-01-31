@@ -2,7 +2,7 @@ import type { VirtualHtmlTag } from '@quiteer/vite-plugins'
 import type { InlineConfig, Plugin } from 'vite'
 import type { QviteConfig, QvitePlugins } from './typings'
 import UnoCSS from '@quiteer/unocss'
-import { deepMerge } from '@quiteer/utils'
+import { deepMerge, isPlainObject } from '@quiteer/utils'
 import { envConfigPlugin, virtualHtmlPlugin } from '@quiteer/vite-plugins'
 import { mergeConfig } from 'vite'
 import { getDefaultOptions } from './defaults'
@@ -49,12 +49,23 @@ export function geVitePlugins(config: NormalizeConfig) {
 
   const pluginKeys = Object.keys(plugins) as (keyof QvitePlugins)[]
 
-  const vitePlugins = pluginKeys.map((key) => {
+  // 排序确保插件顺序：VueRouter -> Vue -> 其他
+  const sortedKeys = [...pluginKeys].sort((a, b) => {
+    const order = { VueRouter: 1, Vue: 2 }
+    const aOrder = order[a as keyof typeof order] || 99
+    const bOrder = order[b as keyof typeof order] || 99
+    return aOrder - bOrder
+  })
+
+  const vitePlugins = sortedKeys.map((key) => {
     const pluginOptions = plugins[key]
 
     const pluginFn = defaultPlugins[key] as (...args: any[]) => Plugin
 
     if (Array.isArray(pluginOptions)) {
+      if (pluginOptions.every(isPlainObject)) {
+        return pluginFn(deepMerge({}, ...pluginOptions))
+      }
       return pluginFn(...pluginOptions as any[])
     }
 
