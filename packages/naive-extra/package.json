@@ -35,7 +35,7 @@
   "scripts": {
     "build": "vite build",
     "dev": "vite build -w",
-    "release": "qui r --tag-prefix unocss && tsdown && pnpm publish --access public"
+    "release": "qui r --tag-prefix naive-extra && tsdown && pnpm publish --access public"
   },
   "dependencies": {
     "@quiteer/is": "workspace:*",
