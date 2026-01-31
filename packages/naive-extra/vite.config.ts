@@ -65,11 +65,13 @@ export default defineConfig((_) => {
       rollupOptions: {
         external: [
           'vue',
+          'vue-router',
           'naive-ui',
           'vue-draggable-plus',
           /^naive-ui\/.*/, // naive-ui 的所有子路径
           /^vue(\/.+)?$/, // vue 的所有子路径
-          /^@vue\/.*/ // @vue 命名空间下的所有包
+          /^@vue\/.*/, // @vue 命名空间下的所有包
+          /^vue-router\/.*/ // vue-router 的所有子路径
         ],
         output: {
           preserveModules: false

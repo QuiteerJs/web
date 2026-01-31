@@ -17,7 +17,7 @@ export function getDefaultOptions(config: QviteConfig) {
       VueRouter: [{
         logs: true,
         dts: 'src/typings/pages.d.ts',
-        extensions: ['.page.vue', '.meta.vue', '.link.vue', '.iframe.vue', '.md']
+        extensions: ['.page.vue', '.meta.vue', '.link.vue']
       }],
       Vue: [{ customElement: true, include: [/\.vue$/, /\.md$/] }],
       VueDevTools: [{}],

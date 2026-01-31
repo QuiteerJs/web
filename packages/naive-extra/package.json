@@ -9,7 +9,8 @@
   "keywords": [],
   "exports": {
     ".": {
-      "import": "./src/index.ts"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
     }
   },
   "publishConfig": {
@@ -36,13 +37,16 @@
     "dev": "vite build -w",
     "release": "qui r --tag-prefix naive-extra && tsdown && pnpm publish --access public"
   },
+  "peerDependencies": {
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.0"
+  },
   "dependencies": {
     "@quiteer/is": "workspace:*",
     "@quiteer/unocss": "workspace:*",
     "@vueuse/core": "^14.1.0",
     "defu": "^6.1.4",
-    "vue-draggable-plus": "^0.6.0",
-    "vue-router": "^4.6.3"
+    "vue-draggable-plus": "^0.6.0"
   },
   "devDependencies": {
     "@quiteer/unocss": "workspace:*",

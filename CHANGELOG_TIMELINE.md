@@ -1,6 +1,37 @@
 ## 变更日志
 
-### 2026-02-01 `✏️ 15+` `➕ 2+` `🗑️ 0+`
+### 2026-02-01 `✏️ 30+` `➕ 4+` `🗑️ 5+`
+- 🔧  **chore** `release`: v0.1.11
+  > **🕒  02:37** · `➕1` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`4ce4d3f`](https://github.com/QuiteerJs/web/commit/4ce4d3fe2d9d44e0592e1484d4ca189c1dad9002))
+  - ✏️ [`packages/qvite/package.json`](https://github.com/QuiteerJs/web/blob/4ce4d3fe2d9d44e0592e1484d4ca189c1dad9002/packages/qvite/package.json)
+- ⚙️  **ci** `other`: 集成qvite
+  > **🕒  02:01** · `➕489` / `➖228`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`bb2ba40`](https://github.com/QuiteerJs/web/commit/bb2ba40a4e5ac682d812afe70a11c8d6d7c31d6f))
+  - ➕ [`playground/naive-extra-test/env.config.ts`](https://github.com/QuiteerJs/web/blob/bb2ba40a4e5ac682d812afe70a11c8d6d7c31d6f/playground/naive-extra-test/env.config.ts)
+  - ➕ [`playground/naive-extra-test/qvite.config.ts`](https://github.com/QuiteerJs/web/blob/bb2ba40a4e5ac682d812afe70a11c8d6d7c31d6f/playground/naive-extra-test/qvite.config.ts)
+  - ✏️ [`packages/qvite/index.ts`](https://github.com/QuiteerJs/web/blob/bb2ba40a4e5ac682d812afe70a11c8d6d7c31d6f/packages/qvite/index.ts)
+  - ✏️ [`packages/qvite/package.json`](https://github.com/QuiteerJs/web/blob/bb2ba40a4e5ac682d812afe70a11c8d6d7c31d6f/packages/qvite/package.json)
+  - ✏️ [`packages/qvite/src/defaults.ts`](https://github.com/QuiteerJs/web/blob/bb2ba40a4e5ac682d812afe70a11c8d6d7c31d6f/packages/qvite/src/defaults.ts)
+  - ✏️ [`packages/qvite/src/plugins.ts`](https://github.com/QuiteerJs/web/blob/bb2ba40a4e5ac682d812afe70a11c8d6d7c31d6f/packages/qvite/src/plugins.ts)
+  - ✏️ [`packages/qvite/src/transform.ts`](https://github.com/QuiteerJs/web/blob/bb2ba40a4e5ac682d812afe70a11c8d6d7c31d6f/packages/qvite/src/transform.ts)
+  - ✏️ [`packages/qvite/src/typings.ts`](https://github.com/QuiteerJs/web/blob/bb2ba40a4e5ac682d812afe70a11c8d6d7c31d6f/packages/qvite/src/typings.ts)
+  - ✏️ [`playground/naive-extra-test/env.d.ts`](https://github.com/QuiteerJs/web/blob/bb2ba40a4e5ac682d812afe70a11c8d6d7c31d6f/playground/naive-extra-test/env.d.ts)
+  - ✏️ [`playground/naive-extra-test/package.json`](https://github.com/QuiteerJs/web/blob/bb2ba40a4e5ac682d812afe70a11c8d6d7c31d6f/playground/naive-extra-test/package.json)
+  - ✏️ [`playground/naive-extra-test/src/typings/pages.d.ts`](https://github.com/QuiteerJs/web/blob/bb2ba40a4e5ac682d812afe70a11c8d6d7c31d6f/playground/naive-extra-test/src/typings/pages.d.ts)
+  - ✏️ [`playground/naive-extra-test/src/typings/router.d.ts`](https://github.com/QuiteerJs/web/blob/bb2ba40a4e5ac682d812afe70a11c8d6d7c31d6f/playground/naive-extra-test/src/typings/router.d.ts)
+  - ✏️ [`playground/naive-extra-test/tsconfig.json`](https://github.com/QuiteerJs/web/blob/bb2ba40a4e5ac682d812afe70a11c8d6d7c31d6f/playground/naive-extra-test/tsconfig.json)
+  - ✏️ [`pnpm-lock.yaml`](https://github.com/QuiteerJs/web/blob/bb2ba40a4e5ac682d812afe70a11c8d6d7c31d6f/pnpm-lock.yaml)
+  - 🗑️ [~~`playground/naive-extra-test/index.html`~~](https://github.com/QuiteerJs/web/commit/bb2ba40a4e5ac682d812afe70a11c8d6d7c31d6f)
+  - 🗑️ [~~`playground/naive-extra-test/src/useForm.ts`~~](https://github.com/QuiteerJs/web/commit/bb2ba40a4e5ac682d812afe70a11c8d6d7c31d6f)
+  - 🗑️ [~~`playground/naive-extra-test/tsconfig.app.json`~~](https://github.com/QuiteerJs/web/commit/bb2ba40a4e5ac682d812afe70a11c8d6d7c31d6f)
+  - 🗑️ [~~`playground/naive-extra-test/tsconfig.node.json`~~](https://github.com/QuiteerJs/web/commit/bb2ba40a4e5ac682d812afe70a11c8d6d7c31d6f)
+  - 🗑️ [~~`playground/naive-extra-test/vite.config.ts`~~](https://github.com/QuiteerJs/web/commit/bb2ba40a4e5ac682d812afe70a11c8d6d7c31d6f)
+- 🐛  **fix** `release`: 修复 vite 插件导出文件的 bug
+  > **🕒  00:49** · `➕21` / `➖3`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`0fbe7d6`](https://github.com/QuiteerJs/web/commit/0fbe7d63e100d3efcb27d4c05302a39d9c93d8b6))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/0fbe7d63e100d3efcb27d4c05302a39d9c93d8b6/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/0fbe7d63e100d3efcb27d4c05302a39d9c93d8b6/CHANGELOG_TIMELINE.md)
 - 🔧  **chore** `release`: v0.1.10
   > **🕒  00:48** · `➕1` / `➖1`
   > `👤 Quiteer`  <p602985@yeah.net> ([`949b77c`](https://github.com/QuiteerJs/web/commit/949b77c444a96c82df5d72336dadcd8ffadb3f02))
