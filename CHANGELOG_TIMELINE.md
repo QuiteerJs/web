@@ -1,6 +1,25 @@
 ## 变更日志
 
-### 2026-02-01 `✏️ 1+` `➕ 0+` `🗑️ 0+`
+### 2026-02-01 `✏️ 12+` `➕ 2+` `🗑️ 0+`
+- 🔧  **chore** `release`: v0.1.5
+  > **🕒  00:47** · `➕4` / `➖4`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`42a4585`](https://github.com/QuiteerJs/web/commit/42a4585602615427c8e87296bb93cce6aa1bd416))
+  - ✏️ [`packages/vite-plugins/package.json`](https://github.com/QuiteerJs/web/blob/42a4585602615427c8e87296bb93cce6aa1bd416/packages/vite-plugins/package.json)
+- 🐛  **fix** `release`: 修复自动引入插件顺序的bug
+  > **🕒  00:34** · `➕145` / `➖43`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`50d5dba`](https://github.com/QuiteerJs/web/commit/50d5dba46e72d7f2150cabf1bcbb03f11db4c8ec))
+  - ➕ [`playground/qvite-test/src/pages/home.page.vue`](https://github.com/QuiteerJs/web/blob/50d5dba46e72d7f2150cabf1bcbb03f11db4c8ec/playground/qvite-test/src/pages/home.page.vue)
+  - ➕ [`playground/qvite-test/src/typings/pages.d.ts`](https://github.com/QuiteerJs/web/blob/50d5dba46e72d7f2150cabf1bcbb03f11db4c8ec/playground/qvite-test/src/typings/pages.d.ts)
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/50d5dba46e72d7f2150cabf1bcbb03f11db4c8ec/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/50d5dba46e72d7f2150cabf1bcbb03f11db4c8ec/CHANGELOG_TIMELINE.md)
+  - ✏️ [`packages/qvite/src/defaults.ts`](https://github.com/QuiteerJs/web/blob/50d5dba46e72d7f2150cabf1bcbb03f11db4c8ec/packages/qvite/src/defaults.ts)
+  - ✏️ [`packages/qvite/src/transform.ts`](https://github.com/QuiteerJs/web/blob/50d5dba46e72d7f2150cabf1bcbb03f11db4c8ec/packages/qvite/src/transform.ts)
+  - ✏️ [`playground/qvite-test/package.json`](https://github.com/QuiteerJs/web/blob/50d5dba46e72d7f2150cabf1bcbb03f11db4c8ec/playground/qvite-test/package.json)
+  - ✏️ [`playground/qvite-test/qvite.config.ts`](https://github.com/QuiteerJs/web/blob/50d5dba46e72d7f2150cabf1bcbb03f11db4c8ec/playground/qvite-test/qvite.config.ts)
+  - ✏️ [`playground/qvite-test/src/App.vue`](https://github.com/QuiteerJs/web/blob/50d5dba46e72d7f2150cabf1bcbb03f11db4c8ec/playground/qvite-test/src/App.vue)
+  - ✏️ [`playground/qvite-test/src/router/index.ts`](https://github.com/QuiteerJs/web/blob/50d5dba46e72d7f2150cabf1bcbb03f11db4c8ec/playground/qvite-test/src/router/index.ts)
+  - ✏️ [`playground/qvite-test/tsconfig.json`](https://github.com/QuiteerJs/web/blob/50d5dba46e72d7f2150cabf1bcbb03f11db4c8ec/playground/qvite-test/tsconfig.json)
+  - ✏️ [`pnpm-lock.yaml`](https://github.com/QuiteerJs/web/blob/50d5dba46e72d7f2150cabf1bcbb03f11db4c8ec/pnpm-lock.yaml)
 - 🔧  **chore** `release`: v0.1.9
   > **🕒  00:33** · `➕1` / `➖1`
   > `👤 Quiteer`  <p602985@yeah.net> ([`fd0fec7`](https://github.com/QuiteerJs/web/commit/fd0fec7cb0cf68abf4888910effcdf19fa9bdf45))
