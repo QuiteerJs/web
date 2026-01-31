@@ -1,6 +1,15 @@
 ## 变更日志
 
-### 2026-01-31 `✏️ 11+` `➕ 6+` `🗑️ 1+`
+### 2026-01-31 `✏️ 14+` `➕ 6+` `🗑️ 1+`
+- 🔧  **chore** `release`: v0.0.1
+  > **🕒  23:44** · `➕1` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`76fe5b7`](https://github.com/QuiteerJs/web/commit/76fe5b7101ac36026cc1426dce1fd30e55fa038e))
+  - ✏️ [`packages/naive-extra/package.json`](https://github.com/QuiteerJs/web/blob/76fe5b7101ac36026cc1426dce1fd30e55fa038e/packages/naive-extra/package.json)
+- ✨  **feat** `release`: naive-extra 发布
+  > **🕒  23:30** · `➕1683` / `➖1599`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`51a0c63`](https://github.com/QuiteerJs/web/commit/51a0c6315809c2e87cd41742a3d036de9ddba776))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/51a0c6315809c2e87cd41742a3d036de9ddba776/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/51a0c6315809c2e87cd41742a3d036de9ddba776/CHANGELOG_TIMELINE.md)
 - 🔧  **chore** `release`: v0.0.1
   > **🕒  23:29** · `➕1` / `➖1`
   > `👤 Quiteer`  <p602985@yeah.net> ([`e6b4b6d`](https://github.com/QuiteerJs/web/commit/e6b4b6d81f16eb8bf883b4fd21d46a6ca4cb1c68))

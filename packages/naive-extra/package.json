@@ -19,8 +19,7 @@
         "types": "./dist/index.d.ts",
         "import": "./dist/index.js"
       },
-      "./index.css": "./dist/index.css",
-      "./vue": "./src/index.ts"
+      "./index.css": "./dist/index.css"
     },
     "registry": "https://registry.npmjs.org/"
   },

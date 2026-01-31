@@ -1,7 +1,7 @@
 /** 提供给用户的布局上下文以及一些协助使用的函数 */
 
 import type { MenuOption } from 'naive-ui'
-import type { Ref } from 'vue'
+import type { ComputedRef, Ref, WritableComputedRef } from 'vue'
 import type { RouteRecordRaw } from 'vue-router'
 import type { LayoutType, RouteMeta } from '../components/layout/types'
 import { computed, isRef, onUnmounted, reactive, ref, watch } from 'vue'
@@ -30,6 +30,29 @@ export interface UseLayoutContext {
   updateIsCollapsed: (v: boolean) => void
   updateInverted: (v: boolean) => void
   updateActiveKey: (v: string) => void
+}
+
+export interface UseLayoutReturn {
+  collapsed: Ref<boolean>
+  baseRoutes: any
+  addRoute: (route: RouteRecordRaw) => void
+  addRoutes: (routes: RouteRecordRaw[]) => void
+  removeRoute: (id: string) => void
+  toggle: () => void
+  setCollapsed: (v: boolean) => void
+  activeKey: Ref<string>
+  setActiveKey: (key: string) => void
+  menuOptions: ComputedRef<MenuOption[]>
+  context: UseLayoutContext
+  type: WritableComputedRef<LayoutType>
+  bordered: Ref<boolean>
+  inverted: Ref<boolean>
+  headerHeight: Ref<number>
+  footerHeight: Ref<number>
+  siderWidth: Ref<number>
+  siderMixedWidth: Ref<number>
+  collapsedWidth: Ref<number>
+  accordion: Ref<boolean>
 }
 
 /**
@@ -109,7 +132,7 @@ export function useLayout(option: {
   accordion?: boolean
   homePath?: string
   excludePaths?: string[]
-}) {
+}): UseLayoutReturn {
   const route = useRoute()
   const router = useRouter()
 
@@ -271,6 +294,7 @@ export function useLayout(option: {
     footerHeight,
     siderWidth,
     siderMixedWidth,
-    collapsedWidth
+    collapsedWidth,
+    accordion
   }
 }

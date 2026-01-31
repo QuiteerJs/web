@@ -4,6 +4,7 @@ import type { MenuInst, MenuOption } from 'naive-ui'
 // 显式引用这些类型以确保生成的声明文件是可移植的
 import type {} from 'treemate'
 import type { Slots } from 'vue'
+import type {} from 'vueuc'
 import { computed, ref, unref, useSlots, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { hasSlotContent } from '../../../share/slot'
