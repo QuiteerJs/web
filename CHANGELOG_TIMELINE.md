@@ -1,6 +1,19 @@
 ## 变更日志
 
-### 2026-02-01 `✏️ 30+` `➕ 4+` `🗑️ 5+`
+### 2026-02-01 `✏️ 37+` `➕ 4+` `🗑️ 5+`
+- 🔧  **chore** `release`: v0.0.2
+  > **🕒  02:38** · `➕1` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`265f27b`](https://github.com/QuiteerJs/web/commit/265f27b35078dcc72eade9e47bbdf82d6e270600))
+  - ✏️ [`packages/naive-extra/package.json`](https://github.com/QuiteerJs/web/blob/265f27b35078dcc72eade9e47bbdf82d6e270600/packages/naive-extra/package.json)
+- ⚡  **perf** `release`: 优化配置
+  > **🕒  02:38** · `➕194` / `➖137`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`5b1a259`](https://github.com/QuiteerJs/web/commit/5b1a259710b05e8535b8dc8df2a5a2c51fac70f4))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/5b1a259710b05e8535b8dc8df2a5a2c51fac70f4/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/5b1a259710b05e8535b8dc8df2a5a2c51fac70f4/CHANGELOG_TIMELINE.md)
+  - ✏️ [`packages/naive-extra/package.json`](https://github.com/QuiteerJs/web/blob/5b1a259710b05e8535b8dc8df2a5a2c51fac70f4/packages/naive-extra/package.json)
+  - ✏️ [`packages/naive-extra/vite.config.ts`](https://github.com/QuiteerJs/web/blob/5b1a259710b05e8535b8dc8df2a5a2c51fac70f4/packages/naive-extra/vite.config.ts)
+  - ✏️ [`packages/qvite/src/defaults.ts`](https://github.com/QuiteerJs/web/blob/5b1a259710b05e8535b8dc8df2a5a2c51fac70f4/packages/qvite/src/defaults.ts)
+  - ✏️ [`playground/naive-extra-test/src/typings/pages.d.ts`](https://github.com/QuiteerJs/web/blob/5b1a259710b05e8535b8dc8df2a5a2c51fac70f4/playground/naive-extra-test/src/typings/pages.d.ts)
 - 🔧  **chore** `release`: v0.1.11
   > **🕒  02:37** · `➕1` / `➖1`
   > `👤 Quiteer`  <p602985@yeah.net> ([`4ce4d3f`](https://github.com/QuiteerJs/web/commit/4ce4d3fe2d9d44e0592e1484d4ca189c1dad9002))
