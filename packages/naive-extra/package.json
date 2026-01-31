@@ -8,10 +8,7 @@
   "homepage": "https://quiteerjs.github.io/web/plugins/naive-extra/",
   "keywords": [],
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
-    }
+    ".": "./src/index.ts"
   },
   "publishConfig": {
     "access": "public",

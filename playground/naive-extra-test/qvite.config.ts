@@ -12,6 +12,7 @@ export default defineConfig({
       })
     ]
   },
+  UnoCSS: true,
   html: {
     config: {
       tags: [

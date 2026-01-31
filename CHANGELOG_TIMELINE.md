@@ -1,6 +1,19 @@
 ## 变更日志
 
-### 2026-02-01 `✏️ 37+` `➕ 4+` `🗑️ 5+`
+### 2026-02-01 `✏️ 41+` `➕ 4+` `🗑️ 5+`
+- 🔧  **chore** `release`: v0.0.7
+  > **🕒  03:38** · `➕2` / `➖4`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`99ccd3a`](https://github.com/QuiteerJs/web/commit/99ccd3a4cf5f0c38fe45591cf811b98a602d6bab))
+  - ✏️ [`packages/unocss/package.json`](https://github.com/QuiteerJs/web/blob/99ccd3a4cf5f0c38fe45591cf811b98a602d6bab/packages/unocss/package.json)
+- 🐛  **fix** `deps`: 更新依赖信息
+  > **🕒  02:43** · `➕1` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`14df86f`](https://github.com/QuiteerJs/web/commit/14df86feae84e26c15ce07b80a20c57157a37a8c))
+  - ✏️ [`pnpm-lock.yaml`](https://github.com/QuiteerJs/web/blob/14df86feae84e26c15ce07b80a20c57157a37a8c/pnpm-lock.yaml)
+- 🐛  **fix** `components`: 修复构建错误
+  > **🕒  02:39** · `➕70` / `➖42`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`c5322c1`](https://github.com/QuiteerJs/web/commit/c5322c10b26d0d52b9cc9c022eee65471a6ac830))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/c5322c10b26d0d52b9cc9c022eee65471a6ac830/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/c5322c10b26d0d52b9cc9c022eee65471a6ac830/CHANGELOG_TIMELINE.md)
 - 🔧  **chore** `release`: v0.0.2
   > **🕒  02:38** · `➕1` / `➖1`
   > `👤 Quiteer`  <p602985@yeah.net> ([`265f27b`](https://github.com/QuiteerJs/web/commit/265f27b35078dcc72eade9e47bbdf82d6e270600))

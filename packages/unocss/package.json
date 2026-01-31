@@ -26,8 +26,7 @@
         "types": "./dist/provide.d.mts",
         "import": "./dist/provide.mjs",
         "require": "./dist/provide.mjs"
-      },
-      "./config": "./src/uno.config.ts"
+      }
     },
     "access": "public",
     "registry": "https://registry.npmjs.org/"
@@ -35,7 +34,7 @@
   "bin": {
     "quiteer-unocss": "./src/dev.ts"
   },
-  "files": ["./src/uno.config.ts", "dist"],
+  "files": ["dist"],
   "scripts": {
     "dev": "tsdown --watch",
     "build": "tsdown",
