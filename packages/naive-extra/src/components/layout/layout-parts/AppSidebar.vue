@@ -4,13 +4,13 @@ import type { MenuInst, MenuOption } from 'naive-ui'
 // 显式引用这些类型以确保生成的声明文件是可移植的
 import type {} from 'treemate'
 import type { Slots } from 'vue'
-import { computed, ref, unref, useSlots, watch, watchEffect } from 'vue'
+import { computed, ref, unref, useSlots, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { hasSlotContent } from '../../../share/slot'
 import { SIDE_GROUP_LAYOUT_TYPES, SIDE_MIXED_LAYOUT_TYPES } from '../const'
 import { useContext } from '../context'
 
-import { findNodeByKey, renderMenuLabel, resolveLeafKeyFromMenu, resolveTopParentKeyFromMenu } from '../utils'
+import { findNodeByKey, renderMenuLabel, resolveMainSubFromActive, updateMenuTree } from '../utils'
 import AppLeftLogoInfo from './AppLeftLogoInfo.vue'
 
 const { isCollapsed, collapsedWidth, siderWidth, headerHeight, bordered, inverted, isLeftMain, isTopMain, activeKey, mainActiveKey, subActiveKey, type, menuOptions: options, mainMenuOptions, subMenuOptions, updateActiveKey, updateIsCollapsed, accordion, hasSiderLayout } = useContext()!
@@ -32,34 +32,39 @@ const isSideMixedMenu = computed<boolean>(() => SIDE_MIXED_LAYOUT_TYPES.includes
 const isSideGroupMenu = computed<boolean>(() => SIDE_GROUP_LAYOUT_TYPES.includes(unref(type)))
 
 const active = ref('')
+const expandedKeys = ref<string[]>([])
 
-function getKey(key: string) {
-  const opts = (unref(options) as any[]) || []
-  const topKey = resolveTopParentKeyFromMenu(opts as any, key)
-  const leafKey = resolveLeafKeyFromMenu(opts as any, key)
-  mainActiveKey.value = topKey
-  subActiveKey.value = leafKey
-  return { topKey, leafKey }
+function handleUpdateExpandedKeys(keys: string[]) {
+  expandedKeys.value = keys
 }
 
-watchEffect(() => {
+// 统一处理激活状态和滚动/展开
+watch(() => unref(activeKey), (newKey) => {
+  if (!newKey)
+    return
+
+  const { mainKey, subKey } = resolveMainSubFromActive(unref(options) as any[], newKey)
+  mainActiveKey.value = mainKey || ''
+  subActiveKey.value = subKey || ''
+
   if (unref(type) === 'side-menu' || unref(type) === 'side-group-menu' || unref(type) === 'side-mixed-menu') {
-    active.value = unref(activeKey)!
-    menuInstRef.value?.showOption(active.value)
+    active.value = newKey
   }
   else {
     if (unref(isLeftMain)) {
-      const { topKey } = getKey(unref(activeKey)!)
-      active.value = topKey
+      active.value = mainKey || ''
     }
 
     if (unref(isTopMain)) {
-      const { leafKey } = getKey(unref(activeKey)!)
-      active.value = leafKey
+      active.value = subKey || ''
     }
+  }
+
+  // 只有在激活项变化时才调用 showOption，避免干扰手动展开/收起
+  if (active.value) {
     menuInstRef.value?.showOption(active.value)
   }
-})
+}, { immediate: true })
 
 const router = useRouter()
 function handleUpdateValue(key: string) {
@@ -73,36 +78,32 @@ function handleUpdateValue(key: string) {
   menuInstRef.value?.showOption(key)
 
   if (unref(isLeftMain) && hasSiderLayout.value) {
-    const { leafKey } = getKey(key)
-    if (leafKey.startsWith('/')) {
-      router.push(leafKey)
-    }
-    else {
-      router.push({ name: leafKey })
+    const { subKey } = resolveMainSubFromActive(unref(options) as any[], key)
+    if (subKey) {
+      if (subKey.startsWith('/')) {
+        router.push(subKey)
+      }
+      else {
+        router.push({ name: subKey })
+      }
     }
   }
 }
 
 const menuOptions = computed(() => {
   const transformToGroups = (items: MenuOption[]): MenuOption[] => {
-    return items.map((item) => {
+    return updateMenuTree(items as any[], (item) => {
       if (item.children && item.children.length > 0) {
-        return {
-          ...item,
-          type: 'group',
-          key: item.key,
-          label: item.label,
-          icon: item.icon,
-          children: transformToGroups(item.children)
-        } as MenuOption
+        return { ...item, type: 'group' } as MenuOption
       }
       return item
-    })
+    }) as MenuOption[]
   }
 
   // 1. 获取基础菜单项
   let baseOptions: MenuOption[] = []
-  if (unref(type) === 'side-menu' || unref(type) === 'side-group-menu' || unref(type) === 'side-mixed-menu') {
+  const currentType = unref(type)
+  if (currentType === 'side-menu' || currentType === 'side-group-menu' || currentType === 'side-mixed-menu') {
     // 如果是左侧主菜单类布局（非混合顶部），使用完整选项
     baseOptions = unref(options) || []
   }
@@ -112,11 +113,11 @@ const menuOptions = computed(() => {
   }
 
   // 2. 根据布局类型进行转换
-  if (unref(isSideGroupMenu)) {
+  if (isSideGroupMenu.value) {
     return transformToGroups(baseOptions)
   }
 
-  if (unref(isSideMixedMenu)) {
+  if (isSideMixedMenu.value) {
     // 混合菜单：第一层保持原样（通常是图标），第二层开始转为 group
     return baseOptions.map((item) => {
       if (item.children && item.children.length) {
@@ -131,10 +132,6 @@ const menuOptions = computed(() => {
 
   return baseOptions
 })
-
-watch(active, (p) => {
-  menuInstRef.value?.showOption(p as string)
-}, { immediate: true })
 
 const slots: Slots = useSlots()
 const hasDefaultSlot = computed<boolean>(() => hasSlotContent(slots.default))
@@ -163,12 +160,14 @@ const hasDefaultSlot = computed<boolean>(() => hasSlotContent(slots.default))
     <n-menu
       ref="menuInstRef"
       :value="active"
+      :expanded-keys="expandedKeys"
       :options="menuOptions"
       :render-label="renderMenuLabel"
       :collapsed-width="collapsedWidth"
       :inverted="inverted"
       :accordion="accordion"
       @update:value="handleUpdateValue"
+      @update:expanded-keys="handleUpdateExpandedKeys"
     />
   </n-layout-sider>
 </template>

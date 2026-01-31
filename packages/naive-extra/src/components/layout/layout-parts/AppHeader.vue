@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import type { Slots } from 'vue'
-import { computed, ref, unref, useSlots, watchEffect } from 'vue'
+import { computed, ref, unref, useSlots, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { hasSlotContent } from '../../../share/slot'
 import { TOP_LAYOUT_TYPES } from '../const'
 import { useContext } from '../context'
-import { findNodeByKey, renderMenuLabel, resolveLeafKeyFromMenu, resolveTopParentKeyFromMenu } from '../utils'
+import { findNodeByKey, renderMenuLabel, resolveMainSubFromActive } from '../utils'
 import AppBreadcrumb from './AppBreadcrumb.vue'
 import AppLeftLogoInfo from './AppLeftLogoInfo.vue'
 
@@ -43,31 +43,28 @@ const menuOptions = computed(() => {
   return unref(isTopMain) ? unref(mainMenuOptions) : unref(subMenuOptions)
 })
 
-function getKey(key: string) {
-  const opts = (unref(options) as any[]) || []
-  const topKey = resolveTopParentKeyFromMenu(opts as any, key)
-  const leafKey = resolveLeafKeyFromMenu(opts as any, key)
-  mainActiveKey.value = topKey
-  subActiveKey.value = leafKey
-  return { topKey, leafKey }
-}
+// 统一处理激活状态
+watch(() => unref(activeKey), (newKey) => {
+  if (!newKey)
+    return
 
-watchEffect(() => {
+  const { mainKey, subKey } = resolveMainSubFromActive(unref(options) as any[], newKey)
+  mainActiveKey.value = mainKey || ''
+  subActiveKey.value = subKey || ''
+
   if (isTopMenu.value) {
-    active.value = unref(activeKey)!
+    active.value = newKey
   }
   else {
     if (unref(isTopMain)) {
-      const { topKey } = getKey(unref(activeKey)!)
-      active.value = topKey
+      active.value = mainKey || ''
     }
 
     if (unref(isLeftMain)) {
-      const { leafKey } = getKey(unref(activeKey)!)
-      active.value = leafKey
+      active.value = subKey || ''
     }
   }
-})
+}, { immediate: true })
 
 const router = useRouter()
 function handleUpdateValue(key: string) {
@@ -79,8 +76,10 @@ function handleUpdateValue(key: string) {
   updateActiveKey(key)
   active.value = key
   if (unref(isTopMain) && !isTopMenu.value) {
-    const { leafKey } = getKey(key)
-    router.push({ name: leafKey })
+    const { subKey } = resolveMainSubFromActive(unref(options) as any[], key)
+    if (subKey) {
+      router.push({ name: subKey })
+    }
   }
 }
 
