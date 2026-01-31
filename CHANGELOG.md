@@ -1,7 +1,11 @@
 ## 变更日志
 
 ### 其他
-#### 2026-02-01 `✏️ 2+` `➕ 0+` `🗑️ 0+`
+#### 2026-02-01 `✏️ 3+` `➕ 0+` `🗑️ 0+`
+- 🔧  **chore** `release`: v0.1.10
+  > **🕒  00:48** · `➕1` / `➖1`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`949b77c`](https://github.com/QuiteerJs/web/commit/949b77c444a96c82df5d72336dadcd8ffadb3f02))
+  - ✏️ [`packages/qvite/package.json`](https://github.com/QuiteerJs/web/blob/949b77c444a96c82df5d72336dadcd8ffadb3f02/packages/qvite/package.json)
 - 🔧  **chore** `release`: v0.1.5
   > **🕒  00:47** · `➕4` / `➖4`
   > `👤 Quiteer`  <p602985@yeah.net> ([`42a4585`](https://github.com/QuiteerJs/web/commit/42a4585602615427c8e87296bb93cce6aa1bd416))
@@ -741,7 +745,12 @@
   - ✏️ [`pnpm-workspace.yaml`](https://github.com/QuiteerJs/web/blob/3a9e13397fe92cc5856e727ecae4b7dab09ee818/pnpm-workspace.yaml)
 
 ### 修复
-#### 2026-02-01 `✏️ 10+` `➕ 2+` `🗑️ 0+`
+#### 2026-02-01 `✏️ 12+` `➕ 2+` `🗑️ 0+`
+- 🐛  **fix** `release`: 导出文件的bug
+  > **🕒  00:47** · `➕1687` / `➖1647`
+  > `👤 Quiteer`  <p602985@yeah.net> ([`132d1d9`](https://github.com/QuiteerJs/web/commit/132d1d99ce35c8a6fcba051ac93ebe8cc5bea1c1))
+  - ✏️ [`CHANGELOG.md`](https://github.com/QuiteerJs/web/blob/132d1d99ce35c8a6fcba051ac93ebe8cc5bea1c1/CHANGELOG.md)
+  - ✏️ [`CHANGELOG_TIMELINE.md`](https://github.com/QuiteerJs/web/blob/132d1d99ce35c8a6fcba051ac93ebe8cc5bea1c1/CHANGELOG_TIMELINE.md)
 - 🐛  **fix** `release`: 修复自动引入插件顺序的bug
   > **🕒  00:34** · `➕145` / `➖43`
   > `👤 Quiteer`  <p602985@yeah.net> ([`50d5dba`](https://github.com/QuiteerJs/web/commit/50d5dba46e72d7f2150cabf1bcbb03f11db4c8ec))
