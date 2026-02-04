@@ -18,8 +18,37 @@ import FormDemo from './components/FormDemo.vue'
 |------|------|--------|------|
 | `` schemas `` | `{ field: string; label: string; component: string; rules?: any[]; }[]` | — | 表单字段定义数组，每个项包含字段名、标签、组件类型及校验规则等 |
 | `` `model` `` | `Record<string, any>` | — | 初始表单数据对象（可选） |
-| `` `size` `` | `` 'small' \| 'medium' \| 'large' `` | — | 表单控件尺寸 |
-| `` `layout` `` | `object` | — | 布局配置，透传给 `naive-ui` 的 `NForm` 属性（如 `labelPlacement`、`labelWidth` 等） |
+| `` `size` `` | `` 'small' \| 'medium' \| 'large' `` | `'medium'` | 表单控件尺寸 |
+| `` `layout` `` | `object` | `'inline'` | 布局配置，透传给 `naive-ui` 的 `NForm` 属性（如 `labelPlacement`、`labelWidth` 等） |
+
+## 默认配置
+
+`QuiForm` 默认值（来自组件 `withDefaults` 与内部逻辑）：
+
+| 参数 | 默认值 |
+| --- | --- |
+| disabled | `false` |
+| labelWidth | `80` |
+| labelPlacement | `'top'` |
+| layout | `'inline'` |
+| inline | `false` |
+| size | `'medium'` |
+| isFull | `true` |
+| gridProps | `undefined` |
+
+网格默认值（`getGrid` 内部合并逻辑）：
+
+| 参数 | 默认值 |
+| --- | --- |
+| cols | `inline ? '1 s:2 m:4 l:5 2xl:6' : '1'` |
+| xGap | `10` |
+| responsive | `'screen'` |
+
+字段组件默认行为（`getComponentProps`）：
+
+- 未指定 `componentProps.disabled` 时，默认使用表单 `disabled`
+- 默认加上 `clearable: true`（当非只读/非禁用时）
+- `NInput` 默认使用 `readonly` 控制，其他组件使用 `disabled` 控制
 
 ## 插槽（Slots）
 

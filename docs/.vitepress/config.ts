@@ -95,6 +95,19 @@ function nav() {
       activeMatch: '/about/'
     },
     {
+      text: '预览',
+      items: [
+        {
+          text: 'naive-extra 预览',
+          link: 'https://web-naive-extra-test.vercel.app'
+        },
+        {
+          text: 'admin 预览',
+          link: 'https://qvite-admin.vercel.app'
+        }
+      ]
+    },
+    {
       text: '相关文档',
       items: [
         {
@@ -145,10 +158,6 @@ function nav() {
         {
           text: 'parser-config',
           link: 'https://github.com/QuiteerJs/parser-config'
-        },
-        {
-          text: '@quiteer/directives',
-          link: 'https://github.com/quiteerjs/quiteer-vue-directives'
         }
       ]
     }
@@ -182,7 +191,8 @@ function introduceSidebar() {
             { text: 'QuiButton', link: '/plugins/naive-extra/QuiButton' },
             { text: 'QuiForm', link: '/plugins/naive-extra/QuiForm' },
             { text: 'QuiTable', link: '/plugins/naive-extra/QuiTable' },
-            { text: 'QuiUpload', link: '/plugins/naive-extra/QuiUpload' }
+            { text: 'QuiUpload', link: '/plugins/naive-extra/QuiUpload' },
+            { text: 'Hooks', link: '/plugins/naive-extra/Hooks' }
           ]
         },
         {
@@ -243,7 +253,11 @@ function introduceSidebar() {
             { text: '数字', link: '/plugins/utils/number' },
             { text: '时间', link: '/plugins/utils/time' },
             { text: '随机', link: '/plugins/utils/random' },
-            { text: '类型', link: '/plugins/utils/type-utils' }
+            { text: '类型', link: '/plugins/utils/type-utils' },
+            { text: '文件名', link: '/plugins/utils/filename' },
+            { text: '初始化默认值', link: '/plugins/utils/initType' },
+            { text: '工具类', link: '/plugins/utils/classer' },
+            { text: '浏览器窗口', link: '/plugins/utils/window' }
           ]
         },
         { text: '@quiteer/is', link: '/plugins/is' }

@@ -118,8 +118,109 @@ axios.interceptors.response.use(
   }
 )
 ```
+## 默认配置
 
-## API 参考
+### 默认主题配置（DEFAULT_THEME_CONFIG）
+
+当未传入 `config` 时，默认主题配置如下：
+
+```ts
+{
+  themeMode: 'light',
+  localeMode: 'zh',
+  borderRadius: 4,
+  palette: {
+    primary: '#18a058',
+    info: '#2080f0',
+    success: '#18a058',
+    warning: '#f0a020',
+    error: '#d03050'
+  },
+  common: {},
+  table: {
+    striped: true,
+    rowClassName: undefined,
+    onUpdatePage: undefined,
+    onUpdatePageSize: undefined,
+    tableColor: undefined,
+    tableHeaderColor: undefined,
+    tableColorStriped: undefined,
+    tableColorHover: undefined,
+    tdPaddingHorizontal: undefined,
+    tdPaddingVertical: undefined,
+    thPaddingHorizontal: undefined,
+    thPaddingVertical: undefined
+  },
+  layout: {
+    headerHeight: 64,
+    footerHeight: 48,
+    siderWidth: 240,
+    siderCollapsedWidth: 64,
+    mixedMenuWidth: 80,
+    mixedMenuCollapsedWidth: 48,
+    color: undefined,
+    colorEmbedded: undefined,
+    headerColor: undefined,
+    footerColor: undefined,
+    siderColor: undefined,
+    showFooter: true,
+    showHeader: true,
+    showTabs: true,
+    fixedHeader: true,
+    fixedFooter: true
+  },
+  menu: {
+    accordion: true,
+    collapsedIconSize: 22,
+    iconSize: 20,
+    indent: 24,
+    inverted: false,
+    itemHeight: 42,
+    collapsedWidth: 64
+  },
+  tabs: {
+    type: 'card',
+    closable: true,
+    animated: true,
+    showIcon: true
+  },
+  scrollbar: {
+    trigger: 'hover',
+    xScrollable: true
+  },
+  breadcrumb: {
+    showIcon: true,
+    separator: '/'
+  },
+  message: {
+    duration: 3000,
+    max: 3,
+    placement: 'top',
+    showIcon: true,
+    closable: false
+  },
+  notification: {
+    duration: 5000,
+    max: 5,
+    placement: 'top-right'
+  },
+  loadingBar: {
+    loadingBarStyle: {
+      loading: undefined,
+      error: undefined
+    }
+  },
+  overrides: {}
+}
+```
+
+### 默认 Provider 行为
+
+- `configProviderProps` / `messageProviderProps` / `dialogProviderProps` / `notificationProviderProps` / `loadingBarProviderProps`：默认 `undefined`
+- 默认语言：`localeMode = 'zh'` → `zhCN` / `dateZhCN`
+- 默认主题：`themeMode = 'light'`
+
+
 
 ### Props
 

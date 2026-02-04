@@ -106,8 +106,54 @@ function handleSubmit(values: Record<string, any>) {
 - `search-bar/`：搜索栏封装，内聚表单与提交/重置按钮，暴露 `expandedBar`、`closeBar`、`setSearchData`。
 - `table/`：表格增强，支持列设置、导出、列拖拽（需 `vuedraggable`）。
 - `upload/`：上传封装，提供 `AcceptType`、`useUploadProps`、`UploadView`（视图）与 `QuiUpload`（组件）。
+- `button/`：按钮增强，包含 `QuiBaseButton` 与 `QuiActionButton`，详见 [QuiButton](./QuiButton.md)。
 - `tooltip-button/` 与 `popconfirm-button/`：便捷交互按钮。
 - `icon/`：统一图标入口 `QuiIcon`。
+
+## 组件默认配置索引
+
+> 以下为各组件默认配置入口索引，完整默认值详见对应文档。
+
+- QuiProvider：默认主题与 Provider 配置见 [QuiProvider](./QuiProvider.md)
+- QuiLayout：布局默认值见 [QuiLayout](./QuiLayout.md)
+- QuiForm：表单默认值见 [QuiForm](./QuiForm.md)
+- QuiSearchBar：搜索栏默认值见本文「搜索栏默认配置」
+- QuiTable：表格默认值见 [QuiTable](./QuiTable.md)
+- QuiUpload：上传默认值见 [QuiUpload](./QuiUpload.md)
+- QuiButton：按钮默认值见 [QuiButton](./QuiButton.md)
+- QuiIcon / QuiIconPicker：图标默认值见 [QuiIcon](./QuiIcon.md)
+
+### 搜索栏默认配置
+
+`QuiSearchBar` 默认值（来自组件内部 `withDefaults`）：
+
+| 参数 | 默认值 |
+| --- | --- |
+| title | `'搜索'` |
+| labelWidth | `80` |
+| labelPlacement | `'top'` |
+| layout | `'inline'` |
+| inline | `false` |
+| size | `'medium'` |
+| isFull | `true` |
+| showActionButtonGroup | `true` |
+| showResetButton | `true` |
+| resetButtonOptions | `undefined` |
+| showSubmitButton | `true` |
+| submitButtonOptions | `undefined` |
+| showAdvancedButton | `true` |
+| expanded | `undefined` |
+| submitButtonText | `'查询'` |
+| resetButtonText | `'重置'` |
+| gridProps | `undefined` |
+
+**Hooks 概览**
+- 表单：`useForm`
+- 布局：`useLayout`、`useActiveKey`
+- 主题：`useProviderContext`、`useThemeOverrides`
+- 表格：`useTable`
+- 上传：`useUploadProps`
+- 详细说明参见 [Hooks](./Hooks.md)
 
 **类型与工具**
 - 表单：`FormProps`、`FormSchema`、`CustomSwitchProps`
@@ -121,11 +167,22 @@ function handleSubmit(values: Record<string, any>) {
   - 已集成 UnoCSS：库内部包含 `virtual:uno.css` 使用，无需额外引入 `style.css`。
 - 已导出 `uno.config.ts`：可直接参考或在项目中集成该配置。
 - 必备依赖：`vue@3.3+` 与 `naive-ui`。
+- 路由相关组件需要 `vue-router@4`，并建议在应用层安装为项目依赖（peer）。
 
 ### 安装依赖
 ```bash
 pnpm add vue@^3.3.0 naive-ui @quiteer/naive-extra
 ```
+
+### 路由依赖说明
+
+`QuiLayout` 与菜单联动依赖 `vue-router`。当你以构建产物方式引入库时，请确保：
+
+- 项目依赖已安装 `vue-router@4`
+- `app.use(router)` 在布局与菜单初始化之前执行
+- 在 Store 中使用 `useLayout` 时，显式传入 `router` 实例以保证交互一致性
+
+更多细节参考 [QuiLayout](./QuiLayout.md)。
 
 ### 未集成 UnoCSS 的项目
 在应用入口文件引入样式：
@@ -197,16 +254,16 @@ function handleSubmit(values: Record<string, any>) {
 ```
 
 ## 组件与类型导出
-- 组件：`QuiForm`、`QuiSearchBar`、`QuiTable`、`QuiUpload`、`QuiTooltipButton`、`QuiPopconfirmButton`、`QuiIcon`
+- 组件：`QuiForm`、`QuiSearchBar`、`QuiTable`、`QuiUpload`、`QuiBaseButton`、`QuiActionButton`、`QuiTooltipButton`、`QuiPopconfirmButton`、`QuiIcon`
 - Upload 工具：`AcceptType`、`useUploadProps`
 - 类型：
+  - Button：`BaseButtonProps`、`ActionItem`
   - Form：`FormProps`、`FormSchema`、`CustomSwitchProps`
   - SearchBar：`SearchBarProps`
   - Table：`TableProps`、`TableColumn`、`TableColumns`、`TableSettings`、`TableFetchFn`、`TableExportType`、`TableSize`
   - TooltipButton：`TooltipButtonProps`
   - Upload：`UploadProps`
-/**
- * 布局：
- * 使用 QuiLayout 快速搭建常见布局，并结合 useLayout 管理折叠与响应式信息。
- */
-const { collapsed, toggle } = useLayout(false)
+
+## 布局说明
+
+使用 `QuiLayout` 快速搭建常见布局，并结合 `useLayout` 管理折叠与响应式信息，参见 [QuiLayout](./QuiLayout.md)。

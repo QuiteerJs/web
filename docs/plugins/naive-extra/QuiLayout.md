@@ -12,7 +12,7 @@
 // stores/layout.ts
 import { defineStore } from 'pinia'
 import { useLayout } from '@quiteer/naive-extra'
-import { routes } from '@/router' // 您的路由定义
+import router, { routes } from '@/router'
 
 export const useLayoutStore = defineStore('layout', () => {
   const {
@@ -25,7 +25,8 @@ export const useLayoutStore = defineStore('layout', () => {
     removeRoute,
     // ...其他状态
   } = useLayout({
-    baseRoutes: routes, // 传入基础路由
+    baseRoutes: routes,
+    router,
     initialActiveKey: '/',
     type: 'side-menu', // 默认布局类型
     // ...其他配置
@@ -117,10 +118,37 @@ const {
 | `isCollapsed` | `boolean` | `false` | 侧边栏是否折叠 (v-model) |
 | `inverted` | `boolean` | `false` | 是否反色主题 (v-model) |
 | `bordered` | `boolean` | `true` | 是否显示边框 |
-| `headerHeight` | `number` | `48` | 头部高度 |
-| `footerHeight` | `number` | `48` | 底部高度 |
-| `siderWidth` | `number` | `240` | 侧边栏宽度 |
+| `headerHeight` | `number` | `54` | 头部高度 |
+| `footerHeight` | `number` | `42` | 底部高度 |
+| `footerFull` | `boolean` | `true` | 底部是否占满宽度 |
+| `showFooter` | `boolean` | `true` | 是否显示底部 |
+| `siderWidth` | `number` | `220` | 侧边栏宽度 |
+| `siderMixedWidth` | `number` | `80` | 侧边栏混合模式宽度 |
 | `collapsedWidth` | `number` | `60` | 侧边栏折叠后宽度 |
+| `accordion` | `boolean` | `true` | 是否开启手风琴模式 |
+
+### 默认配置
+
+`QuiLayout` 默认值（来自 `DEFAULT_LAYOUT_PROPS`）：
+
+```ts
+{
+  type: 'side-menu',
+  bordered: true,
+  inverted: false,
+  isCollapsed: false,
+  showFooter: true,
+  headerHeight: 54,
+  footerHeight: 42,
+  footerFull: true,
+  siderWidth: 220,
+  siderMixedWidth: 80,
+  collapsedWidth: 60,
+  activeKey: '/',
+  menuOptions: [],
+  accordion: true
+}
+```
 
 ### useLayout 返回值
 
@@ -138,6 +166,17 @@ const {
 | `addRoute` | `(route: RouteRecordRaw) => void` | 动态添加路由，并自动更新菜单 |
 | `removeRoute` | `(name: string) => void` | 动态移除路由 |
 | `addRoutes` | `(routes: RouteRecordRaw[]) => void` | 批量添加路由 |
+
+### useLayout 参数
+
+| 参数 | 类型 | 说明 |
+| --- | --- | --- |
+| `baseRoutes` | `RouteRecordRaw[] \| Ref<RouteRecordRaw[]>` | 基础路由表 |
+| `router` | `Router` | 显式传入路由实例，确保在 Store 中可用 |
+| `route` | `RouteLocationNormalizedLoaded` | 可选，显式传入当前路由 |
+| `menuOptions` | `MenuOption[] \| Ref<MenuOption[]>` | 菜单数据，传入后优先使用 |
+| `initialActiveKey` | `string` | 初始激活菜单 key |
+| `type` | `LayoutType` | 布局类型 |
 
 ## 动态路由管理
 

@@ -59,6 +59,7 @@ console.log(history.getFullHistory())
 - `getCurrentTimestamp(): number | undefined`: 获取当前状态的时间戳。
 - `canUndo(): boolean`: 是否可撤销。
 - `historySize(): number`: 当前历史栈大小。
+- `getFullHistory(): HistoryEntry<T>[]`: 获取当前指针之前的历史副本。
 - `clear(): void`: 清空历史。
 
 ---
@@ -105,6 +106,8 @@ localStore.clear()
 
 ### API 列表
 
+- `createWebStorageAdapter(storage): StorageAdapter`: 将 Web Storage 适配为存储适配器。
+- `StorageAdapter`: 适配器接口类型，要求实现 `getItem/setItem/removeItem`。
 - `static getInstance(namespace?: string, adapter?: StorageAdapter): PersistentStore`: 获取单例。
 - `set<T>(key: string, value: T): void`: 存储数据。
 - `get<T>(key: string, defaultValue?: T): T | undefined`: 读取数据。
@@ -170,3 +173,6 @@ setTimeout(() => {
 - `getArray(): T[]`: 获取当前数组副本。
 - `clear(): void`: 清空数组。
 - `destroy(): void`: 销毁实例（停止任务并清空）。
+- `onPush?: (value: T) => void`: 固定 push 时触发回调。
+- `onPop?: () => void`: 固定 pop 时触发回调。
+- `onRandomPush?: (value: T) => void`: 随机 push 时触发回调。

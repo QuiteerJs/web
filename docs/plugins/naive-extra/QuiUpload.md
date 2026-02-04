@@ -56,6 +56,24 @@ const list3 = ref([
 | `` `is-set-fields-value` `` | `boolean` | `` `true` `` | 是否根据 `v-model` 的初始值自动回显已上传的文件列表 |
 | — | — | — | **以下属性透传至 `naive-ui` 的 `NUpload` 组件**：<br>`action`、`headers`、`data`、`disabled`、`list-type` 等标准 `UploadProps` |
 
+## 默认配置
+
+`QuiUpload` 默认值与默认行为：
+
+| 参数 | 默认值 | 说明 |
+| --- | --- | --- |
+| dataType | `'array'` | 未传时返回文件对象列表 |
+| accept | `''` | 未限制文件类型 |
+| fileSize | `0` | 未限制文件大小 |
+| isSingle | `props.max === 1` | 单文件模式判定 |
+| showTip | `accept || fileSize` | 仅在设置限制时显示提示 |
+
+视图模式默认行为：
+
+- `file`：默认按钮文案为“上传文件”
+- `dragger-file`：默认启用 `directory-dnd`，并强制 `list-type="image"`
+- `image-view` / `video-view` / `audio-view`：未禁用时走 `NUpload`，禁用时切换为只读预览
+
 ## 事件
 
 | 事件名 | 回调参数 | 说明 |

@@ -44,7 +44,7 @@ const icon = ref('carbon:user')
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | modelValue / v-model | 选中的图标名称，格式为 `collection:name` | `string` | - |
-| pageSize | 每次滚动加载的图标数量 | `number` | `100` |
+| pageSize | 每次滚动加载的图标数量 | `number` | `200` |
 
 ### Events
 
@@ -52,6 +52,15 @@ const icon = ref('carbon:user')
 | --- | --- | --- |
 | update:modelValue | 选中图标时触发 | `(value: string) => void` |
 | select | 选中图标时触发 | `(value: string) => void` |
+
+### 默认配置
+
+`QuiIconPicker` 默认值（来自内部逻辑）：
+
+| 参数 | 默认值 | 说明 |
+| --- | --- | --- |
+| pageSize | `200` | 未传入时使用 200 |
+| selectedCollection | `'mdi'` | 首选集合，若不存在则回退为第一个集合 |
 
 ## 图标查询
 

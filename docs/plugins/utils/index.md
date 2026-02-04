@@ -8,9 +8,13 @@
 - 数组：`unique`、`chunk`、`flatten`、`groupBy`、`partition`
 - 对象：`isObject`、`isPlainObject`、`isEmpty`、`deepClone`、`deepMerge`、`pick`、`omit`、`get`、`set`
 - 函数：`debounce`、`throttle`、`once`、`assert`
+- 文件名：`FileType`、`FILE_TYPE_EXTENSIONS`、`getFileFullName`、`getFileName`、`getFileExtension`
 - 随机：`randomInt`、`randomColor`、`randomLetter`
 - 时间：`formatTimestamp`
 - 类型工具：`DeepPartial`、`DeepRequired`、`RequiredKeys`、`OptionalKeys`、`ValueOf`、`UnionToIntersection`、`ReadonlyDeep`、`Mutable`、`Exact` 等
+- 初始化默认值：`initType`、`initString`、`initNumber`、`initBoolean`、`initObject`、`initArray`、`initFunction`、`initSymbol`、`initUndefined`、`initNull`
+- 工具类：`HistoryManager`、`PersistentStore`、`TimedArray`
+- 浏览器窗口：`copyText`、`readText`、`downloadByUrl`、`downloadByBlob`、`downloadByBase64`、`WindowMessenger`、`setupRem`、`WebStorage`、`WebSocketClient`
 
 ## 安装与引入
 ```ts
